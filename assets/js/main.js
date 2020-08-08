@@ -29,9 +29,8 @@ setTimeout(function() {
     $('.alert').fadeOut('slow')
 }, 3000)
 
-
 /*========== FOOTER  ==========*/
-// instagram trasition logo
+// trasition instagram logo
 $("#instagram").hover(function () {
     $(this).addClass('fa-instagram');
     $(this).removeClass('fa-instagram-square');
@@ -40,38 +39,64 @@ $("#instagram").hover(function () {
     $(this).addClass('fa-instagram-square');
 });
 
-
-/*========== Alumni Table  ==========*/
-const alumni = [
-  {
-    name: 'John Zenick',
-    position: 'President',
-    gradYear: '2020'
-  },
-  {
-    name: 'Nick March',
-    position: 'Vice President',
-    gradYear: '2020'
-  },
-  {
-    name: 'Jonathan Alverson',
-    position: 'General Officer',
-    gradYear: '2020'
-  },
-]
-
-const colNames = ['name', 'position', 'gradYear']
+/*========== ABOUT PAGE  ==========*/
+// Dynamically create alumni table
+const officerCol = ['name', 'position', 'socials']
 $( document ).ready(function() {
   let numCols = 3;
-  var tbody = $('.alumni-table tbody');
+  let offciersBody = $('#officers');
+  for(let i = 0; i < officers.length; ++i) {
+    let name = officers[i].name;
+    let position = officers[i].position;
+    let image = officers[i].image;
+
+    let officer = $(`
+    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+      <div class="card about border-0 shadow">
+        <img class="card-img-top" src="${image}">
+        <div class="card-body">
+          <h5 class="card-title mb-0">${name}</h5>
+          <div class="card-text text-black-50">${position}</div>
+          <hr class="m-0 p-0 my-2">
+          <ul class="social-media">
+          ${officers[i].socials.linkedin ? 
+            `<li>
+              <a href="${officers[i].socials.linkedin}"><i class="fab fa-linkedin about fa-lg"></i></a>
+            </li>`
+            : ''}
+          ${officers[i].socials.github ? 
+            `<li>
+              <a href="${officers[i].socials.github}"><i class="fab fa-github-square about fa-lg"></i></a>
+            </li>`
+            : ''}
+          ${officers[i].socials.email ? 
+            `<li>
+              <a href="${officers[i].socials.email}"><i class="fas fa-envelope about fa-lg"></i></a>
+            </li>`
+            : ''}
+          ${officers[i].socials.website ? 
+            `<li>
+              <a href="${officers[i].socials.website}"><i class="fas fa-link about fa-lg"></i></a>
+            </li>`
+            : ''}
+          </ul>
+        </div>
+      </div>
+    </div>
+    `).appendTo(offciersBody);
+  }
+});
+
+// Dynamically create alumni table
+const alumniCol = ['name', 'position', 'gradYear']
+$( document ).ready(function() {
+  let numCols = 3;
+  let tbody = $('.alumni-table tbody');
   for(let i = 0; i < alumni.length; ++i) {
-    var tr = $('<tr/>').appendTo(tbody);
+    let tr = $('<tr>').appendTo(tbody);
     for(let j = 0; j < 3; ++j) {
-      if( j != 2) {
-        tr.append('<td>' + alumni[i][colNames[j]] + '</td>');
-      } else {
-        tr.append('<td>' + alumni[i][colNames[j]] + '</td>');
-      }
+      tr.append('<td>' + alumni[i][alumniCol[j]] + '</td>');
     }
+    tr.append('</tr>');
   }
 });

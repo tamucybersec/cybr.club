@@ -1,0 +1,2 @@
+compress images: https://tinypng.com/
+resize using: https://www.birme.net/?quality=100
