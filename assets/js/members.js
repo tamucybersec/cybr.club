@@ -48,10 +48,10 @@ const officers = [
     position: "CTF Team Lead",
     image: "assets/img/officers/resized/default_profile.png",
     socials: {
-        linkedin: "",
-        github: "",
+        linkedin: "https://www.linkedin.com/in/teddyheinen/",
+        github: "https://github.com/tcheinen",
         email: "tamucybersec@gmail.com",
-        website: ""
+        website: "https://teddyheinen.com"
     }
   },
   {
