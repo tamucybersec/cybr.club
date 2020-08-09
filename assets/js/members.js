@@ -15,10 +15,10 @@ const officers = [
     position: "Vice President",
     image: "assets/img/officers/resized/arjun_lalith.jpg",
     socials: {
-        linkedin: "",
-        github: "",
-        email: "tamucybersec@gmail.com",
-        website: ""
+        linkedin: "https://www.linkedin.com/in/alalith/",
+        github: "https://github.com/alalith/",
+        email: "alalith@tamu.edu",
+        website: "https://arjunlalith.com"
     }
   },
   {
