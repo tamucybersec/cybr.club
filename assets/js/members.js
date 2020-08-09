@@ -111,20 +111,39 @@ const officers = [
   }
 ]
 
+// add links or emails to socials 
 const alumni = [
   {
     name: "John Zenick",
     position: "President",
-    gradYear: "2020"
+    gradYear: "2020",
+    socials: {
+        linkedin: "",
+        github: "",
+        email: "",
+        website: ""
+    }
   },
   {
     name: "Nick March",
     position: "Vice President",
-    gradYear: "2020"
+    gradYear: "2020",
+    socials: {
+        linkedin: "",
+        github: "",
+        email: "",
+        website: ""
+    }
   },
   {
     name: "Jonathan Alverson",
     position: "General Officer",
-    gradYear: "2020"
+    gradYear: "2020",
+    socials: {
+        linkedin: "",
+        github: "",
+        email: "",
+        website: ""
+    }
   },
 ]

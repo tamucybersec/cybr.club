@@ -71,7 +71,7 @@ $( document ).ready(function() {
             : ''}
           ${officers[i].socials.email ? 
             `<li>
-              <a href="${officers[i].socials.email}"><i class="fas fa-envelope about fa-lg"></i></a>
+              <a href="mailto:${officers[i].socials.email}"><i class="fas fa-envelope about fa-lg"></i></a>
             </li>`
             : ''}
           ${officers[i].socials.website ? 
@@ -93,10 +93,27 @@ $( document ).ready(function() {
   let numCols = 3;
   let tbody = $('.alumni-table tbody');
   for(let i = 0; i < alumni.length; ++i) {
-    let tr = $('<tr>').appendTo(tbody);
-    for(let j = 0; j < 3; ++j) {
-      tr.append('<td>' + alumni[i][alumniCol[j]] + '</td>');
-    }
-    tr.append('</tr>');
+    console.log(alumni[i]);
+    tbody.append(`
+      <tr>
+        <td>
+        ${alumni[i].name}
+        ${alumni[i].socials.linkedin ? 
+          `<a href="${alumni[i].socials.linkedin}"><i class="fab fa-linkedin text-white fa-lg"></i></a>`
+          : ''}
+        ${alumni[i].socials.github ? 
+        `<a href="${alumni[i].socials.github}"><i class="fab fa-github-square text-white fa-lg"></i></a>`
+        : ''}
+        ${alumni[i].socials.email ? 
+          `<a href="mailto:${alumni[i].socials.email}"><i class="fas fa-envelope text-white fa-lg"></i></a>`
+          : ''}
+        ${alumni[i].socials.website ? 
+          `<a href="${alumni[i].socials.website}"><i class="fas fa-link text-white fa-lg"></i></a>`
+          : ''}
+        </td>
+        <td>${alumni[i].position}</td>
+        <td>${alumni[i].gradYear}</td>
+      </tr>
+    `);
   }
 });
