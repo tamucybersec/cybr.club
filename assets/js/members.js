@@ -4,8 +4,8 @@ const officers = [
     position: "President",
     image: "assets/img/officers/resized/matthew_spence.jpg",
     socials: {
-        linkedin: "",
-        github: "",
+        linkedin: "https://www.linkedin.com/in/matthew-s-4677aa128",
+        github: "https://github.com/Matt-Spence/",
         email: "tamucybersec@gmail.com",
         website: ""
     }
