@@ -334,12 +334,6 @@ a:hover .fa-link.about {
 }
 
 /*============= EVENT PAGE =============*/
-.event-description-right {
-  text-align: left;
-}
-.event-description-left {
-  text-align: right;
-}
 .events-title-underline {
   width: 440px;
 }
@@ -361,8 +355,28 @@ a:hover .fa-link.about {
 .partners-title-underline {
   width: 18rem;
 }
+.card:hover.events {
+  transform: scale(.97);
+  opacity: .7;
+}
 
 /*============= REDHAT PAGE =============*/
+.rha-email {
+  text-decoration: none;
+  color: #de3c3c;
+}
+.rha-email:hover {
+  text-decoration: none;
+  color: #de3c3c;
+}
+.rha-link {
+  text-decoration: none;
+  color: #de3c3c;
+}
+.rha-link:hover {
+  text-decoration: none;
+  color: #de3c3c;
+}
 
 /*============= WICYS PAGE =============*/
 
@@ -421,12 +435,6 @@ a:hover .fa-link.about {
     bottom: 10px;
     opacity: 1;
   }
-  .event-description-right {
-    text-align: center;
-  }
-  .event-description-left {
-    text-align: center; 
-  }
 }
 
 /* Devices under 992px (lg) */
@@ -448,9 +456,6 @@ a:hover .fa-link.about {
   }
 
   /* make all horizontal fadeIn up on mobile */
-  .fadeInUp {
-    animation-name: fadeInUp !important;
-  }
   .fadeInLeft {
     animation-name: fadeInUp !important;
   }

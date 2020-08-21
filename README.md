@@ -6,6 +6,5 @@
 ![GitHub](https://img.shields.io/github/license/tamucybersec/cybr.club?color=blue)
 
 
-[![Email Header Analyzer Demo](./cybrclubIntro.gif)](https://cybr.club)
-
 # The official website for Texas A&amp;M Cybersecurity Club
+[![Email Header Analyzer Demo](./cybrclubIntro.gif)](https://cybr.club)
