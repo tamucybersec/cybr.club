@@ -46,7 +46,7 @@ const officers = [
   {
     name: "Teddy Heinen",
     position: "CTF Team Lead",
-    image: "assets/img/officers/formatted/default-profile.png",
+    image: "assets/img/officers/formatted/teddy-heinen.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/teddyheinen",
         github: "https://github.com/tcheinen",
@@ -68,7 +68,7 @@ const officers = [
   {
     name: "Alyssa Kalish",
     position: "CCDC Co-Lead",
-    image: "assets/img/officers/formatted/default-profile.png",
+    image: "assets/img/officers/formatted/alyssa-kalish.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/alyssa-k-143529144/",
         github: "",
@@ -129,9 +129,9 @@ const alumni = [
     position: "Vice President",
     gradYear: "2020",
     socials: {
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/nick-march-20103b11a",
         github: "",
-        email: "",
+        email: "nickmarch96@gmail.com",
         website: ""
     }
   },
@@ -142,7 +142,7 @@ const alumni = [
     socials: {
         linkedin: "",
         github: "",
-        email: "",
+        email: "jda3473@live.com",
         website: ""
     }
   },
