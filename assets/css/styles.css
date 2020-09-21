@@ -342,12 +342,18 @@ a:hover .fa-link.about {
 .card-partners-left {
   width: 18rem;
   height:250px;
-  margin: 0 0 2rem auto;
+  margin: 0 0 2em auto;
 }
 .card-partners-right {
   width: 18rem;
   height:250px;
-  margin: 0 auto 2rem 0;
+  margin: 0 auto 2em 0;
+}
+.card-partners-middle {
+  width: 18rem;
+  height:250px;
+  margin: 0 auto;
+  margin-bottom: 2em;
 }
 .card-partners-img {
   margin: auto auto;
