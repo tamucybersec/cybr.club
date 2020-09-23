@@ -50,7 +50,7 @@ $(document).ready(function() {
         let officer = $(`
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
           <div class="card about border-0 shadow">
-            <img class="card-img-top" src="${image}">
+            <img class="card-img-top" src="${image}" alt="${name}">
             <div class="card-body">
               <h5 class="card-title mb-0">${name}</h5>
               <div class="card-text text-black-50">${position}</div>
