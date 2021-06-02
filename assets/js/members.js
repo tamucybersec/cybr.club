@@ -67,7 +67,7 @@ const officers = [
   },
   {
     name: "Nathan Nguyen",
-    position: "CTF Team Co-Lead",
+    position: "Competition Co-Lead",
     image: "assets/img/officers/formatted/nathan-nguyen.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
