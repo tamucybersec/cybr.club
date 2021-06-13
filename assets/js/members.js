@@ -7,7 +7,7 @@ const officers = [
         linkedin: "https://www.linkedin.com/in/murphe22",
         github: "https://github.com/emurph1",
         email: "tamucybersec@gmail.com",
-        website: "emilymurphy.me"
+        website: ""
     }
   },
   {
@@ -19,6 +19,17 @@ const officers = [
         github: "https://github.com/saenzjonathan11",
         email: "tamucybersec@gmail.com",
         website: "https://jonathanfsaenz.com"
+    }
+  },
+  {
+    name: "Martin Carlisle",
+    position: "Faculty Advisor",
+    image: "assets/img/officers/formatted/martin-carlisle.jpg",
+    socials: {
+        linkedin: "",
+        github: "",
+        email: "",
+        website: ""
     }
   },
   {
@@ -123,7 +134,7 @@ const officers = [
    
 ]
 
-// add links or emails to socials 
+
 const alumni = [
   {
     name: "Matthew Spence",
@@ -154,7 +165,7 @@ const alumni = [
     socials: {
         linkedin: "https://www.linkedin.com/in/madeleinephillips848676",
         github: "https://github.com/phillips848676",
-        email: "tamucybersec@gmail.com",
+        email: "",
         website: ""
     }
   },
@@ -176,7 +187,7 @@ const alumni = [
     socials: {
         linkedin: "https://www.linkedin.com/in/nick-march-20103b11a",
         github: "",
-        email: "nickmarch96@gmail.com",
+        email: "",
         website: ""
     }
   },
@@ -187,7 +198,7 @@ const alumni = [
     socials: {
         linkedin: "",
         github: "",
-        email: "jda3473@live.com",
+        email: "",
         website: ""
     }
   }
