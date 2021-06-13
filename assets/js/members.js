@@ -134,7 +134,7 @@ const officers = [
    
 ]
 
-// add links or emails to socials 
+
 const alumni = [
   {
     name: "Matthew Spence",
@@ -165,7 +165,7 @@ const alumni = [
     socials: {
         linkedin: "https://www.linkedin.com/in/madeleinephillips848676",
         github: "https://github.com/phillips848676",
-        email: "tamucybersec@gmail.com",
+        email: "",
         website: ""
     }
   },
@@ -187,7 +187,7 @@ const alumni = [
     socials: {
         linkedin: "https://www.linkedin.com/in/nick-march-20103b11a",
         github: "",
-        email: "nickmarch96@gmail.com",
+        email: "",
         website: ""
     }
   },
@@ -198,7 +198,7 @@ const alumni = [
     socials: {
         linkedin: "",
         github: "",
-        email: "jda3473@live.com",
+        email: "",
         website: ""
     }
   }
