@@ -7,7 +7,7 @@ const officers = [
         linkedin: "https://www.linkedin.com/in/murphe22",
         github: "https://github.com/emurph1",
         email: "tamucybersec@gmail.com",
-        website: "emilymurphy.me"
+        website: ""
     }
   },
   {
