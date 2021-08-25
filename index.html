@@ -22,6 +22,17 @@
 	<!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/b9d296bf83.js" crossorigin="anonymous"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+  <script type="text/javascript">
+    $(window).on('load', function() {
+        
+        $('#myModal').modal('show');
+    });
+  </script>
+
 </head>
 
 <body>
@@ -62,6 +73,31 @@
     </div>
   </nav>
 	<!-- End Navigation -->
+
+  <!-- Begin modal-->
+  <div class="container">
+    <!-- Modal -->
+    <div class="modal show" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" style="background-color:rgb(54, 54, 54);color:white;">
+          <div class="modal-header">
+            <h4 class="modal-title">Get More Involved!</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <a class="maroon-link" href="https://mscopenhouse.tamu.edu/">MSC Open House September 5, 2021 from 12-5pm <br><br></a>
+            <a class="maroon-link" href="https://socialportal.chipotle.com/fundraiser/social/partner/portal/9INWrSPFsjAuWAUsyrcvS0FX8VIxvLQlsHNmVn7G6KRoDF0lLedApD9qQzNo21G4xPwfMDpZi6gJT8Ij1tsLJT7juHX84pKHaTE6y845HKYMb6K6xuWM57f51gtHbyvu/1202109081620">Chipotle Profit Share September 8th from 4:00-8:00pm - at the Chipotle across from Zachry <br><br></a>
+            <p>Club Informationals: September 7, 2021 from 7:00-8:00pm in HECC 100</p>
+            <p>Professional Development meeting September 6th from 7:00-9:00pm in HECC 100</p>
+            <p>First Cyber Club meeting on September 16th from 7:00-9:00pm in ETB 1020</p>
+            <p>First WiCyS Meeting on September 22nd from 7:00-8:00pm in BLOC 164</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal-->
 
 	<!-- Landing Page Background w/ Particles JS -->
 	<div id="particles-js" class="landing"></div>
