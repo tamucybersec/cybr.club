@@ -44,126 +44,42 @@
           <a class="nav-link nav-link-fade-up px-0" href="./about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./calendar.html">Calendar</a>
+          <a class="nav-link nav-link-fade-up nav-link-fade-up-active px-0" href="./calendar.html">Calendar</a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./events.html">Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up nav-link-fade-up-active px-0" href="./partners.html">Partners</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./partners.html">Partners</a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./contact.html">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./forms.html">Forms</a>
         </li>
       </ul>
     </div>
   </nav>
   <!-- End Navigation -->
 
-  <!-- Start Parnter Logos -->
-  <div class="container text-center inconsolata-font" style="min-height:80vh">
-    <div class="row animated fadeInDown mt-1">
+  <!-- Calendar -->
+  <!-- responsive-iframe-container http://themeloom.com/2013/02/tips-embed-google-maps-and-calendars-in-a-responsive-wordpress-theme/ -->
+  <div class="container" style="min-height:80vh;">
+    <div class="row text-center animated fadeInUp mt-3">
       <div class="col-12">
-        <h1 class="text-white" style="letter-spacing:.5px;">Partnered With</h1>
-        <hr class="border-maroon mb-4 partners-title-underline">
+        <h1 class="text-white inconsolata-font" style="letter-spacing:.5px;">Calendar</h1>
       </div>
     </div>
-    <div class="row d-flex">
-      <div class="col-xs-12 col-md-4 animated fadeInLeft">
-        <a href="./rha.html">
-          <div class="card events card-partners-left">
-            <div class="card-partners-img">
-              <img src="./assets/img/partners/rha/rha-opt.png" width="200px" alt="Red Hat Academy">
-            </div>
-          </div> 
-        </a>
-      </div>
-      <div class="col-xs-12 col-md-4 animated fadeIn">
-        <a href="./wicys.html">
-          <div class="card events card-partners-middle">
-            <div class="card-partners-img">
-              <img src="./assets/img/partners/wicys/wicys-opt.png" width="200px" alt="Women in Cybersecurity">
-            </div>
-          </div> 
-        </a>
-      </div>
-      <div class="col-xs-12 col-md-4 animated fadeInRight">
-        <a href="./ec-council.html">
-          <div class="card events card-partners-right">
-            <div class="card-partners-img">
-              <img src="./assets/img/partners/ec-council/ec-council-logo.png" width="200px" alt="ec-council">
-            </div>
-          </div> 
-        </a>
-      </div>
-    </div>
-    <!-- End Parnterned Logos -->
-
-  <!-- Club Prospectus -->
-  <div class="container text-center inconsolata-font" style="min-height:80vh">
-    <div class="row animated fadeInUp mt-1">
-      <div class="col-12">
-        <h1 class="text-white" style="letter-spacing:.5px;">Interested in becoming a sponsor?</h1>
-        <hr class="border-maroon mb-4 partners-title-underline">
-        <div class="text-center inconsolata-font text-white">
-          <h4>Take a look at our club prospectus to learn more!</h4>
-          <a class="btn btn-dark btn-outline-light btn-lg" href="./assets/pdf/Club Prospectus.pdf">Club Prospectus</a>
+    <div class="responsive-iframe-container bg-white">
+      <div class="row d-flex align-items-center justify-content-center calendar">
+        <div class="d-md-none">
+          <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=dGFtdWN5YmVyc2VjQGdtYWlsLmNvbQ&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=dGFtdXdpY3lzQGdtYWlsLmNvbQ&amp;src=NHRuNmtrNWM3YTN2YWZpbW41aXFwc2ZyaGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;mode=AGENDA" style="border:solid 1px #777" width="500" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="d-none d-md-block">
+          <iframe title="club calendar" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=dGFtdWN5YmVyc2VjQGdtYWlsLmNvbQ&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=dGFtdXdpY3lzQGdtYWlsLmNvbQ&amp;src=NHRuNmtrNWM3YTN2YWZpbW41aXFwc2ZyaGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
         </div>
       </div>
     </div>
   </div>
-  <!-- End Club Prospectus -->
-
-    <!-- Workshop Table -->
-    <div class="row text-center animated fadeInUp d-none">
-      <div class="col-12">
-        <h1 class="text-white inconsolata-font" style="letter-spacing:.5px;">Workshops</h1>
-        <hr class="border-maroon mb-3" style="width:200px;">
-      </div>
-    </div>
-    <div class="row justify-content-center animated fadeInUp d-none">
-      <div class="col-xs-12 col-lg-10 table-responsive">
-        <table class="table table-striped bg-light">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">No.</th>
-              <th scope="col">Workshop</th>
-              <th scope="col">Partner</th>
-              <th scope="col">Duration</th>
-              <th scope="col">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>TBA</td>
-              <td>TBA</td>
-              <td>TBA</td>
-              <td>TBA</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>TBA</td>
-              <td>TBA</td>
-              <td>TBA</td>
-              <td>TBA</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>TBA</td>
-              <td>TBA</td>
-              <td>TBA</td>
-              <td>TBA</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <!-- End Workshop Table -->
-  </div>
+  <!-- End Calendar -->
 
   <!-- Footer -->
   <footer class="footer bg-black">
@@ -187,9 +103,9 @@
         <i class="far fa-paper-plane"></i>
       </a>
     </div>
-    <div class="text-white text-center mt-4 bg-black" >
-        <h5 class="p-0 m-0 inconsolata-font">Texas A&amp;M Cybersecurity Club <span class="year"></span></a></h5>
-    </div>
+		<div class="text-white text-center mt-4 bg-black" >
+      <h5 class="p-0 m-0 inconsolata-font">Texas A&amp;M Cybersecurity Club <span class="year"></span></a></h5>
+		</div>
   </footer>
   <!--End Footer -->
   
