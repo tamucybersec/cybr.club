@@ -27,9 +27,14 @@
 
 
   <script type="text/javascript">
+    //TODO: make it timed so it will display again after a certain amount of time has passed
     $(window).on('load', function() {
-        
+      if(!(localStorage.getItem('DontShow') === "true")) {
         $('#myModal').modal('show');
+      }
+    });
+    $(document).on("click", "#forgetMe", function() {
+      localStorage.setItem("DontShow", "true");
     });
   </script>
 
@@ -80,10 +85,12 @@
     <div class="modal show" id="myModal" role="dialog">
       <div class="modal-dialog">
         <!-- Modal content-->
-        <div class="modal-content" style="background-color:rgb(54, 54, 54);color:white;">
+        <div class="modal-content" style="background-color:rgb(54, 54, 54);color:white;width:130%;">
           <div class="modal-header">
             <h4 class="modal-title">Get More Involved!</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" style="color:white;background-color:black;margin-top:1px;margin-right:7px;" data-dismiss="modal">Close</button>
+            <button type="button" class="close" style="color:white;background-color:black;margin-top:1px;margin-right:5px;" data-dismiss="modal" id="forgetMe">Don't show this again</button>
+            
           </div>
           <div class="modal-body">
             <a class="maroon-link" href="https://mscopenhouse.tamu.edu/">MSC Open House September 5, 2021 from 12-5pm <br><br></a>
@@ -91,7 +98,7 @@
             <p>Club Informational: September 7, 2021 from 7:00-8:00pm in HECC 100</p>
             <p>Professional Development meeting September 6th from 7:00-9:00pm in HECC 100</p>
             <p>First Cyber Club meeting on September 16th from 7:00-9:00pm in ETB 1020</p>
-            <p>First WiCyS Meeting on September 22nd from 7:00-8:00pm in FRAN 201</p>
+            <p>First WiCyS Meeting on September 22nd from 4:00-5:00pm in FRAN 201</p>
           </div>
         </div>
       </div>
