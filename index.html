@@ -28,8 +28,12 @@
 
   <script type="text/javascript">
     $(window).on('load', function() {
-        
+      if(!(localStorage.getItem('DontShow') === "true")) {
         $('#myModal').modal('show');
+      }
+    });
+    $(document).on("click", "#forgetMe", function() {
+      localStorage.setItem("DontShow", "true");
     });
   </script>
 
@@ -80,10 +84,12 @@
     <div class="modal show" id="myModal" role="dialog">
       <div class="modal-dialog">
         <!-- Modal content-->
-        <div class="modal-content" style="background-color:rgb(54, 54, 54);color:white;">
+        <div class="modal-content" style="background-color:rgb(54, 54, 54);color:white;width:130%;">
           <div class="modal-header">
             <h4 class="modal-title">Get More Involved!</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" style="color:white;background-color:black;margin-top:1px;margin-right:7px;" data-dismiss="modal">Close</button>
+            <button type="button" class="close" style="color:white;background-color:black;margin-top:1px;margin-right:5px;" data-dismiss="modal" id="forgetMe">Don't show this again</button>
+            
           </div>
           <div class="modal-body">
             <a class="maroon-link" href="https://mscopenhouse.tamu.edu/">MSC Open House September 5, 2021 from 12-5pm <br><br></a>
