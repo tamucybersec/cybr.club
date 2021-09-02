@@ -45,7 +45,7 @@ const officers = [
   },
   {
     name: "Adele Walker",
-    position: "Internal Outreach Officer",
+    position: "Internal Relations Officer",
     image: "assets/img/officers/formatted/adele-walker.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/adele-w-a75ab7ba/",
@@ -56,7 +56,7 @@ const officers = [
   },
   {
     name: "Jacob Kastenschmidt",
-    position: "External Outreach Officer",
+    position: "External Relations Officer",
     image: "assets/img/officers/formatted/jacob-kastenschmidt.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/jacob-kastenschmidt-b217731a8/",
