@@ -131,6 +131,17 @@ const officers = [
         website: ""
     }
   },
+  {
+    name: "Connor Plank",
+    position: "EC-Council Liaison",
+    image: "assets/img/officers/formatted/connor-plank.jpeg",
+    socials: {
+        linkedin: "",
+        github: "",
+        email: "connor.plank@tamu.edu",
+        website: ""
+    }
+  }
    
 ]
 
