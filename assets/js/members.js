@@ -130,6 +130,17 @@ const officers = [
         email: "tamucybersec@gmail.com",
         website: ""
     }
+  },
+  {
+    name: "Betzaida Perez Gomez",
+    position: "Social Media Manager",
+    image: "assets/img/officers/formatted/betzaida-gomez.jpg",
+    socials: {
+        linkedin: "https://www.linkedin.com/in/betzaidaperezgomez/",
+        github: "",
+        email: "tamucybersec@gmail.com",
+        website: ""
+    }
   }   
 ]
 
