@@ -101,7 +101,7 @@ const officers = [
   {
     name: "Matthew Le",
     position: "Webmaster",
-    image: "assets/img/officers/formatted/default-profile.png",
+    image: "assets/img/officers/formatted/matthew-le.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/matthew-le-8395051b7/",
         github: "https://github.com/matthewle0xff",
