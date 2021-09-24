@@ -22,17 +22,6 @@ const officers = [
     }
   },
   {
-    name: "Martin Carlisle",
-    position: "Faculty Advisor",
-    image: "assets/img/officers/formatted/martin-carlisle.jpg",
-    socials: {
-        linkedin: "",
-        github: "",
-        email: "",
-        website: ""
-    }
-  },
-  {
     name: "Glenn Fitzpatrick",
     position: "Treasurer",
     image: "assets/img/officers/formatted/glenn-fitzpatrick.jpg",
@@ -141,7 +130,18 @@ const officers = [
         email: "tamucybersec@gmail.com",
         website: ""
     }
-  }   
+  },
+  {
+    name: "Martin Carlisle",
+    position: "Faculty Advisor",
+    image: "assets/img/officers/formatted/martin-carlisle.jpg",
+    socials: {
+        linkedin: "",
+        github: "",
+        email: "",
+        website: ""
+    }
+  }
 ]
 
 
