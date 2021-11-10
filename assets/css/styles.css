@@ -156,6 +156,7 @@ a:hover.maroon-link {
 }
 .border-maroon {
     margin: 0 auto;
+    width:80%;
     border-top: .3rem solid #bf2121;
 }
 .border-purple {
