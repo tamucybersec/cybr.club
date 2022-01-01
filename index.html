@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:title" content="Texas A&amp;M Cybersecurity Club"/>
   <meta property="og:description" content="Texas A&amp;M Cybersecurity Club Website"/>
   <meta property="og:url" content="https://cybr.club/index.html"/>
   <meta property="og:image" content="https://cybr.club/assets/img/club-logos/maroonWhiteShield.jpg"/>
-  <title>Texas A&amp;M Cybersecurity</title>
+  <title>Texas A&amp;M Cybersecurity Club</title>
   <link rel="icon" type="image/png" href="./assets/img/club-logos/whiteShield.png">
 	<!-- style.css -->
   <link rel="stylesheet" href="./assets/css/styles.css">
@@ -24,19 +23,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-  <script type="text/javascript">
-    //TODO: make it timed so it will display again after a certain amount of time has passed
-    $(window).on('load', function() {
-      if(!(localStorage.getItem('DontShow') === "true")) {
-        $('#myModal').modal('show');
-      }
-    });
-    $(document).on("click", "#forgetMe", function() {
-      localStorage.setItem("DontShow", "true");
-    });
-  </script>
 
 </head>
 
@@ -82,30 +68,6 @@
   </nav>
 	<!-- End Navigation -->
 
-  <!-- Begin modal-->
-  <div class="container">
-    <!-- Modal -->
-    <div class="modal show" id="myModal" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content" style="background-color:rgb(54, 54, 54);color:white;width:130%;">
-          <div class="modal-header">
-            <h4 class="modal-title">Get More Involved!</h4>
-            <button type="button" class="close" style="color:white;background-color:black;margin-top:1px;margin-right:7px;" data-dismiss="modal">Close</button>
-            <button type="button" class="close" style="color:white;background-color:black;margin-top:1px;margin-right:5px;" data-dismiss="modal" id="forgetMe">Don't show this again</button>
-            
-          </div>
-          <div class="modal-body">
-            <p>Meetings are every Thursday from 7-9pm in ILCB 207 (except on 9/30 10/28 and 11/4, meetings will be in ETB 1020)</p>
-            <p>WiCyS meetings are every Wednesday 7-8pm in BLOC 164, and WiCyS Coffee Chat's are every other week starting on 10/2. Reach out to <a class="maroon-link" href="mailto:tamuwicys@gmail.com">tamuwicys@gmail.com</a> if you have questions.</p>
-            <p><a style="color:#7289da" href="https://discord.gg/nCpZzbB">Click here to join the discord!</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End modal-->
-
 	<!-- Landing Page Background w/ Particles JS -->
 	<div id="particles-js" class="landing"></div>
 	<!-- End Landing Page Background -->
@@ -120,16 +82,16 @@
 
  	<!-- Landing Page Title -->
 	<div class="caption text-center text-white text-uppercase">
-		<div id="home-title">
-			<h1 class="white-faded-shadow animated bounceInDown">
-				Texas A&amp;M
-			</h1>
+		<div class="fadeInDown animated">
+			<div id="home-title">
+				<h1 class="white-faded-shadowanimated">Texas A&amp;M</h1>
+			</div>
+			<div id="home-title-caption">
+			<h3 class="white-faded-shadow">Cybersecurity Club</h3>
 		</div>
-		<div id="home-title-caption">
-			<h3 class="white-faded-shadow animated fadeInUp">Cybersecurity Club</h3>
-      <div class="animated fadeInUp">
+      <div class="animated fadeInDown">
         <a href="#features">
-          <img style="max-width:200px;" class="img-fuild logo-bounce" src="./assets/img/club-logos/whiteShield.png" alt="Features"> 
+          <img style="max-width:200px;" class="img-fuild" src="./assets/img/club-logos/whiteShield.png" alt="Features"> 
         </a>
       </div>
 		</div>
@@ -138,22 +100,129 @@
 
   <!-- Features Section -->	
 	<div id="features" class="offset container-fuild bg-black">
-		<div class="os-animation animated fadeInUp" data-animation="fadeInUp">
-			<div class="row text-center text-white justify-content-center">
-				<div class="col-lg-10 col-xl-9">
-					<h1 class="inconsolata-font">Interested in Cybersecurity?</h1>
-					<div class="title-underline" style="margin:1rem auto 1.0rem;"></div>
-					<h4 class="inconsolata-font" style="margin-bottom:1.0rem;">
-						Texas A&amp;M Cybersecurity Club is an organization for people interested in learning practical skills and knowledge in the cybersecurity field. 
-						Whether you are new or a veteran, our community of students welcomes all skill levels. Be sure to check out our
-            <a href="/forms.html" style="color:white;text-decorations:none;font-weight:bold;"><u>forms page</u></a>
-            to see if there are any opportunities you can take advantage of or feedback you can provide. 
-					</h4>
-				</div>
-			</div> 
+		<div class="row text-center text-white justify-content-center">
+			<div class="col-lg-10 col-xl-9">
+				<div class="title-underline" style="margin:1rem auto 1.0rem;"></div>
+				<h4 class="inconsolata-font" style="margin-bottom:1.0rem;">
+					Texas A&amp;M Cybersecurity Club is an organization for people interested in learning practical skills and knowledge in cybersecurity. Members of any skill level are welcome. 
+				</h4>
+			</div>
 		</div> 
 	</div> 
   <!-- End Features Section -->	
+  
+ <!-- Topic Covered Title -->
+  <div class="container mt-4">
+    <div class="row text-center justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        <h1 class="text-white inconsolata-font">Topics We Cover</h1>
+        <div class="title-underline"></div>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Topic Covered Title --> 
+
+  <!-- Topic Covered -->
+  <div class="container inconsolata-font">
+	<div class="os-animation" data-animation="fadeInLeft" data-delay="0s">
+	  <div class="row d-flex justify-content-center text-center">
+		<!-- Cryptography -->
+		<div class="col-sm-6 col-md-4 mb-3">
+		  <div class="row d-flex align-items-center justify-content-center">
+			<div class="p-0">
+			  <span class="fa-stack fa-2x">
+			  <i class="fas fa-circle fa-stack-2x"></i>
+			  <i class="fas fa-lock fa-inverse fa-stack-1x"></i>
+			  </span>
+			</div>
+			<div class="w-100"></div>
+			<div class="p-0">
+			  <h4 class="text-white text-uppercase">Cryptography</h4>
+			</div>
+		  </div>
+		</div>
+		<!-- <div class="os-animation" data-animation="fadeInUp"> -->
+		<!-- Hack the Box -->
+		<div class="col-sm-6 col-md-4 mb-3">
+		  <div class="row d-flex align-items-center justify-content-center">
+			<div class="p-0">
+			  <span class="fa-stack fa-2x">
+			  <i class="fas fa-circle fa-stack-2x"></i>
+			  <i class="fas fa-cube fa-inverse fa-stack-1x"></i>
+			  </span>
+			</div>
+			<div class="w-100"></div>
+			<div class="p-0">
+			  <h4 class="text-white text-uppercase"> System Defense</h4>
+			</div>
+		  </div>
+		</div>
+		<!-- Password Cracking -->
+		<div class="col-sm-6 col-md-4 mb-3">
+		  <div class="row d-flex align-items-center justify-content-center">
+			<div class="p-0">
+			  <span class="fa-stack fa-2x">
+			  <i class="fas fa-circle fa-stack-2x"></i>
+			  <i class="fas fa-lock-open fa-inverse fa-stack-1x"></i>
+			  </span>
+			</div>
+			<div class="w-100"></div>
+			<div class="p-0">
+			  <h4 class="text-white text-uppercase">Binary Exploitation</h4>
+			</div>
+		  </div>
+		</div>
+		<!-- Network Traffic Analysis -->
+		<div class="col-sm-6 col-md-4 mb-3">
+		  <div class="row d-flex align-items-center justify-content-center">
+			<div class="p-0">
+			  <span class="fa-stack fa-2x">
+			  <i class="fas fa-circle fa-stack-2x"></i>
+			  <i class="fas fa-network-wired fa-inverse fa-stack-1x"></i>
+			  </span>
+			</div>
+			<div class="w-100"></div>
+			<div class="p-0">
+			  <h4 class="text-white text-uppercase">Network Defense</h4>
+			</div>
+		  </div>
+		</div>
+		<!-- Web Application Exploitation -->
+		<div class="col-sm-6 col-md-4 mb-3">
+		  <div class="row d-flex align-items-center justify-content-center">
+			<div class="p-0">
+			  <span class="fa-stack fa-2x">
+			  <i class="fas fa-circle fa-stack-2x"></i>
+			  <i class="fas fa-server fa-inverse fa-stack-1x"></i>
+			  </span>
+			</div>
+			<div class="w-100"></div>
+			<div class="p-0">
+			  <h4 class="text-white text-uppercase">Web Exploitation</h4>
+			</div>
+		  </div>
+		</div>
+		<!-- Careers and Interviews -->
+		<div class="col-sm-6 col-md-4 mb-3">
+		  <div class="row d-flex align-items-center justify-content-center">
+			<div class="p-0">
+			  <span class="fa-stack fa-2x">
+			  <i class="fas fa-circle fa-stack-2x"></i>
+			  <i class="far fa-file fa-inverse fa-stack-1x"></i>
+			  </span>
+			</div>
+			<div class="w-100"></div>
+			<div class="p-0">
+			  <h4 class="text-white text-uppercase">Career Opportunities</h4>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!--- End Row -->
+	</div>
+  </div>
+  <!-- End Topic Covered -->
   
 	<!-- Section 3 -->	
 	<div class="container mt-4 mb-4">
@@ -202,136 +271,6 @@
 	</div>
 	<!-- End Section 3 -->	
 
-  <!-- Newsletter Signup -->
-  <div class="container-fuild text-white inconsolata-font">
-    <div class="row text-center bg-black">
-      <div class="col-12 mx-3 pt-3 pb-2 h3">
-          Subscribe to our mailing list to get weekly updates!
-          <div class="m-0 mt-3 d-sm-block d-lg-none"></div>
-          <a href="http://eepurl.com/hatL3L" class="btn btn-outline-light btn-xl" role="button">
-            Subscribe
-            <i class="far fa-paper-plane"></i>
-          </a>
-      </div>
-    </div>
-  </div>
-  <!-- End Newsletter Signup -->
-
- <!-- Topic Covered Title -->
-  <div class="container mt-4">
-    <div class="row text-center justify-content-center">
-      <div class="col-lg-10 col-xl-9">
-        <h1 class="text-white inconsolata-font">Topics We Cover</h1>
-        <div class="title-underline"></div>
-        <h4 class="mb-5 text-white inconsolata-font">
-        For upcoming topics in the next meeting, please visit our <a class="maroon-link" href="./calendar.html">calendar</a>.</h1>
-      </div>
-    </div>
-    <!-- End Row -->
-  </div>
-  <!-- End Topic Covered Title --> 
-
-  <!-- Topic Covered -->
-  <div class="container inconsolata-font">
-    <div class="os-animation" data-animation="fadeInLeft" data-delay="0s">
-      <div class="row d-flex justify-content-center text-center">
-        <!-- Cryptography -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <div class="row d-flex align-items-center justify-content-center">
-            <div class="p-0">
-              <span class="fa-stack fa-2x">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fas fa-lock fa-inverse fa-stack-1x"></i>
-              </span>
-            </div>
-            <div class="w-100"></div>
-            <div class="p-0">
-              <h4 class="text-white text-uppercase">Cryptography</h4>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="os-animation" data-animation="fadeInUp"> -->
-        <!-- Hack the Box -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <div class="row d-flex align-items-center justify-content-center">
-            <div class="p-0">
-              <span class="fa-stack fa-2x">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fas fa-cube fa-inverse fa-stack-1x"></i>
-              </span>
-            </div>
-            <div class="w-100"></div>
-            <div class="p-0">
-              <h4 class="text-white text-uppercase"> Hack the Box</h4>
-            </div>
-          </div>
-        </div>
-        <!-- Password Cracking -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <div class="row d-flex align-items-center justify-content-center">
-            <div class="p-0">
-              <span class="fa-stack fa-2x">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fas fa-lock-open fa-inverse fa-stack-1x"></i>
-              </span>
-            </div>
-            <div class="w-100"></div>
-            <div class="p-0">
-              <h4 class="text-white text-uppercase">Password Cracking</h4>
-            </div>
-          </div>
-        </div>
-        <!-- Network Traffic Analysis -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <div class="row d-flex align-items-center justify-content-center">
-            <div class="p-0">
-              <span class="fa-stack fa-2x">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fas fa-network-wired fa-inverse fa-stack-1x"></i>
-              </span>
-            </div>
-            <div class="w-100"></div>
-            <div class="p-0">
-              <h4 class="text-white text-uppercase">Network Traffic Analysis</h4>
-            </div>
-          </div>
-        </div>
-        <!-- Web Application Exploitation -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <div class="row d-flex align-items-center justify-content-center">
-            <div class="p-0">
-              <span class="fa-stack fa-2x">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fas fa-server fa-inverse fa-stack-1x"></i>
-              </span>
-            </div>
-            <div class="w-100"></div>
-            <div class="p-0">
-              <h4 class="text-white text-uppercase">Web Application Exploitation</h4>
-            </div>
-          </div>
-        </div>
-        <!-- Careers and Interviews -->
-        <div class="col-sm-6 col-md-4 mb-3">
-          <div class="row d-flex align-items-center justify-content-center">
-            <div class="p-0">
-              <span class="fa-stack fa-2x">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="far fa-file fa-inverse fa-stack-1x"></i>
-              </span>
-            </div>
-            <div class="w-100"></div>
-            <div class="p-0">
-              <h4 class="text-white text-uppercase">Careers and Interviews</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--- End Row -->
-    </div>
-  </div>
-  <!-- End Topic Covered -->
-
   <div class="container">
     <div class="row text-center justify-content-center">
       <div class="col-lg-10 col-xl-9">
@@ -370,12 +309,27 @@
       </div>
     </div>
   </div>
+  
+  <!-- Newsletter Signup -->
+  <div class="container-fuild text-white inconsolata-font">
+    <div class="row text-center bg-black">
+      <div class="col-12 mx-3 pt-3 pb-2 h3">
+          Subscribe to our mailing list to get weekly updates!
+          <div class="m-0 mt-3 d-sm-block d-lg-none"></div>
+          <a href="http://eepurl.com/hatL3L" class="btn btn-outline-light btn-xl" role="button">
+            Subscribe
+            <i class="far fa-paper-plane"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+  <!-- End Newsletter Signup -->
 
   <!-- Footer -->
   <footer class="footer bg-black">
     <div class="container">
       <div class="row justify-content-center my-3 pt-2">
-        <h1 class="text-white text-uppercase inconsolata-font">Stay in touch</h1>
+        <h1 class="text-white inconsolata-font">Stay in touch!</h1>
       </div>
       <div class="row justify-content-center text-center">
         <div class="twitter col-5 col-sm-4 col-md-2"><a href="https://twitter.com/intent/follow?screen_name=tamucybersec" target="_blank" aria-label="twitter"><i class="fab fa-twitter-square fa-3x"></i></a></div>

@@ -116,15 +116,7 @@ a, a:hover {
   height: .1rem;
   background-color: #d3d3d3;
 }
-.title-underline:after {
-  position: absolute;
-  margin: 0 auto;
-  height: .2rem;
-  width: 2rem;
-  margin-left: -1rem;
-  content: "";
-  background-color: #bf2121;
-}
+
 
 /*-- Maroon Links --*/
 a.maroon-link {
@@ -233,13 +225,13 @@ a:hover.maroon-link {
   font-family: 'Inconsolata';
 }
 .caption h1 {
-  font-size: 10rem;
+  font-size: 6rem;
   letter-spacing: .3rem;
   padding: 0;
   margin: 0;
 }
 .caption h3 {
-  font-size: 6rem;
+  font-size: 5rem;
   padding-bottom: 2rem;
 }
 .logo-bounce {
