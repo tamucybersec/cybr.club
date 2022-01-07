@@ -35,15 +35,15 @@ a.btn > i {
 }
 
 .platinum-sponsors-border {
-  border: 3px solid mediumTurquoise !important;
+  border: 2px solid #0da8a8 !important;
 }
 
 .gold-sponsors-border {
-  border: 3px solid khaki !important;
+  border: 2px solid #f0cc0e !important;
 }
 
 .silver-sponsors-border {
-  border: 3px solid silver !important;
+  border: 2px solid #909496 !important;
 }
 
 #features {
