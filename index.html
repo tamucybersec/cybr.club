@@ -9,8 +9,10 @@
   <meta property="og:image" content="https://cybr.club/assets/img/club-logos/maroonWhiteShield.jpg"/>
   <title>Texas A&amp;M Cybersecurity Club</title>
   <link rel="icon" type="image/png" href="./assets/img/club-logos/whiteShield.png">
-	<!-- style.css -->
+	<!-- styles.css -->
   <link rel="stylesheet" href="./assets/css/styles.css">
+  	<!-- home-styles.css -->
+  <link rel="stylesheet" href="./assets/css/home-styles.css">
 	<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- Animate.css -->
@@ -40,28 +42,25 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link nav-link-fade-up nav-link-fade-up-active px-0" href="./index.html">HOME <span class="sr-only">(current)</span></a>
+          <a class="nav-link nav-link-fade-up nav-link-fade-up-active px-0" href="./index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./about.html">ABOUT</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./about.html">Officers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./calendar.html">CALENDAR</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./calendar.html">Meetings</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./events.html">EVENTS</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./events.html">Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./partners.html">PARTNERS</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./partners.html">Partners</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./contact.html">CONTACT</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./contact.html">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./forms.html">FORMS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">SWAG</a>
+          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Merch</a>
         </li>
       </ul>
     </div>
@@ -91,7 +90,8 @@
 		</div>
       <div class="animated fadeInDown">
         <a href="#features">
-          <img style="max-width:150px;" class="img-fuild" src="./assets/img/club-logos/whiteShield.png" alt="Features"> 
+         <!-- <img style="max-width:150px;" class="img-fuild" src="./assets/img/club-logos/whiteShield.png" alt="Features"> -->
+		 <img style="max-width:150px;" class="img-fuild" src="./assets/img/club-logos/animated-white-shield.gif" alt="Features">
         </a>
       </div>
 		</div>
@@ -111,8 +111,10 @@
 	</div> 
   <!-- End Features Section -->	
   
- <!-- Topic Covered Title -->
-  <div class="container mt-4">
+
+  
+ <!-- Topics Covered Title -->
+  <div id="topics-covered-title" class="container mt-4">
     <div class="row text-center justify-content-center">
       <div class="col-lg-10 col-xl-9">
         <h1 class="text-white inconsolata-font">Topics We Cover</h1>
@@ -121,10 +123,10 @@
     </div>
     <!-- End Row -->
   </div>
-  <!-- End Topic Covered Title --> 
+  <!-- End Topics Covered Title --> 
 
-  <!-- Topic Covered -->
-  <div class="container inconsolata-font">
+  <!-- Topics Covered -->
+  <div id="topics-section" class="container inconsolata-font">
 	<div class="os-animation" data-animation="fadeInLeft" data-delay="0s">
 	  <div class="row d-flex justify-content-center text-center">
 		<!-- Cryptography -->
@@ -222,108 +224,84 @@
 	  <!--- End Row -->
 	</div>
   </div>
-  <!-- End Topic Covered -->
-  
-	<!-- Section 3 -->	
-	<div class="container mt-4 mb-4">
-		<!-- 3 column about club -->
-		<div class="row text-white">
-			<!-- Meetings -->
-			<div class="col-md-4">
-        <div class="text-center">
-          <img src="./assets/img/club-logos/whiteShield.png" alt="White shield club logo" height="200px">
-        </div>
-        <div class="text-center inconsolata-font">
-          <h1 class="mt-4">Weekly Meetings</h1>
-          <h4>For Fall 2021, our meetings are going to held in person. Check the calendar for meeting times and locations, and join our mailing list to get the latest updates!</h4>
-          <a class="btn btn-dark btn-outline-light btn-lg" href="./calendar.html">Calendar</a>
-        </div>
-			</div>
-      <!-- End Meetings -->
-			<!-- Discord -->
-			<div class="col-md-4">
-        <div class="text-center">
-          <img src="./assets/img/home/discord-opt.png" alt="Discord logo" height="200px">
-        </div>
-        <div class="text-center inconsolata-font">
-          <h1 class="mt-4">Discord</h4>
-          <h4 class="mx-3">Stay connected with the members in the club and activities on Discord.</h4>
-          <a class="btn btn-dark btn-outline-light btn-lg" href="https://discord.gg/nCpZzbB">Join</a>
-        </div>
-			</div>
-			<!-- End Discord -->
-			<!-- Compete -->
-			<div class="col-md-4">
-        <div class="text-center">
-          <img src="./assets/img/home/ctf-flag-opt.png" alt="Flag with binary on the banner" height="200px">
-        </div>
-        <div class="text-center inconsolata-font">
-          <h1 class="mt-4">Compete</h1>
-          <h4 class="mx-3">There are several opportunities year-round to compete with a team or individually.
-            Check out the events page for future opportunities.
-          </h4>
-          <a class="btn btn-dark btn-outline-light btn-lg" href="./events.html">Events</a>
-        </div>
-			</div>
-			<!-- End Compete -->
-		</div>
-		<!-- End 3 column about club -->
-	</div>
-	<!-- End Section 3 -->	
+  <!-- End Topics Covered -->
 
-  <div class="container">
-    <div class="row text-center justify-content-center">
+  <!-- Communication channels -->
+  <div class="container-fuild text-white inconsolata-font bg-black" id="communication-channels-section">
+    <div class="row text-center bg-black">
+      <div class="col-12 mx-3 pt-3 pb-2 h3">
+          <a href="https://discord.gg/nCpZzbB" target="_blank" class="btn btn-outline-light btn-xl communication-channel-btn" role="button">
+            <i class="fab fa-discord"></i>
+            Join             
+          </a>
+          <i class="text-arrow">&#129044;</i> Join our official Discord server
+          <div class="m-0 mt-3 d-sm-block d-lg-none"></div>
+      </div>
+      <div class="col-12 mx-3 pt-3 pb-2 h3">
+		  Subscribe to our mailing list <i class="text-arrow">&#129046;</i>
+          <a href="http://eepurl.com/hatL3L" target="_blank" class="btn btn-outline-light btn-xl communication-channel-btn" role="button">
+            Subscribe
+            <i class="far fa-envelope"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+  <!-- End Communication Channels -->
+
+  <!-- Start Sponsors Section -->
+  <div id="sponsors-section" class="container text-center inconsolata-font" style="min-height:60vh">
+    <div id="sponsors-title" class="row text-center justify-content-center">
       <div class="col-lg-10 col-xl-9">
         <h1 class="text-white inconsolata-font">Sponsors</h1>
         <div class="title-underline"></div>
       </div>
     </div>
-    <div class="row text-center justify-content-center">
-      <div class="col-lg-10 col-xl-9">
-        <h2 class="text-white inconsolata-font">Platinum</h2>
-        <h4 class="mb-4 text-white inconsolata-font d-flex">
-          <div class="mx-auto">
-            <img width="350" src="./assets/img/sponsors/Copart.svg" class="rounded p-2" style="background-color: #fff;"></img>
-          </div>
-        </h4>
+    <div class="row d-flex">
+      <div class="mx-auto">
+        <a href="https://www.copart.com/" target="_blank">
+          <div class="card events card-sponsors-left platinum-sponsors-border">
+            <div class="card-partners-img">
+              <img width="225" src="./assets/img/sponsors/Copart.svg" class="rounded p-2" style="background-color: #fff;"></img>
+            </div>
+          </div> 
+        </a>
       </div>
-    </div>
-    <div class="row text-center justify-content-center">
-      <div class="col-lg-10 col-xl-9">
-        <h2 class="text-white inconsolata-font">Gold</h2>
-        <h4 class="mb-4 text-white inconsolata-font d-flex">
-          <div class="mx-auto">
-            <img width="275" src="./assets/img/sponsors/Chevron Logo.svg" class="rounded p-2" style="background-color: #fff;"></img>
-          </div>
-        </h4>
+      <div class="mx-auto">
+        <a href="https://www.chevron.com/" target="_blank">
+          <div class="card events card-sponsors-middle gold-sponsors-border">
+            <div class="card-partners-img">
+              <img src="./assets/img/sponsors/Chevron Logo.svg" width="150px" class="rounded p-2" style="background-color: #fff;"></img>
+            </div>
+          </div> 
+        </a>
       </div>
-    </div>
-    <div class="row text-center justify-content-center">
-      <div class="col-lg-10 col-xl-9">
-        <h2 class="text-white inconsolata-font">Silver</h2>
-        <h4 class="mb-4 text-white inconsolata-font d-flex">
-          <div class="mx-auto">
-            <img width="350" src="./assets/img/sponsors/Capital One.png" class="rounded p-2" style="background-color: #fff;"></img>
-          </div>
-        </h4>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Newsletter Signup -->
-  <div class="container-fuild text-white inconsolata-font">
-    <div class="row text-center bg-black">
-      <div class="col-12 mx-3 pt-3 pb-2 h3">
-          Subscribe to our mailing list to get weekly updates!
-          <div class="m-0 mt-3 d-sm-block d-lg-none"></div>
-          <a href="http://eepurl.com/hatL3L" class="btn btn-outline-light btn-xl" role="button">
-            Subscribe
-            <i class="far fa-paper-plane"></i>
-          </a>
+      <div class="mx-auto">
+        <a href="https://www.capitalone.com/" target="_blank">
+          <div class="card events card-sponsors-right silver-sponsors-border">
+            <div class="card-partners-img">
+			  <img src="./assets/img/sponsors/Capital One.png" width="200px"  class="rounded p-2" style="background-color: #fff;"></img>
+            </div>
+          </div> 
+        </a>
       </div>
     </div>
   </div>
-  <!-- End Newsletter Signup -->
+  <!-- End Sponsors Section -->
+	
+  <!-- Start Sponsor Join Section -->
+  <div class="container text-center inconsolata-font">
+    <div class="row animated fadeInUp mt-1">
+      <div class="col-12">
+        <div  class="text-center inconsolata-font text-white">
+          <h3 id="sponsor-join-message">
+		    Interested in becoming a sponsor? Read the prospectus to learn more!
+			<a href="./assets/pdf/Club Prospectus.pdf" target="_blank" class="btn btn-dark btn-outline-light btn-lg mx-auto mb-4">Prospectus</a>
+		  </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Start Sponsor End Section -->
 
   <!-- Footer -->
   <footer class="footer bg-black">

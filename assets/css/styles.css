@@ -78,6 +78,10 @@ a, a:hover {
   font-family: 'Roboto';
 }
 
+.open-sans-font {
+  font-family: 'Open Sans';
+}
+
 /*-- Socials Footer --*/
 .twitter a,
 .instagram a,

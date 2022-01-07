@@ -1,0 +1,76 @@
+.text-arrow {
+	position: relative;
+	top: 3px;
+}
+
+a.btn > i {
+	position: relative;
+	top: 1px;
+}
+
+.communication-channel-btn {
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+.card-sponsors-left {
+  width: 18rem;
+  height:250px;
+  margin: 0 0 2em auto;
+}
+
+.card-sponsors-right {
+  width: 18rem;
+  height:250px;
+  margin: 0 auto 2em 0;
+}
+
+.card-sponsors-middle {
+  width: 18rem;
+  height:250px;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+
+.platinum-sponsors-border {
+  border: 3px solid mediumTurquoise !important;
+}
+
+.gold-sponsors-border {
+  border: 3px solid khaki !important;
+}
+
+.silver-sponsors-border {
+  border: 3px solid silver !important;
+}
+
+#features {
+	padding-bottom: 5px;
+}
+
+#communication-channels-section {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+#topics-covered-title {
+	padding-top: 5px;
+}
+
+#topics-section {
+	margin-bottom: 20px;
+}
+
+#sponsors-section {
+	margin-top: 30px;
+}
+
+#sponsors-title {
+	margin-bottom: 25px;
+}
+
+#sponsor-join-message {
+	font-size: 25px;
+}
