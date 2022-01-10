@@ -311,6 +311,10 @@ a.btn > i {
 	padding-bottom: 8px;
 }
 
+#communication-channels-section > div{
+	width: 99vw;
+}
+
 #topics-covered-title {
 	padding-top: 5px;
 }
