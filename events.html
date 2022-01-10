@@ -29,7 +29,7 @@
   <nav class="navbar navbar-expand-xl static-top">
     <div>
       <a class="navbar-brand my-auto" href="./index.html">
-        <img class="img-fluid" src="./assets/img/club-logos/whiteShield.png" alt="Cybersecurity club logo, a white shield"> 
+        <img class="img-fluid" src="./assets/img/club-logos/whiteShield.png" alt="Home"> 
       </a>
         <div class="navbar-brand-title d-inline align-middle">Cybersecurity Club</div>
     </div>
@@ -37,209 +37,295 @@
     <i class="fa fa-bars" style="color:#fff"></i></button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./calendar.html">Calendar</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./meetings.html">Meetings</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link nav-link-fade-up nav-link-fade-up-active px-0" href="./events.html">Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./partners.html">Partners</a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./contact.html">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./forms.html">Forms</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Swag</a>
+          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Merch</a>
         </li>
       </ul>
     </div>
   </nav>
   <!-- End Navigation -->
-
-  <!-- Event Start 3 Logos -->
-  <div class="container text-white text-center inconsolata-font">
-    <div class="row animated fadeInDown">
+  
+  <!-- Start Partner Logos -->
+  <div class="container text-center inconsolata-font" style="min-height:60vh">
+    <div class="row mt-1">
       <div class="col-12">
-        <h1 class="text-white" style="letter-spacing:.5px;">Events &amp; Competitions</h1>
-        <hr class="border-maroon mb-3 events-title-underline">
+        <h1 class="text-white" style="letter-spacing:.5px;">Programs</h1>
+        <hr id="programs-underline" class="border-maroon mb-4">
       </div>
     </div>
-    <div class="row d-flex justify-content-around text-center">
-      <!-- Collaborate animation-->
-      <div class="col-md-5 col-lg-3">
-        <div class="bg-black px-4 py-3 mb-2 shadow-lg" style="border-radius:10px;">
-          <i class="fas fa-users fa-5x mb-2" style="color:white"></i>
-          <h3 class="m-0">Collaborate</h3>
-          <div>
+    <div class="row d-flex">
+      <div class="mx-auto animated fadeIn">
+        <a href="./rha.html">
+          <div class="card events card-partners-left">
+            <div class="card-partners-img">
+              <img src="./assets/img/partners/rha/rha-opt.png" width="150px" alt="Red Hat Academy">
+            </div>
+          </div> 
+        </a>
+      </div>
+      <div class="mx-auto animated fadeIn">
+        <a href="./wicys.html">
+          <div class="card events card-partners-middle">
+            <div class="card-partners-img">
+              <img src="./assets/img/partners/wicys/wicys-sub.jpg" width="200px" alt="Women in Cybersecurity">
+            </div>
+          </div> 
+        </a>
+      </div>
+      <div class="mx-auto animated fadeIn">
+        <a href="./ec-council.html">
+          <div class="card events card-partners-middle">
+            <div class="card-partners-img">
+              <img src="./assets/img/partners/ec-council/ec-council-logo.png" width="200px" alt="ec-council">
+            </div>
+          </div> 
+        </a>
+      </div>
+      <div class="mx-auto animated fadeIn">
+        <a href="./cisco.html">
+          <div class="card events card-partners-right">
+            <div class="card-partners-img">
+              <img src="./assets/img/partners/cisco/cisco.png" width="200px" alt="cisco">
+            </div>
+          </div> 
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- End Partner Logos -->
+
+  <!-- Start Events & Competitions Section -->
+  <div class="container-fluid text-center" style="position:relative;">
+    <div id="events-competitions-title" class="row">
+      <div class="col-12">
+        <h1 class="text-white inconsolata-font" style="letter-spacing:.5px;">Events & Competitions</h1>
+        <hr id="events-competitions-title-underline" class="border-maroon mb-3">
+      </div>
+    </div>
+	
+	<!-- Start General Subsection -->
+    <div class="container mt-3">
+      <div class="row text-center justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+          <h1 class="text-white inconsolata-font events-competitions-subtitle">General</h1>
+          <div id="general-underline" class="title-underline"></div>
+        </div>
+      </div>
+    </div>
+	
+    <div class="accordion">
+      <div class="card">
+        <button class="btn card-header" type="button" data-toggle="collapse" data-target="#collapseGeneralOne" aria-expanded="true" aria-controls="collapseGeneralOne">
+          <h5 class="mb-0">Cyber Center Defense Cyber Leader Development Program</h5>
+	      <i>&#9660;</i>
+	    </button>
+        <div id="collapseGeneralOne" class="collapse" aria-labelledby="headingGeneralOne">
+	      <ul>
+	    	<li><a href="https://cybersecurity.tamu.edu/education/texas-am-defense-cyber-leader-development-program/" target="_blank">Information Page</a></li>
+	      </ul>
+          <div class="card-body">
+            The Texas A&M Defense Cyber Leader Development Program is a partnership with the Department of Defense that prepares select students for military or civilian careers with Department of Defense organizations. 
+			The DCLDP is a two-year program that complements a student’s existing degree path by providing opportunities for hands-on experience, industry certifications, summer internships, leadership development, and individual mentoring. 
+			It is oriented primarily toward rising Juniors, but Sophomores and Seniors are eligible for the program as well.
           </div>
-        </div> 
+        </div>
       </div>
-      <!-- Compete animation-->
-      <div class="col-md-5 col-lg-3">
-        <div class="bg-black px-4 py-3 mb-2 shadow-lg" style="border-radius:10px;">
-          <i class="fas fa-trophy fa-5x mb-2" style="color:white;"></i> 
-          <h3 class="m-0">Compete</h3>
-        </div> 
-      </div> 
-      <!-- Problem solve animation -->
-      <div class="col-md-5 col-lg-3">
-        <div class="bg-black px-4 py-3 mb-2 shadow-lg" style="border-radius:10px;">
-          <i class="fas fa-unlock fa-5x mb-2" style="color:white;"></i>
-          <h3 class="m-0">Problem Solve</h3>
-        </div> 
-      </div> 
+  
+      <div class="card">
+        <button class="btn card-header collapsed" type="button" data-toggle="collapse" data-target="#collapseGeneralTwo" aria-expanded="false" aria-controls="collapseGeneralTwo">
+          <h5 class="mb-0">Cybersecurity Apprenticeship Program</h5>
+    	  <i>&#9660;</i>
+        </button>
+        <div id="collapseGeneralTwo" class="collapse" aria-labelledby="headingGeneralTwo">
+	      <ul>
+    		<li><a href="https://it.tamu.edu/security/cybersecurity-apprenticeship-program/application.php" target="_blank">Application Page</a></li>
+    	  </ul>
+          <div class="card-body">
+    		The Cybersecurity Apprenticeship Program (CAP) bridges the gap by putting talented Texas A&M University students in positions to work on cybersecurity teams in industry-leading companies. 
+			CAP was created by the Texas A&M cybersecurity team in partnership with global organizations. 
+			Students have the opportunity to earn industry certifications and learn relevant skills necessary for success in the cybersecurity industry.          
+		  </div>
+        </div>
+      </div>
+  
     </div>
-  </div>
-  <!-- End 3 Logos -->
-
-  <!-- Competitions -->
-  <div id="competitions" class="container-fluid text-white inconsolata-font" style="margin-top:50px;">
-    <!-- Two Column Section -->
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-3 my-auto text-center">
-        <div class="animated fadeInLeft">
-          <img class="img-fluid" src="./assets/img/events/tamu-ctf-opt.png" alt="TAMU ctf logo, TAMU ct flag"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2">Texas A&amp;M Capture the Flag</h1>
-          <h5>Find out more at the <a class="maroon-link" href="https://cybersecurity.tamu.edu/event/tamuctf/" target="_blank">tamuctf webpage</a>. (CTF Competition)</h5>
+	<!-- End General Subsection -->
+	
+	<!-- Start Competitions Subsection -->
+	<div class="container mt-4">
+      <div class="row text-center justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+          <h1 class="text-white inconsolata-font events-competitions-subtitle">Competitions</h1>
+          <div id="competitions-underline" class="title-underline"></div>
         </div>
       </div>
     </div>
-
-    <hr size="25" noshade> 
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-3 my-auto text-center">
-        <div class="animated fadeInLeft">
-          <img class="img-fluid" width="200px" src="./assets/img/events/ncl-logo-opt.png" alt="National Cyber League logo"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2">National Cyber League Competition</h1>
-          <h5>Find out more at the <a class="maroon-link" href="https://cyberskyline.com/events/ncl/info" target="_blank">NCL info webpage</a>. (CTF Competition)</h5>
+	
+    <div class="accordion">
+      <div class="card">
+        <button class="btn card-header" type="button" data-toggle="collapse" data-target="#collapseCompetitionsOne" aria-expanded="true" aria-controls="collapseCompetitionsOne">
+          <h5 class="mb-0">NCL | Red & Blue Team</h5>
+	      <i>&#9660;</i>
+	    </button>
+        <div id="collapseCompetitionsOne" class="collapse" aria-labelledby="headingCompetitionsOne">
+          <img class="img-fluid" width="150px" src="./assets/img/events/ncl-logo-opt.png" alt="National Cyber League logo"/>
+	      <ul>
+	    	<li><a href="https://cyberskyline.com/events/ncl/info" target="_blank">Information Page</a></li>
+	      	<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe6VfYy26ETUiUWh-KW91h1iVfpAayM6KaBS0Kkx7-UkoDgxw/viewform" target="_blank">Interest Form</a></li>
+	      </ul>
+          <div class="card-body">
+            The National Cyber League (NCL) is a great CTF competition for students who have never competed in a CTF competition or have found other CTFs too challenging. The competition lasts around one month and consists of a preseason, individual game, and team game. There's also a gymnasium where students can train fundamental skills from the ground up and learn about essential tools before the competition.
+          </div>
         </div>
       </div>
-    </div>
-
-    <hr size="25" noshade> 
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-3 my-auto text-center">
-        <div class="animated fadeInLeft">
+  
+      <div class="card">
+        <button class="btn card-header collapsed" type="button" data-toggle="collapse" data-target="#collapseCompetitionsTwo" aria-expanded="false" aria-controls="collapseCompetitionsTwo">
+          <h5 class="mb-0">TAMUctf | Red & Blue Team</h5>
+    	  <i>&#9660;</i>
+        </button>
+        <div id="collapseCompetitionsTwo" class="collapse" aria-labelledby="headingCompetitionsTwo">
+          <img id="tamu-ctf-img" class="img-fluid " width="325px" src="./assets/img/events/tamu-ctf-opt.png" alt="TAMU ctf logo, TAMU ct flag"/>
+	      <ul>
+    		<li><a href="https://cybersecurity.tamu.edu/event/tamuctf/" target="_blank">Information Page</a></li>
+    	  	<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfUGDqJe3BGQIEn-K8Wz9UnVLvgY-T1cF4w8Mw8VKVkCqZP7A/viewform" target="_blank">Developer Interest Form</a></li>
+    	  </ul>
+          <div class="card-body">
+    		TAMUctf is an annual jeopardy-style capture the flag competition hosted by Texas A&M. If you have any ideas for cool CTF challenges or just want to see what happens on the other side of CTFs, try becoming a TAMUctf challenge developer!
+          </div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <button class="btn card-header collapsed" type="button" data-toggle="collapse" data-target="#collapseCompetitionsThree" aria-expanded="false" aria-controls="collapseCompetitionsThree">
+    	  <h5 class="mb-0">CCDC | Blue Team</h5>
+    	  <i>&#9660;</i>
+        </button>
+        <div id="collapseCompetitionsThree" class="collapse" aria-labelledby="headingCompetitionsThree">
           <img class="img-fluid" src="./assets/img/events/sw-ccdc-logo-opt.png" width="200px" alt="Southwest Collegiate Cyber Defense Competition 2020 logo"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2 text">Collegiate Cyber Defense Competition (Blue Team Competition)</h1>
-          <h5>Find out more about the regional competition at <a class="maroon-link" href="https://southwestccdc.com/about/" target="_blank">Southwest CCDC webpage</a></h5>
-          <h5>Find out more about the national competition at <a class="maroon-link" href="https://www.nationalccdc.org/" target="_blank">NCCDC webpage</a></h5>
+	      <ul>
+	    	<li><a href="https://www.nationalccdc.org/" target="_blank">National Competition Page</a></li>
+    		<li><a href="https://southwestccdc.com/about/" target="_blank">Regional Competition Page</a></li>
+	      	<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe2QDZ6l-kyyisJgKCYqjA_hdGUv84s-pIW_AOgDWVA2WbADA/viewform" target="_blank">Interest Form</a></li>
+	      </ul>
+          <div class="card-body">
+            The Collegiate Cyber Defense Competition (CCDC) asks student teams to assume administrative and protective duties for an existing “commercial” network – typically a small company with 50+ users, 7 to 10 servers, and common Internet services such as a web server, mail server, and e-commerce site. This competition is held in the spring semester, though we will conduct several practices during the fall semester and develop procedures and tooling as necessary.
+          </div>
         </div>
       </div>
-    </div>
-
-    <hr size="25" noshade> 
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-3 my-auto text-center">
-        <div class="animated fadeInLeft">
-          <img class="img-fluid" width="400px" src="./assets/img/events/cyber-force-logo.png" alt="CyberForce Blue Team Competition logo, a blue lock with a thunderbolt inside it"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2">CyberForce (Blue Team Competition)</h1>
-          <h5>Find out more at the <a class="maroon-link" href="https://cyberforcecompetition.com/" target="_blank">CyberForce info webpage</a></h5>
-          <h5>2019 team featured in  <a class="maroon-link" href="https://engineering.tamu.edu/news/2019/12/texas-am-student-team-shines-in-doe-cyberforce-competition.html" target="_blank">Texas A&amp;M Engineering news</a>.</h5>
-        </div>
-      </div>
-    </div>
-
-    <hr size="25" noshade> 
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-3 my-auto text-center">
-        <div class="animated fadeInLeft">
+  
+      <div class="card">
+        <button class="btn card-header collapsed" type="button" data-toggle="collapse" data-target="#collapseCompetitionsFour" aria-expanded="false" aria-controls="collapseCompetitionsFour">
+          <h5 class="mb-0">MITRE eCTF | Embedded</h5>
+    	  <i>&#9660;</i>
+        </button>
+        <div id="collapseCompetitionsFour" class="collapse" aria-labelledby="headingCompetitionsFour">
           <img class="img-fluid" src="./assets/img/events/mitre-ectf-opt.png" width="200px" alt="MITRE eCTF logo, a blue flag that says eCTF with MITRE written below the flag"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2 text">MITRE eCTF (Embedded Capture the Flag)</h1>
-          <h5>Find out more about the the competition at <a class="maroon-link" href="https://mitrecyberacademy.org/competitions/embedded/" target="_blank">MITRE's eCTF webpage</a></h5>
-          <h5>2020 team featured in <a class="maroon-link" href="https://engineering.tamu.edu/news/2020/06/student-team-places-in-embedded-security-system-competition.html" target="_blank">Texas A&amp;M Engineering news</a>.</h5>
+    	  <ul>
+	    	<li><a href="https://mitrecyberacademy.org/competitions/embedded/" target="_blank">Information Page</a></li>
+    	  </ul>
+          <div class="card-body">
+    		MITRE eCTF is an embedded security competition with two phases. In the defense phase, each team creates their own secure embedded system based on challenge requirements. In phase two, teams analyze and attack other teams' embedded systems.
+          </div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <button class="btn card-header collapsed" type="button" data-toggle="collapse" data-target="#collapseCompetitionsFive" aria-expanded="false" aria-controls="collapseCompetitionsFive">
+          <h5 class="mb-0">CyberForce | Blue Team</h5>
+	      <i>&#9660;</i>
+        </button>
+        <div id="collapseCompetitionsFive" class="collapse" aria-labelledby="headingCompetitionsFive">
+          <img class="img-fluid" width="400px" src="./assets/img/events/cyber-force-logo.png" alt="CyberForce Blue Team Competition logo, a blue lock with a thunderbolt inside it"/>
+    	  <ul>
+	    	<li><a href="https://cyberforcecompetition.com/" target="_blank">Competition Page</a></li>
+	      </ul>
+          <div class="card-body">
+            CyberForce is a cybersecurity competition hosted by the US Department of Energy that revolves around performing hardening and security tasks within a given scenario.
+          </div>
+        </div>
+      </div>
+  
+    </div>
+	<!-- End Competitions Subsection -->
+	
+	<!-- Start Misc. Subsection -->
+    <div class="container mt-3">
+      <div class="row text-center justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+          <h1 class="text-white inconsolata-font events-competitions-subtitle">&nbsp;Misc.</h1>
+          <div id="misc-underline" class="title-underline"></div>
         </div>
       </div>
     </div>
-    <!-- End Two Column Section --> 
+	
+    <div class="accordion">
+      <div class="card">
+        <button class="btn card-header" type="button" data-toggle="collapse" data-target="#collapseMiscOne" aria-expanded="true" aria-controls="collapseMiscOne">
+          <h5 class="mb-0">Resume Bank Upload</h5>
+	      <i>&#9660;</i>
+	    </button>
+        <div id="collapseMiscOne" class="collapse" aria-labelledby="headingMiscOne">
+	      <ul>
+	    	<li><a href="https://docs.google.com/forms/d/e/1FAIpQLScz9SBh7NlIL3nL2441iSeZWCke8uC2bJgjUmi2zdu4Dp8b4Q/viewform" target="_blank">Resume Bank Form</a></li>
+	      </ul>
+          <div class="card-body">
+            If you would like your resume to be added to our resume bank for companies/sponsors to pull from, please fill out this form.
+          </div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <button class="btn card-header collapsed" type="button" data-toggle="collapse" data-target="#collapseMiscTwo" aria-expanded="false" aria-controls="collapseMiscTwo">
+          <h5 class="mb-0">Club Member Demographic Survey</h5>
+    	  <i>&#9660;</i>
+        </button>
+        <div id="collapseMiscTwo" class="collapse" aria-labelledby="headingMiscTwo">
+	      <ul>
+    		<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfdwKMdi3PFpb4iXwYBx1RboAVv8bF-DvH_-PKM0T1fScEupw/viewform" target="_blank">Survey Form</a></li>
+    	  </ul>
+          <div class="card-body">
+    		This survey is to help us understand our member demographics and help our club get sponsorships which help keep the club running and allow us to host events. 
+			The survey is completely anonymous.         
+		  </div>
+        </div>
+      </div>
+	  
+      <div class="card">
+        <button class="btn card-header collapsed" type="button" data-toggle="collapse" data-target="#collapseMiscThree" aria-expanded="false" aria-controls="collapseMiscThree">
+          <h5 class="mb-0">Have a suggestion for a meeting topic?</h5>
+    	  <i>&#9660;</i>
+        </button>
+        <div id="collapseMiscThree" class="collapse" aria-labelledby="headingMiscThree">
+	      <ul>
+    		<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeNajtv8XnAzzMgQkmn16maTpmXlOfFSCIH8WhKV9KxMPv5bg/viewform" target="_blank">Meeting Topic Form</a></li>
+    	  </ul>
+          <div class="card-body">
+    		If you have any ideas for meetings topics that you'd like, let us know through this form!
+		  </div>
+        </div>
+      </div>
+  
+    </div>
+	<!-- End Misc. Subsection -->
+	
   </div>
-
-  <!-- Past Events -->
-  <div id="" class="container-fluid text-white inconsolata-font" style="margin-top:50px;">
-    <div class="row">
-      <div class="col-12">
-        <hr class="border-maroon mb-3 events-title-underline">
-        <h1 class="text-white text-center" style="letter-spacing:.5px;">Past Events</h1>
-        <hr class="border-maroon mb-3 events-title-underline">
-      </div>
-    </div>
-
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-4 my-auto text-center">
-        <div class="animated fadeInLeft">
-          <img class="img-fluid" width="400px" src="./assets/img/events/defcon-group-photo.JPEG" alt="DEFCON29 group photo"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2">Defcon29</h1>
-          <h5>In summer 2021, several Texas A&M students along with <a class="maroon-link" href="https://www.linkedin.com/company/texas-a-m-cyber-security-club/" target="_blank">Texas A&M Cybersecurity Club</a> officers were fortunate enough to be 
-            sponsored by the <a class="maroon-link" href="https://www.linkedin.com/company/tamucybersecuritycenter/" target="_blank">Texas A&M Cybersecurity Center</a> via government and industry sponsors to attend DEFCON29. It was an 
-            invaluable experience for all of us and we even got to meet inspirations within the infosec community such as 
-            John Hammond, Alissa Knight, Katelyn Bowden, James Smith, Jayson Street, and many more!</h5>
-        </div>
-      </div>
-    </div>
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-4 my-auto text-center">
-        <div class="animated fadeInLeft">
-          <img class="img-fluid" width="400px" src="./assets/img/events/club-ctf.JPG" alt="Club CTF Winners"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2">Club CTF Fall 2021</h1>
-          <h5>Congratulations to TAMUEsports for winning first place at Cyber Club CTF! The CTF consisted of challenges in a wide variety of categories such as cryptography, reversing, forensics, and web, and provided an opportunity for our club members to test themselves and learn new skills in a competitive environment.</h5>
-        </div>
-      </div>
-    </div>
-    <div class="row px-4 justify-content-center">
-      <div class="col-md-4 my-auto text-center">
-        <div class="animated fadeInLeft">
-          <img class="img-fluid" width="400px" src="./assets/img/events/hivestorm.png" alt="Club CTF Winners"/>
-        </div> 
-      </div> 
-      <div class="col-md-5 my-auto">
-        <div class="animated fadeInRight text-center text-lg-left">
-          <h1 class="py-2">Hivestorm 2021</h1>
-          <h5>Hivestorm is a collegiate-focused cyber defense competition where teams compete by securing provided Windows and Linux based virtual machines – removing malware and other infections, correcting misconfigurations, mitigating vulnerabilities, disabling vulnerable services, and so on.
-            Congratulations to all who participated this year, whose efforts resulted in our team finishing in 16th out of 237 teams!
-          </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Past Events -->
+  <!-- End Events & Competitions Section -->
 
   <!-- Footer -->
   <footer class="footer bg-black">
@@ -248,23 +334,26 @@
         <h1 class="text-white text-uppercase inconsolata-font">Stay in touch</h1>
       </div>
       <div class="row justify-content-center text-center">
-        <div class="twitter col-5 col-sm-4 col-md-2"><a href="https://twitter.com/intent/follow?screen_name=tamucybersec" target="_blank"><i class="fab fa-twitter-square fa-3x"></i></a></div>
-        <div class="github col-5 col-sm-4 col-md-2"><a href="https://github.com/tamucybersec" target="_blank"><i class="fab fa-github-square fa-3x"></i></a></div>
-        <div class="discord col-5 col-sm-4 col-md-2"><a href="https://discord.gg/nCpZzbB" target="_blank"><i class="fab fa-discord fa-3x"></i></a></div>
-        <div class="instagram col-5 col-sm-4 col-md-2"><a href="https://www.instagram.com/tamucybersec/" target="_blank"><i id="instagram" class="fab fa-instagram-square fa-3x"></i></a></div>
-        <div class="linkedin col-5 col-sm-4 col-md-2"><a href="https://www.linkedin.com/company/texas-a-m-cyber-security-club/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a></div>
+        <div class="twitter col-5 col-sm-4 col-md-2"><a href="https://twitter.com/intent/follow?screen_name=tamucybersec" target="_blank" aria-label="twitter"><i class="fab fa-twitter-square fa-3x"></i></a></div>
+        <div class="github col-5 col-sm-4 col-md-2"><a href="https://github.com/tamucybersec" target="_blank" aria-label="github"><i class="fab fa-github-square fa-3x"></i></a></div>
+        <div class="discord col-5 col-sm-4 col-md-2"><a href="https://discord.gg/nCpZzbB" target="_blank" aria-label="discord"><i class="fab fa-discord fa-3x"></i></a></div>
+        <div class="instagram col-5 col-sm-4 col-md-2"><a href="https://www.instagram.com/tamucybersec/" target="_blank" aria-label="instagram"><i id="instagram" class="fab fa-instagram-square fa-3x"></i></a></div>
+        <div class="linkedin col-5 col-sm-4 col-md-2"><a href="https://www.linkedin.com/company/texas-a-m-cyber-security-club/" target="_blank" aria-label="linkedin"><i class="fab fa-linkedin fa-3x"></i></a></div>
       </div>
     </div>
-    <div class="row justify-content-center my-3 pt-2 h3 text-white">
-      Subscribe to our mailing list to get weekly updates!
-      <div class="m-0 mt-3 d-sm-block d-lg-none"></div>
-      <a href="http://eepurl.com/hatL3L" class="btn btn-outline-light btn-xl" role="button">
-        Subscribe
-        <i class="far fa-paper-plane"></i>
-      </a>
+    <div class="container-fuild text-white inconsolata-font bg-black" id="communication-channels-section">
+      <div class="row text-center bg-black">
+        <div class="col-12 mx-3 pt-3 pb-2 h3">
+		    Subscribe to our mailing list <i class="text-arrow">&#129046;</i>
+            <a href="http://eepurl.com/hatL3L" target="_blank" class="btn btn-outline-light btn-xl communication-channel-btn" role="button">
+              Subscribe
+              <i class="far fa-envelope"></i>
+            </a>
+        </div>
+      </div>
     </div>
     <div class="text-white text-center mt-4 bg-black" >
-        <h5 class="p-0 m-0 inconsolata-font">Texas A&amp;M Cybersecurity Club <span class="year"></span></a></h5>
+      <h5 class="p-0 m-0 inconsolata-font">Texas A&amp;M Cybersecurity Club <span class="year"></span></a></h5>
     </div>
   </footer>
   <!--End Footer -->
