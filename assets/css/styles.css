@@ -78,6 +78,10 @@ a, a:hover {
   font-family: 'Roboto';
 }
 
+.open-sans-font {
+  font-family: 'Open Sans';
+}
+
 /*-- Socials Footer --*/
 .twitter a,
 .instagram a,
@@ -116,15 +120,7 @@ a, a:hover {
   height: .1rem;
   background-color: #d3d3d3;
 }
-.title-underline:after {
-  position: absolute;
-  margin: 0 auto;
-  height: .2rem;
-  width: 2rem;
-  margin-left: -1rem;
-  content: "";
-  background-color: #bf2121;
-}
+
 
 /*-- Maroon Links --*/
 a.maroon-link {
@@ -140,8 +136,8 @@ a:hover.maroon-link {
 .offset:before {
   content: "";
   display: block;
-  height: 5.5rem;
-  margin-top: -5.5rem;
+  height: 0rem;
+  margin-top: -8rem;
 }
 
 /*-- Backgrounds/Text--*/ 
@@ -188,7 +184,7 @@ a:hover.maroon-link {
   background-color: #fff;
 }
 .navbar .nav-link:hover,
-.navbar .nav-link:focus {
+.navbar .nav-link:not(.dropdown-toggle):focus {
   color: #fff;
   opacity: 1;
   text-decoration: none;
@@ -217,7 +213,15 @@ a:hover.maroon-link {
   font-weight: 500;
 }
 
-/*============LANDING PAGE===============*/
+.nav-item > .dropdown-menu {
+  margin-left: 10px;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block !important;
+}
+
+/*============HOME PAGE===============*/
 /*-- Particles --*/
 #particles-js {
   background: #000;
@@ -233,14 +237,14 @@ a:hover.maroon-link {
   font-family: 'Inconsolata';
 }
 .caption h1 {
-  font-size: 10rem;
+  font-size: 4.5rem;
   letter-spacing: .3rem;
   padding: 0;
   margin: 0;
 }
 .caption h3 {
-  font-size: 6rem;
-  padding-bottom: 2rem;
+  font-size: 3.5rem;
+  padding-bottom: 1rem;
 }
 .logo-bounce {
   animation: bounce 2s infinite;
@@ -254,12 +258,93 @@ a:hover.maroon-link {
   margin-top: 15px;
 }
 
+.text-arrow {
+	position: relative;
+	top: 3px;
+}
+
+a.btn > i {
+	position: relative;
+	top: 1px;
+}
+
+.communication-channel-btn {
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+.card-sponsors {
+  width: 18rem;
+  height:250px;
+  margin: 0 0 0.5em auto;
+}
+
+.sponsor-cards {
+	color: white;
+	font-size: 20px;
+}
+
+.sponsor-cards > div {
+	margin-bottom: 25px;
+}
+
+.platinum-sponsors-border {
+  border: 3px solid #0da8a8 !important;
+}
+
+.gold-sponsors-border {
+  border: 3px solid #f0cc0e !important;
+}
+
+.silver-sponsors-border {
+  border: 3px solid #909496 !important;
+}
+
+#features {
+	padding-bottom: 5px;
+}
+
+#communication-channels-section {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+#topics-covered-title {
+	padding-top: 5px;
+}
+
+#topics-section {
+	margin-bottom: 20px;
+}
+
+#sponsors-section {
+	margin-top: 30px;
+}
+
+#sponsors-title {
+	margin-bottom: 25px;
+}
+
+#sponsor-join-message {
+	font-size: 25px;
+}
+
 /*============= ABOUT PAGE =============*/
 .about-title-underline { 
   width: 12rem;
 }
 .card:hover.about {
   transform: scale(.95);
+}
+
+#our-team-title {
+	margin-top: 25px;
+}
+
+#our-team-description {
+	margin-bottom: 10px;
 }
 
 /*-- Social Links --*/
@@ -314,7 +399,7 @@ a:hover .fa-link.about {
   font-size: 1.2rem;
 }
 
-/*============= CALENDAR PAGE =============*/
+/*============= MEETINGS PAGE =============*/
 /* Responsive iFrame */
 .responsive-iframe-container {
   position: relative;
@@ -334,25 +419,39 @@ a:hover .fa-link.about {
   height: 100%;
 }
 
-/*============= EVENT PAGE =============*/
+#meetings-section {
+	margin-bottom: 10px;
+}
+
+#meetings-underline {
+	width: 12rem;
+}
+
+#meetings-communication-channels {
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+
+/*============= OLD EVENT PAGE =============*/
 .events-title-underline {
   width: 440px;
 }
 
-/*============= PARTNERS PAGE =============*/
+/*============= EVENT PAGE =============*/
 .card-partners-left {
-  width: 18rem;
-  height:250px;
+  width: 15rem;
+  height: 200px;
   margin: 0 0 2em auto;
 }
 .card-partners-right {
-  width: 18rem;
-  height:250px;
+  width: 15rem;
+  height: 200px;
   margin: 0 auto 2em 0;
 }
 .card-partners-middle {
-  width: 18rem;
-  height:250px;
+  width: 15rem;
+  height: 200px;
   margin: 0 auto;
   margin-bottom: 2em;
 }
@@ -360,12 +459,67 @@ a:hover .fa-link.about {
   margin: auto auto;
 }
 .partners-title-underline {
-  width: 18rem;
+  width: 10rem;
 }
 .card:hover.events {
   transform: scale(.97);
   opacity: .7;
 }
+
+.accordion {
+	margin-top: 5px;
+	margin-bottom: 60px;
+}
+
+.collapse, .collapsing {
+	padding-top: 25px;
+}
+
+.collapse > img, .collapsing > img {
+	margin-bottom: 25px;
+}
+
+.card-header > h5 {
+	display: inline;
+}
+
+.card-header > i {
+	float: right;
+}
+
+.events-competitions-subtitle {
+	font-size: 30px;
+}
+
+#programs-underline {
+	width: 12rem;
+}
+
+#events-competitions-title-underline {
+	width: 28rem;
+}
+
+#competitions-underline {
+	width: 13rem;
+}
+
+#misc-underline {
+	width: 7rem;
+}
+
+#tamu-ctf-img {
+	margin-bottom: 40px;
+}
+
+#events-competitions-title {
+	margin-top: 10px;
+}
+
+/*============= CONTACT PAGE =============*/
+#contact-us-underline {
+	width: 14rem;
+}
+
 
 /*============= REDHAT PAGE =============*/
 .rha-email {
@@ -512,5 +666,11 @@ a:hover .fa-link.about {
   }
   .events-title-underline {
     width: 100%;
+  }
+}
+
+@media (max-width: 460px) {
+  #events-competitions-title-underline {
+	  width: 18rem;
   }
 }

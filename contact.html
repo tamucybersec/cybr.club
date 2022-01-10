@@ -29,7 +29,7 @@
   <nav class="navbar navbar-expand-xl static-top">
     <div>
       <a class="navbar-brand my-auto" href="./index.html">
-        <img class="img-fluid" src="./assets/img/club-logos/whiteShield.png" alt="Cybersecurity Club logo, a white shield">
+        <img class="img-fluid" src="./assets/img/club-logos/whiteShield.png" alt="Home"> 
       </a>
         <div class="navbar-brand-title d-inline align-middle">Cybersecurity Club</div>
     </div>
@@ -37,29 +37,23 @@
     <i class="fa fa-bars" style="color:#fff"></i></button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./calendar.html">Calendar</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./meetings.html">Meetings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./events.html">Events</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./partners.html">Partners</a>
-        </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link nav-link-fade-up nav-link-fade-up-active px-0" href="./contact.html">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./forms.html">Forms</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Swag</a>
+          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Merch</a>
         </li>
       </ul>
     </div>
@@ -68,13 +62,17 @@
 
   <!-- Contact Form -->
   <div class="container" style="min-height:80vh;">
-    <div class="row text-center animated fadeInUp mt-3">
+    <div id="about-us-title" class="row text-center">
       <div class="col-12">
         <h1 class="text-white inconsolata-font" style="letter-spacing:.5px;">Contact Us</h1>
+        <hr id="contact-us-underline" class="border-maroon mb-3">
+      </div>
+      <div class="col-12">
         <p class="text-white inconsolata-font" style="font-size:23px;">Howdy! All emails are directed to tamucybersec@gmail.com, which is regularly monitored. If you do not receive an email response within 48 hours, please contact murphe14@tamu.edu. Thank you for contacting us and we will get back to you as soon as possible! Thanks and Gig’Em!</p>
       </div>
     </div>
-    <div class="row justify-content-center">
+	
+    <div class="row justify-content-center" style="margin-top: 10px; margin-bottom: 50px;">
       <div class="col-sm-9 col-md-8">
         <div class="card text-white" style="background:#000;">
           <div class="card-body text-right">
@@ -114,17 +112,20 @@
         <div class="linkedin col-5 col-sm-4 col-md-2"><a href="https://www.linkedin.com/company/texas-a-m-cyber-security-club/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a></div>
       </div>
     </div>
-    <div class="row justify-content-center my-3 pt-2 h3 text-white">
-      Subscribe to our mailing list to get weekly updates!
-      <div class="m-0 mt-3 d-sm-block d-lg-none"></div>
-      <a href="http://eepurl.com/hatL3L" class="btn btn-outline-light btn-xl" role="button">
-        Subscribe
-        <i class="far fa-paper-plane"></i>
-      </a>
+    <div class="container-fuild text-white inconsolata-font bg-black" id="communication-channels-section">
+      <div class="row text-center bg-black">
+        <div class="col-12 mx-3 pt-3 pb-2 h3">
+		    Subscribe to our mailing list <i class="text-arrow">&#129046;</i>
+            <a href="http://eepurl.com/hatL3L" target="_blank" class="btn btn-outline-light btn-xl communication-channel-btn" role="button">
+              Subscribe
+              <i class="far fa-envelope"></i>
+            </a>
+        </div>
+      </div>
     </div>
-		<div class="text-white text-center mt-4 bg-black" >
+	<div class="text-white text-center mt-4 bg-black" >
       <h5 class="p-0 m-0 inconsolata-font">Texas A&amp;M Cybersecurity Club <span class="year"></span></a></h5>
-		</div>
+	</div>
   </footer>
   <!--End Footer -->
 

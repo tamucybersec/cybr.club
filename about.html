@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 	<!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/b9d296bf83.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -29,7 +28,7 @@
   <nav class="navbar navbar-expand-xl static-top">
     <div>
       <a class="navbar-brand my-auto" href="./index.html">
-        <img class="img-fluid" src="./assets/img/club-logos/whiteShield.png" alt="Cybersecurity Club logo, a white shield"> 
+        <img class="img-fluid" src="./assets/img/club-logos/whiteShield.png" alt="Home"> 
       </a>
         <div class="navbar-brand-title d-inline align-middle">Cybersecurity Club</div>
     </div>
@@ -37,71 +36,75 @@
     <i class="fa fa-bars" style="color:#fff"></i></button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./index.html">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link nav-link-fade-up nav-link-fade-up-active px-0" href="./about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./calendar.html">Calendar</a>
+          <a class="nav-link nav-link-fade-up px-0" href="./meetings.html">Meetings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./events.html">Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./partners.html">Partners</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link nav-link-fade-up px-0" href="./contact.html">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./forms.html">Forms</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Swag</a>
+          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Merch</a>
         </li>
       </ul>
     </div>
   </nav>
   <!-- End Navigation -->
 
-  <!-- Start About Us Summary -->
-  <div class="container-fluid text-center" style="position:relative;">
-    <div class="row animated fadeInDown mt-0">
+  <!-- Start About Us -->
+  <div id="about-us-section" class="container">
+    <div id="about-us-title" class="row text-center">
       <div class="col-12">
         <h1 class="text-white inconsolata-font" style="letter-spacing:.5px;">About Us</h1>
         <hr class="border-maroon mb-3 about-title-underline">
       </div>
     </div>
-    <div class="row d-flext justify-content-center text-center animated fadeInUp">
+	
+    <div class="row d-flext justify-content-center text-center">
       <div class="col-sm-10 col-md-8 col-lg-9">
         <p class="lead inconsolata-font text-white mx-5" style="font-size:23px;">
-          We aim to cultivate and foster the next generation of cybersecurity leaders by engaging them with a community-driven club. 
-          Our officer team works to provide different opportunities to anyone that is a part of our community so any background or major feels welcomed and engaged. 
-          We try to adopt an altruistic attitude and hope to inspire the current generation of members to give back to the next generation as much value as we have tried to give them.
+          The Texas A&M Cybersecurity Club provides students with opportunities to learn more about the cybersecurity field and develop their skills through competitions, learning programs, and weekly meetings on cybersecurity topics.
+		  We foster a community where members can learn and grow together as they develop their professional network.
         </p>
       </div>
     </div>
   </div>
-  <!-- End About Us Summary -->
+  <!-- End About Us -->
 
-  <div class="container text-center animated fadeInUp" style="position:relative;z-index:2;">
-    <div class="row" style="z-index:9;">
+  <!-- Start Our Team -->
+  <div class="container text-center">
+    <div id="our-team-title" class="row" style="z-index:9;">
       <div class="col-12">
         <h1 class="text-white mt-2 inconsolata-font" style="letter-spacing:.5px;">Our Team</h1>
         <hr class="border-maroon mb-4 about-title-underline">
       </div>
     </div>
 
-    <!-- Officers Photos -->
-    <div id="officers" class="row d-flex justify-content-center">
+    <div id="our-team-description" class="row d-flext justify-content-center text-center">
+      <div class="col-sm-10 col-md-8 col-lg-9">
+        <p class="lead inconsolata-font text-white mx-5" style="font-size:23px;">
+          Our officer team works to foster a community where people of any background or major feel welcomed and engaged. 
+          We hope to inspire members to be leaders and support the next generation.
+        </p>
+      </div>
     </div>
+
+    <!-- Start Officer Photos -->
+    <div id="officers" class="row d-flex justify-content-center"></div>
+	<!-- End Officer Photos -->
   </div>
-  <!-- End Officer Photos -->
+  <!-- End Our Team -->
 
   <!-- Alumni -->
-  <div class="container animated fadeInUp" style="position:relative;z-index:1;">
+  <div class="container">
     <div class="row">
       <div class="col-12 text-center">
         <h1 class="text-white mt-2 inconsolata-font" style="letter-spacing:.5px;">Alumni</h1>
@@ -124,7 +127,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer bg-black animated fadeInUp" style="position:relative;z-index:0;">
+  <footer class="footer bg-black" style="position:relative;z-index:0;">
     <div class="container">
       <div class="row justify-content-center my-3 pt-2">
         <h1 class="text-white text-uppercase inconsolata-font">Stay in touch</h1>
@@ -137,17 +140,20 @@
         <div class="linkedin col-5 col-sm-4 col-md-2"><a href="https://www.linkedin.com/company/texas-a-m-cyber-security-club/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a></div>
       </div>
     </div>
-    <div class="row justify-content-center my-3 pt-2 h3 text-white">
-      Subscribe to our mailing list to get weekly updates!
-      <div class="m-0 mt-3 d-sm-block d-lg-none"></div>
-      <a href="http://eepurl.com/hatL3L" class="btn btn-outline-light btn-xl" role="button">
-        Subscribe
-        <i class="far fa-paper-plane"></i>
-      </a>
+    <div class="container-fuild text-white inconsolata-font bg-black" id="communication-channels-section">
+      <div class="row text-center bg-black">
+        <div class="col-12 mx-3 pt-3 pb-2 h3">
+		    Subscribe to our mailing list <i class="text-arrow">&#129046;</i>
+            <a href="http://eepurl.com/hatL3L" target="_blank" class="btn btn-outline-light btn-xl communication-channel-btn" role="button">
+              Subscribe
+              <i class="far fa-envelope"></i>
+            </a>
+        </div>
+      </div>
     </div>
-		<div class="text-white text-center mt-4 bg-black" >
+	<div class="text-white text-center mt-4 bg-black" >
       <h5 class="p-0 m-0 inconsolata-font">Texas A&amp;M Cybersecurity Club <span class="year"></span></a></h5>
-		</div>
+	</div>
   </footer>
   <!--End Footer -->
   
