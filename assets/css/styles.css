@@ -711,6 +711,6 @@ a:hover .fa-link.about {
 
 @media (max-width: 460px) {
   #particles-js {
-    height: 675px;
+    height: 600px;
   }
 }
