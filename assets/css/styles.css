@@ -67,6 +67,11 @@ a, a:hover {
   color: #000;
 }
 
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
 /*-- Fonts --*/
 .inconsolata-font {
   font-family: 'Inconsolata';
@@ -524,6 +529,10 @@ a:hover .fa-link.about {
 	margin-top: 10px;
 }
 
+#club-description {
+	width: 953px;
+}
+
 /*============= CONTACT PAGE =============*/
 #contact-us-underline {
 	width: 14rem;
@@ -631,8 +640,6 @@ a:hover .fa-link.about {
   
   #club-description {
 	width: 90vw;
-	position: relative;
-	left: 5vw;
   }
 
   /* make all horizontal fadeIn up on mobile */
