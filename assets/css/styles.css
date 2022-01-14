@@ -693,17 +693,19 @@ a:hover .fa-link.about {
   .events-title-underline {
     width: 100%;
   }
+  
+  #particles-js {
+    background: #000;
+    height: 700px;
+  }
+  
+  #club-description {
+	  margin-bottom: 50px !important;
+  }
 }
 
 @media (max-width: 460px) {
   #events-competitions-title-underline {
 	  width: 18rem;
   }
-}
-
-@media (max-width: 388px) {
-	#particles-js {
-	  background: #000;
-	  height: 625px;
-	}
 }
