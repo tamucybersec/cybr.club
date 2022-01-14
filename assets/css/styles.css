@@ -628,6 +628,12 @@ a:hover .fa-link.about {
     font-size: 4rem;
     padding-bottom: 1.7rem;
   }
+  
+  #club-description {
+	width: 90vw;
+	position: relative;
+	left: 5vw;
+  }
 
   /* make all horizontal fadeIn up on mobile */
   .fadeInLeft {
