@@ -163,7 +163,7 @@ a:hover.maroon-link {
 /*============NAVBAR===============*/
 .navbar {
   font-family: 'Inconsolata';
-  width: 100%;
+  width: 100vw;
   background-color: #000;
   position: relative;
 }
@@ -333,6 +333,11 @@ a.btn > i {
 
 #sponsor-join-message {
 	font-size: 25px;
+}
+
+
+#sponsor-join-message > a {
+	width: 132px;
 }
 
 /*============= ABOUT PAGE =============*/
@@ -599,6 +604,10 @@ a:hover .fa-link.about {
   .nav-link-fade-up-active:before {
     bottom: 10px;
     opacity: 1;
+  }
+  
+  #sponsor-join-message > a {
+	display: block;
   }
 }
 
