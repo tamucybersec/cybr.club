@@ -230,14 +230,14 @@ a:hover.maroon-link {
 /*-- Particles --*/
 #particles-js {
   background: #000;
-  height: 100vh;
+  height: 575px;
 }
 
 /*-- welcome title --*/
 .caption {
   width: 100vw;
   position: absolute;
-  top: 20%;
+  top: 115px;
   z-index: 1;
   font-family: 'Inconsolata';
 }
@@ -626,7 +626,7 @@ a:hover .fa-link.about {
     display: none !important;
   }
   .caption {
-    top: 25%;
+    top: 80px;
   }
   .caption h1 {
     font-size: 6rem;
@@ -654,7 +654,7 @@ a:hover .fa-link.about {
 /* Md devices - under 768px */
 @media (max-width: 767.98px) {
   .caption {
-    top: 23%;
+    top: 115px;
   }
   .caption h1 {
     font-size: 5rem;
@@ -679,7 +679,7 @@ a:hover .fa-link.about {
 /* Sm devices - under 576px */
 @media (max-width: 575.98px) {
   .caption {
-    top: 20%;
+    top: 150px;
   }
   .caption h1 {
     font-size: 4em;
@@ -699,4 +699,11 @@ a:hover .fa-link.about {
   #events-competitions-title-underline {
 	  width: 18rem;
   }
+}
+
+@media (max-width: 388px) {
+	#particles-js {
+	  background: #000;
+	  height: 625px;
+	}
 }
