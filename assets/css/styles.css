@@ -641,6 +641,10 @@ a:hover .fa-link.about {
   #club-description {
 	width: 90vw;
   }
+  
+  #particles-js {
+    height: 600px;
+  }
 
   /* make all horizontal fadeIn up on mobile */
   .fadeInLeft {
@@ -702,5 +706,11 @@ a:hover .fa-link.about {
 @media (max-width: 460px) {
   #events-competitions-title-underline {
 	  width: 18rem;
+  }
+}
+
+@media (max-width: 460px) {
+  #particles-js {
+    height: 675px;
   }
 }
