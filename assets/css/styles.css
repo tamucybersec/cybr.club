@@ -406,8 +406,8 @@ a:hover .fa-link.about {
   border-top: none !important;
 }
 .alumni-table th {
-  font-size: 2rem;
   border-bottom: .2rem solid white !important;
+  font-size: 2rem;
 }
 .alumni-table tr {
   font-size: 1.2rem;
@@ -531,6 +531,8 @@ a:hover .fa-link.about {
 
 #club-description {
 	width: 953px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*============= CONTACT PAGE =============*/
@@ -678,6 +680,7 @@ a:hover .fa-link.about {
   .card-partners-right {
     margin: 0 auto 2rem auto;
   }
+  
 }
 
 /* Sm devices - under 576px */
@@ -700,6 +703,15 @@ a:hover .fa-link.about {
   
   #club-description {
 	  margin-bottom: 50px !important;
+  }
+  
+  .alumni-table th {
+    border-bottom: .2rem solid white !important;
+    font-size: 5vw;
+  }
+  
+  .alumni-table tr {
+    font-size: 4vw;
   }
 }
 
