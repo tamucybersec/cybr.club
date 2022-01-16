@@ -92,7 +92,8 @@ a, a:hover {
 .instagram a,
 .linkedin a,
 .discord a,
-.github a {
+.github a, 
+.facebook a {
   color: #fff;
   display:inline-block;
 }
@@ -116,6 +117,10 @@ a, a:hover {
 .github a:hover {
   color: #fff;
   opacity: .9;
+}
+
+.facebook a:hover {
+  color: #4867aa
 }
 
 /*-- Title Underline --*/
