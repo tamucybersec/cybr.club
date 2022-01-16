@@ -93,19 +93,23 @@ $(document).ready(function() {
         tbody.append(`
           <tr>
             <td>
-            ${alumni[i].name}
-            ${alumni[i].socials.linkedin ? 
-              `<a href="${alumni[i].socials.linkedin}"><i class="fab fa-linkedin text-white fa-lg"></i></a>`
+			  <div style="display: inline-block;">
+              ${alumni[i].name}
+			  </div>
+			  <div style="display: inline-block;">
+              ${alumni[i].socials.linkedin ? 
+                `<a href="${alumni[i].socials.linkedin}"><i class="fab fa-linkedin text-white fa-lg"></i></a>`
+                : ''}
+              ${alumni[i].socials.github ? 
+              `<a href="${alumni[i].socials.github}"><i class="fab fa-github-square text-white fa-lg"></i></a>`
               : ''}
-            ${alumni[i].socials.github ? 
-            `<a href="${alumni[i].socials.github}"><i class="fab fa-github-square text-white fa-lg"></i></a>`
-            : ''}
-            ${alumni[i].socials.email ? 
-              `<a href="mailto:${alumni[i].socials.email}"><i class="fas fa-envelope text-white fa-lg"></i></a>`
-              : ''}
-            ${alumni[i].socials.website ? 
-              `<a href="${alumni[i].socials.website}"><i class="fas fa-link text-white fa-lg"></i></a>`
-              : ''}
+              ${alumni[i].socials.email ? 
+                `<a href="mailto:${alumni[i].socials.email}"><i class="fas fa-envelope text-white fa-lg"></i></a>`
+                : ''}
+              ${alumni[i].socials.website ? 
+                `<a href="${alumni[i].socials.website}"><i class="fas fa-link text-white fa-lg"></i></a>`
+                : ''}
+			  </div>
             </td>
             <td>${alumni[i].position}</td>
             <td>${alumni[i].gradYear}</td>
