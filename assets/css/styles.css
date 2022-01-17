@@ -240,7 +240,10 @@ a:hover.maroon-link {
 
 /*-- welcome title --*/
 .caption {
-  width: 100vw;
+  width: 767.98px;
+  margin: auto;
+  left: 0;
+  right: 0;
   position: absolute;
   top: 115px;
   z-index: 1;
@@ -356,6 +359,10 @@ a.btn > i {
 }
 .card:hover.about {
   transform: scale(.95);
+}
+
+.major-year {
+	color: rgba(0,0,0,.3)!important;
 }
 
 #our-team-title {
@@ -666,6 +673,7 @@ a:hover .fa-link.about {
 @media (max-width: 767.98px) {
   .caption {
     top: 115px;
+    width: 100vw;
   }
   .caption h1 {
     font-size: 5rem;
