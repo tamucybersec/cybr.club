@@ -726,6 +726,14 @@ a:hover .fa-link.about {
   .alumni-table tr {
     font-size: 4vw;
   }
+  
+  .officer-committee-title > h1 {
+	  font-size: 10vw !important;
+  }
+  
+  .officer-committee-title > div {
+	  width: 100% !important;
+  }
 }
 
 @media (max-width: 460px) {

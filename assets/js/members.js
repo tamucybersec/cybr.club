@@ -263,7 +263,7 @@ const officers = [
   },
   {
     name: "Connor Plank",
-    position: "EC-Council Student Ambassador",
+    position: "EC-Council Student Ambass.",
 	major_year: "TCMG '23",
     image: "assets/img/officers/formatted/connor-plank.jpeg",
     socials: {
