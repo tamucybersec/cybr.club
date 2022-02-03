@@ -83,16 +83,38 @@
   </div>
   <!-- End Cisco About -->
 
-  <div class="container text-center">
+	
+  <!-- Calendar -->
+  <!-- responsive-iframe-container http://themeloom.com/2013/02/tips-embed-google-maps-and-calendars-in-a-responsive-wordpress-theme/ -->
+  <h1 class="text-white mt-2 inconsolata-font text-center" style="margin-top: 50px !important; letter-spacing:.5px;">Event Calendar</h1>
+  <hr class="border-maroon mb-4 about-title-underline">
+
+  <div class="container">
+    <div class="responsive-iframe-container bg-white">
+      <div class="row d-flex align-items-center justify-content-center calendar">
+        <div class="d-md-none">
+		  <iframe src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;mode=AGENDA" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+		</div>
+        <div class="d-none d-md-block">
+		  <iframe title="cisco calendar" src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Calendar -->
+
+  <!-- CNA Leads -->
+  <div class="container text-center" style="margin-top: 50px">
     <div class="row">
       <div class="col-12">
         <h1 class="text-white mt-2 inconsolata-font" style="letter-spacing:.5px;">Cisco Academy Student Ambassador</h1>
-        <hr class="border-maroon mb-4 about-title-underline">
+        <hr class="border-maroon mb-4 about-title-underline" style="width: 200px !important">
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4 mx-auto">
           <div class="card about border-0 shadow">
             <img src="./assets/img/officers/formatted/colby-coppinger.jpeg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title mb-0">Colby Coppinger</h5>
+			  <div class="card-text text-black-50">CNA Student Ambassador</div>
               <hr class="m-0 p-0 my-2">
               <ul class="social-media">
                 <li>
@@ -104,61 +126,8 @@
         </div>
       </div>
     </div>
-    
-
-    <!-- RHA  Photos -->
-    <!-- <div class="row d-flex justify-content-center">
-      
-      <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-        <div class="card about border-0 shadow">
-          <img src="./assets/img/partners/ec-council/liliana-garcia.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title mb-0">Liliana Garcia</h5>
-            <div class="card-text text-black-50">EC-Council Student Ambassador</div>
-            <hr class="m-0 p-0 my-2">
-            <ul class="social-media">
-              <li>
-                <a href="mailto:tamueccouncil@gmail.com"><i class="fas fa-envelope about fa-lg"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- End RHA Photos -->
-
-    <!-- <div class="row animated fadeInUp">
-      <div class="col-12">
-        <h1 class="text-white mt-2 inconsolata-font" style="letter-spacing:.5px;">Contact Us</h1>
-        <hr class="border-maroon mb-4 about-title-underline">
-      </div>
-    </div> -->
-    <!-- <div class="row animated mb-5 justify-content-center">
-      <div class="row justify-content-center">
-        <div class="col-sm-10 col-md-12">
-          <div class="card text-white" style="background:#000;border-color:#bf2121;border-width:thick;">
-            <div class="card-body text-right">
-              <form id="contact-form" method="POST">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input id="name" type="text" class="form-control" required minlength="2" placeholder="Full name">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input id="email" type="email" class="form-control" required placeholder="Email address">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <textarea id="msg" class="form-control" rows="7" required placeholder="Message"></textarea>
-                  </div>
-                </div>
-                <button type="button mx-auto" onClick="submitToAPI(event)" class="btn btn-light">Submit</button>
-                <button style="display:none;" type="submit" id="handle-submit">Not Shown</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
+  <!-- End CNA Leads -->
 
   <!-- Footer -->
   <footer class="footer bg-black">
