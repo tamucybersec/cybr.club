@@ -36,7 +36,7 @@ function submitToAPI(e) {
       });
     },
     error: function () {
-    swal('Error Sending Message!', 'Please contact tamucybersec@gmail.com directly', 'error');
+    swal('Error Sending Message!', `Please contact ${email_address} directly`, 'error');
     return;
   }});
 }
