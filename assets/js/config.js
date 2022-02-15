@@ -1,8 +1,8 @@
 // API GATEWAY ENDPOINT URL FOR AWS LAMBDA+SES
 const API_EMAIL_URL_ROOT = 'https://3qc9d77k52.execute-api.us-east-1.amazonaws.com/prod'
 const API_HOME_EMAIL = API_EMAIL_URL_ROOT + '/contact'
-const API_RHA_EMAIL = API_HOME_EMAIL + '/contact'
-const API_WICYS_EMAIL = API_HOME_EMAIL + '/wicys-contact'
+const API_RHA_EMAIL = API_EMAIL_URL_ROOT + '/contact'
+const API_WICYS_EMAIL = API_EMAIL_URL_ROOT + '/wicys-contact'
 let API_EMAIL_URL = ''
 
 let email_address = ''
