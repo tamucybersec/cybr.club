@@ -17,12 +17,13 @@ function submitToAPI(e) {
   var data = {
     name : name,
     email : email,
-    msg : msg
+    msg : msg,
+    page : page
   };
 
   $.ajax({
     type: 'POST',
-    url : API_EMAIL_URL,
+    url : API_HOME_EMAIL,
     dataType: 'json',
     crossDomain: 'true',
     contentType: 'application/json; charset=utf-8',
