@@ -2,7 +2,7 @@
 function submitToAPI(e) {
   e.preventDefault();
 
-  var $contactForm = $('#contact-form');
+  const $contactForm = $('#contact-form');
   
   // use html5 validation for input fields
   if(!$contactForm[0].checkValidity()) {
@@ -14,7 +14,7 @@ function submitToAPI(e) {
   let email = $('#email').val().toLowerCase();
   let msg = $('#msg').val();
 
-  var data = {
+  const data = {
     name : name,
     email : email,
     msg : msg,
@@ -23,7 +23,7 @@ function submitToAPI(e) {
 
   $.ajax({
     type: 'POST',
-    url : API_HOME_EMAIL,
+    url : API_URL,
     dataType: 'json',
     crossDomain: 'true',
     contentType: 'application/json; charset=utf-8',
