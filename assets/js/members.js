@@ -7,7 +7,7 @@ const officers = [
     name: "Emily Murphy",
     position: "President",
 	major_year: "CPSC '22",
-    image: "assets/img/officers/formatted/emily-murphy.jpg",
+    image: "assets/img/officers/formatted/emily.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/murphe22",
         github: "https://github.com/emurph1",
@@ -19,7 +19,7 @@ const officers = [
     name: "Jonathan Saenz",
     position: "Vice President",
 	major_year: "CECN '21",
-    image: "assets/img/officers/formatted/jonathan-saenz.jpg",
+    image: "assets/img/officers/formatted/jonathan.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/jsaenz1",
         github: "https://github.com/saenzjonathan11",
@@ -31,7 +31,7 @@ const officers = [
     name: "Adele Walker",
     position: "WiCyS President",
 	major_year: "MISY '22",
-    image: "assets/img/officers/formatted/adele-walker.jpg",
+    image: "assets/img/officers/formatted/adele.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/adele-w-a75ab7ba/",
         github: "",
@@ -43,7 +43,7 @@ const officers = [
     name: "Lane Simmons",
     position: "Secretary",
 	major_year: "ENGR '25",
-    image: "assets/img/officers/formatted/lane-simmons.jpg",
+    image: "assets/img/officers/formatted/lane.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/lcsimmons/",
         github: "https://github.com/lcsimmons",
@@ -55,7 +55,7 @@ const officers = [
     name: "Glenn Fitzpatrick",
     position: "Treasurer",
 	major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/glenn-fitzpatrick.jpg",
+    image: "assets/img/officers/formatted/glenn.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/glennfitzpatrickgigem/",
         github: "https://github.com/RogueGuardian",
@@ -67,7 +67,7 @@ const officers = [
     name: "Betzaida Perez Gomez",
     position: "Director of Public Relations",
 	major_year: "ESET '22",
-    image: "assets/img/officers/formatted/betzaida-gomez.jpg",
+    image: "assets/img/officers/formatted/betzaida.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/betzaidaperezgomez/",
         github: "",
@@ -79,9 +79,9 @@ const officers = [
     name: "Jacob Kastenschmidt",
     position: "Director of External Relations",
 	major_year: "MISY '23",
-    image: "assets/img/officers/formatted/jacob-kastenschmidt.jpg",
+    image: "assets/img/officers/formatted/jacob.jpg",
     socials: {
-        linkedin: "https://www.linkedin.com/in/jacob-kastenschmidt-b217731a8/",
+        linkedin: "https://www.linkedin.com/in/jkas/",
         github: "",
         email: "tamucybersec@gmail.com",
         website: ""
@@ -106,7 +106,7 @@ const officers = [
     name: "Nathan Nguyen",
     position: "CTF Team Lead",
 	major_year: "CPSC + APMS '24",
-    image: "assets/img/officers/formatted/nathan-nguyen.jpg",
+    image: "assets/img/officers/formatted/nathan.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
         github: "https://github.com/nhwn",
@@ -118,10 +118,10 @@ const officers = [
     name: "Jack Roehr",
     position: "CCDC Team Lead",
 	major_year: "ECON + CPSC '24",
-    image: "assets/img/officers/formatted/jack-roehr.jpg",
+    image: "assets/img/officers/formatted/jack.jpg",
     socials: {
-        linkedin: "",
-        github: "",
+        linkedin: "https://www.linkedin.com/in/jroehr",
+        github: "https://github.com/bin",
         email: "tamucybersec@gmail.com",
         website: ""
     }
@@ -130,7 +130,7 @@ const officers = [
     name: "Matthew Le",
     position: "Competition Co-Lead",
 	major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/matthew-le.jpg",
+    image: "assets/img/officers/formatted/matthew.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/matthew-le-8395051b7/",
         github: "https://github.com/matthewle0xff",
@@ -142,7 +142,7 @@ const officers = [
     name: "Derek Viet",
     position: "Webmaster",
 	major_year: "CECN '23",
-    image: "assets/img/officers/formatted/derek-viet.png",
+    image: "assets/img/officers/formatted/derek.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/derek-viet/",
         github: "https://github.com/pyristix",
@@ -151,164 +151,16 @@ const officers = [
     }
   }],
   
-  //ACTIVITIES COMMITTEE
-  ["#activities-committee",
-  {
-    name: "Jonathan Saenz",
-    position: "CodePath Tech Fellow",
-	major_year: "CECN '21",
-    image: "assets/img/officers/formatted/jonathan-saenz.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/jsaenz1",
-        github: "https://github.com/saenzjonathan11",
-        email: "tamucybersec@gmail.com",
-        website: "https://jonathanfsaenz.com"
-    }
-  },
-  {
-    name: "Eric Yang",
-    position: "CodePath Tech Fellow",
-	major_year: "ENGR '25",
-    image: "assets/img/officers/formatted/eric-yang.jpg",
-    socials: {
-        linkedin: "",
-        github: "",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Emmie Teng",
-    position: "CodePath Tech Fellow",
-	major_year: "ENGR '25",
-    image: "assets/img/officers/formatted/emmie-teng.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
-        github: "https://github.com/nhwn",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Aaron Calderon",
-    position: "CodePath Tech Fellow",
-	major_year: "CECN '23",
-    image: "assets/img/officers/formatted/aaron-calderon.jpg",
-    socials: {
-        linkedin: "",
-        github: "",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Jonathan Saenz",
-    position: "RHA Student Ambassador",
-	major_year: "CECN '21",
-    image: "assets/img/officers/formatted/jonathan-saenz.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/jsaenz1",
-        github: "https://github.com/saenzjonathan11",
-        email: "tamucybersec@gmail.com",
-        website: "https://jonathanfsaenz.com"
-    }
-  },
-  {
-    name: "Derek Viet",
-    position: "RHA Student Ambassador",
-	major_year: "CECN '23",
-    image: "assets/img/officers/formatted/derek-viet.png",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/derek-viet/",
-        github: "https://github.com/pyristix",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Adele Walker",
-    position: "WiCyS President",
-	major_year: "MISY '22",
-    image: "assets/img/officers/formatted/adele-walker.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/adele-w-a75ab7ba/",
-        github: "",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Emily Murphy",
-    position: "WiCyS Vice President",
-	major_year: "CPSC '22",
-    image: "assets/img/officers/formatted/emily-murphy.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/murphe22",
-        github: "https://github.com/emurph1",
-        email: "tamucybersec@gmail.com",
-        website: "https://murphe22.com"
-    }
-  },
-  {
-    name: "Betzaida Perez Gomez",
-    position: "WiCyS Social Media Officer",
-	major_year: "ESET '22",
-    image: "assets/img/officers/formatted/betzaida-gomez.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/betzaidaperezgomez/",
-        github: "",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Connor Plank",
-    position: "EC-Council Student Ambass.",
-	major_year: "TCMG '23",
-    image: "assets/img/officers/formatted/connor-plank.jpeg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/connor-plank-20983a20a/",
-        github: "",
-        email: "connor.plank@tamu.edu",
-        website: ""
-    }
-  },
-  {
-    name: "Colby Coppinger",
-    position: "CNA Student Ambassador",
-	major_year: "ENGR '25",
-    image: "assets/img/officers/formatted/colby-coppinger.jpeg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/colby-coppinger-511430223/",
-        github: "",
-        email: "colbycoppinger_3@tamu.edu",
-        website: ""
-    }
-  },
-  {
-    name: "Camryn Ochs",
-    position: "CNA Student Ambassador",
-	major_year: "ITDE '23",
-    image: "assets/img/officers/formatted/camryn-ochs.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/murphe22",
-        github: "https://github.com/emurph1",
-        email: "tamucybersec@gmail.com",
-        website: "https://murphe22.com"
-    }
-  }
-  ],
-  
   //OFFICERS IN TRAINING
   ["#officers-in-training",
   {
     name: "Danny Hernandez",
     position: "",
 	major_year: "TCMG '24",
-    image: "assets/img/officers/formatted/danny-hernandez.jpg",
+    image: "assets/img/officers/formatted/danny.jpg",
     socials: {
-        linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
-        github: "https://github.com/nhwn",
+        linkedin: "https://www.linkedin.com/in/dhernandez24",
+        github: "",
         email: "tamucybersec@gmail.com",
         website: ""
     }
@@ -317,9 +169,9 @@ const officers = [
     name: "Emmie Teng",
     position: "",
 	major_year: "ENGR '25",
-    image: "assets/img/officers/formatted/emmie-teng.jpg",
+    image: "assets/img/officers/formatted/emmie.jpg",
     socials: {
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/mengting-teng",
         github: "",
         email: "tamucybersec@gmail.com",
         website: ""
@@ -329,10 +181,10 @@ const officers = [
     name: "Logan MacDonald",
     position: "",
 	major_year: "TCMG '23",
-    image: "assets/img/officers/formatted/logan-macdonald.jpg",
+    image: "assets/img/officers/formatted/logan.jpg",
     socials: {
-        linkedin: "https://www.linkedin.com/in/matthew-le-8395051b7/",
-        github: "https://github.com/matthewle0xff",
+        linkedin: "https://www.linkedin.com/in/logan-macdonald-16591846/",
+        github: "",
         email: "tamucybersec@gmail.com",
         website: ""
     }
@@ -341,10 +193,10 @@ const officers = [
     name: "Liam Haber",
     position: "",
 	major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/liam-haber.jpg",
+    image: "assets/img/officers/formatted/liam.jpg",
     socials: {
-        linkedin: "https://www.linkedin.com/in/matthew-le-8395051b7/",
-        github: "https://github.com/matthewle0xff",
+        linkedin: "",
+        github: "",
         email: "tamucybersec@gmail.com",
         website: ""
     }
@@ -353,10 +205,10 @@ const officers = [
     name: "Rohan Viswanathan",
     position: "",
 	major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/rohan-viswanathan.jpg",
+    image: "assets/img/officers/formatted/rohan.jpg",
     socials: {
-        linkedin: "https://www.linkedin.com/in/matthew-le-8395051b7/",
-        github: "https://github.com/matthewle0xff",
+        linkedin: "",
+        github: "",
         email: "tamucybersec@gmail.com",
         website: ""
     }

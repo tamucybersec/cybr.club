@@ -1,3 +1,12 @@
-compress images: https://tinypng.com/
-resize using: https://www.birme.net/?quality=100
-1200x1250
+compress images: 
+https://tinypng.com/
+
+resize using: 
+https://www.birme.net/?quality=100
+or
+https://resizeimage.net/
+
+Size: 1200x1250
+
+2/13/22 Note: On an officer picture update, I used this aspect ratio
+1800x1875
