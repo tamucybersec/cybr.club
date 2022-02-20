@@ -37,57 +37,60 @@ $('#instagram').hover(function () {
 /*========== ABOUT PAGE  ==========*/
 $(document).ready(function() {
   if (window.location.pathname == '/about.html') {
-    // Dynamically create alumni table
-    const officerCol = ['name', 'position', 'socials']
     $( document ).ready(function() {
-      let numCols = 3;
-      let offciersBody = $('#officers');
-      for(let i = 0; i < officers.length; ++i) {
-        let name = officers[i].name;
-        let position = officers[i].position;
-        let image = officers[i].image;
+	  for(let i = 0; i < officers.length; i++) {
+		  //Section for the committee on the webpage. Selects HTML element by ID using jQuery. For example, the right side of the expression might be $("executive-board") for one section
+          let section = $(officers[i][0]);
+	  
+		  for(let j = 1; j < officers[i].length; j++) {
+			let name = officers[i][j].name;
+			let position = officers[i][j].position;
+			let major_year = officers[i][j].major_year;
+			let image = officers[i][j].image;
 
-        let officer = $(`
-        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-          <div class="card about border-0 shadow">
-            <img class="card-img-top" src="${image}" alt="${name}">
-            <div class="card-body">
-              <h5 class="card-title mb-0">${name}</h5>
-              <div class="card-text text-black-50">${position}</div>
-              <hr class="m-0 p-0 my-2">
-              <ul class="social-media">
-              ${officers[i].socials.linkedin ? 
-                `<li>
-                  <a href="${officers[i].socials.linkedin}"><i class="fab fa-linkedin about fa-lg"></i></a>
-                </li>`
-                : ''}
-              ${officers[i].socials.github ? 
-                `<li>
-                  <a href="${officers[i].socials.github}"><i class="fab fa-github-square about fa-lg"></i></a>
-                </li>`
-                : ''}
-              ${officers[i].socials.email ? 
-                `<li>
-                  <a href="mailto:${officers[i].socials.email}"><i class="fas fa-envelope about fa-lg"></i></a>
-                </li>`
-                : ''}
-              ${officers[i].socials.website ? 
-                `<li>
-                  <a href="${officers[i].socials.website}"><i class="fas fa-link about fa-lg"></i></a>
-                </li>`
-                : ''}
-              </ul>
-            </div>
-          </div>
-        </div>
-        `).appendTo(offciersBody);
+			let officer_card = $(`
+			<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+			  <div class="card about border-0 shadow">
+				<img class="card-img-top" src="${image}" alt="${name}">
+				<div class="card-body">
+				  <h5 class="card-title mb-0">${name}</h5>
+				  <div class="card-text text-black-50">${position}</div>
+				  <div class="card-text major-year">${major_year}</div>
+				  <hr class="m-0 p-0 my-2">
+				  <ul class="social-media">
+				  ${officers[i][j].socials.linkedin ? 
+					`<li>
+					  <a href="${officers[i][j].socials.linkedin}"><i class="fab fa-linkedin about fa-lg"></i></a>
+					</li>`
+					: ''}
+				  ${officers[i][j].socials.github ? 
+					`<li>
+					  <a href="${officers[i][j].socials.github}"><i class="fab fa-github-square about fa-lg"></i></a>
+					</li>`
+					: ''}
+				  ${officers[i][j].socials.email ? 
+					`<li>
+					  <a href="mailto:${officers[i][j].socials.email}"><i class="fas fa-envelope about fa-lg"></i></a>
+					</li>`
+					: ''}
+				  ${officers[i][j].socials.website ? 
+					`<li>
+					  <a href="${officers[i][j].socials.website}"><i class="fas fa-link about fa-lg"></i></a>
+					</li>`
+					: ''}
+				  </ul>
+				</div>
+			  </div>
+			</div>
+			`)
+			
+			officer_card.appendTo(section);
+		  }
       }
     });
 
     // Dynamically create alumni table
-    const alumniCol = ['name', 'position', 'gradYear']
     $( document ).ready(function() {
-      let numCols = 3;
       let tbody = $('.alumni-table tbody');
       for(let i = 0; i < alumni.length; ++i) {
         tbody.append(`
