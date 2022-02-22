@@ -93,10 +93,10 @@ const officers = [
 	major_year: "CSCE Department",
     image: "assets/img/officers/formatted/martin-carlisle.jpg",
     socials: {
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/martincarlisle/",
         github: "",
         email: "",
-        website: ""
+        website: "https://martincarlisle.com/"
     }
   }],
   
@@ -123,7 +123,7 @@ const officers = [
         linkedin: "https://www.linkedin.com/in/jroehr",
         github: "https://github.com/bin",
         email: "tamucybersec@gmail.com",
-        website: ""
+        website: "https://seatgull.com"
     }
   },
   {
@@ -184,7 +184,7 @@ const officers = [
     image: "assets/img/officers/formatted/logan.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/logan-macdonald-16591846/",
-        github: "",
+        github: "https://github.com/Logan-MacDonald",
         email: "tamucybersec@gmail.com",
         website: ""
     }
@@ -207,8 +207,8 @@ const officers = [
 	major_year: "CPSC '23",
     image: "assets/img/officers/formatted/rohan.jpg",
     socials: {
-        linkedin: "",
-        github: "",
+        linkedin: "https://www.linkedin.com/in/rohan-viswanathan/",
+        github: "https://github.com/rohanvis24",
         email: "tamucybersec@gmail.com",
         website: ""
     }
@@ -219,9 +219,20 @@ const officers = [
 
 const alumni = [
   {
+    name: "Weijia Yan",
+    position: "WiCyS President",
+    gradYear: "Fall 2021",
+    socials: {
+        linkedin: "https://www.linkedin.com/in/weijia-yan",
+        github: "",
+        email: "",
+        website: ""
+    }
+  },
+  {
     name: "Teddy Heinen",
     position: "CTF Team Lead",
-    gradYear: "2022",
+    gradYear: "Fall 2021",
     socials: {
         linkedin: "https://www.linkedin.com/in/teddyheinen",
         github: "https://github.com/tcheinen",
@@ -232,7 +243,7 @@ const alumni = [
   {
     name: "Matthew Spence",
     position: "President",
-    gradYear: "2021",
+    gradYear: "Spring 2021",
     socials: {
         linkedin: "https://www.linkedin.com/in/matthew-s-4677aa128",
         github: "https://github.com/Matt-Spence/",
@@ -243,7 +254,7 @@ const alumni = [
   {
     name: "Arjun Lalith",
     position: "Vice President",
-    gradYear: "2021",
+    gradYear: "Spring 2021",
     socials: {
         linkedin: "https://www.linkedin.com/in/alalith",
         github: "https://github.com/alalith/",
@@ -254,7 +265,7 @@ const alumni = [
   {
     name: "Madeleine Phillips",
     position: "WiCyS President",
-    gradYear: "2021",
+    gradYear: "Spring 2021",
     socials: {
         linkedin: "https://www.linkedin.com/in/madeleinephillips848676",
         github: "https://github.com/phillips848676",
@@ -265,7 +276,7 @@ const alumni = [
   {
     name: "John Zenick",
     position: "President",
-    gradYear: "2020",
+    gradYear: "Spring 2020",
     socials: {
         linkedin: "",
         github: "",
@@ -276,7 +287,7 @@ const alumni = [
   {
     name: "Nick March",
     position: "Vice President",
-    gradYear: "2020",
+    gradYear: "Spring 2020",
     socials: {
         linkedin: "https://www.linkedin.com/in/nick-march-20103b11a",
         github: "",
@@ -287,7 +298,7 @@ const alumni = [
   {
     name: "Jonathan Alverson",
     position: "General Officer",
-    gradYear: "2020",
+    gradYear: "Spring 2020",
     socials: {
         linkedin: "",
         github: "",
