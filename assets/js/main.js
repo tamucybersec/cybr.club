@@ -78,6 +78,11 @@ $(document).ready(function() {
 					  <a href="${officers[i][j].socials.website}"><i class="fas fa-link about fa-lg"></i></a>
 					</li>`
 					: ''}
+				  ${officers[i][j].socials.website_2 ? 
+					`<li>
+					  <a href="${officers[i][j].socials.website_2}"><i class="fas fa-link about fa-lg"></i></a>
+					</li>`
+					: ''}
 				  </ul>
 				</div>
 			  </div>
