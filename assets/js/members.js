@@ -123,7 +123,8 @@ const officers = [
         linkedin: "https://www.linkedin.com/in/jroehr",
         github: "https://github.com/bin",
         email: "tamucybersec@gmail.com",
-        website: "https://seatgull.com"
+        website: "https://roe.hr",
+        website_2: "https://seatgull.com"
     }
   },
   {
