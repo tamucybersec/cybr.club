@@ -466,18 +466,18 @@ a:hover .fa-link.about {
 
 /*============= EVENT PAGE =============*/
 .card-partners-left {
-  width: 15rem;
-  height: 200px;
+  width: 12rem;
+  height: 10rem;
   margin: 0 0 2em auto;
 }
 .card-partners-right {
-  width: 15rem;
-  height: 200px;
+  width: 12rem;
+  height: 10rem;
   margin: 0 auto 2em 0;
 }
 .card-partners-middle {
-  width: 15rem;
-  height: 200px;
+  width: 12rem;
+  height: 10rem;
   margin: 0 auto;
   margin-bottom: 2em;
 }
