@@ -186,6 +186,11 @@ a:hover.maroon-link {
   padding: 16px 0;
   margin: 0 10px;
 }
+
+.nav-link {
+  word-spacing: -8px;
+}
+
 .nav-link::before {
   transition: 300ms;
   height: 3px;
@@ -517,6 +522,10 @@ a:hover .fa-link.about {
 	font-size: 30px;
 }
 
+#join-underline {
+	width: 8rem;
+}
+
 #programs-underline {
 	width: 12rem;
 }
@@ -545,6 +554,15 @@ a:hover .fa-link.about {
 	width: 953px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/*============= PARTNERSHIP PAGE =============*/
+.partnership-button {
+  display: block;
+  padding: 10px 30px 10px 30px;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: red;
 }
 
 /*============= CONTACT PAGE =============*/
