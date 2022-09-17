@@ -591,6 +591,20 @@ a:hover .fa-link.about {
 
 /*============= WICYS PAGE =============*/
 
+
+/*============= WICYS PAGE =============*/
+.cisco-text-section p {
+  margin-bottom: 0;
+}
+
+.bulleted-list {
+  list-style-position: inside;
+}
+
+.bulleted-list * {
+  list-style-type: circle;
+}
+
 /*============= LOGIN PAGE =============*/
 .btn-google {
   background: rgb(253, 245, 242) !important;
