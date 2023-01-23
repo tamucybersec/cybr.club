@@ -590,9 +590,6 @@ a:hover .fa-link.about {
 }
 
 /*============= WICYS PAGE =============*/
-
-
-/*============= WICYS PAGE =============*/
 .cisco-text-section p {
   margin-bottom: 0;
 }
@@ -604,6 +601,18 @@ a:hover .fa-link.about {
 .bulleted-list * {
   list-style-type: circle;
 }
+
+
+/*============= PALO ALTO PAGE =============*/
+#palo-alto-about a {
+  color: #D76600;
+}
+
+#palo-alto-logo {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
 
 /*============= LOGIN PAGE =============*/
 .btn-google {
