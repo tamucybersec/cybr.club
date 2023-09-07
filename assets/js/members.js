@@ -4,46 +4,9 @@
 const officers = [
   ["#officers",
   {
-    name: "Jacob Kastenschmidt",
-    position: "President",
-	  major_year: "MISY '23",
-    image: "assets/img/officers/formatted/jacob.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/jkas/",
-        github: "",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Glenn Fitzpatrick",
-    position: "Vice President",
-	  major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/glenn.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/glennfitzpatrickgigem/",
-        github: "https://github.com/RogueGuardian",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Anna Slater",
-    position: "WiCyS President",
-  	major_year: "CECN '23",
-    image: "assets/img/officers/formatted/anna.png",
-    socials: {
-        linkedin: "",
-        github: "",
-        email: "tamuwicys@gmail.com",
-        website: ""
-    }
-  },
-  {
     name: "Lane Simmons",
-    position: "Secretary",
-	  major_year: "ENGR '25",
-    image: "assets/img/officers/formatted/lane.jpg",
+    position: "President",
+	  major_year: "COMP '25",
     socials: {
         linkedin: "https://www.linkedin.com/in/lcsimmons/",
         github: "https://github.com/lcsimmons",
@@ -52,10 +15,27 @@ const officers = [
     }
   },
   {
+    name: "Bode Raymond",
+    position: "Interim Vice President",
+	  major_year: "COMP '25",
+    socials: {
+        email: "tamucybersec@gmail.com",
+    }
+  },
+  {
+    name: "Sophie Gleadell",
+    position: "Secretary",
+    major_year: "COMP '25",
+    socials: {
+        linkedin: "",
+        github: "",
+        email: "tamucybersec@gmail.com"
+    }
+  },
+  {
     name: "Danny Hernandez",
     position: "Treasurer",
 	  major_year: "TCMG '24",
-    image: "assets/img/officers/formatted/danny.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/dhernandez24",
         github: "",
@@ -66,97 +46,70 @@ const officers = [
   {
     name: "Emmie Teng",
     position: "Director of Public Relations",
-	  major_year: "ENGR '25",
-    image: "assets/img/officers/formatted/emmie.jpg",
+	  major_year: "CPSC '25",
     socials: {
         linkedin: "https://www.linkedin.com/in/mengting-teng",
-        github: "",
+        github: "https://github.com/TengMengTing",
         email: "tamucybersec@gmail.com",
         website: ""
     }
   },
   {
-    name: "Logan MacDonald",
+    name: "Lasyasri Shilpi",
     position: "Director of External Relations",
-	  major_year: "TCMG '23",
-    image: "assets/img/officers/formatted/logan.jpg",
+	  major_year: "CPSC '24",
     socials: {
-        linkedin: "https://www.linkedin.com/in/logan-macdonald-16591846/",
-        github: "https://github.com/Logan-MacDonald",
         email: "tamucybersec@gmail.com",
         website: ""
     }
-  }, 
+  },
   {
     name: "Nathan Nguyen",
     position: "CTF Team Lead",
 	  major_year: "CPSC + APMS '24",
-    image: "assets/img/officers/formatted/nathan.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
         github: "https://github.com/nhwn",
         email: "tamucybersec@gmail.com",
-        website: ""
     }
   },
   {
-    name: "Jack Roehr",
-    position: "CCDC Team Lead",
-	  major_year: "ECON + CPSC '24",
-    image: "assets/img/officers/formatted/jack.jpg",
+    name: "Stella Yang",
+    position: "Tech Lead",
+	  major_year: "CPSC '25",
     socials: {
-        linkedin: "https://www.linkedin.com/in/jroehr",
-        github: "https://github.com/bin",
+        github: "https://github.com/lilacstella",
         email: "tamucybersec@gmail.com",
-        website: "https://roe.hr",
-        website_2: "https://seatgull.com"
     }
   },
   {
-    name: "Matthew Le",
-    position: "Competition Chair Member",
-	  major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/matthew.jpg",
+    name: "Victor Phan",
+    position: "Interim Activity Groups Lead",
+	  major_year: "CPSC '25",
     socials: {
-        linkedin: "https://www.linkedin.com/in/matthew-le-8395051b7/",
-        github: "https://github.com/matthewle0xff",
+        github: "https://github.com/move2slowly",
         email: "tamucybersec@gmail.com",
-        website: ""
     }
   },
   {
-    name: "Liam Haber",
-    position: "Competition Chair Member",
-	  major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/liam.jpg",
+    name: "Erin Lapko",
+    position: "WiCyS President",
+  	major_year: "CPSC '23",
     socials: {
         linkedin: "",
         github: "",
-        email: "tamucybersec@gmail.com",
+        email: "tamuwicys@gmail.com",
         website: ""
     }
   },
   {
-    name: "Rohan Viswanathan",
-    position: "Competition Chair Member",
-	  major_year: "CPSC '23",
-    image: "assets/img/officers/formatted/rohan.jpg",
+    name: "Anna Slater",
+    position: "WiCyS Vice President",
+  	major_year: "CECN '23",
     socials: {
-        linkedin: "https://www.linkedin.com/in/rohan-viswanathan/",
-        github: "https://github.com/rohanvis24",
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
-    name: "Derek Viet",
-    position: "Webmaster",
-	  major_year: "CECN '23",
-    image: "assets/img/officers/formatted/derek.jpg",
-    socials: {
-        linkedin: "https://www.linkedin.com/in/derek-viet/",
-        github: "https://github.com/pyristix",
-        email: "tamucybersec@gmail.com",
+        linkedin: "https://www.linkedin.com/in/anna-slater/",
+        github: "https://github.com/annaSlater",
+        email: "tamuwicys@gmail.com",
         website: ""
     }
   },
@@ -164,7 +117,6 @@ const officers = [
     name: "Martin Carlisle",
     position: "Faculty Advisor",
 	  major_year: "CSCE Department",
-    image: "assets/img/officers/formatted/martin-carlisle.jpg",
     socials: {
         linkedin: "https://www.linkedin.com/in/martincarlisle/",
         github: "",
@@ -178,13 +130,77 @@ const officers = [
 
 const alumni = [
   {
+    name: "Jacob Kastenschmidt",
+    position: "President",
+    gradYear: "Spring 2023",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/jkas/"
+    }
+  },
+  {
+    name: "Glenn Fitzpatrick",
+    position: "Vice President",
+    gradYear: "Spring 2023",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/glennfitzpatrickgigem/",
+      github: "https://github.com/RogueGuardian",
+      website: ""
+    }
+  },
+  {
+    name: "Logan MacDonald",
+    position: "Director of External Relations",
+	  gradYear: "Fall 2023",
+    socials: {
+        linkedin: "https://www.linkedin.com/in/logan-macdonald-16591846/",
+        github: "https://github.com/Logan-MacDonald",
+        website: ""
+    }
+  }, 
+  {
+    name: "Matthew Le",
+    position: "Competition Chair Member",
+	  gradYear: "Spring 2023",
+    socials: {
+        linkedin: "https://www.linkedin.com/in/matthew-le-8395051b7/",
+        github: "https://github.com/matthewle0xff",
+        website: ""
+    }
+  },
+  {
+    name: "Liam Haber",
+    position: "Competition Chair Member",
+	  gradYear: "Spring 2023",
+    socials: {
+        github: "https://github.com/lhhaber",
+    }
+  },
+  {
+    name: "Rohan Viswanathan",
+    position: "Competition Chair Member",
+	  gradYear: "Spring 2023",
+    socials: {
+        linkedin: "https://www.linkedin.com/in/rohan-viswanathan/",
+        github: "https://github.com/rohanvis24",
+        website: ""
+    }
+  },
+  {
+    name: "Derek Viet",
+    position: "Webmaster",
+	  gradYear: "Spring 2023",
+    socials: {
+        linkedin: "https://www.linkedin.com/in/derek-viet/",
+        github: "https://github.com/pyristix",
+    }
+  },
+  {
     name: "Emily Murphy",
     position: "President",
     gradYear: "Spring 2022",
     socials: {
         linkedin: "https://www.linkedin.com/in/murphe22",
         github: "https://github.com/emurph1",
-        email: "",
         website: "https://murphe22.com"
     }
   },
@@ -227,7 +243,7 @@ const alumni = [
     gradYear: "Fall 2021",
     socials: {
         linkedin: "https://www.linkedin.com/in/teddyheinen",
-        github: "https://github.com/tcheinen",
+        github: "https://github.com/tsheinen",
         email: "",
         website: "https://teddyheinen.com"
     }
