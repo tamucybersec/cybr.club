@@ -96,8 +96,8 @@ const officers = [
     position: "WiCyS President",
   	major_year: "CPSC '23",
     socials: {
-        linkedin: "",
-        github: "",
+        linkedin: "https://www.linkedin.com/in/erinlapko/",
+        github: "https://github.com/erinlapko",
         email: "tamuwicys@gmail.com",
         website: ""
     }
