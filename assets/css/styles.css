@@ -314,10 +314,11 @@ a.btn > i {
 
 .gold-sponsors-border {
   border: 3px solid #f0cc0e !important;
-}
+  right:400px;}
 
 .silver-sponsors-border {
   border: 3px solid #909496 !important;
+  right:400px;
 }
 
 #features {
