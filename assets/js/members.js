@@ -197,7 +197,12 @@ const alumni = [
   {
     name: "Alyssa Kalish",
     position: "Director of Public Relations",
-    gradYear: "Spring 2023"
+    gradYear: "Spring 2023",
+    socials: {
+        linkedin: "",
+	github: "",
+	website: ""
+    }
   },
   {
     name: "Emily Murphy",
