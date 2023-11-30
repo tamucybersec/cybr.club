@@ -195,6 +195,11 @@ const alumni = [
     }
   },
   {
+    name: "Alyssa Kalish",
+    position: "Director of Public Relations",
+    gradYear: "Spring 2023"
+  },
+  {
     name: "Emily Murphy",
     position: "President",
     gradYear: "Spring 2022",
