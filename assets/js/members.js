@@ -142,7 +142,6 @@ const alumni = [
     position: "CTF Team Lead",
     gradYear: "Spring 2024",
     socials: {
-      linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
       github: "https://github.com/nhwn"
     }
   },
