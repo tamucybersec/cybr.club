@@ -16,7 +16,7 @@ const officers = [
   },
   {
     name: "Colby Coppinger",
-    position: "Interim Vice President",
+    position: "Vice President",
 	  major_year: "GIST '25",
     socials: {
         email: "tamucybersec@gmail.com",
