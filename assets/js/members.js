@@ -15,9 +15,9 @@ const officers = [
     }
   },
   {
-    name: "Bode Raymond",
+    name: "Colby Coppinger",
     position: "Interim Vice President",
-	  major_year: "COMP '25",
+	  major_year: "GIST '25",
     socials: {
         email: "tamucybersec@gmail.com",
     }
@@ -33,11 +33,11 @@ const officers = [
     }
   },
   {
-    name: "Danny Hernandez",
+    name: "Ezra Jeter",
     position: "Treasurer",
-	  major_year: "TCMG '24",
+	  major_year: "CPEN '24",
     socials: {
-        linkedin: "https://www.linkedin.com/in/dhernandez24",
+        linkedin: "https://www.linkedin.com/in/ezrajeter",
         github: "",
         email: "tamucybersec@gmail.com",
         website: ""
@@ -64,12 +64,12 @@ const officers = [
     }
   },
   {
-    name: "Nathan Nguyen",
-    position: "CTF Team Lead",
-	  major_year: "CPSC + APMS '24",
+    name: "Bode Raymond",
+    position: "Competition Lead",
+	  major_year: "COMP '25",
     socials: {
-        linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
-        github: "https://github.com/nhwn",
+      //  linkedin: "https://www.linkedin.com/in/bode-raymond/",
+       // github: "https://github.com/nhwn",
         email: "tamucybersec@gmail.com",
     }
   },
@@ -92,12 +92,12 @@ const officers = [
     }
   },
   {
-    name: "Erin Lapko",
+    name: "Adriana Guerrero",
     position: "WiCyS President",
-  	major_year: "CPSC '23",
+  	major_year: "TCMG '25",
     socials: {
-        linkedin: "https://www.linkedin.com/in/erinlapko/",
-        github: "https://github.com/erinlapko",
+        linkedin: "https://www.linkedin.com/in/adrianatamu/",
+       // github: "https://github.com/erinlapko",
         email: "tamuwicys@gmail.com",
         website: ""
     }
@@ -129,6 +129,23 @@ const officers = [
 
 
 const alumni = [
+  {
+    name: "Danny Hernandez",
+    position: "Treasurer",
+    gradYear: "Spring 2024",
+    socials: {
+      email: "danny2768@tamu.edu"
+    }
+  },
+  {
+    name: "Nathan Nguyen",
+    position: "CTF Team Lead",
+    gradYear: "Spring 2024",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/nathan-tm-nguyen/",
+      github: "https://github.com/nhwn"
+    }
+  },
   {
     name: "Jacob Kastenschmidt",
     position: "President",
