@@ -55,15 +55,6 @@ const officers = [
     }
   },
   {
-    name: "Lasyasri Shilpi",
-    position: "Director of External Relations",
-	  major_year: "CPSC '24",
-    socials: {
-        email: "tamucybersec@gmail.com",
-        website: ""
-    }
-  },
-  {
     name: "Bode Raymond",
     position: "Competition Lead",
 	  major_year: "COMP '25",
@@ -84,7 +75,7 @@ const officers = [
   },
   {
     name: "Victor Phan",
-    position: "Interim Activity Groups Lead",
+    position: "Activity Groups Lead",
 	  major_year: "CPSC '25",
     socials: {
         github: "https://github.com/move2slowly",
