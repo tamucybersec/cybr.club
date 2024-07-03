@@ -94,13 +94,13 @@ const officers = [
     }
   },
   {
-    name: "Anna Slater",
-    position: "WiCyS Vice President",
-  	major_year: "CECN '23",
+    name: "Sienna Wideman",
+    position: "WiCyS Treasurer",
+	  major_year: "ENGR '26",
     socials: {
-        linkedin: "https://www.linkedin.com/in/anna-slater/",
-        github: "https://github.com/annaSlater",
-        email: "tamuwicys@gmail.com",
+        linkedin: "https://www.linkedin.com/in/sienna-wideman",
+        github: "",
+        email: "tamucybersec@gmail.com",
         website: ""
     }
   },
