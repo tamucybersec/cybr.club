@@ -121,6 +121,15 @@ const officers = [
 
 const alumni = [
   {
+    name: "Anna Slater",
+    position: "WiCyS Vice President",
+    gradYear: "Spring 2024",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/anna-slater/",
+      github: "https://github.com/annaSlater",
+    }
+  },
+  {
     name: "Danny Hernandez",
     position: "Treasurer",
     gradYear: "Spring 2024",
