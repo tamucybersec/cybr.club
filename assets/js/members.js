@@ -33,11 +33,11 @@ const officers = [
     }
   },
   {
-    name: "Ezra Jeter",
+    name: "Sienna Wideman",
     position: "Treasurer",
-	  major_year: "CPEN '24",
+	  major_year: "ENGR '26",
     socials: {
-        linkedin: "https://www.linkedin.com/in/ezrajeter",
+        linkedin: "https://www.linkedin.com/in/sienna-wideman",
         github: "",
         email: "tamucybersec@gmail.com",
         website: ""
