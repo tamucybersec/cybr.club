@@ -29,7 +29,8 @@ const officers = [
     socials: {
         linkedin: "",
         github: "",
-        email: "tamucybersec@gmail.com"
+        email: "tamucybersec@gmail.com",
+        website: ""
     }
   },
   {
@@ -62,15 +63,18 @@ const officers = [
       //  linkedin: "https://www.linkedin.com/in/bode-raymond/",
        // github: "https://github.com/nhwn",
         email: "tamucybersec@gmail.com",
+        website: ""
     }
   },
   {
-    name: "Stella Yang",
+    name: "Javi Betancourt",
     position: "Tech Lead",
-	  major_year: "CPSC '25",
+	  major_year: "CPSC '26",
     socials: {
-        github: "https://github.com/lilacstella",
+        linkedin: "https://www.linkedin.com/in/javier-betancourt-1100b2268/",
+        github: "https://github.com/HomeoStasis69",
         email: "tamucybersec@gmail.com",
+        website: ""
     }
   },
   {
@@ -80,6 +84,7 @@ const officers = [
     socials: {
         github: "https://github.com/move2slowly",
         email: "tamucybersec@gmail.com",
+        website: ""
     }
   },
   {
