@@ -99,13 +99,13 @@ const officers = [
     }
   },
   {
-    name: "Sienna Wideman",
-    position: "WiCyS Treasurer",
-	  major_year: "ENGR '26",
+    name: "Emma Scott",
+    position: "WiCyS Vice President",
+  	major_year: "FIVS '25",
     socials: {
-        linkedin: "https://www.linkedin.com/in/sienna-wideman",
-        github: "",
-        email: "tamucybersec@gmail.com",
+        //linkedin: "",
+       // github: "",
+        email: "tamuwicys@gmail.com",
         website: ""
     }
   },
