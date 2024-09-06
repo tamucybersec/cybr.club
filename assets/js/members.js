@@ -72,7 +72,7 @@ const officers = [
 	  major_year: "CPSC '26",
     socials: {
         linkedin: "https://www.linkedin.com/in/javier-betancourt-1100b2268/",
-        github: "https://github.com/HomeoStasis69",
+        github: "https://github.com/HomeoStasis-0",
         email: "tamucybersec@gmail.com",
         website: ""
     }
