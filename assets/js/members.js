@@ -88,22 +88,22 @@ const officers = [
     }
   },
   {
-    name: "Adriana Guerrero",
+    name: "Emma Scott",
     position: "WiCyS President",
-  	major_year: "TCMG '25",
+  	major_year: "FIVS '25",
     socials: {
-        linkedin: "https://www.linkedin.com/in/adrianatamu/",
+        linkedin: "https://www.linkedin.com/in/emma-scott-699435264/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
        // github: "https://github.com/erinlapko",
         email: "tamuwicys@gmail.com",
         website: ""
     }
   },
   {
-    name: "Emma Scott",
+    name: "Michelle Thomas",
     position: "WiCyS Vice President",
-  	major_year: "FIVS '25",
+  	major_year: "MIS '26",
     socials: {
-        //linkedin: "",
+        linkedin: "https://www.linkedin.com/in/michellerose-thomas/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
        // github: "",
         email: "tamuwicys@gmail.com",
         website: ""
