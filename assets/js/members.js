@@ -56,12 +56,12 @@ const officers = [
     }
   },
   {
-    name: "Bode Raymond",
+    name: "Alex Zhang",
     position: "Competition Lead",
-	  major_year: "COMP '25",
+	  major_year: "CPSC '27",
     socials: {
-      //  linkedin: "https://www.linkedin.com/in/bode-raymond/",
-       // github: "https://github.com/nhwn",
+        linkedin: " https://www.linkedin.com/in/alex-zhang-301b88233/",
+        github: "https://github.com/flocto",
         email: "tamucybersec@gmail.com",
         website: ""
     }
@@ -125,6 +125,17 @@ const officers = [
 
 
 const alumni = [
+  {
+    name: "Bode Raymond",
+    position: "Competition Lead",
+    gradYear: "Fall 2024",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/bode-raymond/",
+      // github: "https://github.com/nhwn",
+      // email: "tamucybersec@gmail.com",
+        website: ""
+    }
+  },
   {
     name: "Anna Slater",
     position: "WiCyS Vice President",
