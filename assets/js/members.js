@@ -56,14 +56,14 @@ const officers = [
     }
   },
   {
-    name: "Alex Zhang",
+    name: "Damian Lall",
     position: "Competition Lead",
-	  major_year: "CPSC '27",
+	  major_year: "ITDE '25",
     socials: {
-        linkedin: " https://www.linkedin.com/in/alex-zhang-301b88233/",
-        github: "https://github.com/flocto",
+        // linkedin: " https://www.linkedin.com/in/alex-zhang-301b88233/",
+        // github: "https://github.com/flocto",
         email: "tamucybersec@gmail.com",
-        website: ""
+        website: "https://lall.us/"
     }
   },
   {
@@ -130,7 +130,7 @@ const alumni = [
     position: "Competition Lead",
     gradYear: "Fall 2024",
     socials: {
-      linkedin: "https://www.linkedin.com/in/bode-raymond/",
+      // linkedin: "https://www.linkedin.com/in/bode-raymond/",
       // github: "https://github.com/nhwn",
       // email: "tamucybersec@gmail.com",
         website: ""
