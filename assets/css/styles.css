@@ -3,88 +3,183 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
 }
 body {
-    line-height: 1;
+	line-height: 1;
 }
-ol, ul {
-    list-style: none;
+ol,
+ul {
+	list-style: none;
 }
-blockquote, q {
-    quotes: none;
+blockquote,
+q {
+	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	background-color: rgb(0, 0, 0);
 }
 
 body {
-  min-height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(4,3,5,1) 90px, rgba(10,10,10,1) 110px, rgba(20,20,20,1) 130px,rgba(30,30,30,1) 150px
-  , rgba(40,40,40,1) 170px, rgba(50,50,50,1) 190px, rgba(60,60,60,1) 230px);
-  margin: 0;
-  padding: 0;
+	min-height: 100vh;
+	width: 100%;
+	overflow-x: hidden;
+	background: rgb(0, 0, 0);
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(4, 3, 5, 1) 90px,
+		rgba(10, 10, 10, 1) 110px,
+		rgba(20, 20, 20, 1) 130px,
+		rgba(30, 30, 30, 1) 150px,
+		rgba(40, 40, 40, 1) 170px,
+		rgba(50, 50, 50, 1) 190px,
+		rgba(60, 60, 60, 1) 230px
+	);
+	margin: 0;
+	padding: 0;
 }
 
 /*=========== GLOBAL ==============*/
-a, a:hover {
-  text-decoration: none !important;
+a,
+a:hover {
+	text-decoration: none !important;
 }
 .simple-link {
-  text-decoration: none !important;
-  color: #000;
+	text-decoration: none !important;
+	color: #000;
 }
 
 .row {
-  margin-left: 0px !important;
-  margin-right: 0px !important;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
 }
 
 /*-- Fonts --*/
 .inconsolata-font {
-  font-family: 'Inconsolata';
+	font-family: "Inconsolata";
 }
 .montserrat-font {
-  font-family: 'Montserrat';
+	font-family: "Montserrat";
 }
 .roboto-font {
-  font-family: 'Roboto';
+	font-family: "Roboto";
 }
 
 .open-sans-font {
-  font-family: 'Open Sans';
+	font-family: "Open Sans";
 }
 
 /*-- Socials Footer --*/
@@ -92,188 +187,201 @@ a, a:hover {
 .instagram a,
 .linkedin a,
 .discord a,
-.github a, 
+.github a,
 .facebook a {
-  color: #fff;
-  display:inline-block;
+	color: #fff;
+	display: inline-block;
 }
 .twitter a:hover {
-  color: #00acee;
+	color: #00acee;
 }
 /* https://stackoverflow.com/questions/38507734/fontawesome-instagram-icon-colorized */
 .instagram a:hover {
-  color: transparent;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
+	color: transparent;
+	background: radial-gradient(
+		circle at 30% 107%,
+		#fdf497 0%,
+		#fdf497 5%,
+		#fd5949 45%,
+		#d6249f 60%,
+		#285aeb 90%
+	);
+	background: -webkit-radial-gradient(
+		circle at 30% 107%,
+		#fdf497 0%,
+		#fdf497 5%,
+		#fd5949 45%,
+		#d6249f 60%,
+		#285aeb 90%
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
 }
 .linkedin a:hover {
-  color: #2477ab;
+	color: #2477ab;
 }
 .discord a:hover {
-  color: #7289da;
+	color: #7289da;
 }
 .github a:hover {
-  color: #fff;
-  opacity: .9;
+	color: #fff;
+	opacity: 0.9;
 }
 
 .facebook a:hover {
-  color: #4867aa
+	color: #4867aa;
 }
 
 /*-- Title Underline --*/
 .title-underline {
-  margin: 0 auto 1rem auto;
-  width: 9rem;
-  height: .1rem;
-  background-color: #d3d3d3;
+	margin: 0 auto 1rem auto;
+	width: 9rem;
+	height: 0.1rem;
+	background-color: #d3d3d3;
 }
-
 
 /*-- Maroon Links --*/
 a.maroon-link {
-  color: #de3c3c;
+	color: #de3c3c;
 }
 a:hover.maroon-link {
-  color: #fff;
+	color: #fff;
 
-  text-decoration: none;
+	text-decoration: none;
 }
 
 /*-- Nav Scrolling Offset --*/
 .offset:before {
-  content: "";
-  display: block;
-  height: 0rem;
-  margin-top: -8rem;
+	content: "";
+	display: block;
+	height: 0rem;
+	margin-top: -8rem;
 }
 
-/*-- Backgrounds/Text--*/ 
+/*-- Backgrounds/Text--*/
 .bg-black {
-  background: #000;
+	background: #000;
 }
 .bg-white {
-  background: #fff;
+	background: #fff;
 }
 .white-faded-shadow {
-  text-shadow: 4px 3px 2px rgb(255,255,255,.2);
+	text-shadow: 4px 3px 2px rgb(255, 255, 255, 0.2);
 }
 .border-maroon {
-    margin: 0 auto;
-    width:80%;
-    border-top: .3rem solid #bf2121;
+	margin: 0 auto;
+	width: 80%;
+	border-top: 0.3rem solid #bf2121;
 }
 .border-purple {
-    margin: 0 auto;
-    border-top: .3rem solid #812990;
+	margin: 0 auto;
+	border-top: 0.3rem solid #812990;
 }
 
 /*============NAVBAR===============*/
 .navbar {
-  font-family: 'Inconsolata';
-  width: 100vw;
-  background-color: #000;
-  position: relative;
+	font-family: "Inconsolata";
+	width: 100vw;
+	background-color: #000;
+	position: relative;
 }
 .navbar .nav-link {
-  color: #fff;
-  font-size: 25px;
-  font-weight: 400;
-  position: relative;
-  opacity: .70;
-  padding: 16px 0;
-  margin: 0 10px;
+	color: #fff;
+	font-size: 25px;
+	font-weight: 400;
+	position: relative;
+	opacity: 0.7;
+	padding: 16px 0;
+	margin: 0 10px;
 }
 
 .nav-link {
-  word-spacing: -8px;
+	word-spacing: -8px;
 }
 
 .nav-link::before {
-  transition: 300ms;
-  height: 3px;
-  content: "";
-  position: absolute;
-  background-color: #fff;
+	transition: 300ms;
+	height: 3px;
+	content: "";
+	position: absolute;
+	background-color: #fff;
 }
 .navbar .nav-link:hover,
 .navbar .nav-link:not(.dropdown-toggle):focus {
-  color: #fff;
-  opacity: 1;
-  text-decoration: none;
+	color: #fff;
+	opacity: 1;
+	text-decoration: none;
 }
 .nav-link-fade-up::before {
-  width: 100%;
-  bottom: 4px;
-  opacity: 0;
+	width: 100%;
+	bottom: 4px;
+	opacity: 0;
 }
 .nav-link-fade-up:hover::before {
-  bottom: 10px;
-  opacity: 1;
+	bottom: 10px;
+	opacity: 1;
 }
 .nav-link-fade-up-active:before {
-  bottom: 10px;
-  opacity: 1;
+	bottom: 10px;
+	opacity: 1;
 }
 .navbar .navbar-brand {
-  width: 70px;
-  padding: 0;
-  margin: 0;
+	width: 70px;
+	padding: 0;
+	margin: 0;
 }
 .navbar .navbar-brand-title {
-  color: #fff;
-  font-size: 43px;
-  font-weight: 500;
+	color: #fff;
+	font-size: 43px;
+	font-weight: 500;
 }
 
 .nav-item > .dropdown-menu {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 .dropdown:hover > .dropdown-menu {
-  display: block !important;
+	display: block !important;
 }
 
 /*============HOME PAGE===============*/
 /*-- Particles --*/
 #particles-js {
-  background: #000;
-  height: 575px;
+	background: #000;
+	height: 575px;
 }
 
 /*-- welcome title --*/
 .caption {
-  width: 767.98px;
-  margin: auto;
-  left: 0;
-  right: 0;
-  position: absolute;
-  top: 115px;
-  z-index: 1;
-  font-family: 'Inconsolata';
+	width: 767.98px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	position: absolute;
+	top: 115px;
+	z-index: 1;
+	font-family: "Inconsolata";
 }
 .caption h1 {
-  font-size: 4.5rem;
-  letter-spacing: .3rem;
-  padding: 0;
-  margin: 0;
+	font-size: 4.5rem;
+	letter-spacing: 0.3rem;
+	padding: 0;
+	margin: 0;
 }
 .caption h3 {
-  font-size: 3.5rem;
-  padding-bottom: 1rem;
+	font-size: 3.5rem;
+	padding-bottom: 1rem;
 }
 .logo-bounce {
-  animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  -moz-animation: bounce 2s infinite;
+	animation: bounce 2s infinite;
+	-webkit-animation: bounce 2s infinite;
+	-moz-animation: bounce 2s infinite;
 }
 .fa-circle {
-  color: #000;
+	color: #000;
 }
 .btn-lg {
-  margin-top: 15px;
+	margin-top: 15px;
 }
 
 .text-arrow {
@@ -294,9 +402,9 @@ a.btn > i {
 }
 
 .card-sponsors {
-  width: 18rem;
-  height:250px;
-  margin: 0 0 0.5em auto;
+	width: 18rem;
+	height: 250px;
+	margin: 0 0 0.5em auto;
 }
 
 .sponsor-cards {
@@ -309,16 +417,17 @@ a.btn > i {
 }
 
 .platinum-sponsors-border {
-  border: 3px solid #0da8a8 !important;
+	border: 3px solid #0da8a8 !important;
 }
 
 .gold-sponsors-border {
-  border: 3px solid #f0cc0e !important;
-  right:400px;}
+	border: 3px solid #f0cc0e !important;
+	right: 400px;
+}
 
 .silver-sponsors-border {
-  border: 3px solid #909496 !important;
-  right:400px;
+	border: 3px solid #909496 !important;
+	right: 400px;
 }
 
 #features {
@@ -330,7 +439,7 @@ a.btn > i {
 	padding-bottom: 8px;
 }
 
-#communication-channels-section > div{
+#communication-channels-section > div {
 	width: 99vw;
 }
 
@@ -354,21 +463,20 @@ a.btn > i {
 	font-size: 25px;
 }
 
-
 #sponsor-join-message > a {
 	width: 132px;
 }
 
 /*============= ABOUT PAGE =============*/
-.about-title-underline { 
-  width: 12rem;
+.about-title-underline {
+	width: 12rem;
 }
 .card:hover.about {
-  transform: scale(.95);
+	transform: scale(0.95);
 }
 
 .major-year {
-	color: rgba(0,0,0,.3)!important;
+	color: rgba(0, 0, 0, 0.3) !important;
 }
 
 #our-team-title {
@@ -381,74 +489,76 @@ a.btn > i {
 
 /*-- Social Links --*/
 .social-media {
-  display: inline-block;
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
+	display: inline-block;
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
 }
 ul.social-media li {
-  display: inline;
-  margin: 0 7px;
+	display: inline;
+	margin: 0 7px;
 }
 a .fa-linkedin.about {
-  color: #0077B5;
+	color: #0077b5;
 }
 a:hover .fa-linkedin.about {
-  color: #0054B5;
+	color: #0054b5;
 }
 a .fa-github-square.about {
-  color: #211F1F
+	color: #211f1f;
 }
 a:hover .fa-github-square.about {
-  color: black;
+	color: black;
 }
 a .fa-envelope.about {
-  color: darkslategrey;
+	color: darkslategrey;
 }
 a:hover .fa-envelope.about {
-  color: black;
+	color: black;
 }
 a .fa-link.about {
-  color: grey;
+	color: grey;
 }
 a:hover .fa-link.about {
-  color: darkslategrey;
+	color: darkslategrey;
 }
 .alumni-table {
-  background: transparent;
-  font-family: 'Inconsolata';
-  border: none;
+	background: transparent;
+	font-family: "Inconsolata";
+	border: none;
 }
-.alumni-table th, .alumni-table tr, .alumni-table tr {
-  color: #fff;
-  border-top: none !important;
+.alumni-table th,
+.alumni-table tr,
+.alumni-table tr {
+	color: #fff;
+	border-top: none !important;
 }
 .alumni-table th {
-  border-bottom: .2rem solid white !important;
-  font-size: 2rem;
+	border-bottom: 0.2rem solid white !important;
+	font-size: 2rem;
 }
 .alumni-table tr {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 
 /*============= MEETINGS PAGE =============*/
 /* Responsive iFrame */
 .responsive-iframe-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
 }
- 
-.responsive-iframe-container iframe,   
-.vresponsive-iframe-container object,  
+
+.responsive-iframe-container iframe,
+.vresponsive-iframe-container object,
 .vresponsive-iframe-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 #meetings-section {
@@ -464,38 +574,37 @@ a:hover .fa-link.about {
 	margin-bottom: 50px;
 }
 
-
 /*============= OLD EVENT PAGE =============*/
 .events-title-underline {
-  width: 440px;
+	width: 440px;
 }
 
 /*============= EVENT PAGE =============*/
 .card-partners-left {
-  width: 12rem;
-  height: 10rem;
-  margin: 0 0 2em auto;
+	width: 12rem;
+	height: 10rem;
+	margin: 0 0 2em auto;
 }
 .card-partners-right {
-  width: 12rem;
-  height: 10rem;
-  margin: 0 auto 2em 0;
+	width: 12rem;
+	height: 10rem;
+	margin: 0 auto 2em 0;
 }
 .card-partners-middle {
-  width: 12rem;
-  height: 10rem;
-  margin: 0 auto;
-  margin-bottom: 2em;
+	width: 12rem;
+	height: 10rem;
+	margin: 0 auto;
+	margin-bottom: 2em;
 }
 .card-partners-img {
-  margin: auto auto;
+	margin: auto auto;
 }
 .partners-title-underline {
-  width: 10rem;
+	width: 10rem;
 }
 .card:hover.events {
-  transform: scale(.97);
-  opacity: .7;
+	transform: scale(0.97);
+	opacity: 0.7;
 }
 
 .accordion {
@@ -503,11 +612,13 @@ a:hover .fa-link.about {
 	margin-bottom: 60px;
 }
 
-.collapse, .collapsing {
+.collapse,
+.collapsing {
 	padding-top: 25px;
 }
 
-.collapse > img, .collapsing > img {
+.collapse > img,
+.collapsing > img {
 	margin-bottom: 25px;
 }
 
@@ -559,11 +670,11 @@ a:hover .fa-link.about {
 
 /*============= PARTNERSHIP PAGE =============*/
 .partnership-button {
-  display: block;
-  padding: 10px 30px 10px 30px;
-  border-radius: 10px;
-  margin: 10px;
-  background-color: red;
+	display: block;
+	padding: 10px 30px 10px 30px;
+	border-radius: 10px;
+	margin: 10px;
+	background-color: red;
 }
 
 /*============= CONTACT PAGE =============*/
@@ -571,221 +682,218 @@ a:hover .fa-link.about {
 	width: 14rem;
 }
 
-
 /*============= REDHAT PAGE =============*/
 .rha-email {
-  text-decoration: none;
-  color: #de3c3c;
+	text-decoration: none;
+	color: #de3c3c;
 }
 .rha-email:hover {
-  text-decoration: none;
-  color: #de3c3c;
+	text-decoration: none;
+	color: #de3c3c;
 }
 .rha-link {
-  text-decoration: none;
-  color: #de3c3c;
+	text-decoration: none;
+	color: #de3c3c;
 }
 .rha-link:hover {
-  text-decoration: none;
-  color: #de3c3c;
+	text-decoration: none;
+	color: #de3c3c;
 }
 
 /*============= WICYS PAGE =============*/
 .cisco-text-section p {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .bulleted-list {
-  list-style-position: inside;
+	list-style-position: inside;
 }
 
 .bulleted-list * {
-  list-style-type: circle;
+	list-style-type: circle;
 }
-
 
 /*============= PALO ALTO PAGE =============*/
 #palo-alto-about a {
-  color: #D76600;
+	color: #d76600;
 }
 
 #palo-alto-logo {
-  margin-top: 75px;
-  margin-bottom: 75px;
+	margin-top: 75px;
+	margin-bottom: 75px;
 }
-
 
 /*============= LOGIN PAGE =============*/
 .btn-google {
-  background: rgb(253, 245, 242) !important;
-  border: 1px solid rgb(190, 86, 67) !important;
+	background: rgb(253, 245, 242) !important;
+	border: 1px solid rgb(190, 86, 67) !important;
 }
 .btn-google:hover {
-  background: rgb(225, 98, 89) !important;
+	background: rgb(225, 98, 89) !important;
 }
 .accounts a {
-  color: #fff;
-  text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 .accounts a:hover {
-  color: #3590ae;
-  text-decoration: none;
+	color: #3590ae;
+	text-decoration: none;
 }
 
 /*============= MEDIA QUERIES =============*/
 /* Change navbar styling on viewports > xl */
 @media (min-width: 1199.98px) {
-  .navbar-expand-xl {
-    background-color: #000;
-  }
-  .text-right-xl {
-    text-align: right;
-  }
-  .text-left-xl {
-    text-align: left;
-  }
+	.navbar-expand-xl {
+		background-color: #000;
+	}
+	.text-right-xl {
+		text-align: right;
+	}
+	.text-left-xl {
+		text-align: left;
+	}
 }
 
 /* Change navbar styling on viewports < xl */
 @media (max-width: 1199.98px) {
-  /*============CSS===============*/
-  .pb3-xl-less {
-    padding-bottom: 1rem;
-  }
-  /*============NAVBAR===============*/
-  .navbar {
-    background: #000;
-    text-align: center;
-  }
-  .navbar .navbar-brand, .navbar .nav-link {
-    color: #fff;
-    text-align: left;
-  }
-  .nav-link-fade-up::before {
-    width: 100px;
-    bottom: 4px;
-    opacity: 0;
-  }
-  .nav-link-fade-up-active:before {
-    bottom: 10px;
-    opacity: 1;
-  }
-  
-  #sponsor-join-message > a {
-	display: block;
-  }
+	/*============CSS===============*/
+	.pb3-xl-less {
+		padding-bottom: 1rem;
+	}
+	/*============NAVBAR===============*/
+	.navbar {
+		background: #000;
+		text-align: center;
+	}
+	.navbar .navbar-brand,
+	.navbar .nav-link {
+		color: #fff;
+		text-align: left;
+	}
+	.nav-link-fade-up::before {
+		width: 100px;
+		bottom: 4px;
+		opacity: 0;
+	}
+	.nav-link-fade-up-active:before {
+		bottom: 10px;
+		opacity: 1;
+	}
+
+	#sponsor-join-message > a {
+		display: block;
+	}
 }
 
 /* Devices under 992px (lg) */
 @media (max-width: 991.98px) {
-  .navbar .navbar-brand-title {
-    display: none !important;
-  }
-  .caption {
-    top: 80px;
-  }
-  .caption h1 {
-    font-size: 6rem;
-    letter-spacing: .2rem;
-    padding-bottom: .6rem;
-  }
-  .caption h3 {
-    font-size: 4rem;
-    padding-bottom: 1.7rem;
-  }
-  
-  #club-description {
-	width: 90vw;
-  }
-  
-  #particles-js {
-    height: 600px;
-  }
+	.navbar .navbar-brand-title {
+		display: none !important;
+	}
+	.caption {
+		top: 80px;
+	}
+	.caption h1 {
+		font-size: 6rem;
+		letter-spacing: 0.2rem;
+		padding-bottom: 0.6rem;
+	}
+	.caption h3 {
+		font-size: 4rem;
+		padding-bottom: 1.7rem;
+	}
 
-  /* make all horizontal fadeIn up on mobile */
-  .fadeInLeft {
-    animation-name: fadeInUp !important;
-  }
-  .fadeInRight {
-    animation-name: fadeInUp !important;
-  }
+	#club-description {
+		width: 90vw;
+	}
+
+	#particles-js {
+		height: 600px;
+	}
+
+	/* make all horizontal fadeIn up on mobile */
+	.fadeInLeft {
+		animation-name: fadeInUp !important;
+	}
+	.fadeInRight {
+		animation-name: fadeInUp !important;
+	}
 }
 
 /* Md devices - under 768px */
 @media (max-width: 767.98px) {
-  .caption {
-    top: 115px;
-    width: 100vw;
-  }
-  .caption h1 {
-    font-size: 5rem;
-    letter-spacing: .15rem;
-    padding-bottom: .5rem;
-  }
-  .caption h3 {
-    font-size: 3rem;
-    padding-bottom: 1.2rem;
-  }
-  .responsive-iframe-container {
-    padding-bottom: 400px;
-  }
-  .card-partners-left {
-    margin: 0 auto 2rem auto;
-  }
-  .card-partners-right {
-    margin: 0 auto 2rem auto;
-  }
-  
+	.caption {
+		top: 115px;
+		width: 100vw;
+	}
+	.caption h1 {
+		font-size: 5rem;
+		letter-spacing: 0.15rem;
+		padding-bottom: 0.5rem;
+	}
+	.caption h3 {
+		font-size: 3rem;
+		padding-bottom: 1.2rem;
+	}
+	.responsive-iframe-container {
+		padding-bottom: 400px;
+	}
+	.card-partners-left {
+		margin: 0 auto 2rem auto;
+	}
+	.card-partners-right {
+		margin: 0 auto 2rem auto;
+	}
 }
 
 /* Sm devices - under 576px */
 @media (max-width: 575.98px) {
-  .caption {
-    top: 150px;
-  }
-  .caption h1 {
-    font-size: 4em;
-    letter-spacing: .1rem;
-    padding-bottom: .5rem;
-  }
-  .caption h3 {
-    font-size: 2.7rem;
-    padding-bottom: .5rem;
-  }
-  .events-title-underline {
-    width: 100%;
-  }
-  
-  #club-description {
-	  margin-bottom: 50px !important;
-  }
-  
-  .alumni-table th {
-    border-bottom: .2rem solid white !important;
-    font-size: 5vw;
-  }
-  
-  .alumni-table tr {
-    font-size: 4vw;
-  }
-  
-  .officer-committee-title > h1 {
-	  font-size: 10vw !important;
-  }
-  
-  .officer-committee-title > div {
-	  width: 100% !important;
-  }
+	.caption {
+		top: 150px;
+	}
+	.caption h1 {
+		font-size: 4em;
+		letter-spacing: 0.1rem;
+		padding-bottom: 0.5rem;
+	}
+	.caption h3 {
+		font-size: 2.7rem;
+		padding-bottom: 0.5rem;
+	}
+	.events-title-underline {
+		width: 100%;
+	}
+
+	#club-description {
+		margin-bottom: 50px !important;
+	}
+
+	.alumni-table th {
+		border-bottom: 0.2rem solid white !important;
+		font-size: 5vw;
+	}
+
+	.alumni-table tr {
+		font-size: 4vw;
+	}
+
+	.officer-committee-title > h1 {
+		font-size: 10vw !important;
+	}
+
+	.officer-committee-title > div {
+		width: 100% !important;
+	}
 }
 
 @media (max-width: 460px) {
-  #events-competitions-title-underline {
-	  width: 18rem;
-  }
+	#events-competitions-title-underline {
+		width: 18rem;
+	}
 }
 
 @media (max-width: 460px) {
-  #particles-js {
-    height: 600px;
-  }
+	#particles-js {
+		height: 600px;
+	}
 }
