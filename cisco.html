@@ -1,229 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta
+			property="og:title"
+			content="Texas A&amp;M Cybersecurity Club"
+		/>
+		<meta
+			property="og:description"
+			content="Texas A&amp;M Cybersecurity Club Website"
+		/>
+		<meta
+			property="og:url"
+			content="http://cybr.club/index.html"
+		/>
+		<meta
+			property="og:image"
+			content="http://cybr.club/assets/img/club-logos/maroonWhiteShield.png"
+		/>
+		<title>Texas A&amp;M Cybersecurity Club</title>
+		<link
+			rel="icon"
+			type="image/png"
+			href="./assets/img/club-logos/whiteShield-outlined.png"
+		/>
+		<!-- style.css -->
+		<link
+			rel="stylesheet"
+			href="./assets/css/styles.css"
+		/>
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<!-- Animate.css -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+			rel="stylesheet"
+		/>
+		<!-- Google Fonts -->
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Inconsolata"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Roboto"
+		/>
+		<!-- Font Awesome -->
+		<script
+			src="https://kit.fontawesome.com/b9d296bf83.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:title" content="Texas A&amp;M Cybersecurity Club"/>
-  <meta property="og:description" content="Texas A&amp;M Cybersecurity Club Website"/>
-  <meta property="og:url" content="http://cybr.club/index.html"/>
-  <meta property="og:image" content="http://cybr.club/assets/img/club-logos/maroonWhiteShield.png"/>
-  <title>Texas A&amp;M Cybersecurity Club</title>
-  <link rel="icon" type="image/png" href="./assets/img/club-logos/whiteShield-outlined.png">
-	<!-- style.css -->
-  <link rel="stylesheet" href="./assets/css/styles.css">
-	<!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<!-- Animate.css -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
-	<!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-	<!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/b9d296bf83.js" crossorigin="anonymous"></script>
+	<body>
+		<!-- Navigation  https://getbootstrap.com/docs/4.0/components/navbar/ -->
+		<nav class="navbar navbar-expand-xl static-top">
+			<div>
+				<a
+					class="navbar-brand my-auto"
+					href="./index.html"
+				>
+					<img
+						class="img-fluid"
+						src="./assets/img/club-logos/whiteShield.png"
+						alt="Home"
+					/>
+				</a>
+				<div class="navbar-brand-title d-inline align-middle">
+					Cybersecurity Club
+				</div>
+			</div>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<i
+					class="fa fa-bars"
+					style="color: #fff"
+				></i>
+			</button>
+			<div
+				class="collapse navbar-collapse"
+				id="navbarNavDropdown"
+			>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="./index.html"
+							>Home <span class="sr-only">(current)</span></a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="./join.html"
+							>Join</a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="./calendar.html"
+							>Calendar</a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="./events.html"
+							>Events</a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="./partnership.html"
+							>Partnership</a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="./about.html"
+							>About</a
+						>
+					</li>
+					<li class="nav-item">
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="./contact.html"
+							>Contact</a
+						>
+					</li>
+					<li
+						class="nav-item"
+						style="display: None"
+					>
+						<a
+							class="nav-link nav-link-fade-up px-0"
+							href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713"
+							>Merch</a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- End Navigation -->
 
-</head>
+		<!-- Cisco About-->
+		<div class="container mt-5">
+			<div class="row justify-content-around">
+				<div class="col-12 col-md-12 col-lg-6 my-auto p-0 text-center">
+					<div
+						class="animated fadeIn mt-4"
+						style="
+							padding: 15px;
+							background-color: white;
+							border-radius: 10px;
+						"
+					>
+						<img
+							class="img-fluid pr-3"
+							src="./assets/img/programs/cisco/new_cisco_lab.png"
+							alt=""
+							width="500px"
+						/>
+					</div>
+				</div>
+				<div class="col-12 col-md-12 col-lg-6 my-2">
+					<div class="event-description-right">
+						<div class="text-white text-center">
+							<h1>About</h1>
+							<hr style="background-color: #fff; height: 1px" />
+							<p
+								class="lead font-roboto"
+								style="font-size: 1.5rem"
+							>
+								The Cisco Networking Academy Program is designed
+								to empower students to enter employment or
+								further education and training in the computer
+								networking field. The CNA holds weekly meetings
+								that show students how to create their own
+								networks using Packet Tracer and hands-on labs.
+								<br /><br />
+								Learn more about Cisco Networking academy by
+								visiting
+								<a href="https://www.netacad.com/"
+									>https://www.netacad.com/</a
+								>
+							</p>
+						</div>
+					</div>
+				</div>
 
-<body>
-  <!-- Navigation  https://getbootstrap.com/docs/4.0/components/navbar/ -->
-  <nav class="navbar navbar-expand-xl static-top">
-    <div>
-      <a class="navbar-brand my-auto" href="./index.html">
-        <img class="img-fluid" src="./assets/img/club-logos/whiteShield.png" alt="Home"> 
-      </a>
-        <div class="navbar-brand-title d-inline align-middle">Cybersecurity Club</div>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fa fa-bars" style="color:#fff"></i></button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link nav-link-fade-up px-0" href="./index.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0 " href="./join.html">Join</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./calendar.html">Calendar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./events.html">Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0 " href="./partnership.html">Partnership</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0 " href="./about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-fade-up px-0" href="./contact.html">Contact</a>
-        </li>
-        <li class="nav-item" style="display: None;">
-          <a class="nav-link nav-link-fade-up px-0" href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=713">Merch</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- End Navigation -->
+				<div
+					class="col-12 mb-3 text-white"
+					style="margin-top: 30px !important"
+				>
+					<h3 class="text-center"><u>When do we meet?</u></h3>
+					<p
+						class="lead"
+						style="font-size: 1.5rem"
+					>
+						Thursdays 8pm (Refer to calendar for locations)
+					</p>
+				</div>
 
-  <!-- Cisco About-->
-  <div class="container mt-5">
-    <div class="row justify-content-around">
-      <div class="col-12 col-md-12 col-lg-6 my-auto p-0 text-center">
-        <div class="animated fadeIn mt-4" style="padding: 15px; background-color: white; border-radius: 10px;">
-          <img class="img-fluid pr-3" src="./assets/img/programs/cisco/new_cisco_lab.png" alt="" width="500px"/>
-        </div> 
-      </div> 
-      <div class="col-12 col-md-12 col-lg-6 my-2">
-        <div class="event-description-right">
-          <div class="text-white text-center">
-            <h1>About</h1>
-            <hr style="background-color:#fff;height:1px;">
-            <p class="lead font-roboto" style="font-size:1.5rem">
-              The Cisco Networking Academy Program is designed to empower students to enter employment or further education and training in the computer networking field. The CNA holds weekly meetings that show students how to create their own networks using Packet Tracer and hands-on labs.
-			  <br><br>
-			  Learn more about Cisco Networking academy by visiting <a href="https://www.netacad.com/">https://www.netacad.com/<a>
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-12 mb-3 text-white" style="margin-top: 30px !important">
-        <h3 class="text-center"><u>When do we meet?</u></h3>
-        <p class="lead" style="font-size: 1.5rem;">
-          Thursdays 8pm (Refer to calendar for locations)
-        </p>
-      </div>
+				<div
+					class="col-12 mb-3 text-white"
+					style="margin-top: 30px !important"
+				>
+					<h3 class="text-center"><u>Want to sign up?</u></h3>
+					<p
+						class="lead"
+						style="font-size: 1.5rem"
+					>
+						Fill out this interest form to get access to Netacad
+						courses along with access to Cisco's Packet Tracer:
+						<a
+							class="rha-link font-weight-bold"
+							href="https://tx.ag/ciscospring25"
+							>tx.ag/ciscospring25</a
+						>.
+					</p>
+				</div>
 
-      <div class="col-12 mb-3 text-white" style="margin-top: 30px !important">
-        <h3 class="text-center"><u>Want to sign up?</u></h3>
-        <p class="lead" style="font-size: 1.5rem;">
-          Fill out this interest form to get access to Netacad courses along with access to Cisco's Packet Tracer: <a class="rha-link font-weight-bold" href="https://tx.ag/ciscofall24">tx.ag/ciscofall24</a>. 
-        </p>
-      </div>
-
-      <div class="col-12 mb-3 text-white text-center cisco-text-section" style="margin-top: 30px !important">
-        <h3><u>Rewards</u></h3>
-        <p class="lead" style="font-size: 1.5rem;">
-          Attend 3 meetings and receive a free t-shirt!
-        </p>
-        <!-- <p class="lead" style="font-size: 1.5rem;">
+				<div
+					class="col-12 mb-3 text-white text-center cisco-text-section"
+					style="margin-top: 30px !important"
+				>
+					<h3><u>Rewards</u></h3>
+					<p
+						class="lead"
+						style="font-size: 1.5rem"
+					>
+						Attend 3 meetings and receive a free t-shirt!
+					</p>
+					<!-- <p class="lead" style="font-size: 1.5rem;">
           Attend 6 Meetings and receive a console cable!
         </p> -->
-        <p class="lead" style="font-size: 1.5rem;">
-          Attend ALL 10 Meetings and receive a managed switch!
-        </p>
-      </div>
-
-      <div class="col-12 mb-3 text-white text-center cisco-text-section" style="margin-top: 30px !important">
-        <h3><u>CCNA Voucher</u></h3>
-
-        <p class="lead" style="font-size: 1.5rem;">
-          Guidelines:
-        </p>
-        <ul class="bulleted-list">
-          <li>Students must attend 3 meetings and 1 lab.</li>
-          <li>Students must make an 80 on CCNA practice exam.</li>
-          <li>If a student accomplishes all of these tasks, they will receive a voucher for their CCNA exam.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-  <!-- End Cisco About -->
-
-	
-  <!-- Calendar -->
-  <!-- responsive-iframe-container http://themeloom.com/2013/02/tips-embed-google-maps-and-calendars-in-a-responsive-wordpress-theme/ -->
-  <h1 class="text-white mt-2 inconsolata-font text-center" style="margin-top: 50px !important; letter-spacing:.5px;">Event Calendar</h1>
-  <hr class="border-maroon mb-4 about-title-underline">
-
-  <div class="container">
-    <div class="responsive-iframe-container bg-white">
-      <div class="row d-flex align-items-center justify-content-center calendar">
-        <div class="d-md-none">
-		  <iframe src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;mode=AGENDA" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-		</div>
-        <div class="d-none d-md-block">
-		  <iframe title="cisco calendar" src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Calendar -->
-
-  <!-- CNA Leads -->
-  <div class="container text-center" style="margin-top: 50px">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="text-white mt-2 inconsolata-font" style="letter-spacing:.5px;">Cisco Networking Academy Leads</h1>
-        <hr class="border-maroon mb-4 about-title-underline" style="width: 200px !important">
-		<div class="row d-flex justify-content-center">
-			<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-				<div class="card about border-0 shadow">
-				 
-				  <div class="card-body">
-					<h5 class="card-title mb-0">Colby Coppinger</h5>
-					<div class="card-text text-black-50">CNA Student Ambassador</div>
-					<div class="card-text major-year">GIST '25</div>
-					<hr class="m-0 p-0 my-2">
-					<ul class="social-media">
-					  <li>
-						<a href="mailto:mailto:tamuciscoacademy@gmail.com"><i class="fas fa-envelope about fa-lg"></i></a>
-					  </li>
-					</ul>
-				  </div>
+					<p
+						class="lead"
+						style="font-size: 1.5rem"
+					>
+						Attend ALL lessons and receive a switch!
+					</p>
 				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-				<div class="card about border-0 shadow">
-				  
-				  <div class="card-body">
-					<h5 class="card-title mb-0">Austin Glander</h5>
-					<div class="card-text text-black-50">Lab Coordinator</div>
-					<div class="card-text major-year">CPSC '27</div>
-					<hr class="m-0 p-0 my-2">
-					<ul class="social-media">
-					  <li>
-						<a href="mailto:mailto:tamuciscoacademy@gmail.com"><i class="fas fa-envelope about fa-lg"></i></a>
-					  </li>
+
+				<div
+					class="col-12 mb-3 text-white text-center cisco-text-section"
+					style="margin-top: 30px !important"
+				>
+					<h3><u>CCNA Voucher</u></h3>
+
+					<p
+						class="lead"
+						style="font-size: 1.5rem"
+					>
+						Guidelines:
+					</p>
+					<ul class="bulleted-list">
+						<li>Students must attend 3 meetings and 1 lab.</li>
+						<li>Students must make an 80 on CCNA practice exam.</li>
+						<li>
+							If a student accomplishes all of these tasks, they
+							will receive a voucher for their CCNA exam.
+						</li>
 					</ul>
-				  </div>
 				</div>
 			</div>
 		</div>
-      </div>
-    </div>
-  </div>
-  <!-- End CNA Leads -->
+		<!-- End Cisco About -->
 
-  <!-- Footer -->
-  <footer class="footer bg-black">
-    <div class="container">
-      <div class="row justify-content-center my-3 pt-2">
-        <h1 class="text-white text-uppercase inconsolata-font">Stay in touch</h1>
-      </div>
-      <div class="row justify-content-center text-center">
-        <div class="linkedin col-5 col-sm-4 col-md-2"><a href="https://www.linkedin.com/company/texas-a-m-cyber-security-club/" target="_blank" aria-label="linkedin"><i class="fab fa-linkedin fa-3x"></i></a></div>
-        <div class="instagram col-5 col-sm-4 col-md-2"><a href="https://www.instagram.com/tamucybersec/" target="_blank" aria-label="instagram"><i id="instagram" class="fab fa-instagram-square fa-3x"></i></a></div>
-        <div class="discord col-5 col-sm-4 col-md-2"><a href="https://discord.gg/nCpZzbB" target="_blank" aria-label="discord"><i class="fab fa-discord fa-3x"></i></a></div>
-        <div class="twitter col-5 col-sm-4 col-md-2"><a href="https://twitter.com/intent/follow?screen_name=tamucybersec" target="_blank" aria-label="twitter"><i class="fab fa-twitter-square fa-3x"></i></a></div>
-        <div class="facebook col-5 col-sm-4 col-md-2"><a href="https://www.facebook.com/TAMUCyberSec/" target="_blank" aria-label="facebook"><i class="fab fa-facebook-square fa-3x"></i></a></div>
-      </div>
-    </div>
-	<div class="text-white text-center mt-4 bg-black" >
-      <h5 class="p-0 m-0 inconsolata-font">Texas A&amp;M Cybersecurity Club <span class="year"></span></a></h5>
-	</div>
-  </footer>
-  <!--End Footer -->
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0= "crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/config.js"></script>
-  <script src="./assets/js/email.js"></script>
+		<!-- Calendar -->
+		<!-- responsive-iframe-container http://themeloom.com/2013/02/tips-embed-google-maps-and-calendars-in-a-responsive-wordpress-theme/ -->
+		<h1
+			class="text-white mt-2 inconsolata-font text-center"
+			style="margin-top: 50px !important; letter-spacing: 0.5px"
+		>
+			Event Calendar
+		</h1>
+		<hr class="border-maroon mb-4 about-title-underline" />
 
-</body>
+		<div class="container">
+			<div class="responsive-iframe-container bg-white">
+				<div
+					class="row d-flex align-items-center justify-content-center calendar"
+				>
+					<div class="d-md-none">
+						<iframe
+							src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;mode=AGENDA"
+							style="border: solid 1px #777"
+							width="800"
+							height="600"
+							frameborder="0"
+							scrolling="no"
+						></iframe>
+					</div>
+					<div class="d-none d-md-block">
+						<iframe
+							title="cisco calendar"
+							src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0"
+							style="border: solid 1px #777"
+							width="800"
+							height="600"
+							frameborder="0"
+							scrolling="no"
+						></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Calendar -->
+
+		<!-- CNA Leads -->
+		<div
+			class="container text-center"
+			style="margin-top: 50px"
+		>
+			<div class="row">
+				<div class="col-12">
+					<h1
+						class="text-white mt-2 inconsolata-font"
+						style="letter-spacing: 0.5px"
+					>
+						Cisco Networking Academy Leads
+					</h1>
+					<hr
+						class="border-maroon mb-4 about-title-underline"
+						style="width: 200px !important"
+					/>
+					<div class="row d-flex justify-content-center">
+						<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+							<div class="card about border-0 shadow">
+								<div class="card-body">
+									<h5 class="card-title mb-0">
+										Colby Coppinger
+									</h5>
+									<div class="card-text text-black-50">
+										CNA Student Ambassador
+									</div>
+									<div class="card-text major-year">
+										GIST '25
+									</div>
+									<hr class="m-0 p-0 my-2" />
+									<ul class="social-media">
+										<li>
+											<a
+												href="mailto:mailto:tamuciscoacademy@gmail.com"
+												><i
+													class="fas fa-envelope about fa-lg"
+												></i
+											></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+							<div class="card about border-0 shadow">
+								<div class="card-body">
+									<h5 class="card-title mb-0">
+										Austin Glander
+									</h5>
+									<div class="card-text text-black-50">
+										Lab Coordinator
+									</div>
+									<div class="card-text major-year">
+										CPSC '27
+									</div>
+									<hr class="m-0 p-0 my-2" />
+									<ul class="social-media">
+										<li>
+											<a
+												href="mailto:mailto:tamuciscoacademy@gmail.com"
+												><i
+													class="fas fa-envelope about fa-lg"
+												></i
+											></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End CNA Leads -->
+
+		<!-- Footer -->
+		<footer class="footer bg-black">
+			<div class="container">
+				<div class="row justify-content-center my-3 pt-2">
+					<h1 class="text-white text-uppercase inconsolata-font">
+						Stay in touch
+					</h1>
+				</div>
+				<div class="row justify-content-center text-center">
+					<div class="linkedin col-5 col-sm-4 col-md-2">
+						<a
+							href="https://www.linkedin.com/company/texas-a-m-cyber-security-club/"
+							target="_blank"
+							aria-label="linkedin"
+							><i class="fab fa-linkedin fa-3x"></i
+						></a>
+					</div>
+					<div class="instagram col-5 col-sm-4 col-md-2">
+						<a
+							href="https://www.instagram.com/tamucybersec/"
+							target="_blank"
+							aria-label="instagram"
+							><i
+								id="instagram"
+								class="fab fa-instagram-square fa-3x"
+							></i
+						></a>
+					</div>
+					<div class="discord col-5 col-sm-4 col-md-2">
+						<a
+							href="https://discord.gg/nCpZzbB"
+							target="_blank"
+							aria-label="discord"
+							><i class="fab fa-discord fa-3x"></i
+						></a>
+					</div>
+					<div class="twitter col-5 col-sm-4 col-md-2">
+						<a
+							href="https://twitter.com/intent/follow?screen_name=tamucybersec"
+							target="_blank"
+							aria-label="twitter"
+							><i class="fab fa-twitter-square fa-3x"></i
+						></a>
+					</div>
+					<div class="facebook col-5 col-sm-4 col-md-2">
+						<a
+							href="https://www.facebook.com/TAMUCyberSec/"
+							target="_blank"
+							aria-label="facebook"
+							><i class="fab fa-facebook-square fa-3x"></i
+						></a>
+					</div>
+				</div>
+			</div>
+			<div class="text-white text-center mt-4 bg-black">
+				<h5 class="p-0 m-0 inconsolata-font">
+					Texas A&amp;M Cybersecurity Club <span class="year"></span>
+				</h5>
+			</div>
+		</footer>
+		<!--End Footer -->
+
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.min.js"
+			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0= "
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="./assets/js/main.js"></script>
+		<script src="./assets/js/config.js"></script>
+		<script src="./assets/js/email.js"></script>
+	</body>
 </html>
