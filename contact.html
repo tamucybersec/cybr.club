@@ -265,6 +265,43 @@
 		</div>
 		<!-- End Contact Form -->
 
+  <!-- Contact Form -->
+  <div class="container" style="min-height:80vh;">
+    <div id="about-us-title" class="row text-center">
+      <div class="col-12">
+        <h1 class="text-white inconsolata-font" style="letter-spacing:.5px;">Contact Us</h1>
+        <hr id="contact-us-underline" class="border-maroon mb-3">
+      </div>
+      <div class="col-12">
+		    <p class="text-white inconsolata-font" style="font-size:23px;">If you have any business with us, you can contact us by using the form below. </p> <!-- For our FAQs, please visit <a href="./assets/pdf/FAQs.pdf" target="_blank">this link</a>!</p> -->
+      </div>
+    </div>
+	
+    <div class="row justify-content-center" style="margin-top: 10px; margin-bottom: 50px;">
+      <div class="col-sm-9 col-md-8">
+        <div class="card text-white" style="background:#000;">
+          <div class="card-body text-right">
+            <form id="contact-form" method="POST">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input id="name" type="text" class="form-control" required minlength="2" placeholder="Full name">
+                </div>
+                <div class="form-group col-md-6">
+                  <input id="email" type="email" class="form-control" required placeholder="Email address">
+                </div>
+                <div class="form-group col-md-12">
+                  <textarea id="msg" class="form-control" rows="7" required placeholder="Message"></textarea>
+                </div>
+              </div>
+              <button type="button mx-auto" onClick="submitToAPI(event)" class="btn btn-light">Submit</button>
+              <button style="display:none;" type="submit" id="handle-submit">Not Shown</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Contact Form -->
 		<!-- Footer -->
 		<footer class="footer bg-black">
 			<div class="container">
