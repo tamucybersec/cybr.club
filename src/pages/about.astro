@@ -1,0 +1,73 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Container from "../components/Container.astro";
+
+// TODO - members
+// TODO - alumni
+---
+
+<Base>
+	<Container>
+		<Title title="About Us" />
+		<Paragraph>
+			The Texas A&M Cybersecurity Club provides students with
+			opportunities to learn more about the cybersecurity field and
+			develop their skills through competitions, learning programs, and
+			weekly meetings on cybersecurity topics. We foster a community where
+			members can learn and grow together as they develop their
+			professional network.
+		</Paragraph>
+	</Container>
+
+	<Container>
+		<Title title="Our Team" />
+		<Paragraph>
+			Our officer team works to foster a community where people of any
+			background or major feel welcomed and engaged. We hope to inspire
+			members to be leaders and support the next generation.
+		</Paragraph>
+	</Container>
+
+	<Container>
+		<Title title="Officers" />
+		<div
+			id="officers"
+			class="row d-flex justify-content-center"
+		>
+		</div>
+	</Container>
+
+	<!-- Alumni -->
+	<div class="container">
+		<Title title="Alumni" />
+		<div class="col-12 text-center">
+			<table class="alumni-table table mx-auto mt-0">
+				<thead>
+					<tr>
+						<th
+							scope="col"
+							style="width: 33.3%"
+						>
+							Name
+						</th>
+						<th
+							scope="col"
+							style="width: 33.3%"
+						>
+							Position
+						</th>
+						<th
+							scope="col"
+							style="width: 33.3%"
+						>
+							Graduation
+						</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+</Base>

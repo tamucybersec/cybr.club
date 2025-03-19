@@ -1,0 +1,31 @@
+---
+export interface Props {
+	name: string;
+	title?: string;
+	major: string;
+	year?: number;
+	email: string;
+}
+
+const { name, title, major, year, email } = Astro.props;
+---
+
+<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4 text-center">
+	<div class="card about border-0 shadow">
+		<div class="card-body">
+			<h5 class="card-title mb-0">{name}</h5>
+			{title && <div class="card-text text-black-50">{title}</div>}
+			<div class="card-text major-year">
+				{major}{year ? ` '${year}` : ""}
+			</div>
+			<hr class="m-0 p-0 my-2" />
+			<ul class="social-media">
+				<li>
+					<a href={`mailto:${email}`}
+						><i class="fas fa-envelope about fa-lg"></i></a
+					>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

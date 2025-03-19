@@ -1,0 +1,86 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Subtitle from "../components/Subtitle.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Container from "../components/Container.astro";
+import ActivityLogo from "../components/ActivityLogo.astro";
+import MemberCard, {
+	type Props as MemberCardProps,
+} from "../components/MemberCard.astro";
+
+import awsAcademy from "../images/programs/aws/aws-academy-logo.png";
+import awsLogo from "../images/programs/aws/aws-logo.png";
+
+const leads: MemberCardProps[] = [
+	{
+		name: "Luke Laudeman",
+		title: "AWS Academy Student Ambassador",
+		major: "INTA",
+		year: 27,
+		email: "luke123@tamu.edu",
+	},
+];
+
+// TODO - don't hardcode the discord invite
+---
+
+<Base>
+	<Container>
+		<Title title="AWS Academy" />
+		<ActivityLogo image={awsAcademy.src} />
+
+		<Subtitle subtitle="About" />
+		<Paragraph>
+			Amazon Web Services is the largest cloud platform in the world.
+			Through an extensive array of services ranging from databases and
+			virtual machines to security and AI training, AWS provides high
+			quality, highly available cloud services all throughout the world.
+			<br /><br />
+			The Cybersecurity Club offers a comprehensive lesson plan covering all
+			of the fundamental topics required for the Cloud Practitioner Exam. The
+			course covers a handful of essential services offered by AWS, how to
+			use them, and prepares you to take your exam.
+		</Paragraph>
+
+		<Subtitle subtitle="Academy Program" />
+		<Paragraph>
+			The TAMU Cybersecurity Center has partnered with AWS to bring
+			courses and certifications to students for free! AWS Academy offers
+			a variety of certifications for a wide array of fields. From the
+			Foundational Cloud Practitioner, to the Specialty Advanced
+			Networking or Security certificates, AWS Academy's qualifications
+			allow you to gain real world experience with the largest cloud
+			platform in the world.
+			<br /><br />
+			Learn more about the AWS Academy by visiting
+			<br />
+			<a
+				href="https://aws.amazon.com/training/awsacademy/"
+				target="_blank"
+				>https://aws.amazon.com/training/awsacademy/</a
+			>
+		</Paragraph>
+
+		<Subtitle subtitle="Want to Sign Up?" />
+		<Paragraph>
+			We have weekly meetings on Wednesday nights. These are announced in
+			the
+			<a href="https://discord.gg/rZXZM7EB">#aws-academy</a>
+			channel in the Cybersecurity Club Discord server. Reach out to me through
+			Discord or my email to sign up for the AWS academy.
+		</Paragraph>
+
+		<img
+			id="palo-alto-logo"
+			class="mx-auto d-block"
+			width="500px"
+			src={awsLogo.src}
+		/>
+
+		<Title title="AWS Academy Leads" />
+		<div class="row d-flex justify-content-center">
+			{leads.map((props) => <MemberCard {...props} />)}
+		</div>
+	</Container>
+</Base>

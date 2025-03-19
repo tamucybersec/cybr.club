@@ -1,0 +1,63 @@
+---
+const topics: {
+	name: string;
+	icon: string;
+}[] = [
+	{ name: "Cryptography", icon: "lock" },
+	{ name: "System Defense", icon: "cube" },
+	{ name: "Binary Exploitation", icon: "lock-open" },
+	{ name: "Network Defense", icon: "network-wired" },
+	{ name: "Web Exploitation", icon: "server" },
+	{ name: "Career Opportunities", icon: "file" },
+];
+---
+
+<!-- Title -->
+<div
+	id="topics-covered-title"
+	class="container mt-4"
+>
+	<div class="row text-center justify-content-center">
+		<div class="col-lg-10 col-xl-9">
+			<h1 class="text-white inconsolata-font">Topics We Cover</h1>
+			<div class="title-underline"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Topics -->
+<div
+	id="topics-section"
+	class="container inconsolata-font"
+>
+	<div
+		class="os-animation"
+		data-animation="fadeInLeft"
+		data-delay="0s"
+	>
+		<div class="row d-flex justify-content-center text-center">
+			{
+				topics.map(({ name, icon }) => (
+					<div class="col-sm-6 col-md-4 mb-3">
+						<div class="row d-flex align-items-center justify-content-center">
+							<div class="p-0">
+								<span class="fa-stack fa-2x">
+									<i class="fas fa-circle fa-stack-2x" />
+									<i
+										class={`fas fa-${icon} fa-inverse fa-stack-1x`}
+									/>
+								</span>
+							</div>
+							<div class="w-100" />
+							<div class="p-0">
+								<h4 class="text-white text-uppercase">
+									{name}
+								</h4>
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>

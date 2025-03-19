@@ -1,0 +1,89 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Subtitle from "../components/Subtitle.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Container from "../components/Container.astro";
+import ActivityLogo from "../components/ActivityLogo.astro";
+import MemberCard, {
+	type Props as MemberCardProps,
+} from "../components/MemberCard.astro";
+
+import wicysLogo from "../images/programs/wicys/tamu-wicys.png";
+import palotAltoLogo from "../images/programs/aws/aws-logo.png";
+
+const leads: MemberCardProps[] = [
+	{
+		name: "Adriana Guerrero",
+		title: "President",
+		major: "TCMG",
+		year: 25,
+		email: "tamuwicys@gmail.com",
+	},
+	{
+		name: "Emma Scott",
+		title: "Vice President",
+		major: "FIVS",
+		year: 25,
+		email: "tamuwicys@gmail.com",
+	},
+	{
+		name: "Sanika Jade",
+		title: "Secretary",
+		major: "CYBR Masters",
+		year: 25,
+		email: "tamuwicys@gmail.com",
+	},
+	{
+		name: "Sienna Wideman",
+		title: "Treasurer",
+		major: "ECEN",
+		year: 26,
+		email: "tamuwicys@gmail.com",
+	},
+	{
+		name: "Eman Hammad",
+		title: "WiCyS Advisor",
+		major: "TETID Department",
+		email: "tamuwicys@gmail.com",
+	},
+	{
+		name: "Jennifer Cutler",
+		title: "WiCyS Co-Advisor",
+		major: "TAMIDS Department",
+		email: "tamuwicys@gmail.com",
+	},
+];
+---
+
+<Base>
+	<Container>
+		<Title title="WiCyS" />
+		<ActivityLogo image={wicysLogo.src} />
+
+		<Subtitle subtitle="Our Mission" />
+		<Paragraph>
+			WiCyS is a community of engagement, encouragement and support for
+			women in cybersecurity. Women in CyberSecurity (WiCyS) is the
+			premier organization with a national reach dedicated to bringing
+			together women in cybersecurity from academia, research and industry
+			to share knowledge, experience, networking and mentoring. Our Texas
+			A&M WiCyS is open to meeting new people, so please don't hesitate to
+			come to an event or talk to us at cyber club meetings!
+		</Paragraph>
+
+		<Title title="Join the WiCyS Discord" />
+		<div class="discord justify-content-center d-flex mb-4">
+			<a
+				href="https://discord.com/invite/DPjpSRcjyy"
+				target="_blank"
+				><i class="fab fa-discord fa-3x"></i></a
+			>
+		</div>
+
+		<Title title="WiCyS Officers" />
+		<div class="row d-flex justify-content-center">
+			{leads.map((props) => <MemberCard {...props} />)}
+		</div>
+	</Container>
+</Base>

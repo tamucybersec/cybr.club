@@ -1,0 +1,61 @@
+<div
+	class="row justify-content-center"
+	style="margin-top: 10px; margin-bottom: 50px;"
+>
+	<div class="col-sm-9 col-md-8">
+		<div
+			class="card text-white"
+			style="background:#000;"
+		>
+			<div class="card-body text-right">
+				<form
+					id="contact-form"
+					method="POST"
+				>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<input
+								id="name"
+								type="text"
+								class="form-control"
+								required
+								minlength="2"
+								placeholder="Full name"
+							/>
+						</div>
+						<div class="form-group col-md-6">
+							<input
+								id="email"
+								type="email"
+								class="form-control"
+								required
+								placeholder="Email address"
+							/>
+						</div>
+						<div class="form-group col-md-12">
+							<textarea
+								id="msg"
+								class="form-control"
+								rows="7"
+								required
+								placeholder="Message"
+							></textarea>
+						</div>
+					</div>
+					<button
+						type="button"
+						onClick="submitToAPI(event)"
+						class="btn btn-light"
+						>Submit</button
+					>
+					<button
+						style="display:none;"
+						type="submit"
+						id="handle-submit"
+						>Not Shown</button
+					>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

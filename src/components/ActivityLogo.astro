@@ -1,0 +1,25 @@
+---
+interface Props {
+	image: string;
+}
+
+const { image } = Astro.props;
+---
+
+<div class="row justify-content-center">
+	<div
+		class="animated fadeIn mt-4 col-12 col-md-12 col-lg-6 my-auto p-0 text-center"
+		style="
+			padding: 15px;
+			background-color: white;
+			border-radius: 10px;
+		"
+	>
+		<img
+			class="img-fluid"
+			src={image}
+			max-width="80%"
+		/>
+	</div>
+</div>
+<br />

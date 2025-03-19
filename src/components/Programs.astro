@@ -1,0 +1,55 @@
+---
+import Title from "./Title.astro";
+
+import redHatAcademy from "../images/programs/rha/rha-opt.png";
+import ciscoAcademy from "../images/programs/cisco/cisco.png";
+import paloAltoAcademy from "../images/programs/palo_alto/palo_alto.png";
+import awsAcademy from "../images/programs/aws/aws-academy-logo.png";
+
+const programs = [
+	{
+		name: "Red Hat Academy",
+		href: "/rha/",
+		src: redHatAcademy.src,
+	},
+	{
+		name: "Cisco",
+		href: "/cisco/",
+		src: ciscoAcademy.src,
+	},
+	{
+		name: "Palo Alto",
+		href: "/palo-alto/",
+		src: paloAltoAcademy.src,
+	},
+	{
+		name: "AWS",
+		href: "/aws/",
+		src: awsAcademy.src,
+	},
+];
+---
+
+<div class="container text-center inconsolata-font">
+	<Title title="Programs" />
+
+	<div class="row d-flex">
+		{
+			programs.map(({ name, href, src }) => (
+				<div class="mx-auto animated fadeIn">
+					<a href={href}>
+						<div class="card events card-partners-left">
+							<div class="card-partners-img">
+								<img
+									src={src}
+									width="125px"
+									alt={name}
+								/>
+							</div>
+						</div>
+					</a>
+				</div>
+			))
+		}
+	</div>
+</div>
