@@ -1,6 +1,5 @@
 # Fixes from Port
 
--   ugliness of event pages
 -   clean out old images
 -   main.js
 -   members.js (and display issues of officers on about)
@@ -8,3 +7,8 @@
 -   contact form
 -   make sure all js works
 -   attends to all todos
+
+# Improvements
+
+-   Make landing page flashy and properly display best parts of the club
+-   Improve colors and styling
