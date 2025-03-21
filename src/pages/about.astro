@@ -3,9 +3,10 @@ import Base from "../layouts/Base.astro";
 import Title from "../components/Title.astro";
 import Paragraph from "../components/Paragraph.astro";
 import Container from "../components/Container.astro";
+import MemberCard from "../components/MemberCard.astro";
+import AlumniTable from "../components/AlumniTable.astro";
 
-// TODO - members
-// TODO - alumni
+import { officers } from "../scripts/officers";
 ---
 
 <Base>
@@ -32,42 +33,10 @@ import Container from "../components/Container.astro";
 
 	<Container>
 		<Title title="Officers" />
-		<div
-			id="officers"
-			class="row d-flex justify-content-center"
-		>
+		<div class="row d-flex justify-content-center">
+			{officers.map((props) => <MemberCard {...props} />)}
 		</div>
 	</Container>
 
-	<!-- Alumni -->
-	<div class="container">
-		<Title title="Alumni" />
-		<div class="col-12 text-center">
-			<table class="alumni-table table mx-auto mt-0">
-				<thead>
-					<tr>
-						<th
-							scope="col"
-							style="width: 33.3%"
-						>
-							Name
-						</th>
-						<th
-							scope="col"
-							style="width: 33.3%"
-						>
-							Position
-						</th>
-						<th
-							scope="col"
-							style="width: 33.3%"
-						>
-							Graduation
-						</th>
-					</tr>
-				</thead>
-				<tbody></tbody>
-			</table>
-		</div>
-	</div>
+	<AlumniTable />
 </Base>

@@ -55,7 +55,13 @@ const links: {
 	</div>
 	<div class="text-white text-center pt-4 pb-4 bg-black">
 		<h5 class="p-0 m-0 inconsolata-font">
-			Texas A&amp;M Cybersecurity Club <span class="year"></span>
+			Texas A&amp;M Cybersecurity Club <span id="year"></span>
 		</h5>
 	</div>
+
+	<script>
+		document.getElementById("year")!.textContent = new Date()
+			.getFullYear()
+			.toString();
+	</script>
 </footer>

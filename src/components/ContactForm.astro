@@ -1,3 +1,14 @@
+---
+const API_URL =
+	"https://3qc9d77k52.execute-api.us-east-1.amazonaws.com/prod/contact";
+
+interface Props {
+	fallbackEmail: string;
+}
+
+const { fallbackEmail } = Astro.props;
+---
+
 <div
 	class="row justify-content-center"
 	style="margin-top: 10px; margin-bottom: 50px;"
@@ -44,7 +55,7 @@
 					</div>
 					<button
 						type="button"
-						onClick="submitToAPI(event)"
+						onclick="submitToAPI()"
 						class="btn btn-light"
 						>Submit</button
 					>
@@ -59,3 +70,57 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script is:inline define:vars={{ API_URL, fallbackEmail }}>
+	function submitToAPI(e) {
+		e.preventDefault();
+
+		const $contactForm = $("#contact-form");
+
+		// use html5 validation for input fields
+		if (!$contactForm[0].checkValidity()) {
+			$("#handle-submit").click();
+			return;
+		}
+
+		let name = $("#name").val();
+		let email = $("#email").val().toLowerCase();
+		let msg = $("#msg").val();
+
+		const data = {
+			name: name,
+			email: email,
+			msg: msg,
+		};
+
+		$.ajax({
+			type: "POST",
+			url: API_URL,
+			dataType: "json",
+			crossDomain: "true",
+			contentType: "application/json; charset=utf-8",
+			data: JSON.stringify(data),
+
+			// using sweet alerts for messages
+			success: function () {
+				swal(
+					"Sent Successfully!",
+					"Your message will be reviewed by our team",
+					"success"
+				).then(function () {
+					document.getElementById("contact-form").reset();
+					window.location.reload();
+				});
+			},
+			error: function () {
+				swal(
+					"Error Sending Message!",
+					`Please contact ${fallbackEmail} directly`,
+					"error"
+				);
+				return;
+			},
+		});
+	}
+</script>

@@ -1,0 +1,38 @@
+---
+import { type Socials } from "../scripts/officers";
+
+type Props = Socials & { style?: string };
+
+const { linkedin, github, email, website, style } = Astro.props;
+---
+
+<div class="social-media">
+	{
+		linkedin && (
+			<a href={linkedin}>
+				<i class={`fab fa-linkedin about fa-lg ${style}`} />
+			</a>
+		)
+	}
+	{
+		github && (
+			<a href={github}>
+				<i class={`fab fa-github-square about fa-lg ${style}`} />
+			</a>
+		)
+	}
+	{
+		email && (
+			<a href={`mailto:${email}`}>
+				<i class={`fas fa-envelope about fa-lg ${style}`} />
+			</a>
+		)
+	}
+	{
+		website && (
+			<a href={website}>
+				<i class={`fas fa-link about fa-lg ${style}`} />
+			</a>
+		)
+	}
+</div>

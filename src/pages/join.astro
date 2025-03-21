@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import Title from "../components/Title.astro";
 import Paragraph from "../components/Paragraph.astro";
-import MailingList from "../components/MailingList.astro";
 import Accordion, { type AccordionProps } from "../components/Accordion.astro";
 
 const links: AccordionProps = [
@@ -65,12 +64,13 @@ const links: AccordionProps = [
 
 	<Accordion accordions={links}>
 		<div class="card-body">
-			<MailingList
-				title="Club Mailing List"
-				description={"This mailing list is where we sent out important club announcements, event details, and opportunities for involvement."}
-				link="https://assets.mailerlite.com/jsonp/45538/forms/54730885549786219/subscribe"
-				successMessage={"You have successfully joined our subscriber list. Make sure to join our Discord server as well!"}
-			/>
+			<iframe
+				src="/mailing-list.html"
+				width="400px"
+				height="300px"
+				style="border: 3px solid black; border-radius: 12px;"
+			>
+			</iframe>
 		</div>
 	</Accordion>
 </Base>

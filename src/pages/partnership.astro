@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import Title from "../components/Title.astro";
 import Paragraph from "../components/Paragraph.astro";
-import MailingList from "../components/MailingList.astro";
 
 const links: {
 	name: string;
@@ -49,12 +48,13 @@ const links: {
 		with highlights from our club events and activities.
 	</Paragraph>
 
-	<MailingList
-		title="TAMU Cybersecurity Club Newsletter"
-		description={"Sign up to receive our club's monthly newsletter! This will allow you to stay up to date with highlights from club events and activities."}
-		link="https://assets.mailerlite.com/jsonp/45538/forms/54730972249195798/subscribe"
-		successMessage={"You have successfully joined the subscriber list for our monthly company newsletter. If you would like to get involved directly with our club feel free to reach out to us at tamucybersec@gmail.com."}
-	/>
+	<iframe
+		src="/company-mailing-list.html"
+		width="400px"
+		height="300px"
+		style="border: 3px solid black; border-radius: 12px;"
+	>
+	</iframe>
 
 	<div class="text-center">
 		<div

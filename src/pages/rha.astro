@@ -15,10 +15,12 @@ import rhaLogo from "../images/programs/rha/rha.png";
 const leads: MemberCardProps[] = [
 	{
 		name: "Noam Gariani",
-		title: "RHA Student Ambassador",
+		position: "RHA Student Ambassador",
 		major: "COMP",
 		year: 24,
-		email: "tamuredhatacademy@gmail.com",
+		socials: {
+			email: "tamuredhatacademy@gmail.com",
+		},
 	},
 ];
 ---
@@ -58,6 +60,6 @@ const leads: MemberCardProps[] = [
 		</div>
 
 		<Title title="Contact Us" />
-		<ContactForm />
+		<ContactForm fallbackEmail="tamucybersec@gmail.com" />
 	</Container>
 </Base>
