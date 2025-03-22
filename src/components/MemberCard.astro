@@ -1,0 +1,39 @@
+---
+import SocialsList from "./SocialsList.astro";
+
+export interface Props {
+	name: string;
+	position: string;
+	major: string;
+	year?: number;
+	socials?: {
+		linkedin?: string;
+		github?: string;
+		email?: string;
+		website?: string;
+	};
+}
+[];
+
+const { name, position, major, year, socials } = Astro.props;
+---
+
+<div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4 text-center">
+	<div class="card about border-0 shadow">
+		<div class="card-body">
+			<h5 class="card-title mb-0">{name}</h5>
+			{position && <div class="card-text text-black-50">{position}</div>}
+			<div class="card-text major-year">
+				{major}{year ? ` '${year}` : ""}
+			</div>
+			{
+				socials && (
+					<>
+						<hr class="m-0 p-0 my-2" />
+						<SocialsList {...socials} />
+					</>
+				)
+			}
+		</div>
+	</div>
+</div>

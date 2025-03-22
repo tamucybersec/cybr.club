@@ -1,0 +1,60 @@
+---
+import chevron from "../images/sponsors/chevron.svg";
+import capitalOne from "../images/sponsors/capital-one.png";
+
+// TODO - fix sponsor styling
+---
+
+<div
+	id="sponsors-section"
+	class="container text-center inconsolata-font"
+	style="min-height: 350px"
+>
+	<div
+		id="sponsors-title"
+		class="row text-center justify-content-center"
+	>
+		<div class="col-lg-10 col-xl-9">
+			<h1 class="text-white inconsolata-font">Sponsors</h1>
+			<div class="title-underline"></div>
+		</div>
+	</div>
+
+	<div class="mx-auto text-white">
+		GOLD SPONSOR
+		<a
+			class="w-100"
+			href="https://www.chevron.com/"
+			target="_blank"
+		>
+			<div class="card events card-sponsors gold-sponsors-border">
+				<div class="card-partners-img">
+					<img
+						src={chevron.src}
+						width="150px"
+						class="rounded p-2"
+						style="background-color: #fff"
+					/>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="mx-auto text-white">
+		SILVER SPONSOR
+		<a
+			href="https://www.capitalone.com/"
+			target="_blank"
+		>
+			<div class="card events card-sponsors silver-sponsors-border">
+				<div class="card-partners-img">
+					<img
+						src={capitalOne.src}
+						width="200px"
+						class="rounded p-2"
+						style="background-color: #fff"
+					/>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>

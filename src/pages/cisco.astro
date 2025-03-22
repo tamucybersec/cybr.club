@@ -1,0 +1,116 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Subtitle from "../components/Subtitle.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Container from "../components/Container.astro";
+import ActivityLogo from "../components/ActivityLogo.astro";
+import MemberCard, {
+	type Props as MemberCardProps,
+} from "../components/MemberCard.astro";
+
+import ciscoLab from "../images/programs/cisco/cisco-lab.png";
+
+const leads: MemberCardProps[] = [
+	{
+		name: "Colby Coppinger",
+		position: "CNA Student Ambassador",
+		major: "GIST",
+		year: 25,
+		socials: {
+			email: "tamuciscoacademy@gmail.com",
+		},
+	},
+	{
+		name: "Austin Glander",
+		position: "Lab Coordinator",
+		major: "CPSC",
+		year: 27,
+		socials: {
+			email: "tamuciscoacademy@gmail.com",
+		},
+	},
+];
+---
+
+<Base>
+	<Container>
+		<Title title="Cisco Networking Academy" />
+		<ActivityLogo image={ciscoLab.src} />
+
+		<Subtitle subtitle="About" />
+		<Paragraph>
+			The Cisco Networking Academy Program is designed to empower students
+			to enter employment or further education and training in the
+			computer networking field. The CNA holds weekly meetings that show
+			students how to create their own networks using Packet Tracer and
+			hands-on labs.
+			<br /><br />
+			Learn more about Cisco Networking academy by visiting
+			<a href="https://www.netacad.com/">https://www.netacad.com/</a>
+		</Paragraph>
+
+		<Subtitle subtitle="When Do We Meet?" />
+		<Paragraph> Thursdays 8pm (Refer to calendar for locations) </Paragraph>
+
+		<Subtitle subtitle="Want to Sign Up?" />
+		<Paragraph>
+			Fill out this interest form to get access to Netacad courses along
+			with access to Cisco's Packet Tracer:
+			<a
+				class="rha-link font-weight-bold"
+				href="https://tx.ag/ciscospring25"
+				>tx.ag/ciscospring25</a
+			>.
+		</Paragraph>
+
+		<Subtitle subtitle="Rewards" />
+		<Paragraph>
+			Attend 3 meetings and receive a free t-shirt!
+			<br />
+			Attend ALL lessons and receive a switch!
+		</Paragraph>
+
+		<Subtitle subtitle="CCNA Voucher" />
+		<Paragraph>
+			Guidelines:
+
+			<ul class="bulleted-list">
+				<li>Students must attend 3 meetings and 1 lab</li>
+				<li>Students must make an 80 on CCNA practice exam</li>
+				<li>
+					If a student accomplishes all of these tasks, they will
+					receive a voucher for their CCNA exam
+				</li>
+			</ul>
+		</Paragraph>
+
+		<Title title="Event Calendar" />
+		<div class="responsive-iframe-container bg-white rounded mb-4">
+			<div
+				class="row d-flex align-items-center justify-content-center calendar"
+			>
+				<div class="d-md-none">
+					<iframe
+						src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&color=%230B8043&showTitle=0&showPrint=0&mode=AGENDA"
+						width="800"
+						height="600"
+					></iframe>
+				</div>
+				<div class="d-none d-md-block">
+					<iframe
+						title="cisco calendar"
+						src="https://calendar.google.com/calendar/embed?src=tamuciscoacademy%40gmail.com&ctz=America%2FChicago;color=%23D50000&color=%230B8043&showTitle=0&showPrint=0"
+						width="800"
+						height="600"
+					></iframe>
+				</div>
+			</div>
+		</div>
+
+		<Title title="Cisco Networking Academy Leads" />
+		<div class="row d-flex justify-content-center">
+			{leads.map((props) => <MemberCard {...props} />)}
+		</div>
+	</Container>
+</Base>

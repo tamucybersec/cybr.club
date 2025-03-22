@@ -1,0 +1,76 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Accordion, { type AccordionProps } from "../components/Accordion.astro";
+
+const links: AccordionProps = [
+	{
+		title: "Mailing List Sign-Up",
+		customBody: true,
+	},
+	{
+		title: "Discord Server Invite Link",
+		links: [
+			{
+				link: "https://discord.gg/nCpZzbB",
+				linkText: "Invite Link",
+			},
+		],
+		body: "In addition to our mailing list, we also send out our announcements and reminders in our Discord server. The Discord server is also a place where you can interact with and chat with other members of the club. This server is also where we host individual channels of communication for small groups and specialized topics.",
+	},
+	{
+		title: "Google Drive Link",
+		links: [
+			{
+				link: "https://drive.google.com/drive/folders/1GdtoTJb7pIRoQayotet4VeWFzOEjR3r7?usp=sharing",
+				linkText: "Drive Link",
+			},
+		],
+		body: "This is where we post resources for our members like past presentation slides and recorded meetings.",
+	},
+	{
+		title: "Optional: Resume Submission",
+		links: [
+			{
+				link: "https://docs.google.com/forms/d/e/1FAIpQLSfbt1XZkKVWMTiPZR8jcN13lzzhBrXHPjch1y45xZ7ANGm1Gw/viewform?usp=sf_link",
+				linkText: "Resume Form",
+			},
+		],
+		body: "One of the benefits that we offer to companies that partner with us is access to our bank of member resumes. Head hunters from talent acquisition teams will often use resume banks like this as part of their process in finding candidates to fill open positions. This is completely optional, but if you would like yours to be included, you can upload a shared link to your resume using this form.",
+	},
+];
+
+// TODO - outdated content?
+// TODO - fix accordion layout issues
+---
+
+<Base>
+	<Title title="Join" />
+
+	<Paragraph>
+		We are excited that you are interested in joining our club! Our goal as
+		an organization is to help all our members learn fundamental
+		cybersecurity knowledge and skills that will set them apart from the
+		crowd when applying for internships or jobs and to help them grow and
+		develop into young cybersecurity professionals and future leaders of the
+		industry.
+		<br /><br />
+		Our club does not have any dues or requirements to join. All you need is
+		interest in learning more about cybersecurity!
+		<br /><br />
+		Below, you will find links to help you get started with our club!
+	</Paragraph>
+
+	<Accordion accordions={links}>
+		<div class="card-body">
+			<iframe
+				src="/mailing-list.html"
+				width="400px"
+				height="300px"
+				style="border: 3px solid black; border-radius: 12px;"
+			>
+			</iframe>
+		</div>
+	</Accordion>
+</Base>

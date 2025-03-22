@@ -1,0 +1,81 @@
+---
+const currentPage = Astro.url.pathname;
+
+const pages: {
+	name: string;
+	href: string;
+	hidden?: boolean;
+}[] = [
+	{ name: "Home", href: "/" },
+	{ name: "Join", href: "/join/" },
+	{ name: "Calendar", href: "/calendar/" },
+	{ name: "Events", href: "/events/" },
+	{ name: "Partnership", href: "/partnership/" },
+	{ name: "About", href: "/about/" },
+	{ name: "Contact", href: "/contact/" },
+	{ name: "Merchandise", href: "/", hidden: true },
+];
+
+import WhiteShield from "../images/club-logos/white-shield.png";
+
+//TODO - Remove "Cybersecurity Club" name from navbar, it's too cluttered (or do something else like center or space the links in the navbar)
+---
+
+<nav
+	class={`navbar navbar-expand-xl ${currentPage == "/" ? "fixed-top" : "static-top"}`}
+>
+	<div>
+		<a
+			class="navbar-brand my-auto"
+			href="/"
+		>
+			<img
+				class="img-fluid"
+				src={WhiteShield.src}
+				alt="Home"
+			/>
+		</a>
+		<div class="navbar-brand-title d-inline align-middle">
+			Cybersecurity Club
+		</div>
+	</div>
+	<button
+		class="navbar-toggler"
+		type="button"
+		data-toggle="collapse"
+		data-target="#navbarNavDropdown"
+		aria-controls="navbarNavDropdown"
+		aria-expanded="false"
+		aria-label="Toggle navigation"
+	>
+		<i
+			class="fa fa-bars"
+			style="color: #fff"
+		></i>
+	</button>
+	<div
+		class="collapse navbar-collapse"
+		id="navbarNavDropdown"
+	>
+		<ul class="navbar-nav ml-auto">
+			{
+				pages.map(({ name, href, hidden }) => (
+					<li
+						class={`nav-item ${currentPage == href ? "active" : ""}`}
+						style={hidden ? "display: none" : ""}
+					>
+						<a
+							class={`nav-link nav-link-fade-up px-0 ${currentPage == href ? "nav-link-fade-up-active" : ""}`}
+							href={href}
+						>
+							{name}
+							{currentPage == href && (
+								<span class="sr-only">(current)</span>
+							)}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</nav>

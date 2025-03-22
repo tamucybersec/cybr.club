@@ -1,0 +1,92 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Subtitle from "../components/Subtitle.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Container from "../components/Container.astro";
+import ActivityLogo from "../components/ActivityLogo.astro";
+import MemberCard, {
+	type Props as MemberCardProps,
+} from "../components/MemberCard.astro";
+
+import paloAltoAcademy from "../images/programs/palo-alto/palo-alto-academy.png";
+import palotAltoLogo from "../images/programs/palo-alto/palo-alto.png";
+
+const leads: MemberCardProps[] = [
+	{
+		name: "Kalyan Adhikari",
+		position: "Palo Alto Academy Student Ambassador",
+		major: "GIST",
+		year: 27,
+		socials: {
+			email: "kalyanadhikari@tamu.edu",
+		},
+	},
+];
+
+// TODO - don't hardcode the discord invite
+---
+
+<Base>
+	<Container>
+		<Title title="Palo Alto Academy" />
+		<ActivityLogo image={paloAltoAcademy.src} />
+
+		<Subtitle subtitle="About" />
+		<Paragraph>
+			Palo Alto Networks, the global cybersecurity leader, continually
+			delivers innovation to enable secure digital transformation - even
+			as the pace of change is accelerating.
+			<br /><br />
+			The Cybersecurity Academy offers a comprehensive set of courses covering
+			cybersecurity fundamentals, cloud and network security, and operating
+			a security operations center. All courses are aligned with the US National
+			Initiative for Cybersecurity Education (NICE) framework for cybersecurity
+			work roles and prepare students to be an integral part of the workforce
+			of tomorrow.
+		</Paragraph>
+
+		<Subtitle subtitle="Academy Program" />
+		<Paragraph>
+			The TAMU Cybersecurity Center has partnered with Palo Alto to bring
+			courses and certifications to students for free! Palo Alto Networks
+			Education Services provides a large portfolio or role-based
+			certifications and micro-credentials aligning with Palo Alto
+			Networks cutting-edge cybersecurity technologies.
+			<br /><br />
+			Learn more about the Palo Alto Academy by visiting
+			<br />
+			<a
+				href="https://www.paloaltonetworks.com/services/education"
+				target="_blank"
+				>https://www.paloaltonetworks.com/services/education</a
+			>
+		</Paragraph>
+
+		<Subtitle subtitle="Want to Sign Up?" />
+		<Paragraph>
+			You can sign up for the program
+			<a
+				href="https://docs.google.com/forms/d/e/1FAIpQLSf_5uurKb5oFYskCAPoxbQrFVpBpJORITkTEafoaHkwjvJKOg/viewform?usp=sf_link"
+				target="_blank"
+				>here</a
+			>. We have weekly meetings on Wednesday nights. These are announced
+			in the
+			<a href="https://discord.gg/rZXZM7EB">#palo-alto</a>
+			channel in the Cybersecurity Club Discord server. Reach out with any
+			questions you have through Discord or my email.
+		</Paragraph>
+
+		<img
+			id="palo-alto-logo"
+			class="mx-auto d-block"
+			width="500px"
+			src={palotAltoLogo.src}
+		/>
+
+		<Title title="Palo Alto Academy Leads" />
+		<div class="row d-flex justify-content-center">
+			{leads.map((props) => <MemberCard {...props} />)}
+		</div>
+	</Container>
+</Base>

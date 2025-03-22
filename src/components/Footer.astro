@@ -1,0 +1,67 @@
+---
+const links: {
+	name: string;
+	href: string;
+	icon: string;
+}[] = [
+	{
+		name: "linkedin",
+		href: "https://www.linkedin.com/company/texas-a-m-cyber-security-club/",
+		icon: "linkedin",
+	},
+	{
+		name: "instagram",
+		href: "https://www.instagram.com/tamucybersec/",
+		icon: "instagram",
+	},
+	{
+		name: "discord",
+		href: "https://discord.gg/nCpZzbB",
+		icon: "discord",
+	},
+	{
+		name: "twitter",
+		href: "https://twitter.com/intent/follow?screen_name=tamucybersec",
+		icon: "twitter",
+	},
+	{
+		name: "facebook",
+		href: "https://www.facebook.com/TAMUCyberSec/",
+		icon: "facebook",
+	},
+];
+---
+
+<footer class="footer bg-black">
+	<div class="container">
+		<div class="row justify-content-center my-3 pt-2">
+			<h1 class="text-white inconsolata-font">Stay in touch!</h1>
+		</div>
+		<div class="row justify-content-center text-center">
+			{
+				links.map(({ name, href, icon }) => (
+					<div class={`${name} col-5 col-sm-4 col-md-2`}>
+						<a
+							href={href}
+							target="_blank"
+							aria-label={name}
+						>
+							<i class={`fab fa-${icon} fa-3x`} />
+						</a>
+					</div>
+				))
+			}
+		</div>
+	</div>
+	<div class="text-white text-center pt-4 pb-4 bg-black">
+		<h5 class="p-0 m-0 inconsolata-font">
+			Texas A&amp;M Cybersecurity Club <span id="year"></span>
+		</h5>
+	</div>
+
+	<script>
+		document.getElementById("year")!.textContent = new Date()
+			.getFullYear()
+			.toString();
+	</script>
+</footer>

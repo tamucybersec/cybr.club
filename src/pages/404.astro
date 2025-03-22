@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Paragraph from "../components/Paragraph.astro";
+---
+
+<Base>
+	<Title title="Page Not Found" />
+	<Paragraph>
+		Sorry, this page does not exist.
+		<br />
+		<a
+			href="/"
+			class="btn btn-light btn-lg"
+			><span class="glyphicon glyphicon-home"></span>
+			Take Me Home
+		</a>
+	</Paragraph>
+</Base>

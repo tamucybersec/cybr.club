@@ -1,0 +1,77 @@
+---
+import { validHtmlId } from "../scripts/helpers";
+
+export type AccordionProp = {
+	title: string;
+	image?: string;
+	links?: { link: string; linkText: string }[];
+	body?: string;
+	customBody?: boolean;
+};
+export type AccordionProps = AccordionProp[];
+interface Props {
+	accordions: AccordionProps;
+}
+
+const { accordions } = Astro.props;
+
+// TODO - the accordions just look bad in general
+---
+
+<div class="accordion text-center">
+	{
+		accordions.map(({ title, image, links, body, customBody }, i) => {
+			const id = validHtmlId(`${title}${i}`);
+
+			return (
+				<div class="card">
+					<button
+						class="btn card-header"
+						type="button"
+						data-toggle="collapse"
+						data-target={`#collapse${id}`}
+						aria-expanded="true"
+						aria-controls={`collapse${id}`}
+					>
+						<h5 class="mb-0">{title}</h5>
+						<i>&#9660;</i>
+					</button>
+					<div
+						id={`collapse${id}`}
+						class={`collapse ${image === undefined && links === undefined ? "pt-0" : ""}`}
+						aria-labelledby={`heading${id}`}
+					>
+						{customBody ? (
+							<slot />
+						) : (
+							<>
+								{image && (
+									<img
+										class="img-fluid"
+										width="150px"
+										src={image}
+										alt={title}
+									/>
+								)}
+								<ul class="mb-0">
+									{links &&
+										links.map(({ link, linkText }) => (
+											<li>
+												<a
+													href={link}
+													target="_blank"
+												>
+													{linkText}
+												</a>
+											</li>
+										))}
+								</ul>
+								<div class="card-body">{body}</div>
+							</>
+						)}
+					</div>
+				</div>
+			);
+		})
+	}
+</div>

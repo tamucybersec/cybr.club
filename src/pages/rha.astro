@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Subtitle from "../components/Subtitle.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Container from "../components/Container.astro";
+import ActivityLogo from "../components/ActivityLogo.astro";
+import MemberCard, {
+	type Props as MemberCardProps,
+} from "../components/MemberCard.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+import rhaLogo from "../images/programs/rha/rha.png";
+
+const leads: MemberCardProps[] = [
+	{
+		name: "Noam Gariani",
+		position: "RHA Student Ambassador",
+		major: "COMP",
+		year: 24,
+		socials: {
+			email: "tamuredhatacademy@gmail.com",
+		},
+	},
+];
+---
+
+<Base>
+	<Container>
+		<Title title="Red Hat Academy" />
+		<ActivityLogo image={rhaLogo.src} />
+
+		<Subtitle subtitle="What We Offer" />
+		<Paragraph>
+			The Red Hat Academy program teaches the fundamentals of Linux system
+			administration to Texas A&M students. The course is taught for free
+			and anyone is welcome to join.
+			<br /><br />
+			We also provide free exam vouchers for students who complete the course
+			who want to take the exam.
+		</Paragraph>
+
+		<Subtitle subtitle="Want to Join?" />
+		<Paragraph>
+			You can sign up for the course with
+			<a
+				class="rha-link font-weight-bold"
+				href="https://cybr.club/rh124"
+			>
+				this form</a
+			>. You can learn more and ask questions in the red-hat-academy
+			channel in the Cybersecurity Club Discord server. If you have any
+			questions, feel free to ask us on the Discord server, message us
+			privately, or use the contact form at the bottom of this page.
+		</Paragraph>
+
+		<Title title="Red Hat Academy Leads" />
+		<div class="row d-flex justify-content-center">
+			{leads.map((props) => <MemberCard {...props} />)}
+		</div>
+
+		<Title title="Contact Us" />
+		<ContactForm fallbackEmail="tamucybersec@gmail.com" />
+	</Container>
+</Base>

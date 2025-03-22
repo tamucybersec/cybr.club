@@ -1,0 +1,42 @@
+---
+import Base from "../layouts/Base.astro";
+import Title from "../components/Title.astro";
+import Paragraph from "../components/Paragraph.astro";
+import Container from "../components/Container.astro";
+import MemberCard from "../components/MemberCard.astro";
+import AlumniTable from "../components/AlumniTable.astro";
+
+import { officers } from "../scripts/officers";
+---
+
+<Base>
+	<Container>
+		<Title title="About Us" />
+		<Paragraph>
+			The Texas A&M Cybersecurity Club provides students with
+			opportunities to learn more about the cybersecurity field and
+			develop their skills through competitions, learning programs, and
+			weekly meetings on cybersecurity topics. We foster a community where
+			members can learn and grow together as they develop their
+			professional network.
+		</Paragraph>
+	</Container>
+
+	<Container>
+		<Title title="Our Team" />
+		<Paragraph>
+			Our officer team works to foster a community where people of any
+			background or major feel welcomed and engaged. We hope to inspire
+			members to be leaders and support the next generation.
+		</Paragraph>
+	</Container>
+
+	<Container>
+		<Title title="Officers" />
+		<div class="row d-flex justify-content-center">
+			{officers.map((props) => <MemberCard {...props} />)}
+		</div>
+	</Container>
+
+	<AlumniTable />
+</Base>
