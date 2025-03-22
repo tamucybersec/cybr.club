@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "npm run build && aws s3 cp dist/ s3://cybr.club/ --recursive"
   },
   "dependencies": {
     "astro": "^5.5.2"

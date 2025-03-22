@@ -54,17 +54,19 @@ const { fallbackEmail } = Astro.props;
 						</div>
 					</div>
 					<button
+						id="submit-contact-form"
 						type="button"
-						onclick="submitToAPI()"
 						class="btn btn-light"
-						>Submit</button
 					>
+						Submit
+					</button>
 					<button
 						style="display:none;"
 						type="submit"
 						id="handle-submit"
-						>Not Shown</button
 					>
+						Not Shown
+					</button>
 				</form>
 			</div>
 		</div>
@@ -73,9 +75,11 @@ const { fallbackEmail } = Astro.props;
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script is:inline define:vars={{ API_URL, fallbackEmail }}>
-	function submitToAPI(e) {
-		e.preventDefault();
+	document
+		.getElementById("submit-contact-form")
+		.addEventListener("click", submitToAPI);
 
+	function submitToAPI() {
 		const $contactForm = $("#contact-form");
 
 		// use html5 validation for input fields
