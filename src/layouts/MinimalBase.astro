@@ -1,0 +1,40 @@
+---
+import whiteShieldOutline from "@/images/club-logos/white-shield-outlined.png";
+import whiteShieldMaroon from "@/images/club-logos/white-shield-maroon.jpg";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta
+			property="og:title"
+			content="Texas A&M Cybersecurity Club"
+		/>
+		<meta
+			property="og:description"
+			content="Texas A&M Cybersecurity Club Website"
+		/>
+		<meta
+			property="og:url"
+			content="http://cybr.club/index.html"
+		/>
+		<meta
+			property="og:image"
+			content={whiteShieldMaroon.src}
+		/>
+		<title>Texas A&amp;M Cybersecurity Club</title>
+		<link
+			rel="icon"
+			type="image/png"
+			href={whiteShieldOutline.src}
+		/>
+	</head>
+	<body class="dark">
+		<slot />
+	</body>
+</html>

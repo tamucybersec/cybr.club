@@ -34,8 +34,10 @@ export const DashboardContext = createContext<{
 		path: string,
 		params?: Record<string, any>
 	) => Promise<Record<string, any>>;
+	status: Status;
 }>({
 	fetchPath: () => {
 		throw new Error("Function was not defined.");
 	},
+	status: "NONE",
 });

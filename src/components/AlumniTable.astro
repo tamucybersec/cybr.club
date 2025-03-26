@@ -1,7 +1,7 @@
 ---
 import Title from "./Title.astro";
 
-import { alumni } from "../scripts/alumni";
+import { alumni } from "@/scripts/alumni";
 import SocialsList from "./SocialsList.astro";
 
 // make sure to change the table style if you change the number of columns
@@ -33,7 +33,10 @@ const columns: string[] = ["Name", "Position", "Graduation"];
 							<td>
 								<div style="display: inline-block;">{name}</div>
 								<div style="display: inline-block;">
-									<SocialsList {...socials} style="text-white" />
+									<SocialsList
+										{...socials}
+										style="text-white"
+									/>
 								</div>
 							</td>
 							<td>{position}</td>

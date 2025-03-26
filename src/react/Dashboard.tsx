@@ -1,8 +1,10 @@
 import Login from "./Login";
-import { fetchPath, type Status } from "../scripts/dashboardConnection";
-import { CredentialsContext, DashboardContext } from "../scripts/context";
+import { fetchPath, type Status } from "@/scripts/dashboardConnection";
+import { CredentialsContext, DashboardContext } from "@/scripts/context";
 import { useState } from "react";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import Report from "./Report";
+import Sidebar from "./Sidebar";
 
 function Dashboard() {
 	const [key, setKey] = useState<CryptoKey | undefined>();
@@ -18,32 +20,33 @@ function Dashboard() {
 	}
 
 	return (
-		<div>
-			<DashboardContext.Provider
-				value={{ fetchPath: fetchPathAbstraction }}
+		<DashboardContext.Provider
+			value={{ fetchPath: fetchPathAbstraction, status }}
+		>
+			<CredentialsContext.Provider
+				value={{
+					key,
+					setKey,
+					username,
+					setUsername,
+					password,
+					setPassword,
+					status,
+					setStatus,
+				}}
 			>
-				{status === "NONE" || status === "DENIED" ? (
-					<CredentialsContext.Provider
-						value={{
-							key,
-							setKey,
-							username,
-							setUsername,
-							password,
-							setPassword,
-							status,
-							setStatus,
-						}}
-					>
-						<Login />
-					</CredentialsContext.Provider>
-				) : (
-					<>
+				<Login />
+			</CredentialsContext.Provider>
+			{status !== "NONE" && status !== "DENIED" && (
+				<SidebarProvider>
+					<Sidebar />
+					<div>
+						<SidebarTrigger />
 						<Report />
-					</>
-				)}
-			</DashboardContext.Provider>
-		</div>
+					</div>
+				</SidebarProvider>
+			)}
+		</DashboardContext.Provider>
 	);
 }
 

@@ -1,17 +1,24 @@
 import { useContext, useEffect, useState } from "react";
-import { CredentialsContext } from "../scripts/context";
+import { CredentialsContext } from "@/scripts/context";
 import {
 	fetchKey,
 	fetchPath,
 	type Status,
-} from "../scripts/dashboardConnection";
-import { encryptCredentials } from "../scripts/crypto";
+} from "@/scripts/dashboardConnection";
+import { encryptCredentials } from "@/scripts/crypto";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { credentials as secretsCredentials } from "@/scripts/secrets";
 
 function Login() {
-	const { key, setKey, setUsername, setPassword, setStatus } =
+	const { key, setKey, setUsername, setPassword, status, setStatus } =
 		useContext(CredentialsContext);
-	const [usernameText, setUsernameText] = useState("");
-	const [passwordText, setPasswordText] = useState("");
+	const [usernameText, setUsernameText] = useState(
+		secretsCredentials.username || ""
+	);
+	const [passwordText, setPasswordText] = useState(
+		secretsCredentials.password || ""
+	);
 
 	// prefetch the public key
 	useEffect(() => {
@@ -45,28 +52,41 @@ function Login() {
 			}
 		);
 
-		const status: Status = perms;
-		if (status !== "NONE" && status !== "DENIED") {
+		const s: Status = perms;
+		if (s !== "NONE" && s !== "DENIED") {
 			setUsername(username);
 			setPassword(password);
 		}
-		setStatus(status);
+		setStatus(s);
 	}
 
 	return (
-		<div>
-			<h1 className="text-white">Login</h1>
-			<input
-				type="text"
-				value={usernameText}
-				onChange={(e) => setUsernameText(e.target.value)}
-			></input>
-			<input
-				type="text"
-				value={passwordText}
-				onChange={(e) => setPasswordText(e.target.value)}
-			></input>
-			<button onClick={authenticate}>Log In</button>
+		<div
+			className={`flex justify-center h-screen items-center ${
+				status !== "NONE" && status !== "DENIED" ? "hidden" : ""
+			}`}
+		>
+			<div className="flex flex-col max-w-screen-lg max-h-min gap-4 border p-4 rounded">
+				<h1 className="text-white">Login</h1>
+				<Input
+					placeholder="username"
+					type="text"
+					value={usernameText}
+					onChange={(e) => setUsernameText(e.target.value)}
+				/>
+				<Input
+					placeholder="password"
+					type="password"
+					value={passwordText}
+					onChange={(e) => setPasswordText(e.target.value)}
+				/>
+				<Button
+					onClick={authenticate}
+					variant={"outline"}
+				>
+					Log In
+				</Button>
+			</div>
 		</div>
 	);
 }
