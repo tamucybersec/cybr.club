@@ -1,11 +1,13 @@
 import {
 	type Column,
 	type ColumnDef,
+	type ColumnFiltersState,
 	type ColumnPinningState,
 	type SortingState,
 	type VisibilityState,
 	flexRender,
 	getCoreRowModel,
+	getFilteredRowModel,
 	getPaginationRowModel,
 	getSortedRowModel,
 	useReactTable,
@@ -18,12 +20,13 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { type CSSProperties, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { DataTableViewOptions } from "./DataTableView";
 import { DataTablePagination } from "./DataTablePagination";
 import { useQuery } from "@tanstack/react-query";
 import { type GetEntries } from "./DataTableTypes";
 import { DataTableContext } from "./DataTableContext";
+import DataTableFilter from "./DataTableFilter";
 
 interface Props<T, V> {
 	queryKey: any[];
@@ -55,6 +58,11 @@ function DataTableRender<T, V>({ queryKey, columns, onGet }: Props<T, V>) {
 	const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
 		{}
 	);
+	const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+
+	useEffect(() => {
+		console.log(columnFilters);
+	}, [columnFilters]);
 
 	const table = useReactTable({
 		data: data ?? [],
@@ -66,10 +74,13 @@ function DataTableRender<T, V>({ queryKey, columns, onGet }: Props<T, V>) {
 		getSortedRowModel: getSortedRowModel(),
 		onColumnPinningChange: setColumnPinning,
 		onColumnVisibilityChange: setColumnVisibility,
+		onColumnFiltersChange: setColumnFilters,
+		getFilteredRowModel: getFilteredRowModel(),
 		state: {
 			sorting,
 			columnPinning,
 			columnVisibility,
+			columnFilters,
 		},
 	});
 
@@ -155,11 +166,11 @@ function DataTableRender<T, V>({ queryKey, columns, onGet }: Props<T, V>) {
 		);
 	}
 
-	// TODO - filtering by columns (automatically resets page index)
 	return (
 		<DataTableContext.Provider value={{ table }}>
 			<div className="flex flex-col gap-4">
-				<div className="flex items-center">
+				<div className="flex justify-between items-center flex-wrap gap-4">
+					<DataTableFilter table={table} />
 					<DataTableViewOptions table={table} />
 				</div>
 				<div className="rounded-md border">{TableContent()}</div>

@@ -37,9 +37,6 @@ interface Props {
 export default function CategoricalLineChart({ metric, data }: Props) {
 	const { config, coloredData } = useCategoricalChart(data);
 
-	console.log(config);
-	console.log(coloredData);
-
 	return (
 		<ChartContainer config={config}>
 			<LineChart

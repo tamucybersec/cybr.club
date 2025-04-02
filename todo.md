@@ -1,6 +1,5 @@
 # TODO
 
--   Reset sorting when creating item
 -   Filter for any column in table
 
 # Dashboard

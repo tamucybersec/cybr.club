@@ -98,6 +98,7 @@ export function DataTableCreate<T>(
 	function onSubmit(to: T) {
 		mutateCreate(to);
 		setOpen(false);
+		table.resetSorting();
 		table.lastPage();
 	}
 

@@ -69,8 +69,13 @@ function EventAttendanceOverTime() {
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>
-						{eventTypes.map((ev) => (
-							<SelectItem value={ev}>{ev}</SelectItem>
+						{eventTypes.map((ev, i) => (
+							<SelectItem
+								key={i}
+								value={ev}
+							>
+								{ev}
+							</SelectItem>
 						))}
 					</SelectGroup>
 				</SelectContent>

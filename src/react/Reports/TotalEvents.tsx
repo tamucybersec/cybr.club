@@ -18,7 +18,7 @@ function TotalEvents() {
 				</p>
 			</CardContent>
 			<CardFooter className="flex justify-center">
-				Total Events
+				Total Events This Semester
 			</CardFooter>
 		</Card>
 	);

@@ -34,8 +34,8 @@ function MemberPiesSelect() {
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>
-						{types.map((t) => (
-							<SelectItem value={t}>{t}</SelectItem>
+						{types.map((t, i) => (
+							<SelectItem key={i} value={t}>{t}</SelectItem>
 						))}
 					</SelectGroup>
 				</SelectContent>

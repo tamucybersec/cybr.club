@@ -15,7 +15,7 @@ interface Props<T> {
 	definition: Definition<T>[];
 	defaultValues: T;
 	onGet: GetEntries<T>;
-	onCreate: CreateEntry<T>; 
+	onCreate: CreateEntry<T>;
 	onUpdate: UpdateEntry<T>;
 	onDelete: DeleteEntry<T>;
 }
@@ -42,8 +42,12 @@ function DataTable<T extends object>({
 									column={column}
 									title={def.header}
 								/>
-							)
+						  )
 						: def.header,
+					accessorFn: (row) =>
+						typeof row[def.accessorKey] === "number"
+							? `${row[def.accessorKey]}`
+							: row[def.accessorKey],
 				};
 
 				if (def.cell) {
