@@ -12,3 +12,30 @@ export function validHtmlId(str: string): string {
 	// Default to "id" if empty
 	return id || "id";
 }
+
+export function getChartColor(index: number) {
+	const numberOfColors = 5;
+	return `hsl(var(--chart-${(index % numberOfColors) + 1}))`;
+}
+
+export function getCurrentYear(): number {
+	return new Date().getFullYear();
+}
+
+// Spring from Jan - April
+// Summer from May - July
+// Fall from August - November
+// Winter in December only
+export function getCurrentSemester(): "Spring" | "Summer" | "Winter" | "Fall" {
+	const month = new Date().getMonth();
+
+	if (month <= 4) {
+		return "Spring";
+	} else if (month <= 7) {
+		return "Summer";
+	} else if (month <= 11) {
+		return "Fall";
+	} else {
+		return "Winter";
+	}
+}

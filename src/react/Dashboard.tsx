@@ -2,9 +2,8 @@ import Login from "./Login";
 import { fetchPath, type Status } from "@/scripts/dashboardConnection";
 import { CredentialsContext, DashboardContext } from "@/scripts/context";
 import { useState } from "react";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import Report from "./Report";
-import Sidebar from "./Sidebar";
+import AppSidebar from "./AppSidebar";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function Dashboard() {
 	const [key, setKey] = useState<CryptoKey | undefined>();
@@ -18,6 +17,15 @@ function Dashboard() {
 	) {
 		return await fetchPath(path, params, { username, password });
 	}
+
+	const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				staleTime: 1000 * 60 * 5,
+				gcTime: 1000 * 60 * 5,
+			},
+		},
+	});
 
 	return (
 		<DashboardContext.Provider
@@ -37,15 +45,9 @@ function Dashboard() {
 			>
 				<Login />
 			</CredentialsContext.Provider>
-			{status !== "NONE" && status !== "DENIED" && (
-				<SidebarProvider>
-					<Sidebar />
-					<div>
-						<SidebarTrigger />
-						<Report />
-					</div>
-				</SidebarProvider>
-			)}
+			<QueryClientProvider client={queryClient}>
+				{status !== "NONE" && status !== "DENIED" && <AppSidebar />}
+			</QueryClientProvider>
 		</DashboardContext.Provider>
 	);
 }

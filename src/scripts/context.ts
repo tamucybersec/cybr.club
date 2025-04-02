@@ -33,7 +33,7 @@ export const DashboardContext = createContext<{
 	fetchPath: (
 		path: string,
 		params?: Record<string, any>
-	) => Promise<Record<string, any>>;
+	) => Promise<any>;
 	status: Status;
 }>({
 	fetchPath: () => {

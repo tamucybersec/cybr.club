@@ -43,7 +43,7 @@ function Login() {
 			usernameText,
 			passwordText
 		);
-		const { perms } = await fetchPath(
+		const { perms } = await fetchPath<{ perms: Status }>(
 			"/login/",
 			{},
 			{

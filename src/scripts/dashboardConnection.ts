@@ -1,5 +1,6 @@
 import { API_URL } from "./constants";
 import { importKey } from "./crypto";
+import { ok } from "./fetchUtils";
 
 export type Status = "ADMIN" | "SPONSOR" | "DENIED" | "NONE";
 export type Credentials = {
@@ -7,19 +8,20 @@ export type Credentials = {
 	password: string;
 };
 
-export async function fetchPath(
+export async function fetchPath<T>(
 	path: string,
 	params: Record<string, any>,
-	credentials: Credentials,
-): Promise<Record<string, any>> {
-	const res = await fetch(`${API_URL}${path}`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({ ...params, credentials: credentials }),
-	});
-
+	credentials: Credentials
+): Promise<T> {
+	const res = await ok(
+		fetch(`${API_URL}${path}`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ ...params, credentials }),
+		})
+	);
 	const json = await res.json();
 	return json;
 }
