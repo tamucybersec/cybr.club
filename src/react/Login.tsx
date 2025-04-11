@@ -1,25 +1,39 @@
 import { useContext, useEffect, useState } from "react";
 import { CredentialsContext } from "@/scripts/context";
-import {
-	fetchKey,
-	fetchPath,
-	type Status,
-} from "@/scripts/dashboardConnection";
-import { encryptCredentials } from "@/scripts/crypto";
+import { fetchKey, fetchPath } from "@/scripts/dashboardConnection";
+import { authenticated, encryptCredentials } from "@/scripts/auth";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { credentials as secretsCredentials } from "@/scripts/secrets";
+import { toast } from "sonner";
+import { PermissionLevel } from "./types";
 
 function Login() {
-	const { key, setKey, setUsername, setPassword, status, setStatus } =
-		useContext(CredentialsContext);
-	const [usernameText, setUsernameText] = useState(
-		secretsCredentials.username || ""
-	);
-	const [passwordText, setPasswordText] = useState(
-		secretsCredentials.password || ""
-	);
+	const {
+		key,
+		setKey,
+		setUsername,
+		setPassword,
+		permissionLevel,
+		setPermissionLevel,
+	} = useContext(CredentialsContext);
+	const [usernameText, setUsernameText] = useState("");
+	const [passwordText, setPasswordText] = useState("");
 
+	useEffect(() => {
+		async function loadSecrets() {
+			try {
+				const { secrets } = await import("@/scripts/secrets");
+				setUsernameText(secrets.username);
+				setPasswordText(secrets.password);
+			} catch {
+				// do nothing
+			}
+		}
+
+		loadSecrets();
+	}, []);
+
+	// TODO: use react query
 	// prefetch the public key
 	useEffect(() => {
 		async function getKey() {
@@ -43,7 +57,7 @@ function Login() {
 			usernameText,
 			passwordText
 		);
-		const { perms } = await fetchPath<{ perms: Status }>(
+		const { perms } = await fetchPath<{ perms: PermissionLevel }>(
 			"/login/",
 			{},
 			{
@@ -52,18 +66,20 @@ function Login() {
 			}
 		);
 
-		const s: Status = perms;
-		if (s !== "NONE" && s !== "DENIED") {
+		const permsLevel: PermissionLevel = perms;
+		if (authenticated(permsLevel)) {
 			setUsername(username);
 			setPassword(password);
+		} else {
+			toast.error("Invalid Credentials");
 		}
-		setStatus(s);
+		setPermissionLevel(permsLevel);
 	}
 
 	return (
 		<div
 			className={`flex justify-center h-screen items-center ${
-				status !== "NONE" && status !== "DENIED" ? "hidden" : ""
+				authenticated(permissionLevel) ? "hidden" : ""
 			}`}
 		>
 			<div className="flex flex-col max-w-screen-lg max-h-min gap-4 border p-4 rounded">

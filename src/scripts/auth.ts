@@ -1,4 +1,4 @@
-import type { Credentials } from "./dashboardConnection";
+import { PermissionLevel, type Credentials } from "@/react/types";
 
 function pemToArrayBuffer(pem: string): ArrayBuffer {
 	const base64 = pem.replace(/-{5}[^-]+-{5}/g, "").replace(/\s/g, "");
@@ -18,10 +18,7 @@ export async function importKey(key: string): Promise<CryptoKey> {
 	);
 }
 
-async function encrypt(
-	key: CryptoKey,
-	message: string
-): Promise<string> {
+async function encrypt(key: CryptoKey, message: string): Promise<string> {
 	// Encrypt message
 	const encodedMessage = new TextEncoder().encode(message);
 	const encrypted = await window.crypto.subtle.encrypt(
@@ -43,4 +40,18 @@ export async function encryptCredentials(
 		username: await encrypt(key, username),
 		password: await encrypt(key, password),
 	};
+}
+
+export function sufficientPermissions(
+	currentLevel: PermissionLevel,
+	requiredLevel: PermissionLevel
+) {
+	return currentLevel >= requiredLevel;
+}
+
+export function authenticated(permissionLevel: PermissionLevel) {
+	return (
+		permissionLevel !== PermissionLevel.NONE &&
+		permissionLevel !== PermissionLevel.DENIED
+	);
 }

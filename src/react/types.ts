@@ -1,3 +1,15 @@
+export enum PermissionLevel {
+	NONE = 0,
+	DENIED,
+	SPONSOR,
+	ADMIN,
+}
+
+export type Credentials = {
+	username: string;
+	password: string;
+};
+
 export const QUERY_KEYS = {
 	users: ["edit", "users"],
 	events: ["edit", "events"],

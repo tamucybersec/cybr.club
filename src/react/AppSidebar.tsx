@@ -21,7 +21,13 @@ import {
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ChartPie, ChevronRight, Pencil } from "lucide-react";
-import { Fragment, useState, type JSX, type ReactElement } from "react";
+import {
+	Fragment,
+	useContext,
+	useState,
+	type JSX,
+	type ReactElement,
+} from "react";
 import WhiteShield from "@/images/club-logos/white-shield.png";
 import {
 	Breadcrumb,
@@ -34,11 +40,15 @@ import Report from "./Report";
 import EditMembers from "./EditMembers";
 import EditEvents from "./EditEvents";
 import EditFlagged from "./EditFlagged";
+import { PermissionLevel } from "./types";
+import { DashboardContext } from "@/scripts/context";
+import { sufficientPermissions } from "@/scripts/auth";
 
 type Link = { to: string; component: JSX.Element };
 
 interface Group {
 	group: string;
+	requiredPermissionLevel: PermissionLevel;
 	buttons?: Button[];
 	collapsible?: Collapse[];
 }
@@ -63,6 +73,7 @@ interface Page {
 const groups: Group[] = [
 	{
 		group: "Sponsors",
+		requiredPermissionLevel: PermissionLevel.SPONSOR,
 		buttons: [
 			{
 				button: "Dashboard",
@@ -73,6 +84,7 @@ const groups: Group[] = [
 	},
 	{
 		group: "Admin",
+		requiredPermissionLevel: PermissionLevel.ADMIN,
 		collapsible: [
 			{
 				collapse: "Edit",
@@ -97,6 +109,7 @@ const groups: Group[] = [
 ];
 
 function AppSidebar() {
+	const { permissionLevel } = useContext(DashboardContext);
 	const [path, setPath] = useState("/dashboard");
 	const [component, setComponent] = useState(<Report />);
 
@@ -162,7 +175,16 @@ function AppSidebar() {
 		return [];
 	}
 
-	function AppSidebarGroup({ group, buttons, collapsible }: Group) {
+	function AppSidebarGroup({
+		group,
+		requiredPermissionLevel,
+		buttons,
+		collapsible,
+	}: Group) {
+		if (!sufficientPermissions(permissionLevel, requiredPermissionLevel)) {
+			return undefined;
+		}
+
 		return (
 			<SidebarGroup key={group}>
 				<SidebarGroupLabel>{group}</SidebarGroupLabel>

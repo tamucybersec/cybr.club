@@ -1,7 +1,3 @@
-# TODO
-
--   Filter for any column in table
-
 # Dashboard
 
 -   Get stats for grad semester during registration

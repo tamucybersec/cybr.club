@@ -33,10 +33,7 @@ function DataTableFilter<T>({ table }: Props<T>) {
 						typeof column.accessorFn !== "undefined" &&
 						column.getCanFilter()
 				)
-				.map((column) => {
-					console.log(column);
-					return column.id
-				}),
+				.map((column) => column.id),
 		[]
 	);
 

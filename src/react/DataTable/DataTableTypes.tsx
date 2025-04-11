@@ -1,9 +1,8 @@
-import type { Row } from "@tanstack/react-table";
+import type { ColumnDef, Row } from "@tanstack/react-table";
 import type { JSX } from "react";
 import type { UseFormReturn } from "react-hook-form";
 import { z, type ZodTypeAny } from "zod";
 
-// TODO - default hidden
 export interface Definition<T> {
 	primaryKey?: boolean;
 	accessorKey: keyof T;
@@ -11,6 +10,7 @@ export interface Definition<T> {
 	sortable?: boolean;
 	cell?: (row: Row<T>) => JSX.Element;
 	type: ZodTypeAny;
+	other?: Partial<ColumnDef<T>>;
 }
 
 export type GetEntries<T> = () => Promise<T[]>;

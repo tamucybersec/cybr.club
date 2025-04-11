@@ -1,5 +1,5 @@
+import { PermissionLevel } from "@/react/types";
 import { createContext } from "react";
-import type { Status } from "./dashboardConnection";
 
 type Set<T> = React.Dispatch<React.SetStateAction<T>>;
 
@@ -14,8 +14,8 @@ interface CredentialsContextType {
 	setUsername: Set<string>;
 	password: string;
 	setPassword: Set<string>;
-	status: Status;
-	setStatus: Set<Status>;
+	permissionLevel: PermissionLevel;
+	setPermissionLevel: Set<PermissionLevel>;
 }
 
 export const CredentialsContext = createContext<CredentialsContextType>({
@@ -25,19 +25,16 @@ export const CredentialsContext = createContext<CredentialsContextType>({
 	setUsername: unimplemented,
 	password: "",
 	setPassword: unimplemented,
-	status: "NONE",
-	setStatus: unimplemented,
+	permissionLevel: PermissionLevel.NONE,
+	setPermissionLevel: unimplemented,
 });
 
 export const DashboardContext = createContext<{
-	fetchPath: (
-		path: string,
-		params?: Record<string, any>
-	) => Promise<any>;
-	status: Status;
+	fetchPath: (path: string, params?: Record<string, any>) => Promise<any>;
+	permissionLevel: PermissionLevel;
 }>({
 	fetchPath: () => {
 		throw new Error("Function was not defined.");
 	},
-	status: "NONE",
+	permissionLevel: PermissionLevel.NONE,
 });

@@ -60,10 +60,6 @@ function DataTableRender<T, V>({ queryKey, columns, onGet }: Props<T, V>) {
 	);
 	const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
-	useEffect(() => {
-		console.log(columnFilters);
-	}, [columnFilters]);
-
 	const table = useReactTable({
 		data: data ?? [],
 		columns,

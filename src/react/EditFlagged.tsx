@@ -12,6 +12,12 @@ const definition: Definition<Flagged>[] = [
 		header: "User ID",
 		sortable: true,
 		type: z.coerce.number().min(0),
+		other: {
+			filterFn: (row, columnId, filterValue) => {
+				const value = row.getValue<number>(columnId);
+				return value.toString().includes(filterValue);
+			},
+		},
 	},
 	{
 		accessorKey: "offences",
@@ -25,36 +31,35 @@ function EditFlagged() {
 	const { fetchPath } = useContext(DashboardContext);
 
 	async function onGet(): Promise<Flagged[]> {
-		return fetchPath("/edit/flagged/get");
+		return fetchPath("/flagged/get");
 	}
 
 	async function onCreate(flagged: Flagged) {
-		await fetchPath("/edit/flagged/create", { flagged });
+		console.log({ flagged });
+		await fetchPath("/flagged/create", { flagged });
 	}
 
 	async function onUpdate(from: Flagged, to: Flagged) {
-		await fetchPath("/edit/flagged/update", { original: from, new: to });
+		await fetchPath("/flagged/update", { original: from, new: to });
 	}
 
 	async function onDelete(flagged: Flagged) {
-		await fetchPath("/edit/flagged/delete", { flagged });
+		await fetchPath("/flagged/delete", { flagged });
 	}
 
 	return (
-		<>
-			<DataTable
-				queryKey={QUERY_KEYS.flagged}
-				definition={definition}
-				defaultValues={{
-					user_id: 0,
-					offences: 0,
-				}}
-				onGet={onGet}
-				onCreate={onCreate}
-				onUpdate={onUpdate}
-				onDelete={onDelete}
-			/>
-		</>
+		<DataTable
+			queryKey={QUERY_KEYS.flagged}
+			definition={definition}
+			defaultValues={{
+				user_id: 0,
+				offences: 0,
+			}}
+			onGet={onGet}
+			onCreate={onCreate}
+			onUpdate={onUpdate}
+			onDelete={onDelete}
+		/>
 	);
 }
 

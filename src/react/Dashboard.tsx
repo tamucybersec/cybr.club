@@ -1,15 +1,20 @@
 import Login from "./Login";
-import { fetchPath, type Status } from "@/scripts/dashboardConnection";
+import { fetchPath } from "@/scripts/dashboardConnection";
 import { CredentialsContext, DashboardContext } from "@/scripts/context";
 import { useState } from "react";
 import AppSidebar from "./AppSidebar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { PermissionLevel } from "./types";
+import { authenticated } from "@/scripts/auth";
+import { Toaster } from "@/components/ui/sonner";
 
 function Dashboard() {
 	const [key, setKey] = useState<CryptoKey | undefined>();
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const [status, setStatus] = useState<Status>("NONE");
+	const [permissionLevel, setPermissionLevel] = useState<PermissionLevel>(
+		PermissionLevel.NONE
+	);
 
 	async function fetchPathAbstraction(
 		path: string,
@@ -29,8 +34,15 @@ function Dashboard() {
 
 	return (
 		<DashboardContext.Provider
-			value={{ fetchPath: fetchPathAbstraction, status }}
+			value={{
+				fetchPath: fetchPathAbstraction,
+				permissionLevel: permissionLevel,
+			}}
 		>
+			<Toaster
+				richColors
+				position="top-center"
+			/>
 			<CredentialsContext.Provider
 				value={{
 					key,
@@ -39,14 +51,14 @@ function Dashboard() {
 					setUsername,
 					password,
 					setPassword,
-					status,
-					setStatus,
+					permissionLevel: permissionLevel,
+					setPermissionLevel: setPermissionLevel,
 				}}
 			>
 				<Login />
 			</CredentialsContext.Provider>
 			<QueryClientProvider client={queryClient}>
-				{status !== "NONE" && status !== "DENIED" && <AppSidebar />}
+				{authenticated(permissionLevel) && <AppSidebar />}
 			</QueryClientProvider>
 		</DashboardContext.Provider>
 	);

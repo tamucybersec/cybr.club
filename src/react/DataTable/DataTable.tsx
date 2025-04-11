@@ -35,6 +35,7 @@ function DataTable<T extends object>({
 		return definition
 			.map((def): ColumnDef<T> => {
 				const cd: ColumnDef<T> = {
+					...def.other,
 					accessorKey: def.accessorKey,
 					header: def.sortable
 						? ({ column }) => (
@@ -44,10 +45,6 @@ function DataTable<T extends object>({
 								/>
 						  )
 						: def.header,
-					accessorFn: (row) =>
-						typeof row[def.accessorKey] === "number"
-							? `${row[def.accessorKey]}`
-							: row[def.accessorKey],
 				};
 
 				if (def.cell) {

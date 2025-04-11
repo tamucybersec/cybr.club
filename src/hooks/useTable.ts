@@ -7,7 +7,7 @@ export function useUsers() {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<User[]>({
 		queryKey: QUERY_KEYS.users,
-		queryFn: () => fetchPath("/edit/users/get"),
+		queryFn: () => fetchPath("/users/get"),
 	});
 
 	return data;
@@ -17,7 +17,7 @@ export function useEvents() {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<Event[]>({
 		queryKey: QUERY_KEYS.events,
-		queryFn: () => fetchPath("/edit/events/get"),
+		queryFn: () => fetchPath("/events/get"),
 	});
 
 	return data;

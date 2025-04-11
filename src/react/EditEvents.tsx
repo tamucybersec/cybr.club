@@ -51,7 +51,8 @@ const definition: Definition<Event>[] = [
 	},
 	{
 		accessorKey: "attended_users",
-		header: "Attendees",
+		header: "Attended Users",
+		sortable: true,
 		type: z.preprocess((v): string[] => {
 			if (Array.isArray(v)) {
 				return v;
@@ -61,6 +62,21 @@ const definition: Definition<Event>[] = [
 				return [];
 			}
 		}, z.array(z.coerce.number())),
+		other: {
+			sortingFn: (rowA, rowB, columnId: string) => {
+				const attA = rowA.getValue<string[]>(columnId);
+				const attB = rowB.getValue<string[]>(columnId);
+				return attA.length - attB.length;
+			},
+			filterFn: (row, columnId, filterValue) => {
+				const values = row.getValue<string[]>(columnId);
+				const filters = filterValue.split(",");
+
+				return filters.every((filter: string) =>
+					values.some((value) => value.includes(filter))
+				);
+			},
+		},
 	},
 ];
 
@@ -68,40 +84,38 @@ function EditEvents() {
 	const { fetchPath } = useContext(DashboardContext);
 
 	async function onGet(): Promise<Event[]> {
-		return fetchPath("/edit/events/get");
+		return fetchPath("/events/get");
 	}
 
 	async function onCreate(event: Event) {
-		await fetchPath("/edit/events/create", { event });
+		await fetchPath("/events/create", { event });
 	}
 
 	async function onUpdate(from: Event, to: Event) {
-		await fetchPath("/edit/events/update", { original: from, new: to });
+		await fetchPath("/events/update", { original: from, new: to });
 	}
 
 	async function onDelete(event: Event) {
-		await fetchPath("/edit/events/delete", { event });
+		await fetchPath("/events/delete", { event });
 	}
 
 	return (
-		<>
-			<DataTable
-				queryKey={QUERY_KEYS.events}
-				definition={definition}
-				defaultValues={{
-					name: "",
-					code: "",
-					points: 0,
-					date: "",
-					resources: "",
-					attended_users: [],
-				}}
-				onGet={onGet}
-				onCreate={onCreate}
-				onUpdate={onUpdate}
-				onDelete={onDelete}
-			/>
-		</>
+		<DataTable
+			queryKey={QUERY_KEYS.events}
+			definition={definition}
+			defaultValues={{
+				name: "",
+				code: "",
+				points: 0,
+				date: "",
+				resources: "",
+				attended_users: [],
+			}}
+			onGet={onGet}
+			onCreate={onCreate}
+			onUpdate={onUpdate}
+			onDelete={onDelete}
+		/>
 	);
 }
 

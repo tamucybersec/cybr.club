@@ -1,12 +1,7 @@
+import type { Credentials } from "@/react/types";
 import { API_URL } from "./constants";
-import { importKey } from "./crypto";
+import { importKey } from "./auth";
 import { ok } from "./fetchUtils";
-
-export type Status = "ADMIN" | "SPONSOR" | "DENIED" | "NONE";
-export type Credentials = {
-	username: string;
-	password: string;
-};
 
 export async function fetchPath<T>(
 	path: string,
