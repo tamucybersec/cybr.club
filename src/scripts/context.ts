@@ -31,9 +31,13 @@ export const CredentialsContext = createContext<CredentialsContextType>({
 
 export const DashboardContext = createContext<{
 	fetchPath: (path: string, params?: Record<string, any>) => Promise<any>;
+	validatePassword: (password: string) => Promise<boolean>;
 	permissionLevel: PermissionLevel;
 }>({
 	fetchPath: () => {
+		throw new Error("Function was not defined.");
+	},
+	validatePassword: () => {
 		throw new Error("Function was not defined.");
 	},
 	permissionLevel: PermissionLevel.NONE,

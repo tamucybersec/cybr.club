@@ -31,7 +31,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DataTableContext } from "./DataTableContext";
 
 export function DataTableCreate<T>(
-	queryKey: any[],
+	queryKey: string[],
 	definition: Definition<T>[],
 	defaultValues: T,
 	onCreate: CreateEntry<T>
@@ -134,7 +134,7 @@ export function DataTableCreate<T>(
 }
 
 export function DataTableUpdateDelete<T extends object>(
-	queryKey: any[],
+	queryKey: string[],
 	definition: Definition<T>[],
 	defaultValues: T,
 	row: Row<T>,

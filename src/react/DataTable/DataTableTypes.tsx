@@ -14,6 +14,7 @@ export interface Definition<T> {
 }
 
 export type GetEntries<T> = () => Promise<T[]>;
+export type ReplaceEntries<T> = (entries: T[]) => Promise<void>;
 export type CreateEntry<T> = (entry: T) => Promise<void>;
 export type UpdateEntry<T> = (from: T, to: T) => Promise<void>;
 export type DeleteEntry<T> = (entry: T) => Promise<void>;

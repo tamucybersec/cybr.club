@@ -20,21 +20,28 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { type CSSProperties, useEffect, useState } from "react";
+import { type CSSProperties, useState } from "react";
 import { DataTableViewOptions } from "./DataTableView";
 import { DataTablePagination } from "./DataTablePagination";
 import { useQuery } from "@tanstack/react-query";
-import { type GetEntries } from "./DataTableTypes";
+import { type GetEntries, type ReplaceEntries } from "./DataTableTypes";
 import { DataTableContext } from "./DataTableContext";
 import DataTableFilter from "./DataTableFilter";
+import DataTableDownloadUpload from "./DataTableDownloadUpload";
 
 interface Props<T, V> {
-	queryKey: any[];
+	queryKey: string[];
 	columns: ColumnDef<T, V>[];
 	onGet: GetEntries<T>;
+	onReplace: ReplaceEntries<T>;
 }
 
-function DataTableRender<T, V>({ queryKey, columns, onGet }: Props<T, V>) {
+function DataTableRender<T, V>({
+	queryKey,
+	columns,
+	onGet,
+	onReplace,
+}: Props<T, V>) {
 	const { status, data, error } = useQuery({
 		queryKey,
 		queryFn: onGet,
@@ -44,6 +51,7 @@ function DataTableRender<T, V>({ queryKey, columns, onGet }: Props<T, V>) {
 		if (status === "pending") {
 			return "Fetching data...";
 		} else if (status === "error") {
+			console.log(error);
 			return `There was an error when loading the data.`;
 		} else {
 			return "No results.";
@@ -170,7 +178,14 @@ function DataTableRender<T, V>({ queryKey, columns, onGet }: Props<T, V>) {
 					<DataTableViewOptions table={table} />
 				</div>
 				<div className="rounded-md border">{TableContent()}</div>
-				<DataTablePagination table={table} />
+				<div className="flex items-center justify-between">
+					<DataTableDownloadUpload
+						queryKey={queryKey}
+						onGet={onGet}
+						onReplace={onReplace}
+					/>
+					<DataTablePagination table={table} />
+				</div>
 			</div>
 		</DataTableContext.Provider>
 	);

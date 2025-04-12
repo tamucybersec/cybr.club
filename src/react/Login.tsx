@@ -6,10 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { PermissionLevel } from "./types";
+import { useQuery } from "@tanstack/react-query";
+import { LoaderCircleIcon } from "lucide-react";
 
 function Login() {
 	const {
-		key,
 		setKey,
 		setUsername,
 		setPassword,
@@ -33,30 +34,21 @@ function Login() {
 		loadSecrets();
 	}, []);
 
-	// TODO: use react query
-	// prefetch the public key
-	useEffect(() => {
-		async function getKey() {
-			if (key !== undefined) return;
-			setKey(await fetchKey());
-		}
-
-		getKey();
-	}, []);
+	const { status, data: key } = useQuery<CryptoKey>({
+		queryKey: ["public", "key"],
+		queryFn: fetchKey,
+	});
 
 	// get the authentication level of the user and store the encrypted credentials
 	async function authenticate() {
-		let k = key;
-		if (k === undefined) {
-			k = await fetchKey();
-			setKey(k);
-		}
+		setKey(key);
 
 		const { username, password } = await encryptCredentials(
-			k,
+			key!,
 			usernameText,
 			passwordText
 		);
+
 		const { perms } = await fetchPath<{ perms: PermissionLevel }>(
 			"/login/",
 			{},
@@ -99,8 +91,16 @@ function Login() {
 				<Button
 					onClick={authenticate}
 					variant={"outline"}
+					disabled={status === "pending"}
 				>
-					Log In
+					{status === "pending" ? (
+						<>
+							<LoaderCircleIcon className="animate-spin" />
+							Loading...
+						</>
+					) : (
+						"Log In"
+					)}
 				</Button>
 			</div>
 		</div>

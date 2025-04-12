@@ -18,7 +18,10 @@ export async function importKey(key: string): Promise<CryptoKey> {
 	);
 }
 
-async function encrypt(key: CryptoKey, message: string): Promise<string> {
+export async function encrypt(
+	key: CryptoKey,
+	message: string
+): Promise<string> {
 	// Encrypt message
 	const encodedMessage = new TextEncoder().encode(message);
 	const encrypted = await window.crypto.subtle.encrypt(

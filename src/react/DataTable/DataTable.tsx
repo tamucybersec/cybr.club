@@ -7,17 +7,19 @@ import type {
 	UpdateEntry,
 	DeleteEntry,
 	GetEntries,
+	ReplaceEntries,
 } from "./DataTableTypes";
 import { DataTableCreate, DataTableUpdateDelete } from "./DataTableOptions";
 
 interface Props<T> {
-	queryKey: any[];
+	queryKey: string[];
 	definition: Definition<T>[];
 	defaultValues: T;
 	onGet: GetEntries<T>;
 	onCreate: CreateEntry<T>;
 	onUpdate: UpdateEntry<T>;
 	onDelete: DeleteEntry<T>;
+	onReplace: ReplaceEntries<T>;
 }
 
 function DataTable<T extends object>({
@@ -28,6 +30,7 @@ function DataTable<T extends object>({
 	onCreate,
 	onUpdate,
 	onDelete,
+	onReplace,
 }: Props<T>) {
 	const columnDef = getColumnDef();
 
@@ -79,6 +82,7 @@ function DataTable<T extends object>({
 			queryKey={queryKey}
 			columns={columnDef}
 			onGet={onGet}
+			onReplace={onReplace}
 		/>
 	);
 }

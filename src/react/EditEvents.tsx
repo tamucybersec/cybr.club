@@ -99,6 +99,10 @@ function EditEvents() {
 		await fetchPath("/events/delete", { event });
 	}
 
+	async function onReplace(replacement: Event[]) {
+		await fetchPath("/events/replace", { replacement });
+	}
+
 	return (
 		<DataTable
 			queryKey={QUERY_KEYS.events}
@@ -115,6 +119,7 @@ function EditEvents() {
 			onCreate={onCreate}
 			onUpdate={onUpdate}
 			onDelete={onDelete}
+			onReplace={onReplace}
 		/>
 	);
 }

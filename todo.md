@@ -1,3 +1,5 @@
+-   Download / Upload of entire database
+
 # Dashboard
 
 -   Get stats for grad semester during registration

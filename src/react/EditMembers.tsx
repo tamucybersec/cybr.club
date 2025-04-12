@@ -84,6 +84,10 @@ function EditMembers() {
 		await fetchPath("/users/delete", { user });
 	}
 
+	async function onReplace(replacement: User[]) {
+		await fetchPath("/users/replace", { replacement });
+	}
+
 	return (
 		<DataTable
 			queryKey={QUERY_KEYS.users}
@@ -100,6 +104,7 @@ function EditMembers() {
 			onCreate={onCreate}
 			onUpdate={onUpdate}
 			onDelete={onDelete}
+			onReplace={onReplace}
 		/>
 	);
 }

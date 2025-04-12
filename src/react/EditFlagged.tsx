@@ -47,6 +47,10 @@ function EditFlagged() {
 		await fetchPath("/flagged/delete", { flagged });
 	}
 
+	async function onReplace(replacement: Flagged[]) {
+		await fetchPath("/flagged/replace", { replacement });
+	}
+
 	return (
 		<DataTable
 			queryKey={QUERY_KEYS.flagged}
@@ -59,6 +63,7 @@ function EditFlagged() {
 			onCreate={onCreate}
 			onUpdate={onUpdate}
 			onDelete={onDelete}
+			onReplace={onReplace}
 		/>
 	);
 }

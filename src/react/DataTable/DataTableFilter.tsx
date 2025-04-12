@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/select";
 import { useMemo, useState } from "react";
 
-// automatically reset page index
 interface Props<T> {
 	table: Table<T>;
 }
@@ -81,7 +80,7 @@ function DataTableFilter<T>({ table }: Props<T>) {
 				<SelectContent>{select()}</SelectContent>
 			</Select>
 			<Input
-				placeholder={`Filter ${readable(filterColumn)}...`}
+				placeholder={`Filter by ${readable(filterColumn)}...`}
 				value={
 					(table
 						.getColumn(filterColumn)
