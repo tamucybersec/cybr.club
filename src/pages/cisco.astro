@@ -5,32 +5,10 @@ import Subtitle from "@/components/Subtitle.astro";
 import Paragraph from "@/components/Paragraph.astro";
 import Container from "@/components/Container.astro";
 import ActivityLogo from "@/components/ActivityLogo.astro";
-import MemberCard, {
-	type Props as MemberCardProps,
-} from "@/components/MemberCard.astro";
+import MemberCard from "@/components/MemberCard.astro";
 
 import ciscoLab from "@/images/programs/cisco/cisco-lab.png";
-
-const leads: MemberCardProps[] = [
-	{
-		name: "Colby Coppinger",
-		position: "CNA Student Ambassador",
-		major: "GIST",
-		year: 25,
-		socials: {
-			email: "tamuciscoacademy@gmail.com",
-		},
-	},
-	{
-		name: "Austin Glander",
-		position: "Lab Coordinator",
-		major: "CPSC",
-		year: 27,
-		socials: {
-			email: "tamuciscoacademy@gmail.com",
-		},
-	},
-];
+import { activityLeaders } from "@/scripts/officers";
 ---
 
 <Base>
@@ -110,7 +88,7 @@ const leads: MemberCardProps[] = [
 
 		<Title title="Cisco Networking Academy Leads" />
 		<div class="row d-flex justify-content-center">
-			{leads.map((props) => <MemberCard {...props} />)}
+			{activityLeaders["Cisco"].map((props) => <MemberCard {...props} />)}
 		</div>
 	</Container>
 </Base>

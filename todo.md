@@ -1,4 +1,4 @@
--   Download / Upload of entire database
+-   Connecting frontend to backend
 
 # Dashboard
 

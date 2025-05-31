@@ -6,7 +6,7 @@ import Container from "@/components/Container.astro";
 import MemberCard from "@/components/MemberCard.astro";
 import AlumniTable from "@/components/AlumniTable.astro";
 
-import { officers } from "@/scripts/officers";
+import { activityLeaders, officers, type Officer } from "@/scripts/officers";
 ---
 
 <Base>
@@ -35,6 +35,17 @@ import { officers } from "@/scripts/officers";
 		<Title title="Officers" />
 		<div class="row d-flex justify-content-center">
 			{officers.map((props) => <MemberCard {...props} />)}
+		</div>
+	</Container>
+
+	<Container>
+		<Title title="Activity Leaders" />
+		<div class="row d-flex justify-content-center">
+			{
+				Object.values(activityLeaders)
+					.reduce((acc, arr) => acc.concat(arr), [] as Officer[])
+					.map((props) => <MemberCard {...props} />)
+			}
 		</div>
 	</Container>
 

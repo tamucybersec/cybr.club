@@ -5,24 +5,11 @@ import Subtitle from "@/components/Subtitle.astro";
 import Paragraph from "@/components/Paragraph.astro";
 import Container from "@/components/Container.astro";
 import ActivityLogo from "@/components/ActivityLogo.astro";
-import MemberCard, {
-	type Props as MemberCardProps,
-} from "@/components/MemberCard.astro";
+import MemberCard from "@/components/MemberCard.astro";
 import ContactForm from "@/components/ContactForm.astro";
 
 import rhaLogo from "@/images/programs/rha/rha.png";
-
-const leads: MemberCardProps[] = [
-	{
-		name: "Noam Gariani",
-		position: "RHA Student Ambassador",
-		major: "COMP",
-		year: 24,
-		socials: {
-			email: "tamuredhatacademy@gmail.com",
-		},
-	},
-];
+import { activityLeaders } from "@/scripts/officers";
 ---
 
 <Base>
@@ -56,7 +43,11 @@ const leads: MemberCardProps[] = [
 
 		<Title title="Red Hat Academy Leads" />
 		<div class="row d-flex justify-content-center">
-			{leads.map((props) => <MemberCard {...props} />)}
+			{
+				activityLeaders["Red Hat"].map((props) => (
+					<MemberCard {...props} />
+				))
+			}
 		</div>
 
 		<Title title="Contact Us" />

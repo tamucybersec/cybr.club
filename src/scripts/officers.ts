@@ -5,117 +5,136 @@ export interface Socials {
 	website?: string;
 }
 
-export type Officers = {
+export type Officer = {
 	name: string;
 	position: string;
 	major: string;
 	year?: number;
 	socials?: Socials;
-}[];
+};
 
-export const officers: Officers = [
-	{
-		name: "Lane Simmons",
-		position: "President",
-		major: "COMP",
-		year: 25,
-		socials: {
-			linkedin: "https://www.linkedin.com/in/lcsimmons/",
-			github: "https://github.com/lcsimmons",
-			email: "tamucybersec@gmail.com",
-		},
+type DoubleDipOfficer = Omit<Officer, "position"> & {
+	positions: [string, string];
+};
+
+function getDoubleDipOfficer(
+	officer: DoubleDipOfficer,
+	position: number
+): Officer {
+	return {
+		...officer,
+		position: officer.positions[position],
+	};
+}
+
+const noahMustoe: DoubleDipOfficer = {
+	name: "Noah Mustoe",
+	positions: ["President", "Cyber Operations (Red Team)"],
+	major: "CPCS",
+	year: 26,
+	socials: {
+		email: "noahmustoe@tamu.edu",
+		github: "https://github.com/cobradev4",
+		linkedin: "https://www.linkedin.com/in/noahmustoe/",
 	},
-	{
-		name: "Colby Coppinger",
-		position: "Vice President",
-		major: "GIST",
-		year: 25,
-		socials: {
-			email: "tamucybersec@gmail.com",
-		},
+};
+
+const austinGlander: DoubleDipOfficer = {
+	name: "Austin Glander",
+	positions: [
+		"Vice President",
+		"Cisco Networking Academy Student Ambassador",
+	],
+	major: "CPSC",
+	year: 27,
+	socials: {
+		email: "austinglander@tamu.edu",
+		github: "https://github.com/austinglander",
+		linkedin: "https://www.linkedin.com/in/austinglander",
 	},
+};
+
+const kalyanAdhikari: DoubleDipOfficer = {
+	name: "Kalyan Adhikari",
+	positions: ["Treasurer", "Palo Alto Academy Student Ambassador"],
+	major: "GIST",
+	year: 27,
+	socials: {
+		email: "kalyanadhikari@tamu.edu",
+	},
+};
+
+const owenShadburne: DoubleDipOfficer = {
+	name: "Owen Shadburne",
+	positions: ["Director of Technology", "Red Hat Academy Student Ambassador"],
+	major: "CPSC",
+	year: 27,
+	socials: {
+		email: "shadbowne@tamu.edu",
+		linkedin: "https://www.linkedin.com/in/owen-shadburne/",
+		github: "https://github.com/CubeTures",
+	},
+};
+
+const alexZhang: DoubleDipOfficer = {
+	name: "Alex Zhang",
+	positions: ["Director of Competitions", "Cyber Operations (CTF)"],
+	major: "CPSC",
+	year: 27,
+	socials: {
+		email: "alexzhang05@tamu.edu",
+		github: "https://github.com/flocto",
+		website: "https://flocto.github.io/",
+	},
+};
+
+export const officers: Officer[] = [
+	getDoubleDipOfficer(noahMustoe, 0),
+	getDoubleDipOfficer(austinGlander, 0),
+	getDoubleDipOfficer(kalyanAdhikari, 0),
 	{
-		name: "Sophie Gleadell",
+		name: "Matei Dumitru",
 		position: "Secretary",
-		major: "COMP",
-		year: 25,
-		socials: {
-			email: "tamucybersec@gmail.com",
-		},
-	},
-	{
-		name: "Ezra Jeter",
-		position: "Treasurer",
 		major: "CPEN",
-		year: 24,
+		year: 27,
 		socials: {
-			linkedin: "https://www.linkedin.com/in/ezrajeter",
-			email: "tamucybersec@gmail.com",
+			email: "mdumitru@tamu.edu",
+			linkedin: "https://www.linkedin.com/in/mateidumitru",
 		},
 	},
 	{
-		name: "Emmie Teng",
+		name: "Zach Smith",
+		position: "Director of External Relations",
+		major: "CPSC",
+		year: 27,
+		socials: {
+			email: "zts493@tamu.edu",
+			github: "https://github.com/wackooswami",
+			linkedin: "http://www.linkedin.com/in/zachary-smith2027",
+		},
+	},
+	{
+		name: "Alex Eade",
+		position: "Directory of Activity Groups",
+		major: "MISY",
+		year: 26,
+		socials: {
+			email: "alexandereade@tamu.edu",
+			linkedin: "https://www.linkedin.com/in/alexandereade/",
+		},
+	},
+	{
+		name: "Arianna Guzman",
 		position: "Director of Public Relations",
-		major: "CPSC",
-		year: 25,
+		major: "ENGR",
+		year: 28,
 		socials: {
-			linkedin: "https://www.linkedin.com/in/mengting-teng",
-			github: "https://github.com/TengMengTing",
-			email: "tamucybersec@gmail.com",
+			email: "ariannaguz@tamu.edu",
+			linkedin: "https://www.linkedin.com/in/ariannaguz",
 		},
 	},
-	{
-		name: "Damian Lall",
-		position: "Competition Lead",
-		major: "ITDE",
-		year: 25,
-		socials: {
-			email: "tamucybersec@gmail.com",
-			website: "https://lall.us/",
-		},
-	},
-	{
-		name: "Javi Betancourt",
-		position: "Tech Lead",
-		major: "CPSC",
-		year: 26,
-		socials: {
-			linkedin:
-				"https://www.linkedin.com/in/javier-betancourt-1100b2268/",
-			github: "https://github.com/HomeoStasis-0",
-			email: "tamucybersec@gmail.com",
-		},
-	},
-	{
-		name: "Victor Phan",
-		position: "Activity Groups Lead",
-		major: "CPSC",
-		year: 25,
-		socials: {
-			github: "https://github.com/move2slowly",
-			email: "tamucybersec@gmail.com",
-		},
-	},
-	{
-		name: "Emma Scott",
-		position: "WiCyS President",
-		major: "FIVS",
-		year: 25,
-		socials: {
-			linkedin: "https://www.linkedin.com/in/emma-scott-699435264",
-			email: "tamuwicys@gmail.com",
-		},
-	},
-	{
-		name: "Michelle Thomas",
-		position: "WiCyS Vice President",
-		major: "MIS",
-		year: 26,
-		socials: {
-			linkedin: "https://www.linkedin.com/in/michellerose-thomas",
-			email: "tamuwicys@gmail.com",
-		},
-	},
+	getDoubleDipOfficer(alexZhang, 0),
+	getDoubleDipOfficer(owenShadburne, 0),
 	{
 		name: "Martin Carlisle",
 		position: "Faculty Advisor",
@@ -126,3 +145,61 @@ export const officers: Officers = [
 		},
 	},
 ];
+
+export const activityLeaders = {
+	"Cyber Operations": [
+		getDoubleDipOfficer(noahMustoe, 1),
+		getDoubleDipOfficer(alexZhang, 1),
+	],
+	"Hardware Hacking": [
+		{
+			name: "Preston VanderLight",
+			position: "Hardware Hacking Lead",
+			major: "ECEN",
+			year: 27,
+			socials: {
+				email: "preston.vanderlight@tamu.edu",
+				linkedin: "https://www.linkedin.com/in/prestonvanderlight/",
+			},
+		},
+	],
+	Cisco: [getDoubleDipOfficer(austinGlander, 1)],
+	"Palo Alto": [getDoubleDipOfficer(kalyanAdhikari, 1)],
+	AWS: [
+		{
+			name: "Luke Laudeman",
+			position: "AWS Academy Student Ambassador",
+			major: "INTA",
+			year: 27,
+			socials: {
+				email: "luke123@tamu.edu",
+			},
+		},
+	],
+	"Red Hat": [
+		{
+			name: "Kevin Guerra",
+			position: "Red Hat Academy Student Ambassador",
+			major: "ENGR",
+			year: 28,
+			socials: {
+				email: "kevin.guerra.v@tamu.edu",
+				linkedin: "https://www.linkedin.com/in/kevin-guerra-v/",
+			},
+		},
+		getDoubleDipOfficer(owenShadburne, 1),
+	],
+	Policy: [
+		{
+			name: "Chase Johnson",
+			position: "Policy Lead",
+			major: "MIA",
+			year: 26,
+			socials: {
+				email: "c_johnson@tamu.edu",
+				github: "https://github.com/cc-johnson",
+				linkedin: "https://www.linkedin.com/in/cc-johnson/",
+			},
+		},
+	],
+} as const satisfies Record<string, Officer[]>;

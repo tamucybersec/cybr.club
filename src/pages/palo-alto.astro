@@ -5,26 +5,11 @@ import Subtitle from "@/components/Subtitle.astro";
 import Paragraph from "@/components/Paragraph.astro";
 import Container from "@/components/Container.astro";
 import ActivityLogo from "@/components/ActivityLogo.astro";
-import MemberCard, {
-	type Props as MemberCardProps,
-} from "@/components/MemberCard.astro";
+import MemberCard from "@/components/MemberCard.astro";
 
 import paloAltoAcademy from "@/images/programs/palo-alto/palo-alto-academy.png";
 import palotAltoLogo from "@/images/programs/palo-alto/palo-alto.png";
-
-const leads: MemberCardProps[] = [
-	{
-		name: "Kalyan Adhikari",
-		position: "Palo Alto Academy Student Ambassador",
-		major: "GIST",
-		year: 27,
-		socials: {
-			email: "kalyanadhikari@tamu.edu",
-		},
-	},
-];
-
-// TODO - don't hardcode the discord invite
+import { activityLeaders } from "@/scripts/officers";
 ---
 
 <Base>
@@ -86,7 +71,11 @@ const leads: MemberCardProps[] = [
 
 		<Title title="Palo Alto Academy Leads" />
 		<div class="row d-flex justify-content-center">
-			{leads.map((props) => <MemberCard {...props} />)}
+			{
+				activityLeaders["Palo Alto"].map((props) => (
+					<MemberCard {...props} />
+				))
+			}
 		</div>
 	</Container>
 </Base>

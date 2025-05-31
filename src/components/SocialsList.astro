@@ -4,9 +4,64 @@ import { type Socials } from "@/scripts/officers";
 type Props = Socials & { style?: string };
 
 const { linkedin, github, email, website, style } = Astro.props;
+
+const cipherOffset = Math.round(Math.random() * 26);
+const protectedEmail = email ? btoa(cipher(email, cipherOffset)) : undefined;
+const emailId = encodeURIComponent(protectedEmail ?? "");
+
+// caesar cipher
+function cipher(str: string, shift: number): string {
+	return [...str]
+		.map((c) => String.fromCharCode(c.charCodeAt(0) + shift))
+		.join("");
+}
 ---
 
+<script
+	is:inline
+	type="module"
+	define:vars={{ cipherOffset, protectedEmail, emailId }}
+>
+	if (emailId !== "") {
+		document.getElementById(emailId)?.addEventListener("click", () => {
+			function cipher(str, shift) {
+				return [...str]
+					.map((c) => String.fromCharCode(c.charCodeAt(0) + shift))
+					.join("");
+			}
+
+			const email = cipher(atob(protectedEmail), -cipherOffset);
+			navigator.clipboard.writeText(email);
+			alert("Email copied to clipboard!");
+		});
+	}
+</script>
+
+<style>
+	.email-button {
+		all: unset; /* removes all default button styles */
+		cursor: pointer;
+		color: inherit;
+		text-decoration: underline;
+		display: inline;
+	}
+
+	.email-button:hover {
+		text-decoration: none;
+	}
+</style>
+
 <div class="social-media">
+	{
+		email && (
+			<button
+				id={emailId}
+				class="email-button"
+			>
+				<i class="fas fa-envelope about fa-lg" />
+			</button>
+		)
+	}
 	{
 		linkedin && (
 			<a href={linkedin}>
@@ -18,13 +73,6 @@ const { linkedin, github, email, website, style } = Astro.props;
 		github && (
 			<a href={github}>
 				<i class={`fab fa-github-square about fa-lg ${style}`} />
-			</a>
-		)
-	}
-	{
-		email && (
-			<a href={`mailto:${email}`}>
-				<i class={`fas fa-envelope about fa-lg ${style}`} />
 			</a>
 		)
 	}

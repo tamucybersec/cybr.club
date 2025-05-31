@@ -9,6 +9,73 @@ export type Alumni = {
 
 export const alumni: Alumni = [
 	{
+		name: "Javi Betancourt",
+		position: "Tech Lead",
+		grad: "Spring 2026",
+		socials: {
+			linkedin:
+				"https://www.linkedin.com/in/javier-betancourt-1100b2268/",
+			github: "https://github.com/HomeoStasis-0",
+		},
+	},
+	{
+		name: "Colby Coppinger",
+		position: "Vice President",
+		grad: "Fall 2025",
+	},
+	{
+		name: "Lane Simmons",
+		position: "President",
+		grad: "Spring 2025",
+		socials: {
+			linkedin: "https://www.linkedin.com/in/lcsimmons/",
+			github: "https://github.com/lcsimmons",
+		},
+	},
+	{
+		name: "Sophie Gleadell",
+		position: "Secretary",
+		grad: "Spring 2025",
+	},
+	{
+		name: "Ezra Jeter",
+		position: "Treasurer",
+		grad: "Spring 2025",
+		socials: {
+			linkedin: "https://www.linkedin.com/in/ezrajeter",
+		},
+	},
+	{
+		name: "Emmie Teng",
+		position: "Director of Public Relations",
+		grad: "Spring 2025",
+		socials: {
+			linkedin: "https://www.linkedin.com/in/mengting-teng",
+			github: "https://github.com/TengMengTing",
+		},
+	},
+	{
+		name: "Damian Lall",
+		position: "Competition Lead",
+		grad: "Spring 2025",
+		socials: {
+			website: "https://lall.us/",
+		},
+	},
+	{
+		name: "Victor Phan",
+		position: "Activity Groups Lead",
+		grad: "Spring 2025",
+		socials: {
+			github: "https://github.com/move2slowly",
+		},
+	},
+	{
+		name: "Noam Gariani",
+		position: "RHA Student Ambassador",
+		grad: "Spring 2025",
+	},
+	{
 		name: "Bode Raymond",
 		position: "Competition Lead",
 		grad: "Fall 2024",
@@ -26,9 +93,6 @@ export const alumni: Alumni = [
 		name: "Danny Hernandez",
 		position: "Treasurer",
 		grad: "Spring 2024",
-		socials: {
-			email: "danny2768@tamu.edu",
-		},
 	},
 	{
 		name: "Nathan Nguyen",
@@ -121,7 +185,6 @@ export const alumni: Alumni = [
 		socials: {
 			linkedin: "https://www.linkedin.com/in/jsaenz1",
 			github: "https://github.com/saenzjonathan11",
-			email: "",
 			website: "https://jonathanfsaenz.com",
 		},
 	},
@@ -148,7 +211,6 @@ export const alumni: Alumni = [
 		socials: {
 			linkedin: "https://www.linkedin.com/in/teddyheinen",
 			github: "https://github.com/tsheinen",
-			email: "",
 			website: "https://teddyheinen.com",
 		},
 	},
@@ -168,7 +230,6 @@ export const alumni: Alumni = [
 		socials: {
 			linkedin: "https://www.linkedin.com/in/alalith",
 			github: "https://github.com/alalith/",
-			email: "",
 			website: "https://arjunlalith.com",
 		},
 	},

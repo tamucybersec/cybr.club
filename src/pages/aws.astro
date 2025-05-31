@@ -5,26 +5,11 @@ import Subtitle from "@/components/Subtitle.astro";
 import Paragraph from "@/components/Paragraph.astro";
 import Container from "@/components/Container.astro";
 import ActivityLogo from "@/components/ActivityLogo.astro";
-import MemberCard, {
-	type Props as MemberCardProps,
-} from "@/components/MemberCard.astro";
+import MemberCard from "@/components/MemberCard.astro";
 
 import awsAcademy from "@/images/programs/aws/aws-academy.png";
 import awsLogo from "@/images/programs/aws/aws.png";
-
-const leads: MemberCardProps[] = [
-	{
-		name: "Luke Laudeman",
-		position: "AWS Academy Student Ambassador",
-		major: "INTA",
-		year: 27,
-		socials: {
-			email: "luke123@tamu.edu",
-		},
-	},
-];
-
-// TODO - don't hardcode the discord invite
+import { activityLeaders } from "@/scripts/officers";
 ---
 
 <Base>
@@ -82,7 +67,7 @@ const leads: MemberCardProps[] = [
 
 		<Title title="AWS Academy Leads" />
 		<div class="row d-flex justify-content-center">
-			{leads.map((props) => <MemberCard {...props} />)}
+			{activityLeaders["AWS"].map((props) => <MemberCard {...props} />)}
 		</div>
 	</Container>
 </Base>
