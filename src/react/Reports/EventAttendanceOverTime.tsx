@@ -14,14 +14,16 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import CategoricalLineChart from "../Charts/CategoricalLineChart";
-import { useEvents } from "@/hooks/useTable";
+import { useAttendance, useEvents } from "@/hooks/useTable";
 import { useEffect, useMemo, useState } from "react";
 import type { CategoricalData } from "../types";
+import { compareEventDates } from "@/scripts/helpers";
 
 // TODO
 // list of retention rates between meetings rather than average retention rate
 function EventAttendanceOverTime() {
-	const events = useEvents();
+	const { events } = useEvents();
+	const { attendanceByEvent } = useAttendance();
 
 	const eventTypes: string[] = useMemo(
 		() =>
@@ -42,10 +44,10 @@ function EventAttendanceOverTime() {
 	const { attendance, retention } = useMemo(() => {
 		const attendance: CategoricalData[] = (events ?? [])
 			.filter((ev) => ev.name === selectedEvent)
-			.sort((a, b) => a.date.localeCompare(b.date))
+			.sort(compareEventDates)
 			.map((ev) => ({
 				label: ev.date,
-				count: ev.attended_users.length,
+				count: (attendanceByEvent[ev.code] ?? []).length,
 			}));
 
 		const retention =

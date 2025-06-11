@@ -10,19 +10,22 @@ export type Credentials = {
 	password: string;
 };
 
+export type Semester = "spring" | "fall";
+
 export const QUERY_KEYS = {
-	users: ["edit", "users"],
-	events: ["edit", "events"],
-	flagged: ["edit", "flagged"],
+	users: ["users", "table"],
+	events: ["events", "table"],
+	flagged: ["flagged", "table"],
+	attendance: ["attendance", "table"],
+	points: ["points", "table"]
 };
 
 export interface User {
 	user_id: number;
 	name: string;
-	points: number;
-	attended: number;
 	grad_year: number;
 	email: string;
+	verified: boolean
 }
 
 export interface Event {
@@ -30,15 +33,25 @@ export interface Event {
 	code: string;
 	points: number;
 	date: string;
-	resources: string;
-	attended_users: number[];
+	semester: Semester;
+	year: number;
 }
 
-// offenses is using the british spelling offences
-// for legacy reasons, should be switched when possible
 export interface Flagged {
 	user_id: number;
-	offences: number;
+	offenses: number;
+}
+
+export interface Attendance {
+	user_id: number;
+	code: string;
+}
+
+export interface Points {
+	user_id: number;
+	points: number;
+	semester: Semester;
+	year: number;
 }
 
 export type CategoricalData = {

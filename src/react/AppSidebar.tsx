@@ -37,9 +37,9 @@ import {
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Report from "./Report";
-import EditMembers from "./EditMembers";
-import EditEvents from "./EditEvents";
-import EditFlagged from "./EditFlagged";
+import MembersTable from "./MembersTable";
+import EventsTable from "./EventsTable";
+import FlaggedTable from "./FlaggedTable";
 import { PermissionLevel } from "./types";
 import { DashboardContext } from "@/scripts/context";
 import { sufficientPermissions } from "@/scripts/auth";
@@ -92,15 +92,15 @@ const groups: Group[] = [
 				pages: [
 					{
 						page: "Members",
-						link: { to: "/members", component: <EditMembers /> },
+						link: { to: "/members", component: <MembersTable /> },
 					},
 					{
 						page: "Events",
-						link: { to: "/events", component: <EditEvents /> },
+						link: { to: "/events", component: <EventsTable /> },
 					},
 					{
 						page: "Flagged",
-						link: { to: "/flagged", component: <EditFlagged /> },
+						link: { to: "/flagged", component: <FlaggedTable /> },
 					},
 				],
 			},

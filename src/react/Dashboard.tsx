@@ -25,7 +25,7 @@ function Dashboard() {
 
 	async function validatePassword(pass: string): Promise<boolean> {
 		const enc = await encrypt(key!, pass);
-		return (await fetchPathAbstraction("/validate/", {
+		return (await fetchPathAbstraction("/validate", {
 			password: enc,
 		})) as boolean;
 	}

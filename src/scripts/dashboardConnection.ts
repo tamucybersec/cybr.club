@@ -22,11 +22,8 @@ export async function fetchPath<T>(
 }
 
 export async function fetchKey() {
-	const res = await fetch(`${API_URL}/key/`, {
+	const res = await fetch(`${API_URL}/key`, {
 		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-		},
 	});
 
 	const { key } = await res.json();

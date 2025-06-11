@@ -4,6 +4,8 @@ import type { Definition } from "./DataTable/DataTableTypes";
 import { useContext } from "react";
 import { DashboardContext } from "@/scripts/context";
 import { QUERY_KEYS, type Event } from "./types";
+import { sortingFns } from "@tanstack/react-table";
+import { compareDates, compareEventDates } from "@/scripts/helpers";
 
 const definition: Definition<Event>[] = [
 	{
@@ -43,44 +45,29 @@ const definition: Definition<Event>[] = [
 				const parts = v.split("-");
 				return `${parts[1]}/${parts[2]}/${parts[0]}`;
 			}),
-	},
-	{
-		accessorKey: "resources",
-		header: "Resources",
-		type: z.string(),
-	},
-	{
-		accessorKey: "attended_users",
-		header: "Attended Users",
-		sortable: true,
-		type: z.preprocess((v): string[] => {
-			if (Array.isArray(v)) {
-				return v;
-			} else if (typeof v === "string") {
-				return [v];
-			} else {
-				return [];
-			}
-		}, z.array(z.coerce.number())),
 		other: {
-			sortingFn: (rowA, rowB, columnId: string) => {
-				const attA = rowA.getValue<string[]>(columnId);
-				const attB = rowB.getValue<string[]>(columnId);
-				return attA.length - attB.length;
-			},
-			filterFn: (row, columnId, filterValue) => {
-				const values = row.getValue<string[]>(columnId);
-				const filters = filterValue.split(",");
-
-				return filters.every((filter: string) =>
-					values.some((value) => value.includes(filter))
-				);
+			sortingFn: (a, b) => {
+				const dateA = a.getValue<string>("date");
+				const dateB = b.getValue<string>("date");
+				return compareDates(dateA, dateB);
 			},
 		},
 	},
+	{
+		accessorKey: "semester",
+		header: "Semester",
+		sortable: true,
+		type: z.enum(["spring", "fall"]),
+	},
+	{
+		accessorKey: "year",
+		header: "Year",
+		sortable: true,
+		type: z.coerce.number().min(0),
+	},
 ];
 
-function EditEvents() {
+function EventsTable() {
 	const { fetchPath } = useContext(DashboardContext);
 
 	async function onGet(): Promise<Event[]> {
@@ -112,8 +99,8 @@ function EditEvents() {
 				code: "",
 				points: 0,
 				date: "",
-				resources: "",
-				attended_users: [],
+				semester: "spring",
+				year: 0,
 			}}
 			onGet={onGet}
 			onCreate={onCreate}
@@ -124,4 +111,4 @@ function EditEvents() {
 	);
 }
 
-export default EditEvents;
+export default EventsTable;

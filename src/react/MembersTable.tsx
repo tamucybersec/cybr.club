@@ -26,26 +26,6 @@ const definition: Definition<User>[] = [
 		type: z.string().nonempty(),
 	},
 	{
-		accessorKey: "points",
-		header: "Points",
-		sortable: true,
-		cell: (row) => {
-			const points = row.getValue<number>("points");
-			return <div>{points.toLocaleString()}</div>;
-		},
-		type: z.coerce.number().min(0),
-	},
-	{
-		accessorKey: "attended",
-		header: "Attended",
-		sortable: true,
-		cell: (row) => {
-			const points = row.getValue<number>("attended");
-			return <div>{points.toLocaleString()}</div>;
-		},
-		type: z.coerce.number().min(0),
-	},
-	{
 		accessorKey: "grad_year",
 		header: "Grad Year",
 		sortable: true,
@@ -63,9 +43,15 @@ const definition: Definition<User>[] = [
 				"Email must be a valid TAMU email and end with 'tamu.edu'"
 			),
 	},
+	{
+		accessorKey: "verified",
+		header: "Verified",
+		sortable: true,
+		type: z.boolean(),
+	},
 ];
 
-function EditMembers() {
+function MembersTable() {
 	const { fetchPath } = useContext(DashboardContext);
 
 	async function onGet(): Promise<User[]> {
@@ -94,11 +80,10 @@ function EditMembers() {
 			definition={definition}
 			defaultValues={{
 				user_id: 0,
-				name: "New User",
-				points: 0,
-				attended: 0,
+				name: "",
 				grad_year: 0,
-				email: "example@tamu.edu",
+				email: "",
+				verified: false,
 			}}
 			onGet={onGet}
 			onCreate={onCreate}
@@ -109,4 +94,4 @@ function EditMembers() {
 	);
 }
 
-export default EditMembers;
+export default MembersTable;

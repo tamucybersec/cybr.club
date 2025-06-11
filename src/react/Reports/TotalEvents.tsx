@@ -3,7 +3,7 @@ import { useEvents } from "@/hooks/useTable";
 import { useMemo } from "react";
 
 function TotalEvents() {
-	const events = useEvents();
+	const { events } = useEvents();
 
 	const { total } = useMemo(() => {
 		const total = Object.keys(events ?? {}).length;

@@ -20,14 +20,14 @@ const definition: Definition<Flagged>[] = [
 		},
 	},
 	{
-		accessorKey: "offences",
+		accessorKey: "offenses",
 		header: "Offenses",
 		sortable: true,
 		type: z.coerce.number().min(0),
 	},
 ];
 
-function EditFlagged() {
+function FlaggedTable() {
 	const { fetchPath } = useContext(DashboardContext);
 
 	async function onGet(): Promise<Flagged[]> {
@@ -57,7 +57,7 @@ function EditFlagged() {
 			definition={definition}
 			defaultValues={{
 				user_id: 0,
-				offences: 0,
+				offenses: 0,
 			}}
 			onGet={onGet}
 			onCreate={onCreate}
@@ -68,4 +68,4 @@ function EditFlagged() {
 	);
 }
 
-export default EditFlagged;
+export default FlaggedTable;

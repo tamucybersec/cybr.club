@@ -3,7 +3,7 @@ import { useUsers } from "@/hooks/useTable";
 import { useMemo } from "react";
 
 function TotalMembers() {
-	const users = useUsers();
+	const { users } = useUsers();
 
 	const { total } = useMemo(() => {
 		const total = Object.keys(users ?? {}).length;

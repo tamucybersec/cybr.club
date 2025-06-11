@@ -50,7 +50,7 @@ function Login() {
 		);
 
 		const { perms } = await fetchPath<{ perms: PermissionLevel }>(
-			"/login/",
+			"/login",
 			{},
 			{
 				username,

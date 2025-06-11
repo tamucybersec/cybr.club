@@ -6,17 +6,22 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useUsers } from "@/hooks/useTable";
+import { useAttendance, useUsers } from "@/hooks/useTable";
 import { useMemo } from "react";
 import type { User } from "../types";
 
 function TopMembersList() {
-	const users = useUsers();
+	const { users } = useUsers();
+	const { attendanceByUser } = useAttendance();
 
 	const numberOfUsers = 10;
 	const top: User[] = useMemo(() => {
 		return (users ?? [])
-			.toSorted((a, b) => b.attended - a.attended)
+			.toSorted(
+				(a, b) =>
+					(attendanceByUser[b.user_id] ?? []).length -
+					(attendanceByUser[a.user_id] ?? []).length
+			)
 			.slice(0, numberOfUsers);
 	}, [users]);
 
@@ -32,7 +37,7 @@ function TopMembersList() {
 			<CardContent>
 				<ScrollArea className="flex flex-col max-h-[350px] -mx-4 px-4">
 					<div className="flex flex-col gap-4">
-						{top.map(({ name, attended, grad_year }, index) => (
+						{top.map(({ user_id, name, grad_year }, index) => (
 							<Card
 								key={index}
 								className="bg-background"
@@ -46,7 +51,9 @@ function TopMembersList() {
 								<CardContent>
 									Attended{" "}
 									<span className="font-bold">
-										{attended.toLocaleString()}
+										{(
+											attendanceByUser[user_id] ?? []
+										).length.toLocaleString()}
 									</span>{" "}
 									events
 								</CardContent>

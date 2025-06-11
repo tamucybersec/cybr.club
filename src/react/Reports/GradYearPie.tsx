@@ -15,7 +15,7 @@ import { TrendingUp } from "lucide-react";
 
 // TODO change to actually be by major since we don't collect that data yet
 export default function GradYearPie() {
-	const rawData = useUsers();
+	const { users: rawData } = useUsers();
 
 	const currentYear = getCurrentYear();
 	const { data, newMembers, growth } = useMemo(() => {
@@ -23,11 +23,8 @@ export default function GradYearPie() {
 
 		for (const user of Object.values(rawData ?? [])) {
 			if (user.grad_year < currentYear) continue;
-			if (user.grad_year in counts) {
-				counts[user.grad_year] += 1;
-			} else {
-				counts[user.grad_year] = 1;
-			}
+			counts[user.grad_year] ??= 0;
+			counts[user.grad_year] += 1;
 		}
 
 		const lastYear = Object.keys(counts).reduce(

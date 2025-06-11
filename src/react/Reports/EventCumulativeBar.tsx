@@ -6,7 +6,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { useEvents } from "@/hooks/useTable";
+import { useAttendance, useEvents } from "@/hooks/useTable";
 import { getCurrentSemester, getCurrentYear } from "@/scripts/helpers";
 import type { CategoricalData } from "../types";
 import { useMemo } from "react";
@@ -15,7 +15,8 @@ import CategoricalBarChart from "../Charts/CategoricalBarChart";
 // make label a complete dissection of each date and attendance
 // also make line chart of an event (x: date, y: attendees)
 function EventCumulativeBar() {
-	const events = useEvents();
+	const { events } = useEvents();
+	const { attendanceByEvent } = useAttendance();
 	const currentSemester = getCurrentSemester();
 	const currentYear = getCurrentYear();
 
@@ -26,12 +27,9 @@ function EventCumulativeBar() {
 
 		for (const event of Object.values(events ?? [])) {
 			totalEvents += 1;
-			totalAttendees += event.attended_users.length;
-			if (event.name in counts) {
-				counts[event.name] += event.attended_users.length;
-			} else {
-				counts[event.name] = event.attended_users.length;
-			}
+			totalAttendees += (attendanceByEvent[event.code] ?? []).length;
+			counts[event.name] ??= 0;
+			counts[event.name] += (attendanceByEvent[event.code] ?? []).length;
 		}
 
 		const data: CategoricalData[] = Object.entries(counts)
