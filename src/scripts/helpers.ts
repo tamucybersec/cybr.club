@@ -1,4 +1,6 @@
 import type { Event, Semester } from "@/react/types";
+import type { Row } from "@tanstack/react-table";
+import { z } from "zod";
 
 export function removeSpaces(s: string): string {
 	return s.replaceAll(" ", "_");
@@ -27,6 +29,14 @@ export function getCurrentSemester(): Semester {
 	}
 }
 
+export function getCurrentDatestr(): string {
+	const now = new Date();
+	const month = String(now.getMonth() + 1).padStart(2, "0");
+	const day = String(now.getDate()).padStart(2, "0");
+	const year = String(now.getFullYear());
+	return `${month}/${day}/${year}`;
+}
+
 export function compareEventDates(a: Event, b: Event): number {
 	return compareDates(a.date, b.date);
 }
@@ -49,3 +59,32 @@ export function compareDates(a: string, b: string): number {
 
 	return yearA.localeCompare(yearB);
 }
+
+export function filterUserID<T>(
+	row: Row<T>,
+	columnId: string,
+	filterValue: any
+) {
+	const value = row.getValue<number>(columnId);
+	return value.toString().includes(filterValue);
+}
+
+export function sortDates<T>(accessor: keyof T) {
+	return (a: Row<T>, b: Row<T>) => {
+		const dateA = a.getValue<string>(accessor as string);
+		const dateB = b.getValue<string>(accessor as string);
+		return compareDates(dateA, dateB);
+	};
+}
+
+export const zodDate = z
+	.string()
+	.transform((v) => {
+		const parts = v.split("/");
+		return `${parts[2]}-${parts[0]}-${parts[1]}`;
+	})
+	.pipe(z.string().date("Date must follow format MM/DD/YYYY"))
+	.transform((v) => {
+		const parts = v.split("-");
+		return `${parts[1]}/${parts[2]}/${parts[0]}`;
+	});

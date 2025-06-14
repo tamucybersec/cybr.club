@@ -15,10 +15,10 @@ export interface Definition<T> {
 
 export type GetEntries<T> = () => Promise<T[]>;
 export type ReplaceEntries<T> = (entries: T[]) => Promise<void>;
-export type CreateEntry<T> = (entry: T) => Promise<void>;
-export type UpdateEntry<T> = (from: T, to: T) => Promise<void>;
-export type DeleteEntry<T> = (entry: T) => Promise<void>;
-export type OnSubmit<T> = (to: T) => void;
+export type CreateEntry<T> = (item: T) => Promise<void>;
+export type UpdateEntry<T> = (original: T, updated: T) => Promise<void>;
+export type DeleteEntry<T> = (item: T) => Promise<void>;
+export type OnSubmit<T> = (updated: T) => void;
 
 export type SchemaType = z.ZodObject<
 	any,

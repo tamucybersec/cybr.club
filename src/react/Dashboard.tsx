@@ -1,33 +1,27 @@
-import Login from "./Login";
-import { fetchPath } from "@/scripts/dashboardConnection";
-import { CredentialsContext, DashboardContext } from "@/scripts/context";
-import { useState } from "react";
+import { DashboardContext } from "@/scripts/context";
+import { useEffect, useState } from "react";
 import AppSidebar from "./AppSidebar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { PermissionLevel } from "./types";
-import { authenticated, encrypt } from "@/scripts/auth";
+import { Permissions, type Method, type Options } from "./types";
+import { authenticated, useLogin } from "@/scripts/auth";
 import { Toaster } from "@/components/ui/sonner";
+import { fetchPath } from "@/scripts/fetchUtils";
+import LoginMessage from "./LoginMessage";
+import LoadingPage from "./LoadingPage";
 
 function Dashboard() {
-	const [key, setKey] = useState<CryptoKey | undefined>();
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [permissionLevel, setPermissionLevel] = useState<PermissionLevel>(
-		PermissionLevel.NONE
+	const [token, setToken] = useState<string>("");
+	const [permission, setPermission] = useState<Permissions | undefined>(
+		undefined
 	);
 
-	async function fetchPathAbstraction(
-		path: string,
-		params: Record<string, any> = {}
-	) {
-		return await fetchPath(path, params, { username, password });
-	}
+	useLogin((token, permission) => {
+		setToken(token);
+		setPermission(permission);
+	});
 
-	async function validatePassword(pass: string): Promise<boolean> {
-		const enc = await encrypt(key!, pass);
-		return (await fetchPathAbstraction("/validate", {
-			password: enc,
-		})) as boolean;
+	async function fetchPathAbstraction(path: string, options?: Options) {
+		return await fetchPath(token, path, options);
 	}
 
 	const queryClient = new QueryClient({
@@ -44,29 +38,20 @@ function Dashboard() {
 			<DashboardContext.Provider
 				value={{
 					fetchPath: fetchPathAbstraction,
-					validatePassword,
-					permissionLevel,
+					permission: permission!,
 				}}
 			>
 				<Toaster
 					richColors
 					position="top-center"
 				/>
-				<CredentialsContext.Provider
-					value={{
-						key,
-						setKey,
-						username,
-						setUsername,
-						password,
-						setPassword,
-						permissionLevel,
-						setPermissionLevel,
-					}}
-				>
-					<Login />
-				</CredentialsContext.Provider>
-				{authenticated(permissionLevel) && <AppSidebar />}
+				{permission === undefined && <LoadingPage />}
+				{permission !== undefined &&
+					(authenticated(permission) ? (
+						<AppSidebar />
+					) : (
+						<LoginMessage />
+					))}
 			</DashboardContext.Provider>
 		</QueryClientProvider>
 	);

@@ -1,14 +1,17 @@
-export enum PermissionLevel {
+export enum Permissions {
 	NONE = 0,
-	DENIED,
-	SPONSOR,
-	ADMIN,
+	SPONSOR = 1,
+	COMMITTEE = 2,
+	ADMIN = 3,
+	SUPER_ADMIN = 4,
 }
 
-export type Credentials = {
-	username: string;
-	password: string;
-};
+export type Method = "GET" | "POST";
+
+export interface Options {
+	method?: Method;
+	params?: Record<string, any>;
+}
 
 export type Semester = "spring" | "fall";
 
@@ -17,7 +20,8 @@ export const QUERY_KEYS = {
 	events: ["events", "table"],
 	flagged: ["flagged", "table"],
 	attendance: ["attendance", "table"],
-	points: ["points", "table"]
+	points: ["points", "table"],
+	tokens: ["tokens", "table"],
 };
 
 export interface User {
@@ -25,7 +29,7 @@ export interface User {
 	name: string;
 	grad_year: number;
 	email: string;
-	verified: boolean
+	verified: boolean;
 }
 
 export interface Event {
@@ -52,6 +56,16 @@ export interface Points {
 	points: number;
 	semester: Semester;
 	year: number;
+}
+
+export interface Tokens {
+	name: string;
+	token: string;
+	created: string;
+	expires_after: string;
+	last_accessed: string;
+	revoked: boolean;
+	permission: Permissions;
 }
 
 export type CategoricalData = {

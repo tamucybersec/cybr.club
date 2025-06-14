@@ -20,7 +20,7 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ChartPie, ChevronRight, Pencil } from "lucide-react";
+import { ChartPie, ChevronRight, Database, Pencil } from "lucide-react";
 import {
 	Fragment,
 	useContext,
@@ -37,18 +37,21 @@ import {
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Report from "./Report";
-import MembersTable from "./MembersTable";
-import EventsTable from "./EventsTable";
-import FlaggedTable from "./FlaggedTable";
-import { PermissionLevel } from "./types";
+import MembersTable from "./Tables/MembersTable";
+import EventsTable from "./Tables/EventsTable";
+import FlaggedTable from "./Tables/FlaggedTable";
+import { Permissions } from "./types";
 import { DashboardContext } from "@/scripts/context";
 import { sufficientPermissions } from "@/scripts/auth";
+import AttendanceTable from "./Tables/AttendanceTable";
+import PointsTable from "./Tables/PointsTable";
+import TokensTable from "./Tables/TokensTable";
 
 type Link = { to: string; component: JSX.Element };
 
 interface Group {
 	group: string;
-	requiredPermissionLevel: PermissionLevel;
+	requiredPermissionLevel: Permissions;
 	buttons?: Button[];
 	collapsible?: Collapse[];
 }
@@ -73,7 +76,7 @@ interface Page {
 const groups: Group[] = [
 	{
 		group: "Sponsors",
-		requiredPermissionLevel: PermissionLevel.SPONSOR,
+		requiredPermissionLevel: Permissions.SPONSOR,
 		buttons: [
 			{
 				button: "Dashboard",
@@ -84,19 +87,30 @@ const groups: Group[] = [
 	},
 	{
 		group: "Admin",
-		requiredPermissionLevel: PermissionLevel.ADMIN,
+		requiredPermissionLevel: Permissions.COMMITTEE,
 		collapsible: [
 			{
-				collapse: "Edit",
-				icon: <Pencil />,
+				collapse: "Tables",
+				icon: <Database />,
 				pages: [
 					{
 						page: "Members",
 						link: { to: "/members", component: <MembersTable /> },
 					},
 					{
+						page: "Points",
+						link: { to: "/points", component: <PointsTable /> },
+					},
+					{
 						page: "Events",
 						link: { to: "/events", component: <EventsTable /> },
+					},
+					{
+						page: "Attendance",
+						link: {
+							to: "/attendance",
+							component: <AttendanceTable />,
+						},
 					},
 					{
 						page: "Flagged",
@@ -106,10 +120,26 @@ const groups: Group[] = [
 			},
 		],
 	},
+	{
+		group: "Super Admin",
+		requiredPermissionLevel: Permissions.SUPER_ADMIN,
+		collapsible: [
+			{
+				collapse: "Tables",
+				icon: <Database />,
+				pages: [
+					{
+						page: "Tokens",
+						link: { to: "/tokens", component: <TokensTable /> },
+					},
+				],
+			},
+		],
+	},
 ];
 
 function AppSidebar() {
-	const { permissionLevel } = useContext(DashboardContext);
+	const { permission: permissionLevel } = useContext(DashboardContext);
 	const [path, setPath] = useState("/dashboard");
 	const [component, setComponent] = useState(<Report />);
 
@@ -122,7 +152,7 @@ function AppSidebar() {
 					height={36}
 					width={36}
 				/>
-				<h1>TAMU Cybersecurity Club</h1>
+				<h1>TAMU CYBR CLUB</h1>
 			</div>
 		);
 	}

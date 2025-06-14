@@ -58,7 +58,7 @@ function EventAttendanceOverTime() {
 				  100;
 
 		return { attendance, retention };
-	}, [events, selectedEvent]);
+	}, [events, selectedEvent, attendanceByEvent]);
 
 	function select() {
 		return (

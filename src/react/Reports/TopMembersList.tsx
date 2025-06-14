@@ -23,7 +23,7 @@ function TopMembersList() {
 					(attendanceByUser[a.user_id] ?? []).length
 			)
 			.slice(0, numberOfUsers);
-	}, [users]);
+	}, [users, attendanceByUser]);
 
 	return (
 		<Card className="grow">

@@ -1,60 +1,39 @@
-import { PermissionLevel, type Credentials } from "@/react/types";
+import { Permissions } from "@/react/types";
+import { API_URL } from "./constants";
+import { useEffect } from "react";
 
-function pemToArrayBuffer(pem: string): ArrayBuffer {
-	const base64 = pem.replace(/-{5}[^-]+-{5}/g, "").replace(/\s/g, "");
-	return Uint8Array.from(atob(base64), (c) => c.charCodeAt(0)).buffer;
+export async function useLogin(
+	callback: (token: string, permission: Permissions) => void
+) {
+	useEffect(() => {
+		async function login() {
+			const url = new URL(location.href);
+			const token = url.searchParams.get("token") || "";
+			const resp = await fetch(`${API_URL}/login?token=${token}`);
+
+			if (!resp.ok) {
+				callback(token, Permissions.NONE);
+			} else {
+				const permission = await resp.text();
+				callback(token, parseInt(permission));
+
+				// leads to bad UX: refreshing is annoying
+				// url.searchParams.delete("token");
+				// history.replaceState({}, "", url.toString());
+			}
+		}
+
+		login();
+	}, []);
 }
 
-export async function importKey(key: string): Promise<CryptoKey> {
-	return await window.crypto.subtle.importKey(
-		"spki",
-		pemToArrayBuffer(key),
-		{
-			name: "RSA-OAEP",
-			hash: { name: "SHA-256" },
-		},
-		true,
-		["encrypt"]
-	);
-}
-
-export async function encrypt(
-	key: CryptoKey,
-	message: string
-): Promise<string> {
-	// Encrypt message
-	const encodedMessage = new TextEncoder().encode(message);
-	const encrypted = await window.crypto.subtle.encrypt(
-		{ name: "RSA-OAEP" },
-		key,
-		encodedMessage
-	);
-
-	// Convert encrypted data to base64
-	return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
-}
-
-export async function encryptCredentials(
-	key: CryptoKey,
-	username: string,
-	password: string
-): Promise<Credentials> {
-	return {
-		username: await encrypt(key, username),
-		password: await encrypt(key, password),
-	};
+export function authenticated(permission: Permissions) {
+	return permission !== Permissions.NONE;
 }
 
 export function sufficientPermissions(
-	currentLevel: PermissionLevel,
-	requiredLevel: PermissionLevel
+	current: Permissions,
+	required: Permissions
 ) {
-	return currentLevel >= requiredLevel;
-}
-
-export function authenticated(permissionLevel: PermissionLevel) {
-	return (
-		permissionLevel !== PermissionLevel.NONE &&
-		permissionLevel !== PermissionLevel.DENIED
-	);
+	return current >= required;
 }

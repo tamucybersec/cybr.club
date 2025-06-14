@@ -14,7 +14,7 @@ export function useUsers() {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<User[]>({
 		queryKey: QUERY_KEYS.users,
-		queryFn: () => fetchPath("/users/get"),
+		queryFn: () => fetchPath("/users", { method: "GET" }),
 	});
 
 	const usersById = useMemo<Record<number, User>>(() => {
@@ -33,7 +33,7 @@ export function useEvents() {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<Event[]>({
 		queryKey: QUERY_KEYS.events,
-		queryFn: () => fetchPath("/events/get"),
+		queryFn: () => fetchPath("/events", { method: "GET" }),
 	});
 
 	const eventsByCode = useMemo<Record<string, Event>>(() => {
@@ -52,7 +52,7 @@ export function useAttendance() {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<Attendance[]>({
 		queryKey: QUERY_KEYS.attendance,
-		queryFn: () => fetchPath("/attendance/get"),
+		queryFn: () => fetchPath("/attendance", { method: "GET" }),
 	});
 
 	const { attendanceByUser, attendanceByEvent } = useMemo(() => {
@@ -89,7 +89,7 @@ export function usePoints(
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<Points[]>({
 		queryKey: QUERY_KEYS.points,
-		queryFn: () => fetchPath("/points/get"),
+		queryFn: () => fetchPath("/points", { method: "GET" }),
 	});
 
 	const { pointsByUser } = useMemo(() => {

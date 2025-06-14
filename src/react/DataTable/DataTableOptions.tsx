@@ -29,6 +29,7 @@ import DataTableForm from "./DataTableForm";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DataTableContext } from "./DataTableContext";
+import { toast } from "sonner";
 
 export function DataTableCreate<T>(
 	queryKey: string[],
@@ -90,13 +91,15 @@ export function DataTableCreate<T>(
 
 			return { prev };
 		},
-		onError: (_, __, context) => {
+		onError: (error, _, context) => {
+			console.error(error);
+			toast.error(error.message);
 			queryClient.setQueryData(queryKey, context?.prev);
 		},
 	});
 
-	function onSubmit(to: T) {
-		mutateCreate(to);
+	function onSubmit(updated: T) {
+		mutateCreate(updated);
 		setOpen(false);
 		table.resetSorting();
 		table.lastPage();
@@ -203,25 +206,28 @@ export function DataTableUpdateDelete<T extends object>(
 	}
 
 	const { mutate: mutateUpdate } = useMutation({
-		mutationFn: ({ from, to }: { from: T; to: T }) => onUpdate(from, to),
-		onMutate: async ({ from, to }) => {
+		mutationFn: ({ original, updated }: { original: T; updated: T }) =>
+			onUpdate(original, updated),
+		onMutate: async ({ original, updated }) => {
 			await queryClient.cancelQueries({ queryKey });
 			const prev = queryClient.getQueryData<T[]>(queryKey);
 			queryClient.setQueryData(queryKey, (old: T[]) =>
-				old?.map((o) => (o[_pk] == from[_pk] ? to : o))
+				old?.map((o) => (o[_pk] == original[_pk] ? updated : o))
 			);
 
 			return { prev };
 		},
-		onError: (_, __, context) => {
+		onError: (error, _, context) => {
+			console.error(error);
+			toast.error(error.message);
 			queryClient.setQueryData(queryKey, context?.prev);
 		},
 	});
 
 	function EditTableUpdate() {
-		function onSubmit(to: T) {
-			mutateUpdate({ from: defaultValuesRow, to });
-			setDefaultValuesRow(to);
+		function onSubmit(updated: T) {
+			mutateUpdate({ original: defaultValuesRow, updated });
+			setDefaultValuesRow(updated);
 			setOpen(false);
 		}
 
@@ -255,7 +261,9 @@ export function DataTableUpdateDelete<T extends object>(
 
 			return { prev };
 		},
-		onError: (_, __, context) => {
+		onError: (error, _, context) => {
+			console.error(error);
+			toast.error(error.message);
 			queryClient.setQueryData(queryKey, context?.prev);
 		},
 	});

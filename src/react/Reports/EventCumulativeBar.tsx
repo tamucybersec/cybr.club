@@ -40,7 +40,7 @@ function EventCumulativeBar() {
 			.sort((a, b) => b.count - a.count);
 
 		return { data, totalAttendees, totalEvents };
-	}, [events]);
+	}, [events, attendanceByEvent]);
 
 	return (
 		<>

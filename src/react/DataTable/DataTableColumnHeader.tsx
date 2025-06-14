@@ -1,5 +1,11 @@
 import { type Column } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ChevronsUpDown } from "lucide-react";
+import {
+	ArrowDown,
+	ArrowUp,
+	ChevronDown,
+	ChevronsUpDown,
+	ChevronUp,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -9,7 +15,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataTableContext } from "./DataTableContext";
 
 interface DataTableColumnHeaderProps<TData, TValue>
@@ -23,51 +29,36 @@ export function DataTableColumnHeader<TData, TValue>({
 	title,
 	className,
 }: DataTableColumnHeaderProps<TData, TValue>) {
+	const [sortDirection, setSortDirection] = useState(false);
 	const { table } = useContext(DataTableContext);
 
 	if (!column.getCanSort()) {
 		return <div className={cn(className)}>{title}</div>;
 	}
 
-	function toggleSorting(state: boolean) {
-		column.toggleSorting(state);
+	function toggleSorting() {
+		column.toggleSorting(sortDirection);
 		table.resetPageIndex();
-	} 
+		setSortDirection((prev) => !prev);
+	}
 
 	return (
 		<div className={cn("flex items-center space-x-2", className)}>
-			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<Button
-						variant="ghost"
-						size="sm"
-						className="-ml-3 h-8 data-[state=open]:bg-accent"
-					>
-						<span>{title}</span>
-						{column.getIsSorted() === "desc" ? (
-							<ArrowDown />
-						) : column.getIsSorted() === "asc" ? (
-							<ArrowUp />
-						) : (
-							<ChevronsUpDown />
-						)}
-					</Button>
-				</DropdownMenuTrigger>
-				<DropdownMenuContent align="start">
-					<DropdownMenuItem
-						onClick={() => toggleSorting(false)}
-					>
-						<ArrowUp className="h-3.5 w-3.5 text-muted-foreground/70" />
-						Asc
-					</DropdownMenuItem>
-					<DropdownMenuItem
-						onClick={() => toggleSorting(true)}
-					>
-						<ArrowDown className="h-3.5 w-3.5 text-muted-foreground/70" />
-						Desc
-					</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
+			<Button
+				variant="ghost"
+				size="sm"
+				className="-ml-3 h-8 data-[state=open]:bg-accent"
+				onClick={toggleSorting}
+			>
+				<span>{title}</span>
+				{column.getIsSorted() === "desc" ? (
+					<ChevronDown />
+				) : column.getIsSorted() === "asc" ? (
+					<ChevronUp />
+				) : (
+					<ChevronsUpDown />
+				)}
+			</Button>
 		</div>
 	);
 }

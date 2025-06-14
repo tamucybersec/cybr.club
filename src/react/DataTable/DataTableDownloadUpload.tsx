@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Download, Upload } from "lucide-react";
 import type { GetEntries, ReplaceEntries } from "./DataTableTypes";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useDownload } from "@/hooks/useDownload";
 import {
 	Dialog,
@@ -25,8 +25,8 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
-import { useContext, useEffect, useState } from "react";
-import { DashboardContext } from "@/scripts/context";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 interface Props<T> {
 	queryKey: string[];
@@ -35,7 +35,6 @@ interface Props<T> {
 }
 
 function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
-	const { validatePassword } = useContext(DashboardContext);
 	const [open, setOpen] = useState(false);
 
 	const { data } = useQuery({
@@ -45,13 +44,32 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 
 	const download = useDownload(data ?? {});
 
+	const queryClient = useQueryClient();
+	const { mutate: mutateReplace } = useMutation({
+		mutationFn: onReplace,
+		onMutate: async (replacement: T[]) => {
+			await queryClient.cancelQueries({ queryKey });
+			const prev = queryClient.getQueryData<T[]>(queryKey);
+			queryClient.setQueryData(queryKey, replacement);
+			return { prev };
+		},
+		onSuccess: () => {
+			setOpen(false);
+		},
+		onError: (error, _, context) => {
+			console.error(error);
+			toast.error(error.message);
+			queryClient.setQueryData(queryKey, context?.prev);
+		},
+	});
+
 	function UploadForm() {
 		const [downloaded, setDownloaded] = useState(false);
 
 		const name = queryKey
 			.map((k) => k.substring(0, 1).toLocaleUpperCase() + k.substring(1))
 			.join(" ");
-		const confirmation = `Irreversibly Replace ${name} Database`;
+		const confirmation = `Irreversibly replace the ${name}`;
 
 		const formSchema = z
 			.object({
@@ -61,9 +79,6 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 						(file) => file?.length == 1,
 						"Replace is required."
 					),
-				password: z.string().refine(validatePassword, {
-					message: "Password does not match password used to log in.",
-				}),
 				confirmation: z
 					.string()
 					.refine((value) => value === confirmation, {
@@ -78,7 +93,6 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 		const form = useForm({
 			resolver: zodResolver(formSchema),
 			defaultValues: {
-				password: "",
 				confirmation: "",
 			},
 		});
@@ -97,8 +111,18 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 				const file = values.replacement.item(0)!;
 				const reader = new FileReader();
 				reader.onload = () => {
-					const json = JSON.parse(reader.result as string);
-					onReplace(json);
+					try {
+						const json = JSON.parse(reader.result as string);
+						if (!Array.isArray(json)) {
+							toast.error(
+								"Error: Input must be an array of objects."
+							);
+							return;
+						}
+						mutateReplace(json);
+					} catch (error) {
+						toast.error(`Error: ${(error as Error).message}`);
+					}
 				};
 				reader.readAsText(file);
 			} catch {
@@ -167,25 +191,6 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 						)}
 						<FormField
 							control={form.control}
-							name="password"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Password</FormLabel>
-									<FormControl>
-										<Input
-											type="password"
-											{...field}
-										/>
-									</FormControl>
-									<FormDescription>
-										Re-enter your password for verification.
-									</FormDescription>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							control={form.control}
 							name="confirmation"
 							render={({ field }) => (
 								<FormItem>
@@ -248,9 +253,9 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 							<span className="underline font-bold">
 								This action is irreversible.
 							</span>{" "}
-							Please download a copy of the database, re-enter
-							your password, and type the confirmation message
-							before uploading the new database.
+							Please download a copy of the database and type the
+							confirmation message before uploading the new
+							database.
 						</DialogDescription>
 					</DialogHeader>
 					{UploadForm()}

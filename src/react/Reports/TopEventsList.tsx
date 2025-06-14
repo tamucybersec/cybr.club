@@ -26,7 +26,7 @@ function TopEventsList() {
 					(attendanceByEvent[a.code] ?? []).length
 			)
 			.slice(0, numberOfEvents);
-	}, [events]);
+	}, [events, attendanceByEvent]);
 
 	return (
 		<Card className="grow">
