@@ -2,6 +2,10 @@ import type { Event, Semester } from "@/react/types";
 import type { Row } from "@tanstack/react-table";
 import { z } from "zod";
 
+export function capitalize(str: string) {
+	return str.substring(0, 1).toLocaleUpperCase() + str.substring(1);
+}
+
 export function removeSpaces(s: string): string {
 	return s.replaceAll(" ", "_");
 }
@@ -60,15 +64,6 @@ export function compareDates(a: string, b: string): number {
 	return yearA.localeCompare(yearB);
 }
 
-export function filterUserID<T>(
-	row: Row<T>,
-	columnId: string,
-	filterValue: any
-) {
-	const value = row.getValue<number>(columnId);
-	return value.toString().includes(filterValue);
-}
-
 export function sortDates<T>(accessor: keyof T) {
 	return (a: Row<T>, b: Row<T>) => {
 		const dateA = a.getValue<string>(accessor as string);
@@ -88,3 +83,17 @@ export const zodDate = z
 		const parts = v.split("-");
 		return `${parts[1]}/${parts[2]}/${parts[0]}`;
 	});
+
+export const zodBoolean = z
+	.coerce.string()
+	.transform((v) => {
+		switch (v) {
+			case "true":
+				return "1";
+			case "false":
+				return "0";
+			default:
+				return v;
+		}
+	})
+	.pipe(z.enum(["0", "1"]));

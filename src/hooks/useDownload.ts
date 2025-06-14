@@ -1,4 +1,4 @@
-export function useDownload(json: any) {
+export function useDownload(name: string, json: any) {
 	return () => {
 		const str = JSON.stringify(json);
 		const blob = new Blob([str], { type: "application/json" });
@@ -6,7 +6,7 @@ export function useDownload(json: any) {
 
 		const link = document.createElement("a");
 		link.href = url;
-		link.download = "database.json";
+		link.download = `${name}.json`;
 
 		document.body.appendChild(link);
 		link.click();

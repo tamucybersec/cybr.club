@@ -116,6 +116,7 @@ function DataTable<T extends object>({
 
 	return (
 		<DataTableRender
+			prefix={prefix}
 			queryKey={queryKey}
 			columns={columnDef}
 			onGet={_onGet}

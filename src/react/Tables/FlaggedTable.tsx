@@ -9,7 +9,7 @@ const definition: Definition<Flagged>[] = [
 		accessorKey: "user_id",
 		header: "User ID",
 		sortable: true,
-		type: z.coerce.number().min(0),
+		type: z.string().nonempty(),
 		other: {
 			filterFn: (row, columnId, filterValue) => {
 				const value = row.getValue<number>(columnId);
@@ -32,7 +32,7 @@ function FlaggedTable() {
 			queryKey={QUERY_KEYS.flagged}
 			definition={definition}
 			defaultValues={{
-				user_id: 0,
+				user_id: "",
 				offenses: 0,
 			}}
 		/>

@@ -15,7 +15,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal, Plus } from "lucide-react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import type { Row } from "@tanstack/react-table";
 import type {
 	CreateEntry,
@@ -31,53 +31,42 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DataTableContext } from "./DataTableContext";
 import { toast } from "sonner";
 
+function getPrimaryKeys<T>(definition: Definition<T>[]): (keyof T)[] {
+	return definition
+		.filter((def) => def.primaryKey)
+		.map((def) => def.accessorKey);
+}
+
+function getSchema<T>(definition: Definition<T>[]) {
+	return z.object(
+		Object.fromEntries(definition.map((def) => [def.accessorKey, def.type]))
+	);
+}
+
+function uniquePrimaryKey<T>(data: T[], obj: T, pks: (keyof T)[]): boolean {
+	return !data.some((entry) => pks.every((pk) => entry[pk] === obj[pk]));
+}
+
 export function DataTableCreate<T>(
 	queryKey: string[],
 	definition: Definition<T>[],
 	defaultValues: T,
 	onCreate: CreateEntry<T>
 ) {
+	const pks = getPrimaryKeys(definition);
 	const queryClient = useQueryClient();
 	const { table } = useContext(DataTableContext);
 	const [open, setOpen] = useState(false);
-	const schema = getSchema();
+	const schema = getSchema(definition);
 	const form = useForm<z.infer<typeof schema>>({
 		resolver: zodResolver(schema),
 		defaultValues: defaultValues as { [x: string]: any },
 	});
+	const { setError } = form;
 
 	useEffect(() => {
 		form.reset();
 	}, [open]);
-
-	function getSchema() {
-		function map({ primaryKey, accessorKey, type }: Definition<T>) {
-			if (primaryKey === undefined) {
-				return [accessorKey, type];
-			} else {
-				return [
-					accessorKey,
-					type.refine(
-						(value) => uniquePrimaryKey(accessorKey, value),
-						"This Primary Key conflicts with another item in the database."
-					),
-				];
-			}
-		}
-
-		return z.object(Object.fromEntries(definition.map(map)));
-	}
-
-	function uniquePrimaryKey(pk: keyof T, value: any): boolean {
-		const data = queryClient.getQueryData<T[]>(queryKey) ?? [];
-		for (let i = 0; i < data.length; i++) {
-			if (data[i][pk] === value) {
-				return false;
-			}
-		}
-
-		return true;
-	}
 
 	const { mutate: mutateCreate } = useMutation({
 		mutationFn: onCreate,
@@ -99,6 +88,15 @@ export function DataTableCreate<T>(
 	});
 
 	function onSubmit(updated: T) {
+		const data = queryClient.getQueryData<T[]>(queryKey) ?? [];
+		if (!uniquePrimaryKey(data, updated, pks)) {
+			const plural = pks.length > 1 ? "s are" : " is";
+			setError("root.pk", {
+				message: `Primary key${plural} not unique`,
+			});
+			return;
+		}
+
 		mutateCreate(updated);
 		setOpen(false);
 		table.resetSorting();
@@ -123,7 +121,7 @@ export function DataTableCreate<T>(
 				<DialogHeader>
 					<DialogTitle>Create Entry</DialogTitle>
 					<DialogDescription>
-						Create a new entry in the database.
+						Create a new entry in the table.
 					</DialogDescription>
 				</DialogHeader>
 				<DataTableForm
@@ -144,18 +142,19 @@ export function DataTableUpdateDelete<T extends object>(
 	onUpdate: UpdateEntry<T>,
 	onDelete: DeleteEntry<T>
 ) {
-	let _pk: keyof T = "" as keyof T;
+	const pks = getPrimaryKeys(definition);
 	const queryClient = useQueryClient();
 	const [mode, setMode] = useState<"UPDATE" | "DELETE">("DELETE");
 	const [open, setOpen] = useState(false);
 	const [defaultValuesRow, setDefaultValuesRow] = useState(
 		defaultValuesFromRow()
 	);
-	const schema = getSchema();
+	const schema = getSchema(definition);
 	const form = useForm<z.infer<typeof schema>>({
 		resolver: zodResolver(schema),
 		defaultValues: defaultValuesRow as { [x: string]: any },
 	});
+	const { setError } = form;
 
 	useEffect(() => {
 		form.reset(defaultValuesRow);
@@ -171,38 +170,13 @@ export function DataTableUpdateDelete<T extends object>(
 		return t;
 	}
 
-	function getSchema() {
-		function map({ primaryKey, accessorKey, type }: Definition<T>) {
-			if (primaryKey === undefined) {
-				return [accessorKey, type];
-			} else {
-				_pk = accessorKey;
-				return [
-					accessorKey,
-					type.refine(
-						(value) => uniquePrimaryKey(accessorKey, value),
-						"This Primary Key conflicts with another item in the database."
-					),
-				];
-			}
-		}
+	const entryName = useMemo(() => {
+		return `(${pks.map((pk) => defaultValuesRow[pk]).join(", ")})`;
+	}, [defaultValuesRow]);
 
-		return z.object(Object.fromEntries(definition.map(map)));
-	}
-
-	function uniquePrimaryKey(pk: keyof T, value: any): boolean {
-		if (defaultValuesRow[pk] === value || mode === "DELETE") {
-			return true;
-		}
-
-		const data = queryClient.getQueryData<T[]>(queryKey) ?? [];
-		for (let i = 0; i < data.length; i++) {
-			if (data[i][pk] === value) {
-				return false;
-			}
-		}
-
-		return true;
+	function skipPrimaryKeyCheck(updated: T): boolean {
+		// if the keys haven't changed
+		return pks.every((pk) => defaultValuesRow[pk] === updated[pk]);
 	}
 
 	const { mutate: mutateUpdate } = useMutation({
@@ -212,20 +186,34 @@ export function DataTableUpdateDelete<T extends object>(
 			await queryClient.cancelQueries({ queryKey });
 			const prev = queryClient.getQueryData<T[]>(queryKey);
 			queryClient.setQueryData(queryKey, (old: T[]) =>
-				old?.map((o) => (o[_pk] == original[_pk] ? updated : o))
+				old?.map((o) =>
+					pks.every((pk) => o[pk] === original[pk]) ? updated : o
+				)
 			);
 
 			return { prev };
 		},
-		onError: (error, _, context) => {
+		onError: (error, { original }, context) => {
 			console.error(error);
 			toast.error(error.message);
+			setDefaultValuesRow(original);
 			queryClient.setQueryData(queryKey, context?.prev);
 		},
 	});
 
 	function EditTableUpdate() {
 		function onSubmit(updated: T) {
+			if (!skipPrimaryKeyCheck(updated)) {
+				const data = queryClient.getQueryData<T[]>(queryKey) ?? [];
+				if (!uniquePrimaryKey(data, updated, pks)) {
+					const plural = pks.length > 1 ? "s are" : " is";
+					setError("root.pk", {
+						message: `Primary key${plural} not unique`,
+					});
+					return;
+				}
+			}
+
 			mutateUpdate({ original: defaultValuesRow, updated });
 			setDefaultValuesRow(updated);
 			setOpen(false);
@@ -234,11 +222,9 @@ export function DataTableUpdateDelete<T extends object>(
 		return (
 			<>
 				<DialogHeader>
-					<DialogTitle>
-						Update Entry "{String(defaultValuesRow[_pk])}"
-					</DialogTitle>
+					<DialogTitle>Update Entry {entryName}</DialogTitle>
 					<DialogDescription>
-						Update the values of an entry in the database.
+						Update the values of an entry in the table.
 					</DialogDescription>
 				</DialogHeader>
 				<DataTableForm
@@ -256,7 +242,7 @@ export function DataTableUpdateDelete<T extends object>(
 			await queryClient.cancelQueries({ queryKey });
 			const prev = queryClient.getQueryData<T[]>(queryKey);
 			queryClient.setQueryData(queryKey, (old: T[]) =>
-				old?.filter((o) => o[_pk] !== deleted[_pk])
+				old?.filter((o) => !pks.every((pk) => o[pk] === deleted[pk]))
 			);
 
 			return { prev };
@@ -277,12 +263,10 @@ export function DataTableUpdateDelete<T extends object>(
 		return (
 			<>
 				<DialogHeader>
-					<DialogTitle>
-						Delete Entry "{String(defaultValuesRow[_pk])}"
-					</DialogTitle>
+					<DialogTitle>Delete Entry {entryName}</DialogTitle>
 					<DialogDescription>
 						This action cannot be undone. Are you sure you want to
-						permanently delete this entry from the database?
+						permanently delete this entry from the table?
 					</DialogDescription>
 				</DialogHeader>
 				<DialogFooter>

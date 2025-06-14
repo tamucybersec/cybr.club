@@ -8,10 +8,17 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import type { Definition, FormType, OnSubmit, SchemaType } from "./DataTableTypes";
+import type {
+	Definition,
+	FormType,
+	OnSubmit,
+	SchemaType,
+} from "./DataTableTypes";
 import { z } from "zod";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { DialogFooter } from "@/components/ui/dialog";
+import { KeyRound } from "lucide-react";
+import { useEffect } from "react";
 
 interface Props<T> {
 	definition: Definition<T>[];
@@ -19,7 +26,27 @@ interface Props<T> {
 	onSubmit: OnSubmit<T>;
 }
 
+type FormInputs = {
+	firstName: string;
+	lastName: string;
+};
+
 function DataTableForm<T>({ definition, form, onSubmit }: Props<T>) {
+	const {
+		watch,
+		clearErrors,
+		formState: { errors },
+	} = form;
+
+	const pks = definition
+		.filter((def) => def.primaryKey)
+		.map((def) => def.accessorKey);
+	const watchPks = watch(pks as string[]);
+
+	useEffect(() => {
+		clearErrors("root.pk");
+	}, watchPks);
+
 	function _onSubmit(values: z.infer<SchemaType>) {
 		onSubmit(values as T);
 	}
@@ -33,15 +60,35 @@ function DataTableForm<T>({ definition, form, onSubmit }: Props<T>) {
 						className="space-y-8"
 					>
 						{definition.map(
-							({ accessorKey: id, header: name }, index) => (
+							(
+								{
+									primaryKey: pk,
+									accessorKey: id,
+									header: name,
+								},
+								index
+							) => (
 								<FormField
 									key={`${name}-${index}`}
 									control={form.control}
 									name={id as string}
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>{name}</FormLabel>
-											<FormControl>
+											<FormLabel
+												className={
+													pk && errors.root?.pk
+														? "text-destructive"
+														: ""
+												}
+											>
+												{name}
+												{pk && <KeyRound size={16} />}
+											</FormLabel>
+											<FormControl
+												aria-invalid={
+													pk && !!errors.root?.pk
+												}
+											>
 												<Input
 													placeholder={name}
 													{...field}
@@ -62,13 +109,18 @@ function DataTableForm<T>({ definition, form, onSubmit }: Props<T>) {
 					</form>
 				</Form>
 			</ScrollArea>
-			<DialogFooter>
+			<DialogFooter className="!flex-row-reverse !justify-between items-center">
 				<Button
 					onClick={form.handleSubmit(_onSubmit)}
 					type="submit"
 				>
 					Submit
 				</Button>
+				{errors.root?.pk && (
+					<p className="text-destructive">
+						{errors.root?.pk?.message}
+					</p>
+				)}
 			</DialogFooter>
 		</>
 	);

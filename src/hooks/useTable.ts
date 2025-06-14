@@ -6,6 +6,7 @@ import {
 	type Event,
 	type Points,
 	QUERY_KEYS,
+	type Tokens,
 	type User,
 } from "@/react/types";
 import { getCurrentSemester, getCurrentYear } from "@/scripts/helpers";
@@ -56,8 +57,8 @@ export function useAttendance() {
 	});
 
 	const { attendanceByUser, attendanceByEvent } = useMemo(() => {
-		const attendanceByUser: Record<number, string[]> = {};
-		const attendanceByEvent: Record<string, number[]> = {};
+		const attendanceByUser: Record<string, string[]> = {};
+		const attendanceByEvent: Record<string, string[]> = {};
 
 		if (data !== undefined) {
 			for (const attendance of data) {
@@ -84,7 +85,7 @@ export function useAttendance() {
 
 export function usePoints(
 	eventsByCode: Record<string, Event>,
-	attendanceByUser: Record<number, string[]>
+	attendanceByUser: Record<string, string[]>
 ) {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<Points[]>({
@@ -93,7 +94,7 @@ export function usePoints(
 	});
 
 	const { pointsByUser } = useMemo(() => {
-		const pointsByUser: Record<number, number> = {};
+		const pointsByUser: Record<string, number> = {};
 		const semester = getCurrentSemester();
 		const year = getCurrentYear();
 
@@ -131,5 +132,24 @@ export function usePoints(
 	return {
 		points: data,
 		pointsByUser,
+	};
+}
+
+export function useTokens() {
+	const { fetchPath } = useContext(DashboardContext);
+	const { data } = useQuery<Tokens[]>({
+		queryKey: QUERY_KEYS.tokens,
+		queryFn: () => fetchPath("/tokens", { method: "GET" }),
+	});
+
+	const tokensByToken: Record<string, Tokens> = useMemo(() => {
+		return Object.fromEntries(
+			(data ?? []).map((token) => [token.token, token])
+		);
+	}, [data]);
+
+	return {
+		tokens: data,
+		tokensByToken,
 	};
 }

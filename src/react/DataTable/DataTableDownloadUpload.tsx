@@ -27,14 +27,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { capitalize } from "@/scripts/helpers";
 
 interface Props<T> {
+	prefix: string;
 	queryKey: string[];
 	onGet: GetEntries<T>;
 	onReplace: ReplaceEntries<T>;
 }
 
-function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
+function DataTableDownloadUpload<T>({
+	prefix,
+	queryKey,
+	onGet,
+	onReplace,
+}: Props<T>) {
 	const [open, setOpen] = useState(false);
 
 	const { data } = useQuery({
@@ -42,7 +49,7 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 		queryFn: onGet,
 	});
 
-	const download = useDownload(data ?? {});
+	const download = useDownload(prefix, data ?? {});
 
 	const queryClient = useQueryClient();
 	const { mutate: mutateReplace } = useMutation({
@@ -154,7 +161,7 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 									</FormControl>
 									<FormDescription>
 										A valid json document that will replace
-										the current database.
+										the current table.
 									</FormDescription>
 								</FormItem>
 							)}
@@ -180,8 +187,8 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 								</Button>
 							</FormControl>
 							<FormDescription>
-								You must download a backup of the current
-								database before uploading a new one.
+								You must download a backup of the current table
+								before uploading a new one.
 							</FormDescription>
 						</FormItem>
 						{downloadError && (
@@ -248,14 +255,18 @@ function DataTableDownloadUpload<T>({ queryKey, onGet, onReplace }: Props<T>) {
 				</DialogTrigger>
 				<DialogContent className="border-red-400 shadow-red-950">
 					<DialogHeader>
-						<DialogTitle>Upload Database</DialogTitle>
+						<DialogTitle>
+							Replace {capitalize(prefix)} Table
+						</DialogTitle>
 						<DialogDescription>
 							<span className="underline font-bold">
 								This action is irreversible.
 							</span>{" "}
-							Please download a copy of the database and type the
-							confirmation message before uploading the new
-							database.
+							Please download a copy of the table and type the
+							confirmation message before uploading the new table.
+							You will be notified if any error occurs during the
+							process. An error will cancel the transaction,
+							preventing any data loss.
 						</DialogDescription>
 					</DialogHeader>
 					{UploadForm()}

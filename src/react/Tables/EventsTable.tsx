@@ -9,6 +9,8 @@ import {
 	sortDates,
 	zodDate,
 } from "@/scripts/helpers";
+import { useEvents } from "@/hooks/useTable";
+import { useMemo } from "react";
 
 const definition: Definition<Event>[] = [
 	{
@@ -57,6 +59,27 @@ const definition: Definition<Event>[] = [
 ];
 
 function EventsTable() {
+	const { eventsByCode } = useEvents();
+
+	const newCode = useMemo(() => {
+		function generateCode(): string {
+			const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			let result = "";
+			for (let i = 0; i < 5; i++) {
+				const index = Math.floor(Math.random() * letters.length);
+				result += letters[index];
+			}
+			return result;
+		}
+
+		let code: string;
+		do {
+			code = generateCode();
+		} while (eventsByCode[code]);
+
+		return code;
+	}, [eventsByCode]);
+
 	return (
 		<DataTable<Event>
 			prefix="events"
@@ -64,7 +87,7 @@ function EventsTable() {
 			definition={definition}
 			defaultValues={{
 				name: "",
-				code: "", // TODO autogenerate valid code
+				code: newCode,
 				points: 0,
 				date: getCurrentDatestr(),
 				semester: getCurrentSemester(),

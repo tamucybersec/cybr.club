@@ -2,7 +2,7 @@ import { z } from "zod";
 import DataTable from "../DataTable/DataTable";
 import type { Definition } from "../DataTable/DataTableTypes";
 import { QUERY_KEYS, type User } from "../types";
-import { filterUserID } from "@/scripts/helpers";
+import { zodBoolean } from "@/scripts/helpers";
 
 const definition: Definition<User>[] = [
 	{
@@ -10,8 +10,7 @@ const definition: Definition<User>[] = [
 		accessorKey: "user_id",
 		header: "User ID",
 		sortable: true,
-		type: z.coerce.number().min(0),
-		other: { filterFn: filterUserID },
+		type: z.string().nonempty(),
 	},
 	{
 		accessorKey: "name",
@@ -41,7 +40,7 @@ const definition: Definition<User>[] = [
 		accessorKey: "verified",
 		header: "Verified",
 		sortable: true,
-		type: z.boolean(),
+		type: zodBoolean,
 	},
 ];
 
@@ -52,7 +51,7 @@ function MembersTable() {
 			queryKey={QUERY_KEYS.users}
 			definition={definition}
 			defaultValues={{
-				user_id: 0,
+				user_id: "",
 				name: "",
 				grad_year: 0,
 				email: "",

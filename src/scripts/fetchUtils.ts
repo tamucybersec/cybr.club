@@ -3,12 +3,23 @@ import { API_URL } from "./constants";
 
 export async function ok(res: Promise<Response>): Promise<Response> {
 	const r = await res;
+
 	if (!r.ok) {
 		let _details: string, _error: string;
 		try {
-			const { error, details } = await r.json();
-			_error = error;
-			_details = details;
+			const { error, detail, details } = await r.json();
+			
+			if (error === undefined) {
+				_error = "Error";
+			} else {
+				_error = error;
+			}
+
+			if (details === undefined) {
+				_details = detail;
+			} else {
+				_details = details;
+			}
 		} catch (error) {
 			throw new Error(
 				`Fetch was not ok with status ${r.status}. See console for details.`
@@ -16,6 +27,7 @@ export async function ok(res: Promise<Response>): Promise<Response> {
 		}
 		throw new Error(`${_error}${_details ? `: ${_details}` : ""}`);
 	}
+
 	return r;
 }
 

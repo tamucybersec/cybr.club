@@ -2,30 +2,26 @@ import { z } from "zod";
 import DataTable from "../DataTable/DataTable";
 import type { Definition } from "../DataTable/DataTableTypes";
 import { QUERY_KEYS, type Tokens, Permissions } from "../types";
-import { getCurrentDatestr, sortDates, zodDate } from "@/scripts/helpers";
+import {
+	getCurrentDatestr,
+	sortDates,
+	zodBoolean,
+	zodDate,
+} from "@/scripts/helpers";
 import { Info } from "lucide-react";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-/**
- * export interface Tokens {
-    token: string;
-    name: string;
-    created: string;
-    last_accessed: string;
-    expires_after: string;
-    revoked: boolean;
-    permission: Permissions;
- }
- */
+import { useTokens } from "@/hooks/useTable";
+import { useMemo } from "react";
 
 const definition: Definition<Tokens>[] = [
 	{
 		accessorKey: "name",
 		header: "Name",
+		sortable: true,
 		type: z.string().nonempty(),
 	},
 	{
@@ -71,55 +67,86 @@ const definition: Definition<Tokens>[] = [
 		accessorKey: "revoked",
 		header: "Revoked",
 		sortable: true,
-		type: z.coerce.boolean(),
+		type: zodBoolean,
 	},
 	{
 		accessorKey: "permission",
 		header: "Permission",
 		sortable: true,
-		type: z.coerce.number().min(0).max(4),
+		type: z.coerce
+			.number()
+			.min(Permissions.NONE)
+			.max(Permissions.SUPER_ADMIN),
 	},
 ];
 
 function TokensTable() {
+	const { tokensByToken } = useTokens();
+
+	const newToken = useMemo(() => {
+		function generateToken(): string {
+			return crypto
+				.getRandomValues(new Uint8Array(16)) // 16 bytes = 128 bits
+				.reduce(
+					(str, byte) => str + byte.toString(16).padStart(2, "0"),
+					""
+				);
+		}
+
+		let token: string;
+		do {
+			token = generateToken();
+		} while (tokensByToken[token]);
+
+		return token;
+	}, [tokensByToken]);
+
 	return (
 		<>
 			<div className="flex gap-2">
 				<p>
-					Permissions Key: 0=NONE, 1=SPONSOR, 2=COMMITTEE, 3=ADMIN,
+					Permissions: 0=NONE, 1=SPONSOR, 2=COMMITTEE, 3=ADMIN,
 					4=SUPER_ADMIN
 				</p>
 				<Tooltip>
 					<TooltipTrigger>
-						<Info />
+						<Info size={16}/>
 					</TooltipTrigger>
 					<TooltipContent>
-						0) NONE cannot access the dashboard.
-						<br />
-						1) SPONSOR can only access the sponsor page and only get
-						data.
-						<br />
-						2) COMMITTEE does all of the above but can also view the
-						admin tables (cannot modify data).
-						<br />
-						3) ADMIN does all of the above and can view and edit the
-						admin tables.
-						<br />
-						4) SUPER_ADMIN does all of the above and can view and
-						edit tokens (grant access).
+						<ul>
+							<li>
+								0) <strong>NONE</strong>: Cannot access the
+								dashboard
+							</li>
+							<li>
+								1) <strong>SPONSOR</strong>: Can only access the
+								sponsor page
+							</li>
+							<li>
+								2) <strong>COMMITTEE</strong>: Does all of the
+								above but can also view the admin tables (but
+								cannot modify data)
+							</li>
+							<li>
+								3) <strong>ADMIN</strong>: Does all of the above
+								and can view and edit the admin tables
+							</li>
+							<li>
+								4) <strong>SUPER_ADMIN</strong>: Does all of the
+								above and can view and edit tokens (grant
+								access)
+							</li>
+						</ul>
 					</TooltipContent>
 				</Tooltip>
 			</div>
-			{/* TODO Tooltip with info: 
-                
-            */}
 			<DataTable
 				prefix="tokens"
 				queryKey={QUERY_KEYS.tokens}
 				definition={definition}
 				defaultValues={{
 					name: "",
-					token: "", // TODO autogenerate valid
+					token: newToken,
 					created: getCurrentDatestr(),
 					expires_after: getCurrentDatestr(),
 					last_accessed: getCurrentDatestr(),

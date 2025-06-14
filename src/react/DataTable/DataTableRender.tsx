@@ -30,6 +30,7 @@ import DataTableFilter from "./DataTableFilter";
 import DataTableDownloadUpload from "./DataTableDownloadUpload";
 
 interface Props<T, V> {
+	prefix: string;
 	queryKey: string[];
 	columns: ColumnDef<T, V>[];
 	onGet: GetEntries<T>;
@@ -37,6 +38,7 @@ interface Props<T, V> {
 }
 
 function DataTableRender<T, V>({
+	prefix,
 	queryKey,
 	columns,
 	onGet,
@@ -180,6 +182,7 @@ function DataTableRender<T, V>({
 				<div className="rounded-md border">{TableContent()}</div>
 				<div className="flex items-center justify-between">
 					<DataTableDownloadUpload
+						prefix={prefix}
 						queryKey={queryKey}
 						onGet={onGet}
 						onReplace={onReplace}

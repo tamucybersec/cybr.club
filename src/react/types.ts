@@ -25,7 +25,7 @@ export const QUERY_KEYS = {
 };
 
 export interface User {
-	user_id: number;
+	user_id: string;
 	name: string;
 	grad_year: number;
 	email: string;
@@ -42,17 +42,17 @@ export interface Event {
 }
 
 export interface Flagged {
-	user_id: number;
+	user_id: string;
 	offenses: number;
 }
 
 export interface Attendance {
-	user_id: number;
+	user_id: string;
 	code: string;
 }
 
 export interface Points {
-	user_id: number;
+	user_id: string;
 	points: number;
 	semester: Semester;
 	year: number;
