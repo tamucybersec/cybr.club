@@ -15,6 +15,49 @@ export interface Options {
 
 export type Semester = "spring" | "fall";
 
+export type Category =
+	| "policy"
+	| "red hat"
+	| "cyber ops"
+	| "hardware hacking"
+	| "aws"
+	| "cisco networking"
+	| "palo alto"
+	| "ctf (legacy)"
+	| "hack the box (legacy)"
+	| "tech committee"
+	| "pr committee"
+	| "competition committee"
+	| "informational"
+	| "bannering"
+	| "competition"
+	| "speaker"
+	| "social"
+	| "panel"
+	| "beginner meetings";
+
+export const VALID_CATEGORIES: Category[] = [
+	"policy",
+	"red hat",
+	"cyber ops",
+	"hardware hacking",
+	"aws",
+	"cisco networking",
+	"palo alto",
+	"ctf (legacy)",
+	"hack the box (legacy)",
+	"tech committee",
+	"pr committee",
+	"competition committee",
+	"informational",
+	"bannering",
+	"competition",
+	"speaker",
+	"social",
+	"panel",
+	"beginner meetings",
+] as const;
+
 export const QUERY_KEYS = {
 	users: ["users", "table"],
 	events: ["events", "table"],
@@ -35,6 +78,7 @@ export interface User {
 export interface Event {
 	name: string;
 	code: string;
+	category: Category;
 	points: number;
 	date: string;
 	semester: Semester;

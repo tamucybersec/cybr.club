@@ -1,7 +1,7 @@
 import { z } from "zod";
 import DataTable from "../DataTable/DataTable";
 import type { Definition } from "../DataTable/DataTableTypes";
-import { QUERY_KEYS, type Event } from "../types";
+import { QUERY_KEYS, VALID_CATEGORIES, type Event } from "../types";
 import {
 	getCurrentDatestr,
 	getCurrentSemester,
@@ -28,6 +28,12 @@ const definition: Definition<Event>[] = [
 		header: "Name",
 		sortable: true,
 		type: z.string().nonempty(),
+	},
+	{
+		accessorKey: "category",
+		header: "Category",
+		sortable: true,
+		type: z.enum(VALID_CATEGORIES),
 	},
 	{
 		accessorKey: "points",
@@ -88,6 +94,7 @@ function EventsTable() {
 			defaultValues={{
 				name: "",
 				code: newCode,
+				category: "informational",
 				points: 0,
 				date: getCurrentDatestr(),
 				semester: getCurrentSemester(),
