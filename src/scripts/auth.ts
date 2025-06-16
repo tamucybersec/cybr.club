@@ -8,7 +8,10 @@ export async function useLogin(
 	useEffect(() => {
 		async function login() {
 			const url = new URL(location.href);
-			const token = url.searchParams.get("token") || "";
+			const token =
+				url.searchParams.get("token") ||
+				localStorage.getItem("token") ||
+				"";
 			const resp = await fetch(`${API_URL}/login?token=${token}`);
 
 			if (!resp.ok) {
@@ -17,9 +20,9 @@ export async function useLogin(
 				const permission = await resp.text();
 				callback(token, parseInt(permission));
 
-				// leads to bad UX: refreshing is annoying
-				// url.searchParams.delete("token");
-				// history.replaceState({}, "", url.toString());
+				localStorage.setItem("token", token);
+				url.searchParams.delete("token");
+				history.replaceState({}, "", url.toString());
 			}
 		}
 

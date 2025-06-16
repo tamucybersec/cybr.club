@@ -16,34 +16,40 @@ import {
 import CategoricalLineChart from "../Charts/CategoricalLineChart";
 import { useAttendance, useEvents } from "@/hooks/useTable";
 import { useEffect, useMemo, useState } from "react";
-import type { CategoricalData } from "../types";
+import {
+	VALID_CATEGORIES,
+	type CategoricalData,
+	type Category,
+} from "../types";
 import { compareEventDates } from "@/scripts/helpers";
 
 // TODO
 // list of retention rates between meetings rather than average retention rate
 function EventAttendanceOverTime() {
-	const { events } = useEvents();
-	const { attendanceByEvent } = useAttendance();
+	const { events, eventsByCode } = useEvents();
+	const { attendanceByEvent } = useAttendance(eventsByCode);
 
-	const eventTypes: string[] = useMemo(
+	const filteredCategories: string[] = useMemo(
 		() =>
-			Array.from(new Set((events ?? []).map((ev) => ev.name))).sort(
-				(a, b) => a.localeCompare(b)
-			),
+			Array.from(
+				new Set(
+					(events ?? [])
+						.filter(
+							(ev) =>
+								(attendanceByEvent[ev.code] ?? []).length > 0
+						)
+						.map((ev) => ev.category)
+				)
+			).sort((a, b) => a.localeCompare(b)),
 		[events]
 	);
 
-	const [selectedEvent, setSelectedEvent] = useState<string | undefined>();
-
-	useEffect(() => {
-		if (eventTypes.length > 0 && selectedEvent === undefined) {
-			setSelectedEvent(eventTypes[0]);
-		}
-	}, [eventTypes, selectedEvent]);
+	const [selectedEvent, setSelectedEvent] =
+		useState<Category>("Beginner Meeting");
 
 	const { attendance, retention } = useMemo(() => {
 		const attendance: CategoricalData[] = (events ?? [])
-			.filter((ev) => ev.name === selectedEvent)
+			.filter((ev) => ev.category === selectedEvent)
 			.sort(compareEventDates)
 			.map((ev) => ({
 				label: ev.date,
@@ -62,7 +68,7 @@ function EventAttendanceOverTime() {
 
 	function select() {
 		return (
-			<Select onValueChange={setSelectedEvent}>
+			<Select onValueChange={(cat) => setSelectedEvent(cat as Category)}>
 				<SelectTrigger>
 					<SelectValue
 						placeholder={selectedEvent}
@@ -71,12 +77,12 @@ function EventAttendanceOverTime() {
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>
-						{eventTypes.map((ev, i) => (
+						{filteredCategories.map((cat, i) => (
 							<SelectItem
 								key={i}
-								value={ev}
+								value={cat}
 							>
-								{ev}
+								{cat}
 							</SelectItem>
 						))}
 					</SelectGroup>
@@ -85,6 +91,7 @@ function EventAttendanceOverTime() {
 		);
 	}
 
+	// FIXME display the name of the event in the tooltip
 	return (
 		<Card>
 			<CardHeader className="flex justify-center">

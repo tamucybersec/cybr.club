@@ -6,13 +6,14 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useAttendance, useUsers } from "@/hooks/useTable";
+import { useAttendance, useEvents, useUsers } from "@/hooks/useTable";
 import { useMemo } from "react";
 import type { User } from "../types";
 
 function TopMembersList() {
 	const { users } = useUsers();
-	const { attendanceByUser } = useAttendance();
+	const { eventsByCode } = useEvents();
+	const { attendanceByUser } = useAttendance(eventsByCode);
 
 	const numberOfUsers = 10;
 	const top: User[] = useMemo(() => {

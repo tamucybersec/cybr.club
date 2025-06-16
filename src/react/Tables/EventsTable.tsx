@@ -94,7 +94,7 @@ function EventsTable() {
 			defaultValues={{
 				name: "",
 				code: newCode,
-				category: "informational",
+				category: "Informational",
 				points: 0,
 				date: getCurrentDatestr(),
 				semester: getCurrentSemester(),

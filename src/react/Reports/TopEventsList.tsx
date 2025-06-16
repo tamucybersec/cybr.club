@@ -14,8 +14,8 @@ import type { Event } from "../types";
 
 // list the top events in terms of attendance
 function TopEventsList() {
-	const { events } = useEvents();
-	const { attendanceByEvent } = useAttendance();
+	const { events, eventsByCode } = useEvents();
+	const { attendanceByEvent } = useAttendance(eventsByCode);
 
 	const numberOfEvents = 10;
 	const top: Event[] = useMemo(() => {
@@ -40,7 +40,7 @@ function TopEventsList() {
 			<CardContent className="overflow-hidden">
 				<ScrollArea className="flex flex-col max-h-[450px] -mx-4 px-4">
 					<div className="flex flex-col gap-4">
-						{top.map(({ code, name, date }, index) => (
+						{top.map(({ code, name, date, category }, index) => (
 							<Card
 								key={index}
 								className="bg-background"
@@ -48,7 +48,7 @@ function TopEventsList() {
 								<CardHeader>
 									<CardTitle>{name}</CardTitle>
 									<CardDescription>
-										Held on {date}
+										{category} held on {date}
 									</CardDescription>
 								</CardHeader>
 								<CardContent>

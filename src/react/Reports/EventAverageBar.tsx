@@ -15,10 +15,8 @@ import CategoricalBarChart from "../Charts/CategoricalBarChart";
 // make label a complete dissection of each date and attendance
 // also make line chart of an event (x: date, y: attendees)
 function EventAverageBar() {
-	const { events } = useEvents();
-	const { attendanceByEvent } = useAttendance();
-	const currentSemester = getCurrentSemester();
-	const currentYear = getCurrentYear();
+	const { events, eventsByCode } = useEvents();
+	const { attendanceByEvent } = useAttendance(eventsByCode);
 
 	const { data, totalAttendees, totalEvents } = useMemo(() => {
 		let totalEvents = 0;
@@ -27,16 +25,17 @@ function EventAverageBar() {
 			{};
 
 		for (const event of Object.values(events ?? [])) {
+			const attendees = (attendanceByEvent[event.code] ?? []).length;
 			totalEvents += 1;
-			totalAttendees += (attendanceByEvent[event.code] ?? []).length;
-			counts[event.name] ??= {
-				events: 0,
-				attendees: 0,
-			};
-			counts[event.name].events += 1;
-			counts[event.name].attendees += (
-				attendanceByEvent[event.code] ?? []
-			).length;
+			totalAttendees += attendees;
+			if (attendees > 0) {
+				counts[event.category] ??= {
+					events: 0,
+					attendees: 0,
+				};
+				counts[event.category].events += 1;
+				counts[event.category].attendees += attendees;
+			}
 		}
 
 		const data: CategoricalData[] = Object.entries(counts)

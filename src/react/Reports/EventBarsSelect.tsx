@@ -6,8 +6,6 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import GradYearPie from "./GradYearPie";
-import MajorPie from "./MajorPie";
 import {
 	Card,
 	CardDescription,

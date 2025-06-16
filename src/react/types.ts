@@ -16,46 +16,46 @@ export interface Options {
 export type Semester = "spring" | "fall";
 
 export type Category =
-	| "policy"
-	| "red hat"
-	| "cyber ops"
-	| "hardware hacking"
-	| "aws"
-	| "cisco networking"
-	| "palo alto"
-	| "ctf (legacy)"
-	| "hack the box (legacy)"
-	| "tech committee"
-	| "pr committee"
-	| "competition committee"
-	| "informational"
-	| "bannering"
-	| "competition"
-	| "speaker"
-	| "social"
-	| "panel"
-	| "beginner meetings";
+	| "Cyber Policy"
+	| "Red Hat Academy"
+	| "Cyber Operations"
+	| "Hardware Hacking"
+	| "AWS Academy"
+	| "Cisco Networking Academy"
+	| "Palo Alto Academy"
+	| "Capture the Flag (legacy)"
+	| "Hack the Box (legacy)"
+	| "Tech Committee"
+	| "PR Committee"
+	| "Competition Committee"
+	| "Informational"
+	| "Bannering"
+	| "Competition"
+	| "Speaker"
+	| "Social"
+	| "Panel"
+	| "Beginner Meeting";
 
-export const VALID_CATEGORIES: Category[] = [
-	"policy",
-	"red hat",
-	"cyber ops",
-	"hardware hacking",
-	"aws",
-	"cisco networking",
-	"palo alto",
-	"ctf (legacy)",
-	"hack the box (legacy)",
-	"tech committee",
-	"pr committee",
-	"competition committee",
-	"informational",
-	"bannering",
-	"competition",
-	"speaker",
-	"social",
-	"panel",
-	"beginner meetings",
+export const VALID_CATEGORIES = [
+	"Cyber Policy",
+	"Red Hat Academy",
+	"Cyber Operations",
+	"Hardware Hacking",
+	"AWS Academy",
+	"Cisco Networking Academy",
+	"Palo Alto Academy",
+	"Capture the Flag (legacy)",
+	"Hack the Box (legacy)",
+	"Tech Committee",
+	"PR Committee",
+	"Competition Committee",
+	"Informational",
+	"Bannering",
+	"Competition",
+	"Speaker",
+	"Social",
+	"Panel",
+	"Beginner Meeting",
 ] as const;
 
 export const QUERY_KEYS = {

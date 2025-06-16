@@ -11,7 +11,14 @@ export function removeSpaces(s: string): string {
 }
 
 export function validHtmlId(str: string): string {
-	return encodeURIComponent(str) || "id";
+	let id = str
+		// Replace all non-alphanumerics with underscores (no exceptions)
+		.replace(/[^A-Za-z0-9]/g, "_")
+		// Trim underscores from start/end
+		.replace(/^_+|_+$/g, "");
+
+	// Default to "id" if empty
+	return id || "id";
 }
 
 export function getChartColor(index: number) {

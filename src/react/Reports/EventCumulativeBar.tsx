@@ -15,10 +15,8 @@ import CategoricalBarChart from "../Charts/CategoricalBarChart";
 // make label a complete dissection of each date and attendance
 // also make line chart of an event (x: date, y: attendees)
 function EventCumulativeBar() {
-	const { events } = useEvents();
-	const { attendanceByEvent } = useAttendance();
-	const currentSemester = getCurrentSemester();
-	const currentYear = getCurrentYear();
+	const { events, eventsByCode } = useEvents();
+	const { attendanceByEvent } = useAttendance(eventsByCode);
 
 	const { data, totalAttendees, totalEvents } = useMemo(() => {
 		let totalEvents = 0;
@@ -26,10 +24,13 @@ function EventCumulativeBar() {
 		const counts: Record<string, number> = {};
 
 		for (const event of Object.values(events ?? [])) {
+			const attendees = (attendanceByEvent[event.code] ?? []).length;
 			totalEvents += 1;
-			totalAttendees += (attendanceByEvent[event.code] ?? []).length;
-			counts[event.name] ??= 0;
-			counts[event.name] += (attendanceByEvent[event.code] ?? []).length;
+			totalAttendees += attendees;
+			if (attendees > 0) {
+				counts[event.category] ??= 0;
+				counts[event.category] += attendees;
+			}
 		}
 
 		const data: CategoricalData[] = Object.entries(counts)

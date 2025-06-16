@@ -37,47 +37,64 @@ export function useEvents() {
 		queryFn: () => fetchPath("/events", { method: "GET" }),
 	});
 
-	const eventsByCode = useMemo<Record<string, Event>>(() => {
-		return Object.fromEntries(
-			(data ?? []).map((event) => [event.code, event])
+	const { filteredEvents, eventsByCode } = useMemo(() => {
+		const semester = getCurrentSemester();
+		const year = getCurrentYear();
+
+		const filteredEvents = (data ?? []).filter(
+			(event) => event.semester === semester && event.year === year
 		);
+		const eventsByCode = Object.fromEntries(
+			filteredEvents.map((event) => [event.code, event])
+		);
+
+		return {
+			filteredEvents,
+			eventsByCode,
+		};
 	}, [data]);
 
 	return {
-		events: data,
+		events: filteredEvents,
 		eventsByCode,
 	};
 }
 
-export function useAttendance() {
+export function useAttendance(eventsByCode: Record<string, Event>) {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<Attendance[]>({
 		queryKey: QUERY_KEYS.attendance,
 		queryFn: () => fetchPath("/attendance", { method: "GET" }),
 	});
 
-	const { attendanceByUser, attendanceByEvent } = useMemo(() => {
-		const attendanceByUser: Record<string, string[]> = {};
-		const attendanceByEvent: Record<string, string[]> = {};
+	const { filteredAttendance, attendanceByUser, attendanceByEvent } =
+		useMemo(() => {
+			const filteredAttendance = (data ?? []).filter(
+				(att) => !!eventsByCode[att.code]
+			);
 
-		if (data !== undefined) {
-			for (const attendance of data) {
-				const { user_id, code } = attendance;
-				attendanceByUser[user_id] ??= [];
-				attendanceByUser[user_id].push(code);
-				attendanceByEvent[code] ??= [];
-				attendanceByEvent[code].push(user_id);
+			const attendanceByUser: Record<string, string[]> = {};
+			const attendanceByEvent: Record<string, string[]> = {};
+
+			if (data !== undefined) {
+				for (const attendance of filteredAttendance) {
+					const { user_id, code } = attendance;
+					attendanceByUser[user_id] ??= [];
+					attendanceByUser[user_id].push(code);
+					attendanceByEvent[code] ??= [];
+					attendanceByEvent[code].push(user_id);
+				}
 			}
-		}
 
-		return {
-			attendanceByUser,
-			attendanceByEvent,
-		};
-	}, [data]);
+			return {
+				filteredAttendance,
+				attendanceByUser,
+				attendanceByEvent,
+			};
+		}, [data, eventsByCode]);
 
 	return {
-		attendance: data,
+		attendance: filteredAttendance,
 		attendanceByUser,
 		attendanceByEvent,
 	};
