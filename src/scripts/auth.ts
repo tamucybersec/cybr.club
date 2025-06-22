@@ -2,36 +2,44 @@ import { Permissions } from "@/react/types";
 import { API_URL } from "./constants";
 import { useEffect } from "react";
 
-export async function useLogin(
+export function useLogin(
 	callback: (token: string, permission: Permissions) => void
 ) {
-	useEffect(() => {
-		async function login() {
-			const url = new URL(location.href);
-			const token =
-				url.searchParams.get("token") ||
-				localStorage.getItem("token") ||
-				"";
-			const resp = await fetch(`${API_URL}/login?token=${token}`);
-
-			if (!resp.ok) {
-				callback(token, Permissions.NONE);
-			} else {
-				const permission = await resp.text();
-				callback(token, parseInt(permission));
-
-				localStorage.setItem("token", token);
-				url.searchParams.delete("token");
-				history.replaceState({}, "", url.toString());
-			}
+	async function login(tok?: string) {
+		const token = (tok ?? localStorage.getItem("token")) || "";
+		const usingLocalStorage = tok === undefined;
+		if (!token) {
+			// will always be false, don't bother to fetch
+			return;
 		}
 
+		const resp = await fetch(`${API_URL}/login?token=${token}`);
+
+		if (!resp.ok) {
+			callback(token, Permissions.NONE);
+		} else {
+			const permission = parseInt(await resp.text());
+			if (permission === Permissions.NONE && usingLocalStorage) {
+				// don't display an error message unless they
+				// login themselves with an incorrect token
+				return;
+			}
+
+			callback(token, permission);
+			localStorage.setItem("token", token);
+		}
+	}
+
+	// try to login immediately using localStorage
+	useEffect(() => {
 		login();
 	}, []);
+
+	return login;
 }
 
-export function authenticated(permission: Permissions) {
-	return permission !== Permissions.NONE;
+export function authenticated(permission: Permissions | undefined) {
+	return permission !== undefined && permission !== Permissions.NONE;
 }
 
 export function sufficientPermissions(

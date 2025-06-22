@@ -6,6 +6,8 @@ export enum Permissions {
 	SUPER_ADMIN = 4,
 }
 
+export type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
+
 export type Method = "GET" | "POST";
 
 export interface Options {
