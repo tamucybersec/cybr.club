@@ -1,6 +1,7 @@
 import {
 	Sidebar,
 	SidebarContent,
+	SidebarFooter,
 	SidebarGroup,
 	SidebarGroupLabel,
 	SidebarHeader,
@@ -46,6 +47,7 @@ import { sufficientPermissions } from "@/scripts/auth";
 import AttendanceTable from "./Tables/AttendanceTable";
 import PointsTable from "./Tables/PointsTable";
 import TokensTable from "./Tables/TokensTable";
+import { Button } from "@/components/ui/button";
 
 type Link = { to: string; component: JSX.Element };
 
@@ -289,11 +291,19 @@ function AppSidebar() {
 		);
 	}
 
+	function logout() {
+		localStorage.removeItem("token");
+		window.location.reload();
+	}
+
 	return (
 		<SidebarProvider>
 			<Sidebar>
 				<SidebarHeader>{Header()}</SidebarHeader>
 				<SidebarContent>{groups.map(AppSidebarGroup)}</SidebarContent>
+				<SidebarFooter>
+					<Button onClick={logout}>Logout</Button>
+				</SidebarFooter>
 			</Sidebar>
 			<SidebarInset className="overflow-hidden">
 				<header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">

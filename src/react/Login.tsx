@@ -33,6 +33,7 @@ function Login({ token, setToken, permission, login }: Props) {
 					)}
 					<div className="flex flex-col gap-4">
 						<Input
+							type="password"
 							placeholder="Token"
 							value={token}
 							onChange={(ev) => setToken(ev.target.value)}
