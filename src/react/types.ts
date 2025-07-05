@@ -1,3 +1,5 @@
+import type { UseFormReturn } from "react-hook-form";
+
 export enum Permissions {
 	NONE = 0,
 	SPONSOR = 1,
@@ -7,6 +9,9 @@ export enum Permissions {
 }
 
 export type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
+export type ReactState<T> = [T, SetState<T>];
+
+export type FormType = UseFormReturn<Record<string, any>, any, undefined>;
 
 export type Method = "GET" | "POST";
 
@@ -16,6 +21,7 @@ export interface Options {
 }
 
 export type Semester = "spring" | "fall";
+export type GradSemester = "spring" | "summer" | "fall" | "winter";
 
 export type Category =
 	| "Cyber Policy"
@@ -72,9 +78,14 @@ export const QUERY_KEYS = {
 export interface User {
 	user_id: string;
 	name: string;
+	grad_semester: GradSemester;
 	grad_year: number;
+	major: string;
 	email: string;
 	verified: boolean;
+	join_date: string;
+	notes: string;
+	resume_format: string;
 }
 
 export interface Event {

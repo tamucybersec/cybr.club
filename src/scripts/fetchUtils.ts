@@ -7,7 +7,9 @@ export async function ok(res: Promise<Response>): Promise<Response> {
 	if (!r.ok) {
 		let _details: string, _error: string;
 		try {
-			const { error, detail, details } = await r.json();
+			const json = await r.json();
+			console.error(json);
+			const { error, detail, details } = json;
 			
 			if (error === undefined) {
 				_error = "Error";

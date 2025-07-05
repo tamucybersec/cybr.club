@@ -1,1 +1,2 @@
-export const API_URL = "https://api.cybr.club/api";
+const isDev = import.meta.env.DEV;
+export const API_URL = isDev ? "http://localhost:5183" : "https://api.cybr.club";

@@ -8,7 +8,7 @@ function LoadingPage() {
 				height={300}
 				width={300}
 			/>
-			<h1 className="font-bold text-xl">Loading Dashboard</h1>
+			<h1 className="font-bold text-xl">Loading</h1>
 		</div>
 	);
 }

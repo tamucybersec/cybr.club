@@ -30,7 +30,7 @@ function getDoubleDipOfficer(
 const noahMustoe: DoubleDipOfficer = {
 	name: "Noah Mustoe",
 	positions: ["President", "Cyber Operations (Red Team)"],
-	major: "CPCS",
+	major: "CPSC",
 	year: 26,
 	socials: {
 		email: "noahmustoe@tamu.edu",

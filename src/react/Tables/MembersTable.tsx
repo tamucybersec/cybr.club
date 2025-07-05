@@ -2,7 +2,7 @@ import { z } from "zod";
 import DataTable from "../DataTable/DataTable";
 import type { Definition } from "../DataTable/DataTableTypes";
 import { QUERY_KEYS, type User } from "../types";
-import { zodBoolean } from "@/scripts/helpers";
+import { zodBoolean, zodTamuEmail } from "@/scripts/helpers";
 
 const definition: Definition<User>[] = [
 	{
@@ -19,22 +19,28 @@ const definition: Definition<User>[] = [
 		type: z.string().nonempty(),
 	},
 	{
+		accessorKey: "grad_semester",
+		header: "Grad Semester",
+		sortable: true,
+		type: z.string().nonempty(),
+	},
+	{
 		accessorKey: "grad_year",
 		header: "Grad Year",
 		sortable: true,
 		type: z.coerce.number().min(0),
 	},
 	{
+		accessorKey: "major",
+		header: "Major",
+		sortable: true,
+		type: z.string().nonempty(),
+	},
+	{
 		accessorKey: "email",
 		header: "Email",
 		sortable: true,
-		type: z
-			.string()
-			.email({ message: "Invalid email address" })
-			.endsWith(
-				"tamu.edu",
-				"Email must be a valid TAMU email and end with 'tamu.edu'"
-			),
+		type: zodTamuEmail,
 	},
 	{
 		accessorKey: "verified",
@@ -42,20 +48,43 @@ const definition: Definition<User>[] = [
 		sortable: true,
 		type: zodBoolean,
 	},
+	{
+		accessorKey: "join_date",
+		header: "Join Date",
+		sortable: true,
+		type: z.string().nonempty(),
+	},
+	{
+		accessorKey: "notes",
+		header: "Notes",
+		sortable: true,
+		type: z.string().nonempty(),
+	},
+	{
+		accessorKey: "resume_format",
+		header: "Resume Format",
+		sortable: true,
+		type: z.string().nonempty(),
+	},
 ];
 
 function MembersTable() {
 	return (
-		<DataTable
+		<DataTable<User>
 			prefix="users"
 			queryKey={QUERY_KEYS.users}
 			definition={definition}
 			defaultValues={{
 				user_id: "",
 				name: "",
+				grad_semester: "spring",
 				grad_year: 0,
+				major: "",
 				email: "",
 				verified: false,
+				join_date: "",
+				notes: "",
+				resume_format: "",
 			}}
 		/>
 	);

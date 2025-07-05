@@ -1,0 +1,152 @@
+import { MAJORS } from "@/scripts/majors";
+import { useEffect, useState, type ReactElement } from "react";
+import { z } from "zod";
+import type { User } from "../types";
+import { API_URL } from "@/scripts/constants";
+import { toast } from "sonner";
+import { ok } from "@/scripts/fetchUtils";
+import LoadingPage from "../LoadingPage";
+import CenteredMessage from "../CenteredMessage";
+import { Toaster } from "@/components/ui/sonner";
+import RegisterForm from "./RegisterRender";
+import { registerForm } from "./RegisterForm";
+
+interface RegisterResult {
+	name: string;
+	grad_semester: string;
+	grad_year: number;
+	major: string;
+	email: string;
+	resume?: File;
+}
+
+async function profileOrDefaults(ticket: string | null): Promise<User | null> {
+	const resp = await fetch(`${API_URL}/self/${ticket}`);
+	if (!resp.ok) {
+		return null;
+	}
+	return (await resp.json()) as User;
+}
+
+function Register() {
+	const [originalUser, setOriginalUser] = useState<User | undefined | null>(
+		undefined
+	);
+	const [selectedMajor, setSelectedMajor] = useState("");
+	const [customMajorText, setCustomMajorText] = useState("");
+	const { formSchema, form } = registerForm(customMajorText);
+
+	useEffect(() => {
+		async function getUser() {
+			const url = new URL(window.location.href);
+			const ticket = url.searchParams.get("ticket");
+			const _originalUser = await profileOrDefaults(ticket);
+
+			if (_originalUser === null) {
+				setOriginalUser(_originalUser);
+				return;
+			}
+
+			form.reset(_originalUser);
+			const [major, custom] = _originalUser.major?.split(":") ?? [];
+			if (MAJORS.includes(major)) {
+				setSelectedMajor(major);
+				if (major === "Graduate" || major === "Other") {
+					setCustomMajorText(custom ?? "");
+				}
+				form.trigger("major");
+			}
+
+			setOriginalUser(_originalUser);
+		}
+
+		getUser();
+	}, []);
+
+	const onSubmit = (values: z.infer<typeof formSchema>) => {
+		const submit = async (): Promise<string | undefined> => {
+			const finalMajor =
+				["Graduate", "Other"].includes(values.major) &&
+				customMajorText.trim()
+					? `${values.major}:${customMajorText.trim()}`
+					: values.major;
+
+			const result: RegisterResult = {
+				...(values as RegisterResult),
+				major: finalMajor,
+			};
+			const resume = result.resume;
+			delete result["resume"];
+
+			const formData = new FormData();
+			formData.append(
+				"user_json",
+				JSON.stringify({
+					...originalUser,
+					...result,
+				})
+			);
+			if (resume) {
+				formData.append("resume", resume);
+			}
+			console.log(formData);
+
+			const url = new URL(window.location.href);
+			const ticket = url.searchParams.get("ticket");
+			const res = await ok(
+				fetch(`${API_URL}/register/${ticket}`, {
+					method: "POST",
+					body: formData,
+				})
+			);
+
+			const json = await res.json();
+			return json.message ?? undefined;
+		};
+
+		toast.promise(submit, {
+			loading: "Registering...",
+			success: (message) => `Registration Successful! ${message}`,
+			error: (e: Error) =>
+				`${e?.message ?? "An error occurred. Please try again."}`,
+			duration: Infinity,
+			dismissible: true,
+		});
+	};
+
+	let display: ReactElement;
+	if (originalUser === undefined) {
+		// not loaded yet
+		display = <LoadingPage />;
+	} else if (originalUser === null) {
+		// registration invalid
+		display = (
+			<CenteredMessage
+				title={"Invalid Registration Link"}
+				message={`Your registration may have expired.<br/>Please use /register again.`}
+			/>
+		);
+	} else {
+		// valid registration
+		display = (
+			<RegisterForm
+				form={form}
+				onSubmit={onSubmit}
+				majorState={[selectedMajor, setSelectedMajor]}
+				customMajorState={[customMajorText, setCustomMajorText]}
+			/>
+		);
+	}
+
+	return (
+		<>
+			<Toaster
+				richColors
+				position="top-center"
+			/>
+			{display}
+		</>
+	);
+}
+
+export default Register;

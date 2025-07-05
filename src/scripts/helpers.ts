@@ -1,4 +1,4 @@
-import type { Event, Semester } from "@/react/types";
+import type { Event, GradSemester, Semester, User } from "@/react/types";
 import type { Row } from "@tanstack/react-table";
 import { z } from "zod";
 
@@ -91,8 +91,8 @@ export const zodDate = z
 		return `${parts[1]}/${parts[2]}/${parts[0]}`;
 	});
 
-export const zodBoolean = z
-	.coerce.string()
+export const zodBoolean = z.coerce
+	.string()
 	.transform((v) => {
 		switch (v) {
 			case "true":
@@ -104,3 +104,25 @@ export const zodBoolean = z
 		}
 	})
 	.pipe(z.enum(["0", "1"]));
+
+export const zodTamuEmail = z
+	.string()
+	.email({ message: "Invalid email address" })
+	.endsWith(
+		"tamu.edu",
+		"Email must be a valid TAMU email and end with 'tamu.edu'"
+	);
+
+export const zodFile = (
+	fileTypes: string[],
+	maxSize: number,
+	maxSizeStr: string
+) =>
+	z.optional(
+		z
+			.instanceof(File)
+			.refine((file) => fileTypes.includes(file.type))
+			.refine((file) => file.size <= maxSize, {
+				message: `Max file size is ${maxSizeStr}`,
+			})
+	);

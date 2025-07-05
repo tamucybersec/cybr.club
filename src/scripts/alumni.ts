@@ -21,7 +21,7 @@ export const alumni: Alumni = [
 	{
 		name: "Colby Coppinger",
 		position: "Vice President",
-		grad: "Fall 2025",
+		grad: "Summer 2025",
 	},
 	{
 		name: "Lane Simmons",
@@ -69,6 +69,11 @@ export const alumni: Alumni = [
 		socials: {
 			github: "https://github.com/move2slowly",
 		},
+	},
+	{
+		name: "Stella Yang",
+		position: "Tech Lead",
+		grad: "Spring 2025",
 	},
 	{
 		name: "Noam Gariani",
