@@ -58,13 +58,13 @@ const definition: Definition<User>[] = [
 		accessorKey: "notes",
 		header: "Notes",
 		sortable: true,
-		type: z.string().nonempty(),
+		type: z.string(),
 	},
 	{
 		accessorKey: "resume_format",
 		header: "Resume Format",
 		sortable: true,
-		type: z.string().nonempty(),
+		type: z.string(),
 	},
 ];
 
