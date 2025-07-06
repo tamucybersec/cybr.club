@@ -6,6 +6,7 @@ import TopEventsList from "./Reports/TopEventsList";
 import TopMembersList from "./Reports/TopMembersList";
 import TotalEvents from "./Reports/TotalEvents";
 import TotalMembers from "./Reports/TotalMembers";
+import TermPicker from "./TermPicker";
 
 function Report() {
 	return (
@@ -15,6 +16,7 @@ function Report() {
 					Texas A&M Cybersecurity Club
 				</h1>
 			</div>
+			<TermPicker />
 			<div className="flex gap-4 flex-wrap justify-between">
 				<TotalMembers />
 				<TotalEvents />

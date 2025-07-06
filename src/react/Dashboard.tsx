@@ -2,17 +2,19 @@ import { DashboardContext } from "@/scripts/context";
 import { useState } from "react";
 import AppSidebar from "./AppSidebar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Permissions, type Options } from "./types";
+import { Permissions, type Options, type Term } from "./types";
 import { authenticated, useLogin } from "@/scripts/auth";
 import { Toaster } from "@/components/ui/sonner";
 import { fetchPath } from "@/scripts/fetchUtils";
 import Login from "./Login";
+import { defaultTerms } from "@/scripts/helpers";
 
 function Dashboard() {
 	const [token, setToken] = useState<string>("");
 	const [permission, setPermission] = useState<Permissions | undefined>(
 		undefined
 	);
+	const [terms, setTerms] = useState<[Term, Term]>(defaultTerms());
 
 	const login = useLogin((tok, perm) => {
 		setToken(tok);
@@ -38,6 +40,8 @@ function Dashboard() {
 				value={{
 					fetchPath: fetchPathAbstraction,
 					permission: permission!,
+					terms,
+					setTerms,
 				}}
 			>
 				<Toaster

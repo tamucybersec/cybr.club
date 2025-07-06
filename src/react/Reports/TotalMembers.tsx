@@ -1,14 +1,23 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { useUsers } from "@/hooks/useTable";
-import { useMemo } from "react";
+import {
+	useActiveUsers,
+	useAttendance,
+	useEvents,
+	useUsers,
+} from "@/hooks/useTable";
+import { DashboardContext } from "@/scripts/context";
+import { useContext, useMemo } from "react";
+import TooltipText from "../TooltipText";
+import { multipleTerms } from "@/scripts/helpers";
 
 function TotalMembers() {
-	const { users } = useUsers();
+	const { terms } = useContext(DashboardContext);
+	const active = useActiveUsers(terms);
 
 	const { total } = useMemo(() => {
-		const total = Object.keys(users ?? {}).length;
+		const total = active.length;
 		return { total };
-	}, [users]);
+	}, [active]);
 
 	return (
 		<Card className="grow">
@@ -18,7 +27,15 @@ function TotalMembers() {
 				</p>
 			</CardContent>
 			<CardFooter className="flex justify-center">
-				Total Members
+				<TooltipText
+					tooltip={
+						"Active members are any members that have attended an event outside of informationals and bannering in the selected semesters."
+					}
+				>
+					Active Members
+				</TooltipText>
+				&nbsp;
+				{multipleTerms(terms) ? "these Semesters" : "this Semester"}
 			</CardFooter>
 		</Card>
 	);

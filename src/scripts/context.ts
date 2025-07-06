@@ -1,12 +1,24 @@
-import { Permissions, type Method, type Options } from "@/react/types";
+import {
+	Permissions,
+	type Options,
+	type SetState,
+	type Term,
+} from "@/react/types";
 import { createContext } from "react";
+import { defaultTerms, getCurrentSemester, getCurrentYear } from "./helpers";
 
 export const DashboardContext = createContext<{
 	fetchPath: (path: string, options?: Options) => Promise<any>;
 	permission: Permissions;
+	terms: [Term, Term];
+	setTerms: SetState<[Term, Term]>;
 }>({
 	fetchPath: () => {
 		throw new Error("Function was not defined.");
 	},
 	permission: Permissions.NONE,
+	terms: defaultTerms(),
+	setTerms: () => {
+		throw new Error("Function was not defined");
+	},
 });

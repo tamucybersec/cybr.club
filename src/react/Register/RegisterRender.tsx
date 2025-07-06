@@ -88,8 +88,8 @@ const details: Details[] = [
 				"application/msword",
 				"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 			],
-			1 << 20,
-			"1MiB"
+			5 << 20,
+			"5MiB"
 		),
 		description:
 			"Upload your resume here to allow our recruiters to personally scout you. Don't worry if you don't have your resume on you, you can run /register at any time to update your information.",

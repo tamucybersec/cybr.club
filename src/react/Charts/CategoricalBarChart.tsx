@@ -48,7 +48,7 @@ export default function CategoricalBarChart({ metric, data }: Props) {
 					cursor={true}
 					content={
 						<ChartTooltipContent
-							formatter={basicFormatter(metric)}
+							formatter={basicFormatter({ metric })}
 						/>
 					}
 				/>

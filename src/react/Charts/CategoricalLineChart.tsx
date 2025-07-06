@@ -31,7 +31,7 @@ const chartConfig = {
 
 interface Props {
 	metric: string;
-	data: CategoricalData[];
+	data: (CategoricalData & { title: string })[];
 }
 
 export default function CategoricalLineChart({ metric, data }: Props) {
@@ -59,7 +59,12 @@ export default function CategoricalLineChart({ metric, data }: Props) {
 					cursor={true}
 					content={
 						<ChartTooltipContent
-							formatter={basicFormatter(metric, true)}
+							hideLabel
+							formatter={basicFormatter({
+								title: true,
+								metric,
+								hideIndicator: true,
+							})}
 						/>
 					}
 				/>

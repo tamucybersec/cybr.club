@@ -9,6 +9,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useAttendance, useEvents, useUsers } from "@/hooks/useTable";
 import { useMemo } from "react";
 import type { User } from "../types";
+import TooltipText from "../TooltipText";
 
 function TopMembersList() {
 	const { users } = useUsers();
@@ -17,7 +18,7 @@ function TopMembersList() {
 
 	const numberOfUsers = 10;
 	const top: User[] = useMemo(() => {
-		return (users ?? [])
+		return users
 			.toSorted(
 				(a, b) =>
 					(attendanceByUser[b.user_id] ?? []).length -
@@ -29,14 +30,18 @@ function TopMembersList() {
 	return (
 		<Card className="grow">
 			<CardHeader>
-				<CardTitle>Top Members</CardTitle>
-				<CardDescription>
-					Top members are calculated by the number of events they have
-					attended this semester.
-				</CardDescription>
+				<CardTitle className="text-center">
+					<TooltipText
+						tooltip={
+							"Top members are calculated by the number of events they have attended."
+						}
+					>
+						Top Members
+					</TooltipText>
+				</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<ScrollArea className="flex flex-col max-h-[350px] -mx-4 px-4">
+				<ScrollArea className="flex flex-col max-h-[390px] -mx-4 px-4">
 					<div className="flex flex-col gap-4">
 						{top.map(({ user_id, name, grad_year }, index) => (
 							<Card

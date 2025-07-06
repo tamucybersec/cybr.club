@@ -1,12 +1,15 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { useEvents } from "@/hooks/useTable";
-import { useMemo } from "react";
+import { DashboardContext } from "@/scripts/context";
+import { multipleTerms } from "@/scripts/helpers";
+import { useContext, useMemo } from "react";
 
 function TotalEvents() {
+	const { terms } = useContext(DashboardContext);
 	const { events } = useEvents();
 
 	const { total } = useMemo(() => {
-		const total = Object.keys(events ?? {}).length;
+		const total = events.length;
 		return { total };
 	}, [events]);
 
@@ -18,7 +21,8 @@ function TotalEvents() {
 				</p>
 			</CardContent>
 			<CardFooter className="flex justify-center">
-				Total Events This Semester
+				Total Events{" "}
+				{multipleTerms(terms) ? "these Semesters" : "this Semester"}
 			</CardFooter>
 		</Card>
 	);

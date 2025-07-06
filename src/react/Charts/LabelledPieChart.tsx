@@ -1,15 +1,12 @@
 import { Label, Pie, PieChart } from "recharts";
 import {
-	type ChartConfig,
 	ChartContainer,
 	ChartLegend,
 	ChartLegendContent,
 	ChartTooltip,
 	ChartTooltipContent,
 } from "@/components/ui/chart";
-import { useMemo } from "react";
-import { getChartColor } from "@/scripts/helpers";
-import type { CategoricalData, ColoredCategoricalData } from "../types";
+import type { CategoricalData } from "../types";
 import { useCategoricalChart } from "@/hooks/useCategoricalChart";
 
 interface Props {

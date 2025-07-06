@@ -23,7 +23,7 @@ function EventCumulativeBar() {
 		let totalAttendees = 0;
 		const counts: Record<string, number> = {};
 
-		for (const event of Object.values(events ?? [])) {
+		for (const event of events) {
 			const attendees = (attendanceByEvent[event.code] ?? []).length;
 			totalEvents += 1;
 			totalAttendees += attendees;

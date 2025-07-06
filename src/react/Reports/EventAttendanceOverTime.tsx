@@ -15,55 +15,45 @@ import {
 } from "@/components/ui/card";
 import CategoricalLineChart from "../Charts/CategoricalLineChart";
 import { useAttendance, useEvents } from "@/hooks/useTable";
-import { useEffect, useMemo, useState } from "react";
-import {
-	VALID_CATEGORIES,
-	type CategoricalData,
-	type Category,
-} from "../types";
+import { useMemo, useState } from "react";
+import { type CategoricalData, type Category } from "../types";
 import { compareEventDates } from "@/scripts/helpers";
 
-// TODO
-// list of retention rates between meetings rather than average retention rate
 function EventAttendanceOverTime() {
 	const { events, eventsByCode } = useEvents();
 	const { attendanceByEvent } = useAttendance(eventsByCode);
 
-	const filteredCategories: string[] = useMemo(
-		() =>
-			Array.from(
-				new Set(
-					(events ?? [])
-						.filter(
-							(ev) =>
-								(attendanceByEvent[ev.code] ?? []).length > 0
-						)
-						.map((ev) => ev.category)
-				)
-			).sort((a, b) => a.localeCompare(b)),
-		[events]
-	);
+	const filteredCategories: string[] = useMemo(() => {
+		const categories = events
+			.filter((ev) => (attendanceByEvent[ev.code] ?? []).length > 0)
+			.map((ev) => ev.category);
+		const unique = Array.from(new Set(categories));
+		return unique.sort((a, b) => a.localeCompare(b));
+	}, [events]);
 
 	const [selectedEvent, setSelectedEvent] =
 		useState<Category>("Beginner Meeting");
 
-	const { attendance, retention } = useMemo(() => {
-		const attendance: CategoricalData[] = (events ?? [])
+	const { attendance, totalAttendance, averageAttendance } = useMemo(() => {
+		const attendance: (CategoricalData & { title: string })[] = events
 			.filter((ev) => ev.category === selectedEvent)
 			.sort(compareEventDates)
 			.map((ev) => ({
 				label: ev.date,
+				title: `${ev.name} (${ev.date})`,
 				count: (attendanceByEvent[ev.code] ?? []).length,
 			}));
 
-		const retention =
-			attendance.length <= 1
-				? 100
-				: (attendance[attendance.length - 1].count /
-						attendance[0].count) *
-				  100;
+		const totalAttendance = attendance.reduce(
+			(acc, att) => acc + att.count,
+			0
+		);
 
-		return { attendance, retention };
+		const numAtt = Object.keys(attendance).length;
+		const averageAttendance =
+			numAtt === 0 ? 0 : Math.floor(totalAttendance / numAtt);
+
+		return { attendance, totalAttendance, averageAttendance };
 	}, [events, selectedEvent, attendanceByEvent]);
 
 	function select() {
@@ -108,10 +98,10 @@ function EventAttendanceOverTime() {
 			<CardFooter className="flex flex-col justify-center items-center gap-2">
 				<div className="flex items-center gap-2 font-medium leading-none">
 					<p>
-						<span className="font-bold">
-							{retention.toFixed(2)}%
-						</span>{" "}
-						Retention from the First Meeting
+						<span className="font-bold">{totalAttendance}</span>{" "}
+						Total Attendees,{" "}
+						<span className="font-bold">{averageAttendance}</span>{" "}
+						Average Attendees
 					</p>
 				</div>
 				<div className="leading-none text-muted-foreground">

@@ -1,4 +1,11 @@
-import type { Event, GradSemester, Semester, User } from "@/react/types";
+import type {
+	Event,
+	Events,
+	GradSemester,
+	Semester,
+	Term,
+	User,
+} from "@/react/types";
 import type { Row } from "@tanstack/react-table";
 import { z } from "zod";
 
@@ -31,7 +38,7 @@ export function getCurrentYear(): number {
 }
 
 export function getCurrentSemester(): Semester {
-	const month = new Date().getMonth();
+	const month = new Date().getMonth() + 1;
 
 	if (month <= 6) {
 		return "spring";
@@ -77,6 +84,67 @@ export function sortDates<T>(accessor: keyof T) {
 		const dateB = b.getValue<string>(accessor as string);
 		return compareDates(dateA, dateB);
 	};
+}
+
+export function flattenEvents(events: Events, terms: [Term, Term]): Event[] {
+	const result = [];
+
+	for (const [yearStr, semMap] of Object.entries(events)) {
+		const year = parseInt(yearStr);
+		if (year < terms[0].year || terms[1].year < year) continue;
+
+		for (const [semesterStr, eventList] of Object.entries(semMap)) {
+			const semester = semesterStr as Semester;
+			if (!inTermRange({ year, semester }, terms)) continue;
+			result.push(...eventList);
+		}
+	}
+
+	return result;
+}
+
+export function compareTerms(a: Term, b: Term): number {
+	if (a.year !== b.year) {
+		return a.year - b.year;
+	}
+
+	if (a.semester === b.semester) return 0;
+	return a.semester === "spring" ? -1 : 1;
+}
+
+export function defaultTerms(): [Term, Term] {
+	return [
+		{
+			semester: getCurrentSemester(),
+			year: getCurrentYear(),
+		},
+		{
+			semester: getCurrentSemester(),
+			year: getCurrentYear(),
+		},
+	];
+}
+
+export function prettySemester(semester: Semester): string {
+	switch (semester) {
+		case "spring":
+			return "Spring";
+		case "fall":
+			return "Fall";
+	}
+}
+
+export function multipleTerms(terms: [Term, Term]): boolean {
+	return (
+		terms[0].year !== terms[1].year ||
+		terms[0].semester !== terms[1].semester
+	);
+}
+
+export function inTermRange(term: Term, terms: [Term, Term]): boolean {
+	return (
+		compareTerms(term, terms[0]) >= 0 && compareTerms(term, terms[1]) <= 0
+	);
 }
 
 export const zodDate = z

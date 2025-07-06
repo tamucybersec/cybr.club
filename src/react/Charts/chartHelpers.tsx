@@ -5,13 +5,21 @@ import type {
 	ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
 
-export function basicFormatter(metric: string, hideIndicator?: boolean) {
+interface Options {
+	metric: string;
+	title?: boolean;
+	hideIndicator?: boolean;
+}
+
+export function basicFormatter({ title, metric, hideIndicator }: Options) {
 	const formatter: Formatter<ValueType, NameType> = (_, __, item) => {
+		const titleText = item.payload!.title;
 		const label = item.payload!.label;
 		const count = item.payload!.count;
 
 		return (
 			<>
+				{title && <p className="w-full font-bold">{titleText}</p>}
 				{!hideIndicator && (
 					<div
 						className="h-2.5 w-2.5 shrink-0 rounded-[2px] bg-[var(--color-bg)]"

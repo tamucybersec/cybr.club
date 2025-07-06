@@ -133,3 +133,9 @@ export type CategoricalData = {
 export type ColoredCategoricalData = CategoricalData & {
 	fill: string;
 };
+
+export type Events = Record<number, Record<string, Event[]>>;
+export type Term = {
+	year: number;
+	semester: Semester;
+};

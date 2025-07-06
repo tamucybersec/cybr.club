@@ -8,12 +8,10 @@ import {
 } from "@/components/ui/select";
 import {
 	Card,
-	CardDescription,
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
 import { useState } from "react";
-import { getCurrentYear, getCurrentSemester } from "@/scripts/helpers";
 import EventCumulativeBar from "./EventCumulativeBar";
 import EventAverageBar from "./EventAverageBar";
 
@@ -21,8 +19,6 @@ function EventBarsSelect() {
 	type Bars = "Cumulative" | "Average";
 	const types: Bars[] = ["Cumulative", "Average"];
 	const [selected, setSelected] = useState<Bars>("Cumulative");
-	const currentSemester = getCurrentSemester();
-	const currentYear = getCurrentYear();
 
 	function select() {
 		return (
@@ -55,9 +51,6 @@ function EventBarsSelect() {
 				<CardTitle className="flex gap-2 items-center">
 					Events by {select()} Attendance
 				</CardTitle>
-				<CardDescription>
-					{currentSemester} {currentYear}
-				</CardDescription>
 			</CardHeader>
 			{selected === "Cumulative" ? (
 				<EventCumulativeBar />

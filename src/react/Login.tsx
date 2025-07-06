@@ -13,14 +13,16 @@ interface Props {
 function Login({ token, setToken, permission, login }: Props) {
 	return (
 		<div className="w-dvw h-dvh flex justify-center items-center text-center">
-			<div className="grid grid-rows-2 sm:grid-rows-none sm:grid-cols-2 gap-4">
+			<div className="flex flex-col gap-4">
+				<div className="max-w-[300px] border border-white p-4 rounded">
+					<h1 className="text-xl font-bold grow">
+						Texas A&M Cybersecurity Club Dashboard
+					</h1>
+				</div>
 				<div className="max-w-[300px] border border-white p-4 rounded">
 					<img src={Logo.src}></img>
 				</div>
 				<div className="max-w-[300px] border border-white p-4 rounded flex flex-col gap-4">
-					<h1 className="text-xl font-bold grow">
-						Texas A&M Cybersecurity Club Dashboard
-					</h1>
 					{permission === Permissions.NONE && (
 						<p className="text-destructive">
 							The provided token is either{" "}

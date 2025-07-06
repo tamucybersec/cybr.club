@@ -1,5 +1,3 @@
-// TODO
-
 import {
 	Card,
 	CardContent,
@@ -11,15 +9,15 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useAttendance, useEvents } from "@/hooks/useTable";
 import { useMemo } from "react";
 import type { Event } from "../types";
+import TooltipText from "../TooltipText";
 
-// list the top events in terms of attendance
 function TopEventsList() {
 	const { events, eventsByCode } = useEvents();
 	const { attendanceByEvent } = useAttendance(eventsByCode);
 
 	const numberOfEvents = 10;
 	const top: Event[] = useMemo(() => {
-		return (events ?? [])
+		return events
 			.toSorted(
 				(a, b) =>
 					(attendanceByEvent[b.code] ?? []).length -
@@ -31,14 +29,18 @@ function TopEventsList() {
 	return (
 		<Card className="grow">
 			<CardHeader>
-				<CardTitle>Top Events</CardTitle>
-				<CardDescription>
-					Top events are calculated by the number of attendees they
-					had.
-				</CardDescription>
+				<CardTitle className="text-center">
+					<TooltipText
+						tooltip={
+							"Top events are calculated by the number of attendees they had."
+						}
+					>
+						Top Events
+					</TooltipText>
+				</CardTitle>
 			</CardHeader>
 			<CardContent className="overflow-hidden">
-				<ScrollArea className="flex flex-col max-h-[450px] -mx-4 px-4">
+				<ScrollArea className="flex flex-col max-h-[490px] -mx-4 px-4">
 					<div className="flex flex-col gap-4">
 						{top.map(({ code, name, date, category }, index) => (
 							<Card
