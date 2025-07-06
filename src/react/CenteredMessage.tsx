@@ -6,7 +6,7 @@ interface Props {
 function CenteredMessage({ title, message }: Props) {
 	return (
 		<div className="flex flex-col w-dvw h-dvh flex justify-center items-center text-center">
-			<div className="p-4 border rounded flex flex-col gap-2">
+			<div className="p-4 border rounded flex flex-col gap-2 max-w-[400px]">
 				<h1 className="text-2xl">{title}</h1>
 				<p dangerouslySetInnerHTML={{ __html: message }}></p>
 			</div>

@@ -34,6 +34,9 @@ function Register() {
 	);
 	const [selectedMajor, setSelectedMajor] = useState("");
 	const [customMajorText, setCustomMajorText] = useState("");
+	const [completeMessage, setCompleteMessage] = useState<string | undefined>(
+		undefined
+	);
 	const { formSchema, form } = registerForm(customMajorText);
 
 	useEffect(() => {
@@ -64,7 +67,7 @@ function Register() {
 	}, []);
 
 	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		const submit = async (): Promise<string | undefined> => {
+		const submit = async (): Promise<void> => {
 			const finalMajor =
 				["Graduate", "Other"].includes(values.major) &&
 				customMajorText.trim()
@@ -101,12 +104,12 @@ function Register() {
 			);
 
 			const json = await res.json();
-			return json.message ?? undefined;
+			const message = json.message ?? "";
+			setCompleteMessage(message);
 		};
 
 		toast.promise(submit, {
 			loading: "Registering...",
-			success: (message) => `Registration Successful! ${message}`,
 			error: (e: Error) =>
 				`${e?.message ?? "An error occurred. Please try again."}`,
 			duration: Infinity,
@@ -115,7 +118,14 @@ function Register() {
 	};
 
 	let display: ReactElement;
-	if (originalUser === undefined) {
+	if (completeMessage !== undefined) {
+		display = (
+			<CenteredMessage
+				title={"Registration Successful!"}
+				message={completeMessage}
+			/>
+		);
+	} else if (originalUser === undefined) {
 		// not loaded yet
 		display = <LoadingPage />;
 	} else if (originalUser === null) {
