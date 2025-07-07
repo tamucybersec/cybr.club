@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${azonix.variable} ${ubuntuSans.variable} font-sans antialiased`}
+        className={`dark ${azonix.variable} ${ubuntuSans.variable} font-sans antialiased py-4 min-h-dvh`}
       >
         {children}
       </body>
