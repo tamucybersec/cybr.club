@@ -26,6 +26,7 @@
 - Make incremental, clean file adjustments only.
 - Do not auto-generate files or run codegen steps.
 - ensure that ui is always fully responsive on all screen sizes.
+- fix all lint errors and warnings and ensure that code is clean and readable.
 
 🖥 Runtime
 - This system is used on **PowerShell**, not Linux or Bash.
