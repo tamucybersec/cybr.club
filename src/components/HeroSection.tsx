@@ -43,7 +43,7 @@ function HeroSection() {
             <span className="block">in Cybersecurity</span>
           </motion.h1>
 
-          <motion.p className="text-hero-subtext leading-snug max-w-3xl" variants={itemVariants}>
+          <motion.p className="font-ubuntu-sans text-hero-subtext leading-snug max-w-3xl" variants={itemVariants}>
             Earn Certifications, Gain real-world experience,
             <br className="hidden sm:block" />
             and Find your calling in Cybersecurity

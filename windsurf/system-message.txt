@@ -1,0 +1,39 @@
+🧠 Windsurf Local Policy – DO NOT COMMIT THIS FOLDER
+
+📦 Package Management
+- Use **npm** only. No yarn, pnpm, or lockfiles from other managers.
+- Auto-delete `yarn.lock` and `pnpm-lock.yaml` if found.
+
+🎨 Styling Philosophy
+- Use **TailwindCSS** with custom configuration in `tailwind.config.ts`.
+- Combine Tailwind with **global CSS** for base styles only.
+- Follow **shadcn/ui** principles: clean, composable, and minimal component styling.
+
+🧩 Animations
+- Use **Framer Motion** for state-based animations.
+- Use **GSAP** for timeline or scroll-driven interactions.
+
+🛠 Next.js Practices
+- Follow official best practices:
+  - Use **App Router (app/)** structure.
+  - Use **Server Components** by default, **Client Components** only when necessary.
+  - No dynamic routes without purpose.
+  - Optimize for static rendering where possible.
+
+🧹 Windsurf Rules
+- No renaming, no `.new` files.
+- No destructive moves.
+- Make incremental, clean file adjustments only.
+- Do not auto-generate files or run codegen steps.
+- ensure that ui is always fully responsive on all screen sizes.
+
+🖥 Runtime
+- This system is used on **PowerShell**, not Linux or Bash.
+- All scripts must be compatible with Node.js on Windows.
+
+❌ Always Delete:
+- `.DS_Store`, `Thumbs.db`
+- `yarn.lock`, `pnpm-lock.yaml`
+- `.vscode/*` (optional, if local config only)
+
+🛑 Do not commit `.windsurf/`. This is local only.
