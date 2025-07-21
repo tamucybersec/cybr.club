@@ -38,7 +38,7 @@ export default function RootLayout({
           <div
             className="absolute top-0 left-0 w-full pointer-events-none"
             style={{
-              height: "max(200vh, 300vh)", // Ensures it's at least viewport height but can be taller
+              height: "max(200vh, 300vh)", 
               minHeight: "100vh",
             }}
           >
@@ -54,7 +54,7 @@ export default function RootLayout({
                 width: "100%",
                 height: "100%",
                 transform: "scale(3)",
-                top: "25%",
+                top: "40%",
               }}
               sizes="100vw"
             />
