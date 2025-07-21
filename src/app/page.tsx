@@ -6,6 +6,8 @@ import ImageCarousel from "@/components/ImageCarousel";
 import BigThreeBlurb from "@/components/BigThreeBlurb";
 import ActivityGroups from "@/components/ActivityGroups";
 import HomeImageCaptions from "@/components/HomeImageCaptions";
+import WhatWeOffer from "@/components/WhatWeOffer";
+import Sponsorship from "@/components/Sponsorship";
 
 export default function Home() {
 	return (
@@ -19,6 +21,10 @@ export default function Home() {
 			
 			<HomeImageCaptions />
 			<ActivityGroups />	
+			
+			<WhatWeOffer />
+			<Sponsorship />
+			
 			<div className="h-[2000px]"></div>
 			<Footer />
 		</div>
