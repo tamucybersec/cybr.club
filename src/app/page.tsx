@@ -25,7 +25,7 @@ export default function Home() {
 			<WhatWeOffer />
 			<Sponsorship />
 			
-			<div className="h-[2000px]"></div>
+			<div className="h-[200px]"></div>
 			<Footer />
 		</div>
 	);
