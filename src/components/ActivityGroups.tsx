@@ -1,7 +1,7 @@
 "use client"
 
 import Container from "@/components/Container"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
@@ -44,7 +44,7 @@ const activityGroups = [
 function ActivityGroups() {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null)
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -55,26 +55,26 @@ function ActivityGroups() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.1, 0.25, 1]
       },
     },
   }
 
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.1, 0.25, 1]
       },
     },
   }
@@ -101,7 +101,7 @@ function ActivityGroups() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {activityGroups.map((group, index) => (
+          {activityGroups.map((group) => (
             <motion.div
               key={group.id}
               className="relative aspect-square group cursor-pointer"

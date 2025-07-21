@@ -1,10 +1,10 @@
 "use client"
 
 import Container from "@/components/Container"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 function NoBarriersSection() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -15,14 +15,14 @@ function NoBarriersSection() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.1, 0.25, 1]
       },
     },
   }
@@ -52,9 +52,9 @@ function NoBarriersSection() {
         {/* Right side - Description */}
         <motion.div className="flex-1 max-w-3xl" variants={itemVariants}>
           <p className="font-ubuntu-sans pb-5 text-[#AAAAAA] text-hero-subtext leading-tight">
-            <span className="block">Whether you're here to earn a certification, gain real-world</span>
+            <span className="block">Whether you&apos;re here to earn a certification, gain real-world</span>
             <span className="block">experience, meet like-minded people, or just figuring out</span>
-            <span className="block">what cybersecurity entails, there's a group for you.</span>
+            <span className="block">what cybersecurity entails, there&apos;s a group for you.</span>
           </p>
         </motion.div>
       </motion.div>
