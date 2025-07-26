@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
-import Image from "next/image"
 import "./globals.css"
 
 const azonix = localFont({
@@ -29,40 +28,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ margin: 0, padding: 0 }}>
       <body
-        className={`dark ${azonix.variable} ${ubuntuSans.variable} font-sans antialiased py-4 min-h-dvh relative overflow-x-hidden`}
+        className={`dark ${azonix.variable} ${ubuntuSans.variable} font-sans antialiased min-h-dvh relative overflow-x-hidden`}
+        style={{
+          margin: 0,
+          padding: 0,
+        }}
       >
-        {/* Background Overlay */}
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div
-            className="absolute top-0 left-0 w-full pointer-events-none"
-            style={{
-              height: "max(200vh, 300vh)", 
-              minHeight: "100vh",
-            }}
-          >
-            <Image
-              src="/svgs/HomeBackground.svg"
-              alt="Background"
-              fill
-              priority
-              className="pointer-events-none"
-              style={{
-                objectFit: "cover",
-                objectPosition: "center top",
-                width: "100%",
-                height: "100%",
-                transform: "scale(3)",
-                top: "40%",
-              }}
-              sizes="100vw"
-            />
-          </div>
-        </div>
-
-        {/* Page Content */}
-        <div className="relative z-10 min-h-screen">{children}</div>
+        {/* Page Content with padding moved here */}
+        <div className="relative z-10 py-4">{children}</div>
       </body>
     </html>
   )

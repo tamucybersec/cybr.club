@@ -8,10 +8,19 @@ import ActivityGroups from "@/components/ActivityGroups";
 import HomeImageCaptions from "@/components/HomeImageCaptions";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import Sponsorship from "@/components/Sponsorship";
+import BackgroundOverlay from "@/components/BackgroundOverlay";
 
 export default function Home() {
 	return (
-		<div>
+		<>
+			<BackgroundOverlay
+				desktopSize="300% 300%"
+				desktopPosition="center 55%"
+				tabletSize="350% 350%"
+				tabletPosition="center 25%"
+				mobileSize="400% 400%"
+				mobilePosition="center 20%"
+			/>
 			<NavBar />
 			<HeroSection />
 			<AboutBlurb />
@@ -27,6 +36,6 @@ export default function Home() {
 			
 			<div className="h-[200px]"></div>
 			<Footer />
-		</div>
+		</>
 	);
 }

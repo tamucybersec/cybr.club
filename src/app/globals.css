@@ -14,6 +14,17 @@
   --font-ubuntu: var(--font-ubuntu-sans);
 }
 
+/* Reset default browser styles to eliminate gap */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 @layer utilities {
   :root {
     --background: #ffffff;
@@ -76,33 +87,68 @@
     margin: var(--margin-responsive);
   }
 
-  /* Background stability improvements */
-  .bg-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  /* Background overlay utility */
+  .bg-background-overlay {
+    background-image: url("/svgs/HomeBackground.svg");
+    background-size: 300% 300%;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    min-height: 500vh;
+    height: max(500vh, 100%);
   }
 
   /* Responsive background adjustments */
   @media (max-width: 768px) {
-    .bg-container {
-      height: max(100vh, 150vh);
+    .bg-background-overlay {
+      background-size: 400% 400%;
+      background-position: center 30%;
+      min-height: 600vh;
+      height: max(600vh, 100%);
     }
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
-    .bg-container {
-      height: max(100vh, 180vh);
+    .bg-background-overlay {
+      background-size: 350% 350%;
+      background-position: center 35%;
+      min-height: 550vh;
+      height: max(550vh, 100%);
     }
   }
 
   @media (min-width: 1025px) {
-    .bg-container {
-      height: max(100vh, 200vh);
+    .bg-background-overlay {
+      background-size: 300% 300%;
+      background-position: center 40%;
+      min-height: 500vh;
+      height: max(500vh, 100%);
     }
+  }
+
+  /* Ensure smooth rendering */
+  .bg-background-overlay {
+    will-change: auto;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  /* Alternative approach - if you want the background to extend based on content */
+  .bg-background-overlay-dynamic {
+    background-image: url("/svgs/HomeBackground.svg");
+    background-size: 300% 300%;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -10;
   }
 }
 
