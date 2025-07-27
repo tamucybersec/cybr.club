@@ -13,9 +13,10 @@ const azonix = localFont({
 const ubuntuSans = localFont({
   src: "../../public/fonts/UbuntuSans-VariableFont_wdth,wght.ttf",
   variable: "--font-ubuntu-sans",
-  weight: "100 900",
   style: "normal",
-})
+  weight: "100 900",
+});
+
 
 export const metadata: Metadata = {
   title: "cybr.club",

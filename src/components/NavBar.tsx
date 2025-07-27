@@ -135,7 +135,7 @@ function NavBar() {
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link href={href} className="relative group">
-      <span className="text-white/80 hover:text-white transition-colors duration-300 font-medium text-sm lg:text-base font-sans">
+      <span className="text-white/80 hover:text-white transition-colors duration-300 font-medium text-sm lg:text-base font-ubuntu">
         {children}
       </span>
       <motion.div

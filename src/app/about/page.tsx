@@ -1,9 +1,12 @@
-//import Image from "next/image";
-
-export default function Home() {
+import AboutLanding from "../../components/AboutLanding"
+import AboutMission from "../../components/AboutMission"
+import NavBar from "../../components/NavBar"
+export default function AboutPage() {
   return (
-    <div>
-      <h1>about payge</h1>
-    </div>
-  );
+    <>
+      <NavBar />
+      <AboutLanding />
+      <AboutMission />
+    </>
+  )
 }
