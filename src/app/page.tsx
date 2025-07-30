@@ -15,7 +15,7 @@ export default function Home() {
 		<>
 			<BackgroundOverlay
 				desktopSize="300% 300%"
-				desktopPosition="center 55%"
+				desktopPosition="center 57%"
 				tabletSize="350% 350%"
 				tabletPosition="center 25%"
 				mobileSize="400% 400%"

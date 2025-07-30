@@ -88,6 +88,69 @@ body {
     margin: var(--margin-responsive);
   }
 
+   /* Slider responsive sizing - CRITICAL FOR SCALING */
+   .slider-row {
+    gap: clamp(0.5rem, 1.5vw, 2rem);
+  }
+
+  .slider-item {
+    /* Fixed dimensions with aspect ratio */
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    height: 175px !important; /* 16:10 aspect ratio */
+    min-height: 175px !important;
+    max-height: 175px !important;
+    margin: 0 4px !important;
+    flex: 0 0 auto !important;
+    contain: content;
+  }
+
+  /* Responsive breakpoints for slider items */
+  @media (max-width: 640px) {
+    .slider-item {
+      width: 280px !important;
+      min-width: 280px !important;
+      max-width: 280px !important;
+      height: 175px !important;
+      min-height: 175px !important;
+      max-height: 175px !important;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .slider-item {
+      width: 300px !important;
+      min-width: 300px !important;
+      max-width: 300px !important;
+      height: 187.5px !important;
+      min-height: 187.5px !important;
+      max-height: 187.5px !important;
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .slider-item {
+      width: 320px !important;
+      min-width: 320px !important;
+      max-width: 320px !important;
+      height: 200px !important;
+      min-height: 200px !important;
+      max-height: 200px !important;
+    }
+  }
+
+  @media (min-width: 1441px) {
+    .slider-item {
+      width: 400px !important;
+      min-width: 400px !important;
+      max-width: 400px !important;
+      height: 250px !important;
+      min-height: 250px !important;
+      max-height: 250px !important;
+    }
+  }
+
   /* Background overlay utility */
   .bg-background-overlay {
     background-image: url("/svgs/HomeBackground.svg");

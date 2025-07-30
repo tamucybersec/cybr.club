@@ -39,7 +39,7 @@ function AboutLanding() {
           animate="visible"
         >
           {/* About Header SVG */}
-          <motion.div className="mb-8 lg:mb-12 -ml-4 sm:-ml-8" variants={itemVariants}>
+          <motion.div className="mb-8 lg:mb-12 ml-0 sm:ml-0" variants={itemVariants}>
             <Image
               src="/svgs/aboutheader.svg"
               alt="About Header"
@@ -52,7 +52,7 @@ function AboutLanding() {
           </motion.div>
 
           {/* Paragraph Text */}
-          <motion.p className="font-ubuntu-sans text-[22px] leading-relaxed text-white/90" variants={itemVariants}>
+          <motion.p className="font-ubuntu-sans text-[22px] leading-relaxed text-white/70" variants={itemVariants}>
             The Texas A&M Cybersecurity Club was founded on a spirit of generosity and mentorship for students
             interested in cybersecurity. Many of us found our start because someone took the time to help us, and we&apos;re
             proud to keep that tradition going by giving back to others in the same way.
@@ -61,7 +61,7 @@ function AboutLanding() {
 
         {/* Right side - Image Placeholder */}
         <motion.div
-          className="flex-1 w-full max-w-2xl relative h-[400px] lg:h-[500px] xl:h-[600px]"
+          className="flex-1 w-full max-w-2xl relative h-[400px] lg:h-[400px] xl:h-[400px]"
           variants={itemVariants}
           custom={1}
         >

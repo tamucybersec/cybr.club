@@ -4,6 +4,7 @@ import Container from "@/components/Container"
 import { motion, Variants } from "framer-motion"
 
 function AboutBlurb() {
+  
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
