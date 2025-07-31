@@ -71,7 +71,7 @@ function AboutMission() {
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
             <div className="font-ubuntu-sans text-[22px] leading-relaxed text-white/70 space-y-6">
               <p>
-                Whether you're brand new or already experienced, we hope to help you discover just how broad and exciting the world of cybersecurity really is.
+                Whether you&apos;re brand new or already experienced, we hope to help you discover just how broad and exciting the world of cybersecurity really is.
               </p>
               <p>
                 Since we were established, our top priority has been helping members grow. Along the way, students have earned respected certifications, placed in national competitions, and landed roles at both startups and major companies all through the skills and support they found here.

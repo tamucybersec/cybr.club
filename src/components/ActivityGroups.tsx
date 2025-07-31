@@ -123,14 +123,14 @@ function ActivityGroups() {
             {activityGroups.map((group) => (
               <motion.div
                 key={group.id}
-                className="relative aspect-square group cursor-pointer"
+                className="relative h-64 md:h-80 lg:h-96 group cursor-pointer"
                 variants={itemVariants}
                 onHoverStart={() => setHoveredItem(group.id)}
                 onHoverEnd={() => setHoveredItem(null)}
               >
                 <div className="w-full h-full bg-gradient-to-br from-white/8 to-white/4 rounded-md border border-white/10 transition-all duration-300 group-hover:border-white/20 overflow-hidden">
-                  {/* Placeholder background */}
-                  <div className="w-full h-full bg-gradient-to-br from-white/5 to-white/10"></div>
+                  {/* Placeholder background with fixed aspect ratio */}
+                  <div className="w-full h-full bg-gradient-to-br from-white/5 to-white/10" style={{ aspectRatio: '1/1' }}></div>
 
                   {/* Hover overlay */}
                   <motion.div
@@ -179,8 +179,8 @@ function ActivityGroups() {
                 className="bg-gradient-to-br from-white/8 to-white/4 rounded-md border border-white/10 p-6"
                 variants={itemVariants}
               >
-                {/* Placeholder background */}
-                <div className="w-full h-32 bg-gradient-to-br from-white/5 to-white/10 rounded mb-4"></div>
+                {/* Placeholder background with fixed height */}
+                <div className="w-full h-32 bg-gradient-to-br from-white/5 to-white/10 rounded mb-4" style={{ aspectRatio: '16/9' }}></div>
 
                 {/* Description */}
                 <p className="text-white text-sm font-ubuntu-sans font-medium mb-4">{group.description}</p>
