@@ -1,0 +1,59 @@
+"use client";
+
+import { z } from "zod";
+import DataTable from "../DataTable/DataTable";
+import type { Definition } from "../DataTable/DataTableTypes";
+import { QUERY_KEYS, type Points } from "../../lib/types";
+import { getCurrentSemester, getCurrentYear } from "@/lib/helpers";
+
+const definition: Definition<Points>[] = [
+	{
+		primaryKey: true,
+		accessorKey: "user_id",
+		header: "User ID",
+		sortable: true,
+		type: z.string().nonempty(),
+	},
+	{
+		accessorKey: "points",
+		header: "Points",
+		sortable: true,
+		cell: (row) => {
+			const points = row.getValue<number>("points");
+			return <span>{points.toLocaleString()}</span>;
+		},
+		type: z.coerce.number().min(0),
+	},
+	{
+		primaryKey: true,
+		accessorKey: "semester",
+		header: "Semester",
+		sortable: true,
+		type: z.enum(["spring", "fall"]),
+	},
+	{
+		primaryKey: true,
+		accessorKey: "year",
+		header: "Year",
+		sortable: true,
+		type: z.coerce.number().min(0),
+	},
+];
+
+function PointsTable() {
+	return (
+		<DataTable<Points>
+			prefix="points"
+			queryKey={QUERY_KEYS.points}
+			definition={definition}
+			defaultValues={{
+				user_id: "",
+				points: 0,
+				semester: getCurrentSemester(),
+				year: getCurrentYear(),
+			}}
+		/>
+	);
+}
+
+export default PointsTable;
