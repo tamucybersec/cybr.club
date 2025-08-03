@@ -1,10 +1,8 @@
-
-## Getting Started
-
-First, run the development server:
+# Getting Started
 
 ```bash
-npm run dev
+npm install # to install all dependencies
+npm run dev # to run the dev server
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result :)
