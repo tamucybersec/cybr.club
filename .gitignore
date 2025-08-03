@@ -9,6 +9,7 @@
 # testing
 /coverage
 .windsurf/
+windsurf
 
 # next.js
 /.next/
