@@ -9,10 +9,10 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 function Container({ children, className = "", ...rest }: Props) {
 	return (
 		<div
-			className={cn("flex w-full justify-center sm:px-4", className)}
+			className={cn("flex w-full justify-center px-4 sm:px-6 lg:px-8", className)}
 			{...rest}
 		>
-			<div className="grow max-w-3xl">{children}</div>
+			<div className="grow max-w-5xl 2xl:max-w-7xl">{children}</div>
 		</div>
 	);
 }

@@ -1,0 +1,55 @@
+"use client"
+
+import Container from "@/components/Container"
+import { motion, Variants } from "framer-motion"
+
+function LargeImagesSection() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      },
+    },
+  }
+
+  return (
+    <Container className="py-16 sm:py-20 lg:py-24">
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* First Image */}
+        <motion.div className="flex flex-col gap-4" variants={itemVariants}>
+          <div className="w-full h-[30vh] lg:h-[35vh] bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10"></div>
+          <p className=" text-lg font-ubuntu-sans text-center text-[#AAAAAA]">Caption 1</p>
+        </motion.div>
+
+        {/* Second Image */}
+        <motion.div className="flex flex-col gap-4" variants={itemVariants}>
+          <div className="w-full h-[30vh] lg:h-[35vh] bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10"></div>
+          <p className="text-lg font-ubuntu-sans text-center text-[#AAAAAA]">Caption 2</p>
+        </motion.div>
+      </motion.div>
+    </Container>
+  )
+}
+
+export default LargeImagesSection
