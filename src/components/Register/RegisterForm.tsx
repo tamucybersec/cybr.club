@@ -13,7 +13,6 @@ interface Details {
 	file?: boolean;
 	dropdown?: string[];
 }
-[];
 
 const details: Details[] = [
 	{
@@ -81,7 +80,7 @@ const details: Details[] = [
 	},
 ];
 
-export function registerForm(customMajorText: string) {
+export function useRegisterForm(customMajorText: string) {
 	const formSchema = z.object(
 		Object.fromEntries(details.map(({ field, type }) => [field, type]))
 	);

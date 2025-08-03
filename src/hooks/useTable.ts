@@ -5,14 +5,12 @@ import {
 	type Attendance,
 	type Event,
 	type Events as GroupedEvents,
-	type Points,
 	QUERY_KEYS,
-	type Semester,
 	type Term,
 	type Tokens,
 	type User,
 } from "@/lib/types";
-import { flattenEvents, inTermRange } from "@/lib/helpers";
+import { flattenEvents } from "@/lib/helpers";
 
 export function useUsers() {
 	const { fetchPath } = useContext(DashboardContext);

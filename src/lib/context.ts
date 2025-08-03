@@ -5,7 +5,7 @@ import {
 	type Term,
 } from "@/lib/types";
 import { createContext } from "react";
-import { defaultTerms, getCurrentSemester, getCurrentYear } from "./helpers";
+import { defaultTerms } from "./helpers";
 
 export const DashboardContext = createContext<{
 	fetchPath: (path: string, options?: Options) => Promise<any>;

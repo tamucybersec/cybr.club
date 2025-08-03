@@ -163,7 +163,7 @@ export function DataTableUpdateDelete<T extends object>(
 	}, [open]);
 
 	function defaultValuesFromRow(): T {
-		let t: any = {};
+		const t: any = {};
 
 		for (const key of Object.keys(defaultValues)) {
 			t[key] = row.getValue(key) ?? "";

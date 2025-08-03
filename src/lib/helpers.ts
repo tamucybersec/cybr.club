@@ -1,10 +1,8 @@
 import type {
 	Event,
 	Events,
-	GradSemester,
 	Semester,
 	Term,
-	User,
 } from "@/lib/types";
 import type { Row } from "@tanstack/react-table";
 import { z } from "zod";
@@ -18,7 +16,7 @@ export function removeSpaces(s: string): string {
 }
 
 export function validHtmlId(str: string): string {
-	let id = str
+	const id = str
 		// Replace all non-alphanumerics with underscores (no exceptions)
 		.replace(/[^A-Za-z0-9]/g, "_")
 		// Trim underscores from start/end
@@ -30,7 +28,7 @@ export function validHtmlId(str: string): string {
 
 export function getChartColor(index: number) {
 	const numberOfColors = 5;
-	return `hsl(var(--chart-${(index % numberOfColors) + 1}))`;
+	return `var(--chart-${(index % numberOfColors) + 1})`;
 }
 
 export function getCurrentYear(): number {

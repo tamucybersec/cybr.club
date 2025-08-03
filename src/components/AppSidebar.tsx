@@ -23,7 +23,7 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ChartPie, ChevronRight, Database, Pencil } from "lucide-react";
+import { ChartPie, ChevronRight, Database } from "lucide-react";
 import {
 	Fragment,
 	useContext,
@@ -49,6 +49,7 @@ import AttendanceTable from "./Tables/AttendanceTable";
 import PointsTable from "./Tables/PointsTable";
 import TokensTable from "./Tables/TokensTable";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 type Link = { to: string; component: JSX.Element };
 
@@ -149,8 +150,9 @@ function AppSidebar() {
 	function Header() {
 		return (
 			<div className="flex gap-4 items-center">
-				<img
+				<Image
 					src={"/images/white-shield.png"}
+					alt="Club Logo"
 					className="rounded"
 					height={36}
 					width={36}

@@ -22,7 +22,7 @@ export async function ok(res: Promise<Response>): Promise<Response> {
 			} else {
 				_details = details;
 			}
-		} catch (error) {
+		} catch {
 			throw new Error(
 				`Fetch was not ok with status ${r.status}. See console for details.`
 			);

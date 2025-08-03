@@ -152,7 +152,7 @@ function DataTableDownloadUpload<T>({
 						<FormField
 							control={form.control}
 							name="replacement"
-							render={({ field }) => (
+							render={() => (
 								<FormItem>
 									<FormLabel>Replacement</FormLabel>
 									<FormControl>
@@ -208,8 +208,8 @@ function DataTableDownloadUpload<T>({
 										<Input {...field} />
 									</FormControl>
 									<FormDescription>
-										Type "{confirmation}" to confirm the
-										upload.
+										Type &quot;{confirmation}&quot; to
+										confirm the upload.
 									</FormDescription>
 									<FormMessage />
 								</FormItem>

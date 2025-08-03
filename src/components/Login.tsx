@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Permissions, type SetState } from "../lib/types";
+import Image from "next/image";
 
 interface Props {
 	token: string;
@@ -21,7 +22,12 @@ function Login({ token, setToken, permission, login }: Props) {
 					</h1>
 				</div>
 				<div className="max-w-[300px] border border-white p-4 rounded">
-					<img src={"/images/white-shield.png"}></img>
+					<Image
+						src={"/images/white-shield.png"}
+						alt="Club Logo"
+						width={300}
+						height={300}
+					/>
 				</div>
 				<div className="max-w-[300px] border border-white p-4 rounded flex flex-col gap-4">
 					{permission === Permissions.NONE && (

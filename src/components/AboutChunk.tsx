@@ -263,7 +263,7 @@ function ActivityGroupsNew() {
 
           {/* Certification Grid */}
           <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" variants={containerVariants}>
-            {certifications.map((cert, index) => (
+            {certifications.map((cert) => (
               <motion.div key={cert.id} className="relative aspect-square group cursor-pointer" variants={itemVariants}>
                 <div className="w-full h-full bg-gradient-to-br from-white/8 to-white/4 rounded-2xl border border-white/10 transition-all duration-300 group-hover:border-white/20 overflow-hidden">
                   {/* Placeholder background */}
@@ -319,7 +319,7 @@ function ActivityGroupsNew() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16"
             variants={containerVariants}
           >
-            {networkOrgs.map((org, index) => (
+            {networkOrgs.map((org) => (
               <motion.div
                 key={org.id}
                 className="bg-gradient-to-br from-white/8 to-white/4 rounded-2xl border border-white/10 overflow-hidden"

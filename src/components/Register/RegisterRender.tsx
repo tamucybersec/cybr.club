@@ -31,7 +31,6 @@ interface Details {
 	file?: boolean;
 	dropdown?: string[];
 }
-[];
 
 const details: Details[] = [
 	{

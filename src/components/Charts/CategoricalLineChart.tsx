@@ -2,7 +2,6 @@
 
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import {
-	type ChartConfig,
 	ChartContainer,
 	ChartTooltip,
 	ChartTooltipContent,
@@ -10,26 +9,6 @@ import {
 import type { CategoricalData } from "../../lib/types";
 import { useCategoricalChart } from "@/hooks/useCategoricalChart";
 import { basicFormatter } from "./chartHelpers";
-
-const chartData = [
-	{ month: "January", desktop: 186, mobile: 80 },
-	{ month: "February", desktop: 305, mobile: 200 },
-	{ month: "March", desktop: 237, mobile: 120 },
-	{ month: "April", desktop: 73, mobile: 190 },
-	{ month: "May", desktop: 209, mobile: 130 },
-	{ month: "June", desktop: 214, mobile: 140 },
-];
-
-const chartConfig = {
-	desktop: {
-		label: "Desktop",
-		color: "hsl(var(--chart-1))",
-	},
-	mobile: {
-		label: "Mobile",
-		color: "hsl(var(--chart-2))",
-	},
-} satisfies ChartConfig;
 
 interface Props {
 	metric: string;
@@ -73,10 +52,10 @@ export default function CategoricalLineChart({ metric, data }: Props) {
 				<Line
 					dataKey="count"
 					type="monotone"
-					stroke="hsl(var(--chart-1))"
+					stroke="var(--chart-1)"
 					strokeWidth={2}
 					dot={{
-						fill: "hsl(var(--chart-1))",
+						fill: "var(--chart-1)",
 					}}
 					activeDot={{
 						r: 6,
