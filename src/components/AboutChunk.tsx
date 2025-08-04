@@ -69,52 +69,30 @@ function ActivityGroupsNew() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       svg: "placeholder-svg-2",
     },
-    {
-      id: 3,
-      title: "Committee Title 3",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      svg: "placeholder-svg-3",
-    },
   ]
 
   const certifications = [
-    {
-      id: 1,
-      title: "Certification 1",
-      description: "Placeholder description for certification 1",
-    },
-    {
-      id: 2,
-      title: "Certification 2",
-      description: "Placeholder description for certification 2",
-    },
-    {
-      id: 3,
-      title: "Certification 3",
-      description: "Placeholder description for certification 3",
-    },
-    {
-      id: 4,
-      title: "Certification 4",
-      description: "Placeholder description for certification 4",
-    },
-  ]
-
-  const networkOrgs = [
-    {
-      id: 1,
-      title: "Organization 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 2,
-      title: "Organization 2",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-  ]
+		{
+			id: 1,
+			title: "Cisco Certified Network Associate (CCNA)",
+			description: "Placeholder description for certification 1",
+		},
+		{
+			id: 2,
+			title: "AWS Certified Cloud Practitioner",
+			description: "Placeholder description for certification 2",
+		},
+		{
+			id: 3,
+			title: "Palo Alto Networks Certified Cybersecurity Practitioner",
+			description: "Placeholder description for certification 3",
+		},
+		{
+			id: 4,
+			title: "Red Hat Certified System Administrator (RHCSA)",
+			description: "Placeholder description for certification 4",
+		},
+  ];
 
   return (
     <Container className="py-16 sm:py-20 lg:py-24">
@@ -147,10 +125,10 @@ function ActivityGroupsNew() {
 
           {/* Description Text */}
           <motion.p className="font-ubuntu-sans text-hero-subtext leading-tight max-w-5xl" variants={itemVariants}>
-            Our activity groups are led in collaboration with student ambassadors from companies like{" "}
+            Our activity groups are led by student ambassadors in collaboration with companies like{" "}
             <strong className="font-bold">AWS</strong>, <strong className="font-bold">Red Hat</strong>,{" "}
             <strong className="font-bold">Cisco</strong>, and <strong className="font-bold">Palo Alto Networks</strong>,
-            giving members direct access to current tools and real-world expertise.
+            giving members direct exposure to current tools and real-world expertise.
           </motion.p>
         </motion.div>
 
@@ -173,7 +151,7 @@ function ActivityGroupsNew() {
             {/* Right side - Description - moved more to the left */}
             <motion.div className="flex-1 max-w-3xl lg:-ml-8" variants={itemVariants}>
               <p className="font-ubuntu-sans text-hero-subtext leading-tight">
-                Our committees are the backbone of the club. While they&apos;re guided by officers, they&apos;re fully
+                Our committees are the backbone of the club. They&apos;re fully
                 student-run, giving members the chance to take ownership and make a real impact behind the scenes.
               </p>
             </motion.div>
@@ -232,7 +210,7 @@ function ActivityGroupsNew() {
                 <p className="font-ubuntu-sans text-lg sm:text-xl lg:text-2xl leading-relaxed text-white/90 text-center max-w-6xl mx-auto">
                   Whether you&apos;re organizing competitions, managing outreach, or architecting the club&apos;s backend,
                   committees offer hands-on experience and are often the first step toward leadership within the club.
-                  If you&apos;re interested in joining a committee you can...
+                  If you&apos;re interested in joining a committee, you can apply using the links above or reach out on the discord.
                 </p>
               </motion.div>
             </div>
@@ -249,7 +227,7 @@ function ActivityGroupsNew() {
         >
           {/* Certification Title */}
           <motion.h1 className="font-azonix text-hero-heading leading-tight mb-6 lg:mb-8" variants={itemVariants}>
-            <span className="block whitespace-nowrap">certification</span>
+            <span className="block whitespace-nowrap">certifications</span>
           </motion.h1>
 
           {/* Certification Description */}
@@ -291,74 +269,6 @@ function ActivityGroupsNew() {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* Network Section */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {/* Network Title */}
-          <motion.h1 className="font-azonix text-hero-heading leading-tight mb-6 lg:mb-8" variants={itemVariants}>
-            <span className="block whitespace-nowrap">Network</span>
-          </motion.h1>
-
-          {/* Network Description */}
-          <motion.p
-            className="font-ubuntu-sans text-hero-subtext leading-tight max-w-5xl mb-12 lg:mb-16"
-            variants={itemVariants}
-          >
-            We work closely with the Texas A&M Cybersecurity Center, the home of programs like Viceroy and CLDP, to
-            offer lessons that are practical, high quality, and backed by industry insight.
-          </motion.p>
-
-          {/* Network Organizations Grid */}
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16"
-            variants={containerVariants}
-          >
-            {networkOrgs.map((org) => (
-              <motion.div
-                key={org.id}
-                className="bg-gradient-to-br from-white/8 to-white/4 rounded-2xl border border-white/10 overflow-hidden"
-                variants={itemVariants}
-              >
-                {/* Fixed organization image - properly aligned with container */}
-                <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-white/10 to-white/5"></div>
-
-                {/* Content section */}
-                <div className="p-6 sm:p-8 lg:p-10">
-                  <div className="space-y-4">
-                    <h3 className="font-azonix text-xl sm:text-2xl lg:text-3xl text-white">{org.title}</h3>
-                    <p className="font-ubuntu-sans text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed">
-                      {org.description}
-                    </p>
-                  </div>
-
-                  {/* Learn More Button - Bottom right */}
-                  <div className="flex justify-end mt-6">
-                    <Button
-                      className="font-azonix px-6 sm:px-8 py-2 sm:py-3 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-                      style={{ borderRadius: "10px" }}
-                    >
-                      Learn More
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Network Bottom Description */}
-          <motion.p
-            className="font-ubuntu-sans text-hero-subtext leading-tight max-w-4xl mx-auto text-center text-white/80"
-            variants={itemVariants}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-          </motion.p>
         </motion.div>
       </div>
     </Container>

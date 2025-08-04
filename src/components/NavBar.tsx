@@ -36,7 +36,7 @@ function NavBar() {
               {/* Desktop Navigation Links - Center */}
               <div className="hidden md:flex items-center justify-center flex-1 space-x-6 lg:space-x-10">
                 <NavLink href="/about">About</NavLink>
-                <NavLink href="/events">Events</NavLink>
+                {/* <NavLink href="/events">Events</NavLink> */}
                 <NavLink href="/partnership">Partnership</NavLink>
               </div>
             </div>
@@ -48,7 +48,7 @@ function NavBar() {
                 className="font-azonix px-5 py-2 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
                 style={{ borderRadius: "10px" }}
               >
-                <Link href="/join">Join Us</Link>
+                <Link href="/join">Join</Link>
               </Button>
             </div>
 
@@ -59,7 +59,7 @@ function NavBar() {
                 className="font-azonix px-4 py-2 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow transition-all duration-200 text-sm"
                 style={{ borderRadius: "8px" }}
               >
-                <Link href="/join">Join Us</Link>
+                <Link href="/join">Join</Link>
               </Button>
               
               {/* Custom Two-Line Hamburger */}

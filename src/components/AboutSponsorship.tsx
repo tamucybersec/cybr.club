@@ -62,16 +62,7 @@ function SponsorshipNew() {
           className="font-ubuntu-sans text-hero-subtext leading-tight max-w-5xl mx-auto mb-8 lg:mb-12"
           variants={itemVariants}
         >
-          Thanks to the support of our generous sponsors, we&apos;re able to offer free certification vouchers, cover travel
-          to conferences, and award scholarships through our own TAMUctf competition.
-        </motion.p>
-
-        {/* Description - Second Part with gap */}
-        <motion.p
-          className="font-ubuntu-sans text-hero-subtext leading-tight max-w-5xl mx-auto"
-          variants={itemVariants}
-        >
-          These partnerships help us reinvest in our members and the broader community, creating opportunities that make
+          Thanks to the support of our generous sponsors, we&apos;re able to reinvest in our members and the broader community, creating opportunities that make
           a real difference in students&apos; growth, confidence, and career paths.
         </motion.p>
       </motion.div>

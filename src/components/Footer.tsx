@@ -31,11 +31,11 @@ const redirects: FooterLink[] = [
     href: "/about",
     icon: <Info size={14} />,
   },
-  {
-    label: "Events",
-    href: "/events",
-    icon: <CalendarClock size={14} />,
-  },
+  // {
+  //   label: "Events",
+  //   href: "/events",
+  //   icon: <CalendarClock size={14} />,
+  // },
   {
     label: "Partnership",
     href: "/partnership",
@@ -135,6 +135,7 @@ function Footer() {
         <div className="w-full grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 lg:max-w-2xl lg:ml-auto">
           {/* Navigation Links */}
           <div className="flex flex-col gap-0.5 justify-start">
+            <p>See More</p>
             {redirects.map((link, i) => (
               <FooterLinkItem key={i} link={link} />
             ))}
@@ -142,6 +143,7 @@ function Footer() {
 
           {/* Partners */}
           <div className="flex flex-col gap-0.5 justify-start">
+            <p>Partners</p>
             {partners.map((link, i) => (
               <FooterLinkItem key={i} link={link} />
             ))}
@@ -149,6 +151,7 @@ function Footer() {
 
           {/* Socials */}
           <div className="flex flex-col gap-0.5 justify-start">
+            <p>Socials</p>
             {socials.map((link, i) => (
               <FooterLinkItem key={i} link={link} />
             ))}

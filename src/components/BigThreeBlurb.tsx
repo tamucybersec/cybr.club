@@ -52,9 +52,9 @@ function NoBarriersSection() {
         {/* Right side - Description */}
         <motion.div className="flex-1 max-w-3xl" variants={itemVariants}>
           <p className="font-ubuntu-sans pb-5 text-[#AAAAAA] text-hero-subtext leading-tight">
-            <span className="block">Whether you&apos;re here to earn a certification, gain real-world</span>
-            <span className="block">experience, meet like-minded people, or just figuring out</span>
-            <span className="block">what cybersecurity entails, there&apos;s a group for you.</span>
+            <span className="block">Come to any meetings you want, whenever it works for you.</span>
+            <span className="block">There are no fees, no prerequisites, and absolutely no pressure.</span>
+            <span className="block">Just show up when you're interested.</span>
           </p>
         </motion.div>
       </motion.div>

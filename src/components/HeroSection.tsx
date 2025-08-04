@@ -64,9 +64,9 @@ function HeroSection() {
           </motion.h1>
 
           <motion.p className="text-[#AAAAAA] text-hero-subtext leading-snug max-w-3xl mt-0 sm:mt-4" variants={itemVariants}>
-            Earn Certifications, Gain real-world experience,
+            Earn certifications, gain real-world experience,
             <br className="hidden sm:block" />
-            and Find your calling in Cybersecurity
+            and find your calling in cybersecurity
           </motion.p>
 
           <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-6 sm:mt-12" variants={itemVariants}>
@@ -75,7 +75,7 @@ function HeroSection() {
               className="text-hero-button font-azonix px-8 sm:px-10 py-1.5 sm:py-4 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
               style={{ borderRadius: "10px" }}
             >
-              <Link href="/join">Join Us</Link>
+              <Link href="/join">Join</Link>
             </Button>
 
             <Button

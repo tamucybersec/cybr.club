@@ -52,7 +52,7 @@ function AboutMission() {
           className="w-full max-w-7xl mx-auto -ml-4"
           variants={itemVariants}
         >
-          <ModernSlider />
+          <ModernSlider /> {/* NOTE make these photos about "students helping students"; "students with students learning */}
         </motion.div>
 
         {/* Image and Text Section */}

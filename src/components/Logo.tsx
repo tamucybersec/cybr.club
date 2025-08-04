@@ -8,7 +8,10 @@ interface Props {
 
 function Logo({ size = 36, className }: Props) {
 	return (
-		<div className={cn("flex gap-4 items-center", className)}>
+		<div className={cn("flex items-center", className)}
+		style={{
+			gap: `calc(var(--spacing) * 2 * ${size/36})`
+		}}>
 			<Image
 				src="/images/WhiteShield.svg"
 				alt="Club Logo"
@@ -19,6 +22,7 @@ function Logo({ size = 36, className }: Props) {
 				className={`font-azonix leading-none text-xs`}
 				style={{
 					fontSize: `calc(0.75rem * ${size / 36})`,
+					marginBottom: "-4px"
 				}}
 			>
 				TAMU

@@ -41,7 +41,7 @@ function AboutLanding() {
           {/* About Header SVG */}
           <motion.div className="mb-8 lg:mb-12 ml-0 sm:ml-0" variants={itemVariants}>
             <Image
-              src="/svgs/aboutheader.svg"
+              src="/svgs/AboutHeader.svg"
               alt="About Header"
               width={400}
               height={120}
