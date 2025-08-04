@@ -80,11 +80,11 @@ const details: Details[] = [
 	},
 ];
 
-export function useRegisterForm(customMajorText: string) {
-	const formSchema = z.object(
-		Object.fromEntries(details.map(({ field, type }) => [field, type]))
-	);
+export const formSchema = z.object(
+	Object.fromEntries(details.map(({ field, type }) => [field, type]))
+);
 
+export function useRegisterForm(customMajorText: string) {
 	const customResolver: Resolver<z.infer<typeof formSchema>> = async (
 		values
 	) => {
@@ -127,5 +127,5 @@ export function useRegisterForm(customMajorText: string) {
 		),
 	});
 
-	return { formSchema, form };
+	return { form };
 }

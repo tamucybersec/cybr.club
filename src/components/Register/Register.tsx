@@ -11,7 +11,7 @@ import LoadingPage from "../LoadingPage";
 import CenteredMessage from "../CenteredMessage";
 import { Toaster } from "@/components/ui/sonner";
 import RegisterForm from "./RegisterRender";
-import { useRegisterForm } from "./RegisterForm";
+import { formSchema, useRegisterForm } from "./RegisterForm";
 
 interface RegisterResult {
 	name: string;
@@ -39,7 +39,7 @@ function Register() {
 	const [completeMessage, setCompleteMessage] = useState<string | undefined>(
 		undefined
 	);
-	const { formSchema, form } = useRegisterForm(customMajorText);
+	const { form } = useRegisterForm(customMajorText);
 
 	useEffect(() => {
 		async function getUser() {
