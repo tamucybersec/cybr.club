@@ -27,6 +27,7 @@ function Login({ token, setToken, permission, login }: Props) {
 						alt="Club Logo"
 						width={300}
 						height={300}
+						unoptimized
 					/>
 				</div>
 				<div className="max-w-[300px] border border-white p-4 rounded flex flex-col gap-4">

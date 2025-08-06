@@ -179,7 +179,7 @@ function ActivityGroups() {
 								<div className="w-full h-full bg-gradient-to-br from-white/8 to-white/4 rounded-md border border-white/10 transition-all duration-300 group-hover:border-white/20 overflow-hidden relative">
 									{/* Placeholder background with fixed aspect ratio */}
 									<div
-										className="w-full h-full bg-gradient-to-br from-white/5 to-white/10 p-4"
+										className="w-full h-full bg-gradient-to-br from-white/5 to-white/10 p-4 relative"
 										style={{ aspectRatio: "1/1" }}
 									>
 										<Image
@@ -187,6 +187,7 @@ function ActivityGroups() {
 											src={group.image}
 											alt={group.title}
 											fill
+											unoptimized
 										/>
 									</div>
 

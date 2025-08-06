@@ -54,7 +54,7 @@ function NoBarriersSection() {
           <p className="font-ubuntu-sans pb-5 text-[#AAAAAA] text-hero-subtext leading-tight">
             <span className="block">Come to any meetings you want, whenever it works for you.</span>
             <span className="block">There are no fees, no prerequisites, and absolutely no pressure.</span>
-            <span className="block">Just show up when you're interested.</span>
+            <span className="block">Just show up when you&apos;re interested.</span>
           </p>
         </motion.div>
       </motion.div>

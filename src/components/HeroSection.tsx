@@ -107,7 +107,7 @@ function HeroSection() {
 					animate="visible"
 				>
 					<motion.div
-						className="relative w-full h-full"
+						className="relative w-full h-full relative"
 						whileHover={{ scale: 1.02 }}
 						transition={{
 							type: "spring",
@@ -121,6 +121,7 @@ function HeroSection() {
 							fill
 							sizes="(max-width: 1024px) 100vw, 50vw"
 							priority
+							unoptimized
 							className="object-contain object-center"
 						/>
 					</motion.div>

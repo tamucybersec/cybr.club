@@ -60,6 +60,7 @@ function LeadershipCard({ member }: { member: Officer }) {
 						alt={`Head-shot of ${member.name}`}
 						width={500}
 						height={500}
+						unoptimized
 					/>
 					{/* <div className="w-full h-full bg-gradient-to-br from-white/15 to-white/8"></div> */}
 				</div>

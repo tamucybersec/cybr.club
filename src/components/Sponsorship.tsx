@@ -77,7 +77,7 @@ function Sponsorship({ description }: { description?: string }) {
 
 	function Sponsor(tier: Tier, sponsor: Sponsor) {
 		return (
-			<Link href={sponsor.link}>
+			<Link href={sponsor.link} key={`${tier}-${sponsor.name}`}>
 				<motion.div
 					className={`w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 bg-gradient-to-br rounded-full flex border justify-center items-center p-4`}
 					style={{
@@ -91,6 +91,7 @@ function Sponsorship({ description }: { description?: string }) {
 						alt={sponsor.name}
 						height={300}
 						width={300}
+						unoptimized
 					/>
 				</motion.div>
 			</Link>
@@ -103,7 +104,7 @@ function Sponsorship({ description }: { description?: string }) {
 		}
 
 		return (
-			<>
+			<div key={tier}>
 				<h3 className={`${tierAttrs[tier].fontSize} font-azonix mb-4`}>
 					{tier.substring(0, 1).toLocaleUpperCase() +
 						tier.substring(1)}
@@ -114,7 +115,7 @@ function Sponsorship({ description }: { description?: string }) {
 				>
 					{sponsors.map((s) => Sponsor(tier, s))}
 				</motion.div>
-			</>
+			</div>
 		);
 	}
 

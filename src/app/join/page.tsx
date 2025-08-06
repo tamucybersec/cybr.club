@@ -24,7 +24,7 @@ export default function JoinPage() {
 			</ol>
 			<p>
 				Need to update your info later? Just run the /register command
-				again. It's that easy.
+				again. It&apos;s that easy.
 			</p>
 			<Footer />
 		</>

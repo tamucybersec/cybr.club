@@ -10,6 +10,7 @@ function LoadingPage() {
 				alt="Animated Club Logo"
 				height={300}
 				width={300}
+				unoptimized
 			/>
 			<h1 className="font-bold text-xl">Loading</h1>
 		</div>

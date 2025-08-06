@@ -11,7 +11,7 @@ export default function Home() {
 		<>
 			<NavBar />
 			<NavSpacer />
-			<TitleContainer>Back Tomorrow's Cyber Leaders</TitleContainer>
+			<TitleContainer>Back Tomorrow&apos;s Cyber Leaders</TitleContainer>
 			<Container>
 				<div className="flex flex-col gap-4">
 					<p>

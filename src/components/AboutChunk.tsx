@@ -256,6 +256,7 @@ function ActivityGroupsNew() {
 											alt={committee.title}
 											width={200}
 											height={200}
+											unoptimized
 										/>
 									</div>
 								</div>
@@ -337,6 +338,7 @@ function ActivityGroupsNew() {
 											alt={cert.title}
 											height={300}
 											width={300}
+											unoptimized
 										/>
 									</div>
 

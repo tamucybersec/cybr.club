@@ -19,6 +19,7 @@ function Logo({ size = 36, className }: Props) {
 				alt="Club Logo"
 				width={size}
 				height={size}
+				unoptimized
 			/>
 			<h1
 				className={`font-azonix leading-none text-xs`}

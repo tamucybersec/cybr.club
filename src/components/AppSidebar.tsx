@@ -156,6 +156,7 @@ function AppSidebar() {
 					className="rounded"
 					height={36}
 					width={36}
+					unoptimized
 				/>
 				<h1>TAMU CYBR CLUB</h1>
 			</div>

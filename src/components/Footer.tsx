@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { ReactNode } from "react"
 import { faDiscord, faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import {
-  CalendarClock,
+  // CalendarClock,
   Flag,
   HeartHandshake,
   Info,

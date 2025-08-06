@@ -47,6 +47,7 @@ function LargeImagesSection() {
 							src={"/images/general/austin-point.jpg"}
 							alt={"Students helping students"}
 							fill
+							unoptimized
 							className="object-cover"
 						/>
 					</div>
@@ -65,6 +66,7 @@ function LargeImagesSection() {
 							src={"/images/general/info-gavin.jpg"}
 							alt={"Build a community"}
 							fill
+							unoptimized
 							className="object-cover"
 						/>
 					</div>
