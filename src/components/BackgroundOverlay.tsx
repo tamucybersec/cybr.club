@@ -27,7 +27,7 @@ export default function BackgroundOverlay({
       <div
         className="hidden lg:block absolute -z-10 pointer-events-none"
         style={{
-          backgroundImage: "url('/svgs/HomeBackground.svg')",
+          backgroundImage: "url('/svgs/app/HomeBackground.svg')",
           backgroundSize: desktopSize,
           backgroundPosition: desktopPosition,
           backgroundRepeat: "no-repeat",
@@ -46,7 +46,7 @@ export default function BackgroundOverlay({
       <div
         className="hidden md:block lg:hidden absolute -z-10 pointer-events-none"
         style={{
-          backgroundImage: "url('/svgs/HomeBackground.svg')",
+          backgroundImage: "url('/svgs/app/HomeBackground.svg')",
           backgroundSize: tabletSize,
           backgroundPosition: tabletPosition,
           backgroundRepeat: "no-repeat",
@@ -65,7 +65,7 @@ export default function BackgroundOverlay({
       <div
         className="block md:hidden absolute -z-10 pointer-events-none"
         style={{
-          backgroundImage: "url('/svgs/HomeBackground.svg')",
+          backgroundImage: "url('/svgs/app/HomeBackground.svg')",
           backgroundSize: mobileSize,
           backgroundPosition: mobilePosition,
           backgroundRepeat: "no-repeat",

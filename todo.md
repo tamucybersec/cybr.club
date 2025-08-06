@@ -17,6 +17,6 @@
 
 ## Owen
 
--   Fix join button
 -   fix the contact us
+-   email link for about
 -   sponsorship tiers need to be in html

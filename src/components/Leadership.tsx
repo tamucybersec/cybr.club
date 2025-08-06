@@ -3,272 +3,45 @@
 import Container from "@/components/Container";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, Link as LinkIcon } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLink } from "@fortawesome/free-solid-svg-icons";
 import {
 	faGithub,
-	faLinkedinIn,
+	faLinkedin,
+	IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
+import { Officer, Socials } from "@/lib/officers";
+import Image from "next/image";
 
-type Platforms = "email" | "github" | "linkedin" | "website";
-
-interface SocialLink {
-	platform: Platforms;
-	url: string;
-}
-
-interface LeadershipMember {
-	name: string;
-	title: string;
-	image: string; // placeholder for now
-	socials: SocialLink[];
-}
-
-// Sample data - fully customizable
-const leadershipMembers: LeadershipMember[] = [
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-	{
-		name: "bronny",
-		title: "mvp",
-		image: "placeholder-1",
-		socials: [
-			{ platform: "email", url: "mailto:example@gmail.com" },
-			{ platform: "github", url: "https://github.com" },
-			{ platform: "linkedin", url: "https://linkedin.com" },
-			{ platform: "website", url: "https://example.com" },
-		],
-	},
-];
-
-function SocialIcon({ platform }: { platform: Platforms }) {
-	const iconProps = {
-		size: 18,
-		className:
-			"text-white/70 hover:text-white transition-colors duration-200",
-	};
-
+function SocialIcon({ platform }: { platform: keyof Socials }) {
+	let icon: IconDefinition | undefined = undefined;
 	switch (platform) {
 		case "email":
-			return <Mail {...iconProps} />;
+			icon = faEnvelope;
+			break;
 		case "github":
-			return (
-				<FontAwesomeIcon
-					icon={faGithub}
-					className="w-[18px] h-[18px] text-white/70 hover:text-white transition-colors duration-200"
-				/>
-			);
+			icon = faGithub;
+			break;
 		case "linkedin":
-			return (
-				<FontAwesomeIcon
-					icon={faLinkedinIn}
-					className="w-[18px] h-[18px] text-white/70 hover:text-white transition-colors duration-200"
-				/>
-			);
+			icon = faLinkedin;
+			break;
 		case "website":
-			return <LinkIcon {...iconProps} />;
-		default:
-			return null;
+			icon = faLink;
+			break;
 	}
+	if (icon === undefined) {
+		return undefined;
+	}
+
+	return (
+		<FontAwesomeIcon
+			icon={icon}
+			className="w-[18px] h-[18px] text-white/70 hover:text-white transition-colors duration-200"
+		/>
+	);
 }
 
-function LeadershipCard({ member }: { member: LeadershipMember }) {
+function LeadershipCard({ member }: { member: Officer }) {
 	return (
 		<motion.div
 			className="group"
@@ -280,9 +53,15 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
 		>
 			<div className="bg-gradient-to-br from-white/8 to-white/4 rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 group-hover:border-white/20 group-hover:shadow-xl">
 				{/* Image Section - No margin, fills to border */}
-				<div className="relative aspect-square overflow-hidden">
+				<div className="relative aspect-square overflow-hidden p-4">
 					{/* Placeholder image */}
-					<div className="w-full h-full bg-gradient-to-br from-white/15 to-white/8"></div>
+					<Image
+						src={member.image}
+						alt={`Head-shot of ${member.name}`}
+						width={500}
+						height={500}
+					/>
+					{/* <div className="w-full h-full bg-gradient-to-br from-white/15 to-white/8"></div> */}
 				</div>
 
 				{/* Content Section - Secondary background */}
@@ -294,30 +73,36 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
 
 					{/* Title */}
 					<p className="font-ubuntu-sans text-sm sm:text-base text-white/80 mb-3 sm:mb-4">
-						{member.title}
+						{member.position}
 					</p>
 
 					{/* Social Links */}
-					<div className="flex items-center gap-3 sm:gap-4">
-						{member.socials.map((social, index) => (
-							<Link
-								key={index}
-								href={social.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="hover:scale-110 transition-transform duration-200"
-							>
-								<SocialIcon platform={social.platform} />
-							</Link>
-						))}
-					</div>
+					{member.socials && (
+						<div className="flex items-center gap-3 sm:gap-4">
+							{Object.entries(member.socials).map(
+								([platform, url], index) => (
+									<Link
+										key={index}
+										href={url}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="hover:scale-110 transition-transform duration-200"
+									>
+										<SocialIcon
+											platform={platform as keyof Socials}
+										/>
+									</Link>
+								)
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 		</motion.div>
 	);
 }
 
-function Leadership() {
+function Leadership({ name, group }: { name: string; group: Officer[] }) {
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -340,7 +125,7 @@ function Leadership() {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
 				>
-					Leadership
+					{name}
 				</motion.h1>
 
 				{/* Leadership Grid */}
@@ -351,7 +136,7 @@ function Leadership() {
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.1 }}
 				>
-					{leadershipMembers.map((member, index) => (
+					{group.map((member, index) => (
 						<LeadershipCard
 							key={index}
 							member={member}

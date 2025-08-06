@@ -23,7 +23,7 @@ function Login({ token, setToken, permission, login }: Props) {
 				</div>
 				<div className="max-w-[300px] border border-white p-4 rounded">
 					<Image
-						src={"/images/white-shield.png"}
+						src={"/svgs/club-logos/white-shield.svg"}
 						alt="Club Logo"
 						width={300}
 						height={300}

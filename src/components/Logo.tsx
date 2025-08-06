@@ -13,7 +13,7 @@ function Logo({ size = 36, className }: Props) {
 			gap: `calc(var(--spacing) * 2 * ${size/36})`
 		}}>
 			<Image
-				src="/images/WhiteShield.svg"
+				src="/svgs/club-logos/white-shield.svg"
 				alt="Club Logo"
 				width={size}
 				height={size}

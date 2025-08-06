@@ -153,7 +153,7 @@ body {
 
   /* Background overlay utility */
   .bg-background-overlay {
-    background-image: url("/svgs/HomeBackground.svg");
+    background-image: url("/svgs/app/HomeBackground.svg");
     background-size: 300% 300%;
     background-position: center 40%;
     background-repeat: no-repeat;
@@ -202,7 +202,7 @@ body {
 
   /* Alternative approach - if you want the background to extend based on content */
   .bg-background-overlay-dynamic {
-    background-image: url("/svgs/HomeBackground.svg");
+    background-image: url("/svgs/app/HomeBackground.svg");
     background-size: 300% 300%;
     background-position: center 40%;
     background-repeat: no-repeat;

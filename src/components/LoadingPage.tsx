@@ -6,7 +6,7 @@ function LoadingPage() {
 	return (
 		<div className="w-dvw h-dvh justify-center items-center text-center flex flex-col">
 			<Image
-				src={"/images/white-shield-animated.gif"}
+				src={"/images/club-logos/white-shield-animated.gif"}
 				alt="Animated Club Logo"
 				height={300}
 				width={300}

@@ -7,6 +7,7 @@ export interface Socials {
 
 export type Officer = {
 	name: string;
+	image: string;
 	position: string;
 	major: string;
 	year?: number;
@@ -29,6 +30,7 @@ function getDoubleDipOfficer(
 
 const noahMustoe: DoubleDipOfficer = {
 	name: "Noah Mustoe",
+	image: "/svgs/club-logos/white-shield.svg",
 	positions: ["President", "Cyber Operations (Red Team)"],
 	major: "CPSC",
 	year: 26,
@@ -41,6 +43,7 @@ const noahMustoe: DoubleDipOfficer = {
 
 const austinGlander: DoubleDipOfficer = {
 	name: "Austin Glander",
+	image: "/svgs/club-logos/white-shield.svg",
 	positions: [
 		"Vice President",
 		"Cisco Networking Academy Student Ambassador",
@@ -56,6 +59,7 @@ const austinGlander: DoubleDipOfficer = {
 
 const kalyanAdhikari: DoubleDipOfficer = {
 	name: "Kalyan Adhikari",
+	image: "/svgs/club-logos/white-shield.svg",
 	positions: ["Treasurer", "Palo Alto Academy Student Ambassador"],
 	major: "GIST",
 	year: 27,
@@ -66,6 +70,7 @@ const kalyanAdhikari: DoubleDipOfficer = {
 
 const owenShadburne: DoubleDipOfficer = {
 	name: "Owen Shadburne",
+	image: "/svgs/club-logos/white-shield.svg",
 	positions: ["Director of Technology", "Red Hat Academy Student Ambassador"],
 	major: "CPSC",
 	year: 27,
@@ -78,6 +83,7 @@ const owenShadburne: DoubleDipOfficer = {
 
 const alexZhang: DoubleDipOfficer = {
 	name: "Alex Zhang",
+	image: "/svgs/club-logos/white-shield.svg",
 	positions: ["Director of Competitions", "Cyber Operations (CTF)"],
 	major: "CPSC",
 	year: 27,
@@ -94,6 +100,7 @@ export const officers: Officer[] = [
 	getDoubleDipOfficer(kalyanAdhikari, 0),
 	{
 		name: "Matei Dumitru",
+		image: "/svgs/club-logos/white-shield.svg",
 		position: "Secretary",
 		major: "CPEN",
 		year: 27,
@@ -104,6 +111,7 @@ export const officers: Officer[] = [
 	},
 	{
 		name: "Zach Smith",
+		image: "/svgs/club-logos/white-shield.svg",
 		position: "Director of External Relations",
 		major: "CPSC",
 		year: 27,
@@ -115,6 +123,7 @@ export const officers: Officer[] = [
 	},
 	{
 		name: "Alex Eade",
+		image: "/svgs/club-logos/white-shield.svg",
 		position: "Directory of Activity Groups",
 		major: "MISY",
 		year: 26,
@@ -125,6 +134,7 @@ export const officers: Officer[] = [
 	},
 	{
 		name: "Arianna Guzman",
+		image: "/svgs/club-logos/white-shield.svg",
 		position: "Director of Public Relations",
 		major: "ENGR",
 		year: 28,
@@ -137,6 +147,7 @@ export const officers: Officer[] = [
 	getDoubleDipOfficer(owenShadburne, 0),
 	{
 		name: "Martin Carlisle",
+		image: "/svgs/club-logos/white-shield.svg",
 		position: "Faculty Advisor",
 		major: "CSCE Department",
 		socials: {
@@ -154,6 +165,7 @@ export const activityLeaders = {
 	"Hardware Hacking": [
 		{
 			name: "Preston VanderLight",
+			image: "/svgs/club-logos/white-shield.svg",
 			position: "Hardware Hacking Lead",
 			major: "ECEN",
 			year: 27,
@@ -168,6 +180,7 @@ export const activityLeaders = {
 	AWS: [
 		{
 			name: "Luke Laudeman",
+			image: "/svgs/club-logos/white-shield.svg",
 			position: "AWS Academy Student Ambassador",
 			major: "INTA",
 			year: 27,
@@ -179,6 +192,7 @@ export const activityLeaders = {
 	"Red Hat": [
 		{
 			name: "Kevin Guerra",
+			image: "/svgs/club-logos/white-shield.svg",
 			position: "Red Hat Academy Student Ambassador",
 			major: "ENGR",
 			year: 28,
@@ -192,6 +206,7 @@ export const activityLeaders = {
 	Policy: [
 		{
 			name: "Chase Johnson",
+			image: "/svgs/club-logos/white-shield.svg",
 			position: "Policy Lead",
 			major: "MIA",
 			year: 26,

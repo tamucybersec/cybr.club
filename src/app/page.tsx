@@ -7,8 +7,8 @@ import BigThreeBlurb from "@/components/BigThreeBlurb";
 import ActivityGroups from "@/components/ActivityGroups";
 import HomeImageCaptions from "@/components/HomeImageCaptions";
 import WhatWeOffer from "@/components/WhatWeOffer";
-import Sponsorship from "@/components/Sponsorship";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
+import Sponsorship from "@/components/Sponsorship";
 
 export default function Home() {
 	return (
@@ -24,17 +24,16 @@ export default function Home() {
 			<NavBar />
 			<HeroSection />
 			<AboutBlurb />
-			
-			<ImageCarousel />	
+
+			<ImageCarousel />
 			<BigThreeBlurb />
-			
+
 			<HomeImageCaptions />
-			<ActivityGroups />	
-			
+			<ActivityGroups />
+
 			<WhatWeOffer />
 			<Sponsorship />
-			
-			<div className="h-[200px]"></div>
+
 			<Footer />
 		</>
 	);

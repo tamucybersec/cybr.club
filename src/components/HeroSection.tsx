@@ -101,7 +101,7 @@ function HeroSection() {
             transition={{ type: "spring", stiffness: 300, damping: 10 }}
           >
             <Image
-              src="/svgs/PlaceholderLogo.svg"
+              src="/svgs/app/PlaceholderLogo.svg"
               alt="Cybersecurity Club Shield Logo"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
