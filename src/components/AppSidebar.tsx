@@ -151,7 +151,7 @@ function AppSidebar() {
 		return (
 			<div className="flex gap-4 items-center">
 				<Image
-					src={"/svgs/club-logos/white-shield.svg"}
+					src={"/images/club-logos/white-shield.svg"}
 					alt="Club Logo"
 					className="rounded"
 					height={36}

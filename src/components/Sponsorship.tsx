@@ -16,7 +16,7 @@ const sponsors: Record<Tier, Sponsor[]> = {
 	gold: [
 		{
 			name: "Mimic Ransomware Defense",
-			image: "/svgs/sponsors/mimic.svg",
+			image: "/images/sponsors/mimic.svg",
 			link: "https://mimic.com/",
 		},
 	],
