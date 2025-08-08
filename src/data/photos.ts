@@ -103,6 +103,6 @@ export const photos = {
 	unknownContest: {
 		title: "Competition Grind Time",
 		description: "From an unknown competition",
-		path: "/images/general/unknown-contest.jpg",
+		path: "/images/general/unknown-contest-alt.jpg",
 	},
 } satisfies Record<string, Photo>;

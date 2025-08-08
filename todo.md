@@ -17,7 +17,6 @@
 
 ## Owen
 
--   write the activity group descriptions
 -   include times in activity groups
 -   remove photos from git history
 
