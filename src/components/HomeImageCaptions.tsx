@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "@/components/Container";
+import { photos } from "@/data/photos";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
@@ -44,7 +45,7 @@ function LargeImagesSection() {
 				>
 					<div className="w-full h-[30vh] lg:h-[35vh] bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10 relative">
 						<Image
-							src={"/images/general/austin-point.jpg"}
+							src={photos.austinPoint.path}
 							alt={"Students helping students"}
 							fill
 							unoptimized
@@ -52,7 +53,7 @@ function LargeImagesSection() {
 						/>
 					</div>
 					<p className=" text-lg font-ubuntu-sans text-center text-[#AAAAAA]">
-						Caption 1
+						{photos.austinPoint.title}
 					</p>
 				</motion.div>
 
@@ -63,7 +64,7 @@ function LargeImagesSection() {
 				>
 					<div className="w-full h-[30vh] lg:h-[35vh] bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10 relative">
 						<Image
-							src={"/images/general/info-gavin.jpg"}
+							src={photos.infoGavin.path}
 							alt={"Build a community"}
 							fill
 							unoptimized
@@ -71,7 +72,7 @@ function LargeImagesSection() {
 						/>
 					</div>
 					<p className="text-lg font-ubuntu-sans text-center text-[#AAAAAA]">
-						Caption 2
+						{photos.infoGavin.title}
 					</p>
 				</motion.div>
 			</motion.div>

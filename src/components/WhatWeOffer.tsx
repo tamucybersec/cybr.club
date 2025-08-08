@@ -30,17 +30,20 @@ function WhatWeOffer() {
 		{
 			id: 1,
 			title: "Certifications",
-			description: "le place holder",
+			description:
+				"Earn valuable industry certifications that validate your skills and open doors in cybersecurity and IT. We provide guidance and resources to help you prepare and pay for your certification exams at no cost to you.",
 		},
 		{
 			id: 2,
 			title: "Leadership",
-			description: "le place holder",
+			description:
+				"Take on meaningful leadership roles that develop your communication, project management, and teamwork abilities. Gain real experience leading initiatives and mentoring others.",
 		},
 		{
 			id: 3,
 			title: "Networking",
-			description: "le place holder",
+			description:
+				"Connect with peers, professionals, and industry experts through events, activity groups, labs, and collaborative projects. Build relationships that can support your career growth and open new opportunities.",
 		},
 	];
 
@@ -79,7 +82,7 @@ function WhatWeOffer() {
 					{offerings.map((offering) => (
 						<motion.div
 							key={offering.id}
-							className="relative rounded-xl p-6 lg:p-8 flex flex-col justify-between min-h-[300px] lg:min-h-[400px] overflow-hidden group"
+							className="relative rounded-xl p-6 lg:p-8 flex flex-col justify-between overflow-hidden group"
 							variants={itemVariants}
 							style={{
 								background: "rgba(30, 30, 30, 0.5)",
@@ -109,7 +112,7 @@ function WhatWeOffer() {
 							</div>
 
 							{/* Learn More button - bottom right */}
-							<div className="flex justify-end mt-8">
+							{/* <div className="flex justify-end mt-8">
 								<motion.div
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
@@ -125,7 +128,7 @@ function WhatWeOffer() {
 										Learn More
 									</Button>
 								</motion.div>
-							</div>
+							</div> */}
 						</motion.div>
 					))}
 				</motion.div>

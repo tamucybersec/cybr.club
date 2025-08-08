@@ -90,6 +90,9 @@ function ActivityGroups() {
 					{/* Description - Left side */}
 					<div className="flex-1 flex flex-col justify-center">
 						<h3 className="font-azonix text-3xl">{group.title}</h3>
+						<h5 className="font-ubuntu-sans text-lg font-light">
+							{group.day}s at {group.time}
+						</h5>
 						<p className="text-white text-base lg:text-lg font-ubuntu-sans font-medium">
 							{group.description}
 						</p>
@@ -119,14 +122,28 @@ function ActivityGroups() {
 		>
 			{/* Placeholder background with fixed height */}
 			<div
-				className="w-full h-32 bg-gradient-to-br from-white/5 to-white/10 rounded mb-4"
+				className="w-full h-32 bg-gradient-to-br from-white/5 to-white/10 rounded mb-4 relative"
 				style={{ aspectRatio: "16/9" }}
-			></div>
+			>
+				<Image
+					className="object-contain p-16"
+					src={group.image}
+					alt={group.title}
+					fill
+					unoptimized
+				/>
+			</div>
 
 			{/* Description */}
-			<p className="text-white text-sm font-ubuntu-sans font-medium mb-4">
-				{group.description}
-			</p>
+			<div className="flex-1 flex flex-col justify-center">
+				<h3 className="font-azonix text-lg">{group.title}</h3>
+				<h5 className="font-ubuntu-sans text-sm font-light">
+					{group.day}s at {group.time}
+				</h5>
+				<p className="text-white text-sm font-ubuntu-sans font-medium mb-4">
+					{group.description}
+				</p>
+			</div>
 
 			{/* Learn More Button */}
 			<Button
