@@ -3,44 +3,33 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
 import Image from "next/image";
+import { photos } from "@/data/photos";
 
 // first row items
 const firstRowItems = [
 	{
 		id: 1,
-		title: "First Row Title 1",
-		description: "First row description 1",
-		image: "/images/general/cisco-soyjak.jpg",
+		...photos.ciscoSoyjak,
 	},
 	{
 		id: 2,
-		title: "First Row Title 2",
-		description: "First row description 2",
-		image: "/images/general/informational.jpg",
+		...photos.informational,
 	},
 	{
 		id: 3,
-		title: "First Row Title 3",
-		description: "First row description 3",
-		image: "/images/general/palo-women-panelists.png",
+		...photos.paloWomenPanelists,
 	},
 	{
 		id: 4,
-		title: "First Row Title 4",
-		description: "First row description 4",
-		image: "/images/general/unknown-contest.jpg",
+		...photos.unknownContest,
 	},
 	{
 		id: 5,
-		title: "First Row Title 5",
-		description: "First row description 5",
-		image: "/images/general/palo-women-students.png",
+		...photos.paloWomenStudents,
 	},
 	{
 		id: 6,
-		title: "First Row Title 6",
-		description: "First row description 6",
-		image: "/images/general/mimic.jpg",
+		...photos.mimic,
 	},
 ];
 
@@ -48,39 +37,27 @@ const firstRowItems = [
 const secondRowItems = [
 	{
 		id: 7,
-		title: "Second Row Title 1",
-		description: "Second row description 1",
-		image: "/images/general/ists.jpg",
+		...photos.ists,
 	},
 	{
 		id: 8,
-		title: "Second Row Title 2",
-		description: "Second row description 2",
-		image: "/images/general/cisco-gig-em.jpg",
+		...photos.ciscoGigEm,
 	},
 	{
 		id: 9,
-		title: "Second Row Title 3",
-		description: "Second row description 3",
-		image: "/images/general/colby-halo-mama.jpg",
+		...photos.colbyMasterChef,
 	},
 	{
 		id: 10,
-		title: "Second Row Title 4",
-		description: "Second row description 4",
-		image: "/images/general/cisco-huge.jpg",
+		...photos.ciscoHuge,
 	},
 	{
 		id: 11,
-		title: "Second Row Title 5",
-		description: "Second row description 5",
-		image: "/images/general/cisco-smile.jpg",
+		...photos.ciscoSmile,
 	},
 	{
 		id: 12,
-		title: "Second Row Title 6",
-		description: "Second row description 6",
-		image: "/images/general/panel-2025.jpg",
+		...photos.panel2025,
 	},
 ];
 
@@ -174,7 +151,7 @@ function SliderRow({
 							{/* Placeholder background */}
 							<div className="w-full h-full bg-gradient-to-br from-white/3 to-white/8 relative">
 								<Image
-									src={item.image}
+									src={item.path}
 									alt={item.title}
 									fill
 									unoptimized

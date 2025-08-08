@@ -1,7 +1,7 @@
 "use client";
 
 import { getCurrentYear, zodFile, zodTamuEmail } from "@/lib/helpers";
-import { MAJORS } from "@/lib/majors";
+import { MAJORS } from "@/data/majors";
 import { useForm, type Resolver } from "react-hook-form";
 import { z, type ZodTypeAny } from "zod";
 

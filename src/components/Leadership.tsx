@@ -10,7 +10,7 @@ import {
 	faLinkedin,
 	IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
-import { Officer, Socials } from "@/lib/officers";
+import { Officer, Socials } from "@/data/officers";
 import Image from "next/image";
 
 function SocialIcon({ platform }: { platform: keyof Socials }) {

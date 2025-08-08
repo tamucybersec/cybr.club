@@ -1,6 +1,6 @@
 "use client";
 
-import { MAJORS } from "@/lib/majors";
+import { MAJORS } from "@/data/majors";
 import { useEffect, useState, type ReactElement } from "react";
 import { z } from "zod";
 import type { User } from "../../lib/types";

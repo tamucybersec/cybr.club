@@ -19,7 +19,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { getCurrentYear, zodFile, zodTamuEmail } from "@/lib/helpers";
-import { MAJORS } from "@/lib/majors";
+import { MAJORS } from "@/data/majors";
 import { z, type ZodTypeAny } from "zod";
 import type { FormType, ReactState } from "../../lib/types";
 

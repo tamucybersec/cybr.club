@@ -5,7 +5,7 @@ import AboutChunk from "../../components/AboutChunk";
 import Leadership from "../../components/Leadership";
 import Sponsorship from "../../components/Sponsorship";
 import Footer from "../../components/Footer";
-import { activityLeaders, officers } from "@/lib/officers";
+import { activityLeaders, officers } from "@/data/officers";
 
 export default function AboutPage() {
 	return (

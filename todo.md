@@ -17,6 +17,15 @@
 
 ## Owen
 
+-   write the activity group descriptions
+-   include times in activity groups
+-   remove photos from git history
+
+-   write the recap for home page
+-   write bs for the home page captions (just use premade titles?)
 -   fix the contact us
 -   email link for about
 -   sponsorship tiers need to be in html
+-   fix styling of parnership
+-   fix styling of join
+-   photos for about
