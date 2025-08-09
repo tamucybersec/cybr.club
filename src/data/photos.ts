@@ -26,17 +26,17 @@ export const photos = {
 		path: "/images/general/cisco-gig-em.jpg",
 	},
 	ciscoHuge: {
-		title: "Cisco Teaching Hall",
+		title: "Lesson Lab",
 		description: "From Cisco Networking Academy",
 		path: "/images/general/cisco-huge.jpg",
 	},
 	ciscoSmile: {
-		title: "Fun Learning Networking",
+		title: "Halo LAN Party",
 		description: "From Cisco Networking Academy (Lab)",
 		path: "/images/general/cisco-smile.jpg",
 	},
 	ciscoSoyjak: {
-		title: "Understanding Networking",
+		title: "Wireless Configurations",
 		description: "From Cisco Networking Academy (Lab)",
 		path: "/images/general/cisco-soyjak.jpg",
 	},
@@ -101,7 +101,7 @@ export const photos = {
 		path: "/images/general/top-golf.jpg",
 	},
 	unknownContest: {
-		title: "Competition Grind Time",
+		title: "Competition Teamwork",
 		description: "From an unknown competition",
 		path: "/images/general/unknown-contest-alt.jpg",
 	},
