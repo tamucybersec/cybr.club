@@ -27,7 +27,13 @@ const sponsors: Record<Tier, Sponsor[]> = {
 			link: "https://www.lockheedmartin.com/en-us/index.html",
 		},
 	],
-	bronze: [],
+	bronze: [
+		{
+			name: "Global Cyber Research Institute",
+			image: "/images/sponsors/tees.svg",
+			link: "https://gcri.tamu.edu/",
+		},
+	],
 };
 
 const tierAttrs: Record<
@@ -77,7 +83,10 @@ function Sponsorship({ description }: { description?: string }) {
 
 	function Sponsor(tier: Tier, sponsor: Sponsor) {
 		return (
-			<Link href={sponsor.link} key={`${tier}-${sponsor.name}`}>
+			<Link
+				href={sponsor.link}
+				key={`${tier}-${sponsor.name}`}
+			>
 				<motion.div
 					className={`w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 bg-gradient-to-br rounded-full flex border justify-center items-center p-4`}
 					style={{
