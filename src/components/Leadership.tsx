@@ -2,7 +2,6 @@
 
 import Container from "@/components/Container";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLink } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Officer, Socials } from "@/data/officers";
 import Image from "next/image";
+import ObfuscatedLink from "./ObfuscatedLink";
 
 function SocialIcon({ platform }: { platform: keyof Socials }) {
 	let icon: IconDefinition | undefined = undefined;
@@ -82,9 +82,13 @@ function LeadershipCard({ member }: { member: Officer }) {
 						<div className="flex items-center gap-3 sm:gap-4">
 							{Object.entries(member.socials).map(
 								([platform, url], index) => (
-									<Link
+									<ObfuscatedLink
 										key={index}
 										href={url}
+										isEmail={
+											(platform as keyof Socials) ===
+											"email"
+										}
 										target="_blank"
 										rel="noopener noreferrer"
 										className="hover:scale-110 transition-transform duration-200"
@@ -92,7 +96,7 @@ function LeadershipCard({ member }: { member: Officer }) {
 										<SocialIcon
 											platform={platform as keyof Socials}
 										/>
-									</Link>
+									</ObfuscatedLink>
 								)
 							)}
 						</div>

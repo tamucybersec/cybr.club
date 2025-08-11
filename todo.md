@@ -17,11 +17,6 @@
 
 ## Owen
 
--   fix the contact us
--   email link for about
-
--   sponsorship tiers need to be in html
--   fix styling of parnership
 -   fix styling of join
 -   photos for about
 

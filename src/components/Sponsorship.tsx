@@ -1,61 +1,12 @@
 "use client";
 
 import Container from "@/components/Container";
+import { Sponsor, sponsors, Tier } from "@/data/sponsors";
+import { tierAttrs } from "@/lib/constants";
+import { capitalize } from "@/lib/helpers";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
-type Tier = "gold" | "silver" | "bronze";
-interface Sponsor {
-	name: string;
-	image: string;
-	link: string;
-}
-
-const sponsors: Record<Tier, Sponsor[]> = {
-	gold: [
-		{
-			name: "Mimic Ransomware Defense",
-			image: "/images/sponsors/mimic.svg",
-			link: "https://mimic.com/",
-		},
-	],
-	silver: [
-		{
-			name: "Lockheed Martin",
-			image: "/images/sponsors/lockheed-martin.png",
-			link: "https://www.lockheedmartin.com/en-us/index.html",
-		},
-	],
-	bronze: [
-		{
-			name: "Global Cyber Research Institute",
-			image: "/images/sponsors/tees.svg",
-			link: "https://gcri.tamu.edu/",
-		},
-	],
-};
-
-const tierAttrs: Record<
-	Tier,
-	{
-		fontSize: string;
-		color: string;
-	}
-> = {
-	gold: {
-		fontSize: "text-3xl",
-		color: "#FDDC5C",
-	},
-	silver: {
-		fontSize: "text-xl",
-		color: "#E0E0E0",
-	},
-	bronze: {
-		fontSize: "text-md",
-		color: "#C56A39",
-	},
-};
 
 function Sponsorship({ description }: { description?: string }) {
 	const containerVariants: Variants = {
@@ -115,8 +66,7 @@ function Sponsorship({ description }: { description?: string }) {
 		return (
 			<div key={tier}>
 				<h3 className={`${tierAttrs[tier].fontSize} font-azonix mb-4`}>
-					{tier.substring(0, 1).toLocaleUpperCase() +
-						tier.substring(1)}
+					{capitalize(tier)}
 				</h3>
 				<motion.div
 					className="flex flex-col sm:flex-row items-center justify-center gap-8 lg:gap-12 mb-12 lg:mb-16"
@@ -129,7 +79,7 @@ function Sponsorship({ description }: { description?: string }) {
 	}
 
 	return (
-		<Container className="py-16 sm:py-20 lg:py-24">
+		<Container>
 			<motion.div
 				className="text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
 				variants={containerVariants}

@@ -1,6 +1,5 @@
 "use client";
 import { motion, Variants } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 function WhatWeOffer() {
 	const containerVariants: Variants = {
