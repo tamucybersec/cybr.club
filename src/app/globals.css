@@ -153,7 +153,7 @@ body {
 
 	/* Background overlay utility */
 	.bg-background-overlay {
-		background-image: url("/images/app/HomeBackground.svg");
+		background-image: url("/images/app/HomeBackground.png");
 		background-size: 300% 300%;
 		background-position: center 40%;
 		background-repeat: no-repeat;
@@ -200,9 +200,44 @@ body {
 		-webkit-transform: translateZ(0);
 	}
 
+	/* Performance optimizations for animations */
+	[data-animate="true"] {
+		will-change: transform, opacity;
+		backface-visibility: hidden;
+		transform: translateZ(0);
+	}
+
+	/* Remove will-change after animation completes */
+	[data-animate="false"] {
+		will-change: auto;
+	}
+
+	/* Optimize smooth scrolling performance */
+	* {
+		scroll-behavior: smooth;
+	}
+
+	/* Reduce motion for better scroll performance */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+		
+		/* Disable Framer Motion animations entirely */
+		[data-framer-motion] {
+			transform: none !important;
+			transition: none !important;
+		}
+	}
+
 	/* Alternative approach - if you want the background to extend based on content */
 	.bg-background-overlay-dynamic {
-		background-image: url("/images/app/HomeBackground.svg");
+		background-image: url("/images/app/HomeBackground.png");
 		background-size: 300% 300%;
 		background-position: center 40%;
 		background-repeat: no-repeat;

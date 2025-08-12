@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 interface BackgroundOverlayProps {
 	desktopSize?: string;
 	desktopPosition?: string;
@@ -24,10 +26,13 @@ export default function BackgroundOverlay({
 	return (
 		<>
 			{/* Desktop Background */}
-			<div
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
 				className="hidden lg:block absolute -z-10 pointer-events-none"
 				style={{
-					backgroundImage: "url('/images/app/HomeBackground.svg')",
+					backgroundImage: "url('/images/app/HomeBackground.png')",
 					backgroundSize: desktopSize,
 					backgroundPosition: desktopPosition,
 					backgroundRepeat: "no-repeat",
@@ -43,10 +48,13 @@ export default function BackgroundOverlay({
 			/>
 
 			{/* Tablet Background */}
-			<div
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
 				className="hidden md:block lg:hidden absolute -z-10 pointer-events-none"
 				style={{
-					backgroundImage: "url('/images/app/HomeBackground.svg')",
+					backgroundImage: "url('/images/app/HomeBackground.png')",
 					backgroundSize: tabletSize,
 					backgroundPosition: tabletPosition,
 					backgroundRepeat: "no-repeat",
@@ -62,10 +70,13 @@ export default function BackgroundOverlay({
 			/>
 
 			{/* Mobile Background */}
-			<div
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
 				className="block md:hidden absolute -z-10 pointer-events-none"
 				style={{
-					backgroundImage: "url('/images/app/HomeBackground.svg')",
+					backgroundImage: "url('/images/app/HomeBackground.png')",
 					backgroundSize: mobileSize,
 					backgroundPosition: mobilePosition,
 					backgroundRepeat: "no-repeat",

@@ -18,7 +18,7 @@ function NavBar() {
 		<motion.div
 			initial={{ y: -100, opacity: 0 }}
 			animate={{ y: 16, opacity: 1 }}
-			transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+			transition={{ duration: 0.8, delay: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
 			className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8"
 		>
 			<Container>
@@ -40,7 +40,7 @@ function NavBar() {
 
 							{/* Desktop Navigation Links - Center */}
 							<div className="hidden md:flex items-center justify-center flex-1 space-x-6 lg:space-x-10">
-								<NavLink href="/about">About</NavLink>
+								{/* <NavLink href="/about">About</NavLink> */}
 								{/* <NavLink href="/events">Events</NavLink> */}
 								<NavLink href="/partnership">
 									Partnership
@@ -122,12 +122,12 @@ function NavBar() {
 									className="mt-2 rounded-2xl bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-[20px] border border-white/10 p-4 space-y-3"
 									onClick={(e) => e.stopPropagation()}
 								>
-									<MobileNavLink
+									{/* <MobileNavLink
 										href="/about"
 										onClick={toggleMenu}
 									>
 										About
-									</MobileNavLink>
+									</MobileNavLink> */}
 									{/* <MobileNavLink
 										href="/events"
 										onClick={toggleMenu}

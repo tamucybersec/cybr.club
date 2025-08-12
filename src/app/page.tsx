@@ -9,13 +9,15 @@ import HomeImageCaptions from "@/components/HomeImageCaptions";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
 import Sponsorship from "@/components/Sponsorship";
+import PageLoadOverlay from "@/components/PageLoadOverlay";
 
 export default function Home() {
 	return (
 		<>
+			<PageLoadOverlay />
 			<BackgroundOverlay
 				desktopSize="300% 300%"
-				desktopPosition="center 57%"
+				desktopPosition="center 27%"
 				tabletSize="350% 350%"
 				tabletPosition="center 25%"
 				mobileSize="400% 400%"
@@ -25,7 +27,7 @@ export default function Home() {
 			<HeroSection />
 			<AboutBlurb />
 
-			<ImageCarousel />
+			{/* <ImageCarousel /> */}
 			<BigThreeBlurb />
 
 			<HomeImageCaptions />
