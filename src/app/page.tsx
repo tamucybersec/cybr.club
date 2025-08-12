@@ -33,7 +33,7 @@ export default function Home() {
 			<HeroSection />
 			<AboutBlurb />
 
-			{/* <ImageCarousel /> */}
+			<ImageCarousel />
 			<BigThreeBlurb />
 
 			<HomeImageCaptions />
