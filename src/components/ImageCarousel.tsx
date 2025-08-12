@@ -150,14 +150,14 @@ function SliderRow({
 						<div className="relative w-full h-full rounded-lg overflow-hidden bg-[#171717] border border-white/10 transition-all duration-300 group-hover:border-white/20">
 							{/* Placeholder background */}
 							<div className="w-full h-full bg-gradient-to-br from-white/3 to-white/8 relative">
-								<Image
+								{/* <Image
 									src={item.path}
 									alt={item.title}
 									fill
 									unoptimized
 									loading="lazy"
 									className="object-cover"
-								/>
+								/> */}
 							</div>
 
 							{/* Hover overlay with information */}
