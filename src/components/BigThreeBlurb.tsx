@@ -1,7 +1,7 @@
 "use client"
 
 import Container from "@/components/Container"
-import { motion, Variants } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
 function NoBarriersSection() {
   const containerVariants: Variants = {
@@ -9,7 +9,7 @@ function NoBarriersSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.05,
         delayChildren: 0.1,
       },
     },
@@ -21,7 +21,7 @@ function NoBarriersSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
         ease: [0.25, 0.1, 0.25, 1]
       },
     },
@@ -34,7 +34,7 @@ function NoBarriersSection() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "100px" }}
       >
         {/* Left side - No payment, no prereqs, no pressure */}
         <motion.div className="flex items-center gap-6 lg:gap-8" variants={itemVariants}>

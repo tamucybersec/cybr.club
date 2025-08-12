@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 interface BackgroundOverlayProps {
 	desktop: Sizes;
 	tablet: Sizes;
@@ -34,7 +36,10 @@ export default function BackgroundOverlay({
 	return (
 		<>
 			{/* Desktop Background */}
-			<div
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
 				className="hidden lg:block absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",
@@ -53,7 +58,10 @@ export default function BackgroundOverlay({
 			/>
 
 			{/* Tablet Background */}
-			<div
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
 				className="hidden md:block lg:hidden absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",
@@ -72,7 +80,10 @@ export default function BackgroundOverlay({
 			/>
 
 			{/* Mobile Background */}
-			<div
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
 				className="block md:hidden absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",

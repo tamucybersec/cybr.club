@@ -12,20 +12,20 @@ function HeroSection() {
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.1,
+				staggerChildren: 0.3,
+				delayChildren: 1.5,
 			},
 		},
 	} as const;
 
 	const itemVariants = {
-		hidden: { opacity: 0, y: 30 },
+		hidden: { opacity: 0, y: 20 },
 		visible: (custom = 0) => ({
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.6,
-				delay: 0.1 + custom * 0.1,
+				duration: 0.8,
+				delay: 1.5 + custom * 0.3,
 				ease: [0.25, 0.46, 0.45, 0.94] as const,
 			},
 		}),
@@ -34,16 +34,16 @@ function HeroSection() {
 	// const imageVariants = {
 	// 	hidden: {
 	// 		opacity: 0,
-	// 		y: 50,
-	// 		scale: 0.95,
+	// 		y: 30,
+	// 		scale: 0.98,
 	// 	},
 	// 	visible: {
 	// 		opacity: 1,
 	// 		y: 0,
 	// 		scale: 1,
 	// 		transition: {
-	// 			duration: 0.8,
-	// 			delay: 0.3,
+	// 			duration: 1.2,
+	// 			delay: 2.5,
 	// 			ease: [0.215, 0.61, 0.355, 1],
 	// 		},
 	// 	},

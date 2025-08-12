@@ -76,12 +76,12 @@ function SliderRow({
 	const x = useMotionValue(startOffset);
 
 	// Duplicate items for seamless looping
-	const duplicatedItems = [...items, ...items, ...items]; // looped 3 times
+	const duplicatedItems = [...items, ...items]; // looped 2 times
 
 	const startAnimation = useCallback(() => {
 		if (!carouselRef.current) return;
 
-		const totalWidth = carouselRef.current.scrollWidth / 3; // distance travelled- may need to adjust
+		const totalWidth = carouselRef.current.scrollWidth / 2; // distance travelled- may need to adjust
 
 		if (direction === "left") {
 			// Moving left (negative direction)
@@ -155,6 +155,7 @@ function SliderRow({
 									alt={item.title}
 									fill
 									unoptimized
+									loading="lazy"
 									className="object-cover"
 									loading="lazy"
 								/>

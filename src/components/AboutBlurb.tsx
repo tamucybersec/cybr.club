@@ -1,7 +1,7 @@
 "use client"
 
 import Container from "@/components/Container"
-import { motion, Variants } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
 function AboutBlurb() {
   
@@ -10,14 +10,14 @@ function AboutBlurb() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.15,
+        delayChildren: 0.4,
       },
     },
   }
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -35,7 +35,7 @@ function AboutBlurb() {
 				variants={containerVariants}
 				initial="hidden"
 				whileInView="visible"
-				viewport={{ once: true, amount: 0.3 }}
+				viewport={{ once: true, amount: 0.1, margin: "100px" }}
 			>
 				<div className="pt-36"></div>
 				<motion.h2

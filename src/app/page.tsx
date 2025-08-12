@@ -9,10 +9,12 @@ import HomeImageCaptions from "@/components/HomeImageCaptions";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
 import Sponsorship from "@/components/Sponsorship";
+import PageLoadOverlay from "@/components/PageLoadOverlay";
 
 export default function Home() {
 	return (
 		<>
+			<PageLoadOverlay />
 			<BackgroundOverlay
 				desktop={{
 					size: "300% 120%",
@@ -31,7 +33,7 @@ export default function Home() {
 			<HeroSection />
 			<AboutBlurb />
 
-			<ImageCarousel />
+			{/* <ImageCarousel /> */}
 			<BigThreeBlurb />
 
 			<HomeImageCaptions />

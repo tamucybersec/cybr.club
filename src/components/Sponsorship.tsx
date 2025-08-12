@@ -4,7 +4,7 @@ import Container from "@/components/Container";
 import { Sponsor, sponsors, Tier } from "@/data/sponsors";
 import { tierAttrs } from "@/lib/constants";
 import { capitalize } from "@/lib/helpers";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ function Sponsorship({ description }: { description?: string }) {
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.3,
+				staggerChildren: 0.1,
 				delayChildren: 0.1,
 			},
 		},
@@ -26,7 +26,7 @@ function Sponsorship({ description }: { description?: string }) {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.6,
+				duration: 0.3,
 				ease: [0.25, 0.46, 0.45, 0.94],
 			},
 		},
