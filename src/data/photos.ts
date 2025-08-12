@@ -83,7 +83,7 @@ export const photos = {
 	panel2025: {
 		title: "Alumni Panelists",
 		description: "From the 2025 Alumni Panel",
-		path: "/images/general/panel-2025.jpg",
+		path: "/images/general/panel-2025-alt.jpg",
 	},
 	samGigEm: {
 		title: "Sam's Garbage Plate",
@@ -100,9 +100,9 @@ export const photos = {
 		description: "From an Officer Social",
 		path: "/images/general/top-golf.jpg",
 	},
-	unknownContest: {
-		title: "Competition Teamwork",
-		description: "From an unknown competition",
-		path: "/images/general/unknown-contest-alt.jpg",
+	fallSocial: {
+		title: "Bahama Bucks and Chill",
+		description: "From a Fall Social",
+		path: "/images/general/fall-social.jpg",
 	},
 } satisfies Record<string, Photo>;

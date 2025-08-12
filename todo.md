@@ -4,6 +4,8 @@
 
 -   Some transitions need to occur earlier and quicker
 -   fix performance issues (home page in particular)
+-   refactor reused variants
+    -   place them into the /lib/constants and rename them to "basicContainerVariants", etc.
 
 ## Home
 

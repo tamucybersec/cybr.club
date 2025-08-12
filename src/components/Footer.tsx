@@ -147,7 +147,7 @@ function Footer() {
 		<Container className="py-8 sm:py-12">
 			<div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
 				{/* Logo and Contact Section */}
-				<div className="flex flex-col items-center lg:items-start gap-4 w-full lg:w-auto">
+				<div className="flex flex-col justify-center items-center gap-4 w-full lg:w-auto">
 					<Logo
 						size={60}
 						className="sm:mb-2"

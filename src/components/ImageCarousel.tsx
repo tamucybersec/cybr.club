@@ -21,7 +21,7 @@ const firstRowItems = [
 	},
 	{
 		id: 4,
-		...photos.unknownContest,
+		...photos.fallSocial,
 	},
 	{
 		id: 5,
