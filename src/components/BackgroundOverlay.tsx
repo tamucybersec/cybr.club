@@ -1,25 +1,35 @@
 "use client";
 
 interface BackgroundOverlayProps {
-	desktopSize?: string;
-	desktopPosition?: string;
-	tabletSize?: string;
-	tabletPosition?: string;
-	mobileSize?: string;
-	mobilePosition?: string;
+	desktop: Sizes;
+	tablet: Sizes;
+	mobile: Sizes;
+}
+
+interface Sizes {
+	size: string;
+	position: string;
 	height?: string;
 	minHeight?: string;
 }
 
+// desktopSize = "300% 300%",
+// desktopPosition = "center 40%",
+// desktopHeight = "max(500vh, 100%)",
+// desktopMinHeight = "500vh",
+// tabletSize = "350% 350%",
+// tabletPosition = "center 35%",
+// tabletHeight = "max(550vh, 100%)",
+// tabletMinHeight = "550vh",
+// mobileSize = "400% 400%",
+// mobilePosition = "center 30%",
+// mobileHeight = "max(600vh, 100%)",
+// mobileMinHeight = "600vh",
+
 export default function BackgroundOverlay({
-	desktopSize = "300% 300%",
-	desktopPosition = "center 40%",
-	tabletSize = "350% 350%",
-	tabletPosition = "center 35%",
-	mobileSize = "400% 400%",
-	mobilePosition = "center 30%",
-	height = "max(500vh, 100%)",
-	minHeight = "500vh",
+	desktop,
+	tablet,
+	mobile,
 }: BackgroundOverlayProps) {
 	return (
 		<>
@@ -28,12 +38,12 @@ export default function BackgroundOverlay({
 				className="hidden lg:block absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",
-					backgroundSize: desktopSize,
-					backgroundPosition: desktopPosition,
+					backgroundSize: desktop.size,
+					backgroundPosition: desktop.position,
 					backgroundRepeat: "no-repeat",
 					width: "100%",
-					height: height,
-					minHeight: minHeight,
+					height: desktop.height ?? "100%",
+					minHeight: desktop.minHeight ?? "100%",
 					top: "0",
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
@@ -47,12 +57,12 @@ export default function BackgroundOverlay({
 				className="hidden md:block lg:hidden absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",
-					backgroundSize: tabletSize,
-					backgroundPosition: tabletPosition,
+					backgroundSize: tablet.size,
+					backgroundPosition: tablet.position,
 					backgroundRepeat: "no-repeat",
 					width: "100%",
-					height: "max(550vh, 100%)",
-					minHeight: "550vh",
+					height: tablet.height ?? "100%",
+					minHeight: tablet.minHeight ?? "100%",
 					top: "0",
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
@@ -66,12 +76,12 @@ export default function BackgroundOverlay({
 				className="block md:hidden absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",
-					backgroundSize: mobileSize,
-					backgroundPosition: mobilePosition,
+					backgroundSize: mobile.size,
+					backgroundPosition: mobile.position,
 					backgroundRepeat: "no-repeat",
 					width: "100%",
-					height: "max(600vh, 100%)",
-					minHeight: "600vh",
+					height: mobile.height ?? "100%",
+					minHeight: mobile.minHeight ?? "100%",
 					top: "0",
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",

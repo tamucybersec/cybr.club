@@ -31,23 +31,23 @@ function HeroSection() {
 		}),
 	} as const;
 
-	const imageVariants = {
-		hidden: {
-			opacity: 0,
-			y: 50,
-			scale: 0.95,
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			scale: 1,
-			transition: {
-				duration: 0.8,
-				delay: 0.3,
-				ease: [0.215, 0.61, 0.355, 1],
-			},
-		},
-	} as const;
+	// const imageVariants = {
+	// 	hidden: {
+	// 		opacity: 0,
+	// 		y: 50,
+	// 		scale: 0.95,
+	// 	},
+	// 	visible: {
+	// 		opacity: 1,
+	// 		y: 0,
+	// 		scale: 1,
+	// 		transition: {
+	// 			duration: 0.8,
+	// 			delay: 0.3,
+	// 			ease: [0.215, 0.61, 0.355, 1],
+	// 		},
+	// 	},
+	// } as const;
 
 	return (
 		<Container className="mt-[15dvh] sm:mt-[20dvh] px-4 sm:px-6 lg:px-8">
@@ -102,27 +102,31 @@ function HeroSection() {
 
 				<motion.div
 					className="flex-1 w-full left-15 max-w-2xl relative h-[300px] lg:h-[400px] xl:h-[500px]"
-					variants={imageVariants}
-					initial="hidden"
-					animate="visible"
+					// variants={imageVariants}
+					// initial="hidden"
+					// animate="visible"
 				>
 					<motion.div
-						className="relative w-full h-full"
-						whileHover={{ scale: 1.02 }}
-						transition={{
-							type: "spring",
-							stiffness: 300,
-							damping: 10,
-						}}
+						className="relative w-[100vw] h-[100vh]"
+						style={{transform: "translateX(-40vw) translateY(-20%)"}}
+						// whileHover={{ scale: 1.02 }}
+						// transition={{
+						// 	type: "spring",
+						// 	stiffness: 300,
+						// 	damping: 10,
+						// }}
 					>
 						<Image
-							src="/images/app/PlaceholderLogo.svg"
+							src="/images/club-logos/white-shield.svg"
 							alt="Cybersecurity Club Shield Logo"
 							fill
 							sizes="(max-width: 1024px) 100vw, 50vw"
 							priority
 							unoptimized
 							className="object-contain object-center"
+							style={{
+								filter: "opacity(.05)"
+							}}
 						/>
 					</motion.div>
 				</motion.div>

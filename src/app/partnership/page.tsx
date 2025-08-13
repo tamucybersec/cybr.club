@@ -1,5 +1,6 @@
 "use client";
 
+import BackgroundOverlay from "@/components/BackgroundOverlay";
 import Benefits from "@/components/Benefits";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
@@ -10,6 +11,20 @@ import Sponsorship from "@/components/Sponsorship";
 export default function Partnership() {
 	return (
 		<>
+			<BackgroundOverlay
+				desktop={{
+					size: "300% 150%",
+					position: "center 50%",
+				}}
+				tablet={{
+					size: "250% 300%",
+					position: "center 45%",
+				}}
+				mobile={{
+					size: "200% 300%",
+					position: "center 30%",
+				}}
+			/>
 			<NavBar />
 			<PartnerLanding />
 			<Benefits />

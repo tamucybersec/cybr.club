@@ -14,12 +14,18 @@ export default function Home() {
 	return (
 		<>
 			<BackgroundOverlay
-				desktopSize="300% 300%"
-				desktopPosition="center 57%"
-				tabletSize="350% 350%"
-				tabletPosition="center 25%"
-				mobileSize="400% 400%"
-				mobilePosition="center 20%"
+				desktop={{
+					size: "300% 120%",
+					position: "center 57%",
+				}}
+				tablet={{
+					size: "250% 120%",
+					position: "center 25%",
+				}}
+				mobile={{
+					size: "200% 120%",
+					position: "center 20%",
+				}}
 			/>
 			<NavBar />
 			<HeroSection />

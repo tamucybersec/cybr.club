@@ -49,6 +49,7 @@ function JoinGuide() {
 		<Container>
 			<motion.div
 				className="flex flex-col justify-between item-center gap-4 mt-8 from-white/10 to-white/5 rounded-lg border border-white/10 p-4"
+				style={{ backgroundColor: "rgba(15, 15, 15, 0.7)" }}
 				variants={containerVariants}
 				initial="hidden"
 				animate="visible"
