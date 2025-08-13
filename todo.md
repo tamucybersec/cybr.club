@@ -19,7 +19,5 @@
 
 ## Owen
 
--   fix styling of join
 -   photos for about
-
 -   remove photos from git history

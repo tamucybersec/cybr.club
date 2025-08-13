@@ -34,6 +34,7 @@ body {
 
 		/* Better mobile-first responsive text sizing */
 		--text-hero-heading: clamp(1.5rem, 4.5vw, 3rem); /* 24px - 48px */
+		--text-hero-subtitle: clamp(1.25rem, 3.5vw, 2rem); /* 24px - 48px */
 		--text-hero-subtext: clamp(0.9rem, 2.5vw, 1.625rem); /* 14.4px - 26px */
 		--text-hero-button: clamp(0.8rem, 2vw, 1.25rem); /* 12.8px - 20px */
 
@@ -53,7 +54,7 @@ body {
 		color: var(--foreground);
 		background: var(--background);
 		font-family: var(--font-ubuntu-sans);
-		font-weight: 100;
+		font-weight: 300;
 		position: relative;
 	}
 
@@ -66,6 +67,10 @@ body {
 
 	.text-hero-heading {
 		font-size: var(--text-hero-heading);
+	}
+
+	.text-hero-subtitle {
+		font-size: var(--text-hero-subtitle);
 	}
 
 	.text-hero-subtext {

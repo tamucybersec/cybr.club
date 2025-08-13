@@ -156,6 +156,7 @@ function SliderRow({
 									fill
 									unoptimized
 									className="object-cover"
+									loading="lazy"
 								/>
 							</div>
 

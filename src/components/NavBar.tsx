@@ -24,11 +24,7 @@ function NavBar() {
 			<Container>
 				<div className="px-2 sm:px-4">
 					<div
-						className="flex justify-between items-center rounded-2xl px-6 py-3 
-            bg-gradient-to-r from-white/5 via-white/10 to-white/5 
-            backdrop-blur-[20px] border border-white/10 shadow-2xl
-            relative overflow-hidden
-            before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/10 before:to-transparent before:opacity-50 before:pointer-events-none"
+						className="flex justify-between items-center rounded-2xl px-6 py-3 bg-gradient-to-r from-white/5 via-white/10 to-white/5 backdrop-blur-[20px] border border-white/10 shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/10 before:to-transparent before:opacity-50 before:pointer-events-none"
 					>
 						<div className="flex-1 flex items-center">
 							<Link
@@ -40,7 +36,7 @@ function NavBar() {
 
 							{/* Desktop Navigation Links - Center */}
 							<div className="hidden md:flex items-center justify-center flex-1 space-x-6 lg:space-x-10">
-								<NavLink href="/about">About</NavLink>
+								{/* <NavLink href="/about">About</NavLink> */}
 								{/* <NavLink href="/events">Events</NavLink> */}
 								<NavLink href="/partnership">
 									Partnership
@@ -122,12 +118,12 @@ function NavBar() {
 									className="mt-2 rounded-2xl bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-[20px] border border-white/10 p-4 space-y-3"
 									onClick={(e) => e.stopPropagation()}
 								>
-									<MobileNavLink
+									{/* <MobileNavLink
 										href="/about"
 										onClick={toggleMenu}
 									>
 										About
-									</MobileNavLink>
+									</MobileNavLink> */}
 									{/* <MobileNavLink
 										href="/events"
 										onClick={toggleMenu}

@@ -31,14 +31,14 @@ function PartnerLanding() {
 		<Container className="mt-[15dvh] sm:mt-[20dvh] px-4 sm:px-6 lg:px-8 mb-8">
 			<div className="max-w-7xl mx-auto">
 				<motion.div
-					className="relative"
+					className="relative flex flex-col-reverse lg:block lg:flex-none"
 					variants={containerVariants}
 					initial="hidden"
 					animate="visible"
 				>
 					{/* Floating image */}
 					<motion.div
-						className="float-left mr-6 mb-4 w-[300px] h-[300px] lg:w-[500px] relative"
+						className="float-left mr-6 mb-4 w-full h-[300px] lg:w-[500px] relative"
 						custom={1}
 						variants={itemVariants}
 						initial="hidden"
@@ -55,31 +55,31 @@ function PartnerLanding() {
 						</div>
 					</motion.div>
 
-					{/* Content that wraps around the image */}
-					<motion.div
-						className="mb-4"
-						variants={itemVariants}
-					>
-						<h1 className="font-azonix text-5xl">
-							Back Tomorrow&apos;s Cyber Leaders
-						</h1>
-					</motion.div>
+					<div>
+						<motion.div
+							className="lg:mb-4"
+							variants={itemVariants}
+						>
+							<h1 className="font-azonix text-hero-heading">
+								Back Tomorrow&apos;s Cyber Leaders
+							</h1>
+						</motion.div>
 
-					<motion.p
-						className="font-ubuntu-sans text-[22px] leading-relaxed text-white/70"
-						variants={itemVariants}
-					>
-						{/* Your text content here */}
-						Support the next generation of cybersecurity
-						professionals by sponsoring the Texas A&M Cybersecurity
-						Club. Our passionate and driven members depend on the
-						generosity of sponsors to access career-launching
-						opportunities. Your support makes it possible for
-						students to compete in national competitions, attend
-						industry conferences, earn respected certifications, and
-						host hands-on technical workshops that build real-world
-						skills.
-					</motion.p>
+						<motion.p
+							className="font-ubuntu-sans mb-4 text-hero-subtext leading-relaxed text-white/70"
+							variants={itemVariants}
+						>
+							Support the next generation of cybersecurity
+							professionals by sponsoring the Texas A&M
+							Cybersecurity Club. Our passionate and driven
+							members depend on the generosity of sponsors to
+							access career-launching opportunities. Your support
+							makes it possible for students to compete in
+							national competitions, attend industry conferences,
+							earn respected certifications, and host hands-on
+							technical workshops that build real-world skills.
+						</motion.p>
+					</div>
 				</motion.div>
 			</div>
 		</Container>

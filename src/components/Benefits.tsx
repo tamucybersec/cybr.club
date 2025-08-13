@@ -47,23 +47,23 @@ function Benefits() {
 	const Benefit = (tier: Tier, benefits: BenefitsType) => (
 		<motion.div
 			key={tier}
-			className={`bg-gradient-to-br rounded grid grid-cols-2 border p-4`}
+			className={`bg-gradient-to-br rounded sm:grid sm:grid-cols-2 border p-4`}
 			style={{
 				borderColor: `${tierAttrs[tier].color}36`,
 				background: `linear-gradient(to bottom right, ${tierAttrs[tier].color}24, ${tierAttrs[tier].color}12)`,
 			}}
 			variants={itemVariants}
 		>
-			<div className="flex flex-col justify-center items-center">
+			<div className="flex flex-col mb-2 justify-center sm:items-center">
 				<h3
-					className="font-azonix text-4xl"
+					className="font-azonix text-hero-subtitle"
 					style={{ color: `${tierAttrs[tier].color}B0` }}
 				>
 					{capitalize(tier)}
 				</h3>
-				<p className="font-ubuntu-sans text-lg">{benefits.cost}</p>
+				<p className="font-ubuntu-sans text-hero-button">{benefits.cost}</p>
 			</div>
-			<ul className="list-disc list-inside text-xl font-ubuntu-sans font-regular">
+			<ul className="list-disc list-inside text-hero-button font-ubuntu-sans">
 				{benefits.points.map((p, index) => (
 					<li key={index}>{p}</li>
 				))}
@@ -83,7 +83,9 @@ function Benefits() {
 				initial="hidden"
 				whileInView="visible"
 			>
-				<TitleContainer>Benefits</TitleContainer>
+				<TitleContainer className="text-hero-heading">
+					Benefits
+				</TitleContainer>
 			</motion.div>
 			<Container>
 				<motion.div

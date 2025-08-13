@@ -15,7 +15,7 @@ import {
 	// CalendarClock,
 	Flag,
 	HeartHandshake,
-	Info,
+	// Info,
 	Network,
 	Shield,
 	Star,
@@ -32,11 +32,11 @@ interface FooterLink {
 }
 
 const redirects: FooterLink[] = [
-	{
-		label: "About",
-		href: "/about",
-		icon: <Info size={14} />,
-	},
+	// {
+	// 	label: "About",
+	// 	href: "/about",
+	// 	icon: <Info size={14} />,
+	// },
 	// {
 	//   label: "Events",
 	//   href: "/events",

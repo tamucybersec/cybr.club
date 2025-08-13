@@ -51,15 +51,37 @@ function PartnerGuide() {
 				viewport={{ amount: 0.3, once: true }}
 			>
 				<Link href={"/pdfs/Sponsorship Packet 2025-2026.pdf"}>
-					<TitleContainer className="mt-8 flex gap-6">
+					<TitleContainer className="mt-8 flex gap-4 md:gap-6 text-hero-heading">
 						Partnership Guide
-						<ExternalLink size={36} />
+						<ExternalLink
+							className="sm:hidden"
+							size={16}
+						/>
+						<ExternalLink
+							className="hidden sm:block lg:hidden"
+							size={24}
+						/>
+						<ExternalLink
+							className="hidden lg:block"
+							size={36}
+						/>
 					</TitleContainer>
 				</Link>
 			</motion.div>
 			<Container>
+				<motion.p
+					className="mb-16 md:mb-8 text-hero-button"
+					variants={itemVariants}
+					initial="hidden"
+					whileInView={"visible"}
+					viewport={{ amount: 0.2, once: true }}
+				>
+					Feel free to check out our Sponsorship Packet! It includes
+					all the latest information about us, why you should sponsor,
+					tiers, and the impact of sponsorship. Please consider it!
+				</motion.p>
 				<motion.div
-					className="w-full h-screen"
+					className="w-full h-screen hidden md:block"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView={"visible"}

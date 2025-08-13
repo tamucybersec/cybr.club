@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "@/components/Container";
+import { photos } from "@/data/photos";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
@@ -32,20 +33,20 @@ function JoinLanding() {
 		<Container className="mt-[15dvh] sm:mt-[20dvh] px-4 sm:px-6 lg:px-8">
 			<div className="flex flex-col lg:flex-row items-start justify-between w-full gap-8 lg:gap-12 max-w-7xl mx-auto">
 				<motion.div
-					className="flex-1 max-w-2xl lg:pr-8"
+					className="flex-1 lg:pr-8"
 					variants={containerVariants}
 					initial="hidden"
 					animate="visible"
 				>
 					<motion.h1
-						className="font-azonix text-5xl"
+						className="font-azonix text-hero-heading"
 						variants={itemVariants}
 					>
 						Join Us!
 					</motion.h1>
 
 					<motion.p
-						className="font-ubuntu-sans text-[22px] leading-relaxed text-white/70"
+						className="font-ubuntu-sans text-hero-subtext leading-relaxed text-white/70"
 						variants={itemVariants}
 					>
 						Everyone is welcome here, no matter your experience
@@ -58,7 +59,7 @@ function JoinLanding() {
 				</motion.div>
 
 				<motion.div
-					className="flex-1 relative h-[200px] lg:h-[300px]"
+					className="lg:flex-1 relative w-full h-[200px] lg:h-[300px]"
 					variants={itemVariants}
 					initial="hidden"
 					animate="visible"
@@ -66,9 +67,9 @@ function JoinLanding() {
 				>
 					<div className="relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10">
 						<Image
-							className="object-contain"
-							src="/images/committees/NibblesWow.png"
-							alt={"Nibbles Wow"}
+							className="object-cover"
+							src={photos.tamuctf.path}
+							alt={photos.tamuctf.title}
 							fill
 							unoptimized
 						/>
