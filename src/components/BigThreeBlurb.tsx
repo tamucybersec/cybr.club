@@ -37,12 +37,12 @@ function NoBarriersSection() {
         viewport={{ once: true, amount: 0.1, margin: "100px" }}
       >
         {/* Left side - No payment, no prereqs, no pressure */}
-        <motion.div className="flex items-center gap-6 lg:gap-8" variants={itemVariants}>
+        <motion.div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center lg:text-left" variants={itemVariants}>
           {/* Vertical line */}
-          <div className="w-0.5 h-24 sm:h-28 lg:h-32 bg-white/40"></div>
+          <div className="w-0.5 h-20 sm:h-24 lg:h-32 bg-white/40"></div>
 
           {/* Text content */}
-          <div className="font-azonix text-hero-heading leading-[0.85]">
+          <div className="font-azonix text-hero-heading leading-[0.85] px-2 sm:px-0">
             <div className="block">No payment,</div>
             <div className="block">no prereqs,</div>
             <div className="block">no pressure.</div>
@@ -50,12 +50,14 @@ function NoBarriersSection() {
         </motion.div>
 
         {/* Right side - Description */}
-        <motion.div className="flex-1 max-w-3xl" variants={itemVariants}>
-          <p className="font-ubuntu-sans pb-5 text-[#AAAAAA] text-hero-subtext leading-tight">
-            <span className="block">Come to any meetings you want, whenever it works for you.</span>
-            <span className="block">There are no fees, no prerequisites, and absolutely no pressure.</span>
-            <span className="block">Just show up when you&apos;re interested.</span>
-          </p>
+        <motion.div className="flex-1 max-w-3xl text-center lg:text-left" variants={itemVariants}>
+          <div className="font-ubuntu-sans pb-5 text-[#AAAAAA] leading-snug px-4 sm:px-0" style={{ fontSize: 'clamp(0.7rem, 1.8vw, 1.625rem)' }}>
+            <div className="space-y-1 sm:space-y-2">
+              <div className="block">Come to any meetings you want, whenever&nbsp;it&nbsp;works&nbsp;for&nbsp;you.</div>
+              <div className="block">There are no fees, no prerequisites,&nbsp;and&nbsp;absolutely&nbsp;no&nbsp;pressure.</div>
+              <div className="block">Just show up when&nbsp;you're&nbsp;interested.</div>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </Container>

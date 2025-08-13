@@ -33,9 +33,9 @@ body {
 		--container-padding: 1.5rem;
 
 		/* Better mobile-first responsive text sizing */
-		--text-hero-heading: clamp(1.5rem, 4.5vw, 3rem); /* 24px - 48px */
-		--text-hero-subtext: clamp(0.9rem, 2.5vw, 1.625rem); /* 14.4px - 26px */
-		--text-hero-button: clamp(0.8rem, 2vw, 1.25rem); /* 12.8px - 20px */
+		--text-hero-heading: clamp(1.5rem, 4.5vw, 3rem); /* 24px - 48px (adjusted for iPhone SE) */
+		--text-hero-subtext: clamp(1.1rem, 3vw, 1.625rem); /* 17.6px - 26px (bigger on mobile) */
+		--text-hero-button: clamp(0.85rem, 2vw, 1.25rem); /* 13.6px - 20px */
 
 		--gap-responsive: clamp(1rem, 2vw, 2rem);
 		--padding-responsive: clamp(1rem, 2vw, 2rem);
@@ -164,12 +164,21 @@ body {
 	}
 
 	/* Responsive background adjustments */
-	@media (max-width: 768px) {
+	@media (max-width: 480px) {
 		.bg-background-overlay {
-			background-size: 400% 400%;
-			background-position: center 30%;
-			min-height: 600vh;
-			height: max(600vh, 100%);
+			background-size: 500% 500%;
+			background-position: center 25%;
+			min-height: 700vh;
+			height: max(700vh, 100%);
+		}
+	}
+
+	@media (min-width: 481px) and (max-width: 768px) {
+		.bg-background-overlay {
+			background-size: 450% 450%;
+			background-position: center 28%;
+			min-height: 650vh;
+			height: max(650vh, 100%);
 		}
 	}
 

@@ -50,16 +50,19 @@ function HeroSection() {
 	} as const;
 
 	return (
-		<Container className="mt-[15dvh] sm:mt-[20dvh] px-4 sm:px-6 lg:px-8">
+		<Container className="mt-[25dvh] sm:mt-[20dvh] px-4 sm:px-6 lg:px-8">
 			<div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 lg:gap-12 max-w-7xl mx-auto">
 				<motion.div
-					className="flex-1 max-w-2xl lg:pr-8"
+					className="flex-1 max-w-2xl lg:pr-8 text-center lg:text-left"
 					variants={containerVariants}
 					initial="hidden"
 					animate="visible"
 				>
 					<motion.h1
-						className="font-azonix text-hero-heading leading-tight"
+						className="font-azonix text-hero-heading leading-tight px-2 sm:px-0"
+						style={{
+							fontSize: 'clamp(1.25rem, 4vw, 3rem)' // Even smaller on very small screens
+						}}
 						variants={itemVariants}
 					>
 						<span className="block whitespace-nowrap">
@@ -69,7 +72,7 @@ function HeroSection() {
 					</motion.h1>
 
 					<motion.p
-						className="text-[#AAAAAA] text-hero-subtext leading-snug max-w-3xl mt-0 sm:mt-4"
+						className="text-[#AAAAAA] text-hero-subtext leading-snug max-w-2xl mx-auto lg:mx-0 mt-2 sm:mt-4 px-2 sm:px-0"
 						variants={itemVariants}
 					>
 						Earn certifications, gain real-world experience,
@@ -83,7 +86,7 @@ function HeroSection() {
 					>
 						<Button
 							asChild
-							className="text-hero-button font-azonix px-8 sm:px-10 py-1.5 sm:py-4 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+							className="text-hero-button font-azonix px-8 sm:px-10 py-3 sm:py-4 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
 							style={{ borderRadius: "10px" }}
 						>
 							<Link href="/join">Join</Link>

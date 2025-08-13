@@ -64,7 +64,7 @@ function WhatWeOffer() {
 			>
 				{/* Title */}
 				<motion.h2
-					className="font-azonix text-hero-heading text-white mb-8 lg:mb-12"
+					className="font-azonix text-hero-heading text-white mb-8 lg:mb-12 text-center px-2 sm:px-0"
 					variants={itemVariants}
 					style={{
 						textShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
@@ -95,7 +95,7 @@ function WhatWeOffer() {
 							{/* Top section with title and icon */}
 							<div>
 								<div className="flex items-start justify-between mb-6">
-									<h3 className="font-ubuntu-sans text-xl lg:text-2xl font-semibold text-white">
+									<h3 className="font-ubuntu-sans text-hero-subtext font-semibold text-white">
 										{offering.title}
 									</h3>
 									{/* Simple icon placeholder */}
@@ -105,7 +105,7 @@ function WhatWeOffer() {
 								</div>
 
 								{/* Description */}
-								<p className="font-ubuntu-sans text-sm lg:text-base text-white/70 leading-relaxed">
+								<p className="font-ubuntu-sans text-hero-subtext text-white/70 leading-relaxed">
 									{offering.description}
 								</p>
 							</div>
