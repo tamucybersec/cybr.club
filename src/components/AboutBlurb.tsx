@@ -40,6 +40,9 @@ function AboutBlurb() {
 				<div className="pt-36"></div>
 				<motion.h2
 					className="font-azonix text-hero-heading mb-6 sm:mb-8"
+					style={{
+						fontSize: 'clamp(1.5rem, 5vw, 3rem)' // Bigger on larger mobile devices
+					}}
 					variants={itemVariants}
 				>
 					<span className="block bg-gradient-to-r from-white to-[#321E1E] bg-clip-text text-transparent leading-[0.9] mt-1">
@@ -48,7 +51,7 @@ function AboutBlurb() {
 				</motion.h2>
 
 				<motion.p
-					className="font-ubuntu-sans text-hero-subtext text-[#AAAAAA] leading-tight max-w-5xl mx-auto px-4"
+					className="font-ubuntu-sans text-hero-subtext text-[#AAAAAA] leading-snug max-w-4xl mx-auto px-4 sm:px-6"
 					variants={itemVariants}
 				>
 					Our expert student instructors lead hands-on activity groups

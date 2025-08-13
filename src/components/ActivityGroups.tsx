@@ -137,11 +137,11 @@ function ActivityGroups() {
 
 			{/* Description */}
 			<div className="flex-1 flex flex-col justify-center">
-				<h3 className="font-azonix text-lg">{group.title}</h3>
+				<h3 className="font-azonix text-hero-subtext">{group.title}</h3>
 				<h5 className="font-ubuntu-sans text-sm font-light">
 					{group.day}s at {group.time}
 				</h5>
-				<p className="text-white text-sm font-ubuntu-sans font-medium mb-4">
+				<p className="text-white text-hero-button font-ubuntu-sans font-medium mb-4">
 					{group.description}
 				</p>
 			</div>
