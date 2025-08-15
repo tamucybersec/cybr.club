@@ -226,10 +226,7 @@ body {
 		will-change: auto;
 	}
 
-	/* Optimize smooth scrolling performance */
-	* {
-		scroll-behavior: smooth;
-	}
+	/* Let Lenis handle smooth scrolling - removed scroll-behavior to prevent conflicts */
 
 	/* Reduce motion for better scroll performance */
 	@media (prefers-reduced-motion: reduce) {
@@ -326,6 +323,58 @@ body {
 		overflow: hidden;
 		/* Critical: prevent height changes during image loading */
 		min-height: fit-content;
+	}
+
+	/* Responsive background overlay - single element approach */
+	.bg-background-responsive {
+		--bg-size: 300% 300%;
+		--bg-position: center 30%;
+	}
+
+	@media (min-width: 769px) and (max-width: 1024px) {
+		.bg-background-responsive {
+			--bg-size: 250% 250%;
+			--bg-position: center 35%;
+		}
+	}
+
+	@media (min-width: 1025px) {
+		.bg-background-responsive {
+			--bg-size: 200% 200%;
+			--bg-position: center 40%;
+		}
+	}
+
+	/* Image carousel sizing - mobile-first approach */
+	.carousel-container div[class*="w-["] {
+		width: 20rem !important; /* 320px - mobile default */
+		min-width: 20rem !important;
+		max-width: 20rem !important;
+		height: 12.5rem !important; /* 200px - mobile default */
+		min-height: 12.5rem !important;
+		max-height: 12.5rem !important;
+	}
+
+	@media (min-width: 768px) {
+		.carousel-container div[class*="w-["] {
+			width: 28rem !important; /* 448px */
+			min-width: 28rem !important;
+			max-width: 28rem !important;
+			height: 18rem !important; /* 288px */
+			min-height: 18rem !important;
+			max-height: 18rem !important;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.carousel-container div[class*="w-["] {
+			width: 53rem !important; /* 848px */
+			min-width: 53rem !important;
+			max-width: 53rem !important;
+			height: 35rem !important; /* 560px */
+			min-height: 35rem !important;
+			max-height: 35rem !important;
+		}
 	}
 }
 
