@@ -312,6 +312,20 @@ body {
 		backface-visibility: hidden;
 		perspective: 1000px;
 		transform-style: preserve-3d;
+		/* Prevent layout shifts and scroll interference */
+		contain: layout style paint;
+		content-visibility: auto;
+		/* Ensure animations don't block scrolling */
+		transform: translateZ(0);
+		will-change: transform;
+	}
+
+	/* Prevent carousel from interfering with scroll */
+	.carousel-container {
+		contain: layout style paint;
+		overflow: hidden;
+		/* Critical: prevent height changes during image loading */
+		min-height: fit-content;
 	}
 }
 
