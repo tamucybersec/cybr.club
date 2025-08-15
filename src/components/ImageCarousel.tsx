@@ -71,7 +71,7 @@ function SliderRow({
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	// Duplicate items for seamless looping - memoized
-	const duplicatedItems = useMemo(() => [...items, ...items, ...items], [items]);
+	const duplicatedItems = useMemo(() => [...items, ...items], [items]);
 
 	// Use CSS animations instead of Framer Motion for better performance
 	const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
@@ -82,13 +82,13 @@ function SliderRow({
 				ref={containerRef}
 				className={`flex items-center gap-2 ${animationClass}`}
 				style={{
-					width: `${duplicatedItems.length * 680}px`, // Updated for larger desktop images (38rem ≈ 608px + gap)
+					width: `${duplicatedItems.length * 880}px`, // 53rem (848px) + gap for 2x duplication
 				}}
 			>
 				{duplicatedItems.map((item, index) => (
 					<div
 						key={`${item.id}-${index}`}
-						className="relative flex-shrink-0 w-[38rem] h-[25rem] lg:w-[38rem] lg:h-[25rem] md:w-96 md:h-64 sm:w-[17.5rem] sm:h-[10.9375rem] group cursor-pointer rounded-lg overflow-hidden bg-[#171717] border border-white/10 hover:border-white/20 transition-colors duration-300"
+						className="relative flex-shrink-0 w-[20rem] h-[12.5rem] md:w-[28rem] md:h-[18rem] lg:w-[53rem] lg:h-[35rem] group cursor-pointer rounded-lg overflow-hidden bg-[#171717] border border-white/10 hover:border-white/20 transition-colors duration-300"
 						onMouseEnter={() => setHoveredItem(item.id)}
 						onMouseLeave={() => setHoveredItem(null)}
 					>
@@ -100,9 +100,8 @@ function SliderRow({
 							src={item.path}
 							alt={item.title}
 							fill
-							priority={index < 4} // Prioritize first 4 visible images (fewer fit on screen now)
-							loading={index < 4 ? "eager" : "lazy"}
-							sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, (max-width: 1024px) 384px, 608px" // Updated for larger desktop size
+							loading="lazy"
+							sizes="(max-width: 640px) 320px, (max-width: 768px) 448px, (max-width: 1024px) 448px, 848px"
 							className="object-cover"
 							quality={80}
 						/>
@@ -127,14 +126,14 @@ function SliderRow({
 
 export default function ImageCarousel() {
 	return (
-		<div className="w-full space-y-4">
+		<div className="w-full -space-y-8 md:space-y-6">
 			{/* Reserve fixed height to prevent layout shift */}
-			<div className="h-[25rem] lg:h-[25rem] md:h-64 sm:h-[10.9375rem]">
+			<div className="h-[12.5rem] md:h-[18rem] lg:h-[35rem]">
 				{/* First slider - moving left */}
 				<SliderRow items={firstRowItems} direction="left" />
 			</div>
 			
-			<div className="h-[25rem] lg:h-[25rem] md:h-64 sm:h-[10.9375rem]">
+			<div className="h-[12.5rem] md:h-[18rem] lg:h-[35rem]">
 				{/* Second slider - moving right */}
 				<SliderRow items={secondRowItems} direction="right" />
 			</div>
