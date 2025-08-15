@@ -17,11 +17,11 @@ export default function Home() {
 			<PageLoadOverlay />
 			<BackgroundOverlay
 				desktopSize="300% 300%"
-				desktopPosition="center 27%"
+				desktopPosition="center 45%"
 				tabletSize="350% 350%"
-				tabletPosition="center 25%"
+				tabletPosition="center 45%"
 				mobileSize="400% 400%"
-				mobilePosition="center 20%"
+				mobilePosition="center 50%"
 			/>
 			<NavBar />
 			<HeroSection />
