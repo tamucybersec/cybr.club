@@ -77,18 +77,18 @@ function SliderRow({
 	const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
 	return (
-		<div className="relative overflow-hidden">
+		<div className="relative overflow-hidden carousel-container">
 			<div
 				ref={containerRef}
 				className={`flex items-center gap-2 ${animationClass}`}
 				style={{
-					width: `${duplicatedItems.length * 420}px`, // Fixed width calculation
+					width: `${duplicatedItems.length * 680}px`, // Updated for larger desktop images (38rem ≈ 608px + gap)
 				}}
 			>
 				{duplicatedItems.map((item, index) => (
 					<div
 						key={`${item.id}-${index}`}
-						className="relative flex-shrink-0 w-96 h-64 group cursor-pointer rounded-lg overflow-hidden bg-[#171717] border border-white/10 hover:border-white/20 transition-colors duration-300"
+						className="relative flex-shrink-0 w-[38rem] h-[25rem] lg:w-[38rem] lg:h-[25rem] md:w-96 md:h-64 sm:w-[17.5rem] sm:h-[10.9375rem] group cursor-pointer rounded-lg overflow-hidden bg-[#171717] border border-white/10 hover:border-white/20 transition-colors duration-300"
 						onMouseEnter={() => setHoveredItem(item.id)}
 						onMouseLeave={() => setHoveredItem(null)}
 					>
@@ -100,9 +100,9 @@ function SliderRow({
 							src={item.path}
 							alt={item.title}
 							fill
-							priority={index < 6} // Prioritize first 6 visible images
-							loading={index < 6 ? "eager" : "lazy"}
-							sizes="384px" // Fixed size for performance
+							priority={index < 4} // Prioritize first 4 visible images (fewer fit on screen now)
+							loading={index < 4 ? "eager" : "lazy"}
+							sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, (max-width: 1024px) 384px, 608px" // Updated for larger desktop size
 							className="object-cover"
 							quality={80}
 						/>
@@ -128,11 +128,16 @@ function SliderRow({
 export default function ImageCarousel() {
 	return (
 		<div className="w-full space-y-4">
-			{/* First slider - moving left */}
-			<SliderRow items={firstRowItems} direction="left" />
-
-			{/* Second slider - moving right */}
-			<SliderRow items={secondRowItems} direction="right" />
+			{/* Reserve fixed height to prevent layout shift */}
+			<div className="h-[25rem] lg:h-[25rem] md:h-64 sm:h-[10.9375rem]">
+				{/* First slider - moving left */}
+				<SliderRow items={firstRowItems} direction="left" />
+			</div>
+			
+			<div className="h-[25rem] lg:h-[25rem] md:h-64 sm:h-[10.9375rem]">
+				{/* Second slider - moving right */}
+				<SliderRow items={secondRowItems} direction="right" />
+			</div>
 		</div>
 	);
 }
