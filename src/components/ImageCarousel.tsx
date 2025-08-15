@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
-import { motion, useAnimation, useMotionValue } from "framer-motion";
+import { useRef, useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import { photos } from "@/data/photos";
 
@@ -64,143 +63,76 @@ const secondRowItems = [
 function SliderRow({
 	items,
 	direction = "left",
-	startOffset = 0,
 }: {
 	items: typeof firstRowItems;
 	direction?: "left" | "right";
-	startOffset?: number;
 }) {
-	const controls = useAnimation();
 	const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-	const carouselRef = useRef<HTMLDivElement>(null);
-	const x = useMotionValue(startOffset);
+	const containerRef = useRef<HTMLDivElement>(null);
 
-	// Duplicate items for seamless looping
-	const duplicatedItems = [...items, ...items]; // looped 2 times
+	// Duplicate items for seamless looping - memoized
+	const duplicatedItems = useMemo(() => [...items, ...items, ...items], [items]);
 
-	const startAnimation = useCallback(() => {
-		if (!carouselRef.current) return;
-
-		const totalWidth = carouselRef.current.scrollWidth / 2; // distance travelled- may need to adjust
-
-		if (direction === "left") {
-			// Moving left (negative direction)
-			controls.start({
-				x: -totalWidth,
-				transition: {
-					duration: 40, // SPEED OF TRANSITION
-					ease: "linear",
-					repeat: Number.POSITIVE_INFINITY,
-					repeatType: "loop",
-				},
-			});
-		} else {
-			// Moving right (positive direction) - start from negative position
-			x.set(-totalWidth);
-			controls.start({
-				x: 0,
-				transition: {
-					duration: 40,
-					ease: "linear",
-					repeat: Number.POSITIVE_INFINITY,
-					repeatType: "loop",
-				},
-			});
-		}
-	}, [controls, x, direction]);
-
-	useEffect(() => {
-		// Small delay to ensure proper mounting
-		const timer = setTimeout(() => {
-			startAnimation();
-		}, 100);
-
-		return () => clearTimeout(timer);
-	}, [startAnimation]);
-
-	const handleItemHover = (itemId: number) => {
-		setHoveredItem(itemId);
-	};
-
-	const handleItemHoverEnd = () => {
-		setHoveredItem(null);
-	};
+	// Use CSS animations instead of Framer Motion for better performance
+	const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
 	return (
 		<div className="relative overflow-hidden">
-			<motion.div
-				ref={carouselRef}
-				className="flex py-4 sm:py-6 items-stretch -mx-0.5 slider-row"
-				animate={controls}
-				style={{ x }}
+			<div
+				ref={containerRef}
+				className={`flex items-center gap-2 ${animationClass}`}
+				style={{
+					width: `${duplicatedItems.length * 420}px`, // Fixed width calculation
+				}}
 			>
 				{duplicatedItems.map((item, index) => (
-					<motion.div
+					<div
 						key={`${item.id}-${index}`}
-						className="relative flex-shrink-0 group cursor-pointer mx-0.5 slider-item"
-						initial={{ opacity: 0, y: 20 }}
-						animate={{
-							opacity: 1,
-							y: 0,
-							transition: { delay: index * 0.05 },
-						}}
-						onHoverStart={() => handleItemHover(item.id)}
-						onHoverEnd={handleItemHoverEnd}
+						className="relative flex-shrink-0 w-96 h-64 group cursor-pointer rounded-lg overflow-hidden bg-[#171717] border border-white/10 hover:border-white/20 transition-colors duration-300"
+						onMouseEnter={() => setHoveredItem(item.id)}
+						onMouseLeave={() => setHoveredItem(null)}
 					>
-						<div className="relative w-full h-full rounded-lg overflow-hidden bg-[#171717] border border-white/10 transition-all duration-300 group-hover:border-white/20">
-							{/* Placeholder background */}
-							<div className="w-full h-full bg-gradient-to-br from-white/3 to-white/8 relative">
-								<Image
-									src={item.path}
-									alt={item.title}
-									fill
-									unoptimized
-									loading="lazy"
-									sizes="(max-width: 640px) 280px, (max-width: 1024px) 300px, (max-width: 1440px) 320px, 400px"
-									className="object-cover"
-								/>
-							</div>
+						{/* Background gradient */}
+						<div className="absolute inset-0 bg-gradient-to-br from-white/3 to-white/8" />
+						
+						{/* Image */}
+						<Image
+							src={item.path}
+							alt={item.title}
+							fill
+							priority={index < 6} // Prioritize first 6 visible images
+							loading={index < 6 ? "eager" : "lazy"}
+							sizes="384px" // Fixed size for performance
+							className="object-cover"
+							quality={80}
+						/>
 
-							{/* Hover overlay with information */}
-							<motion.div
-								className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-6 pointer-events-none"
-								initial={{ opacity: 0 }}
-								animate={{
-									opacity: hoveredItem === item.id ? 1 : 0,
-								}}
-								transition={{ duration: 0.3 }}
-							>
-								<h3 className="text-white text-base sm:text-lg lg:text-xl font-ubuntu-sans font-medium mb-2">
+						{/* Hover overlay - only show when hovered */}
+						{hoveredItem === item.id && (
+							<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 animate-fade-in">
+								<h3 className="text-white text-lg font-ubuntu-sans font-medium mb-2">
 									{item.title}
 								</h3>
-								<p className="text-white/90 text-xs sm:text-sm lg:text-base font-ubuntu-sans leading-relaxed">
+								<p className="text-white/90 text-sm font-ubuntu-sans leading-relaxed">
 									{item.description}
 								</p>
-							</motion.div>
-						</div>
-					</motion.div>
+							</div>
+						)}
+					</div>
 				))}
-			</motion.div>
+			</div>
 		</div>
 	);
 }
 
-export default function ModernSlider() {
+export default function ImageCarousel() {
 	return (
-		<div className="w-full space-y-0 sm:space-y-[-2rem]">
+		<div className="w-full space-y-4">
 			{/* First slider - moving left */}
-			<SliderRow
-				items={firstRowItems}
-				direction="left"
-				startOffset={0}
-			/>
+			<SliderRow items={firstRowItems} direction="left" />
 
-			{/* Second slider - moving right, different content */}
-			<SliderRow
-				items={secondRowItems}
-				direction="right"
-				startOffset={0}
-			/>
+			{/* Second slider - moving right */}
+			<SliderRow items={secondRowItems} direction="right" />
 		</div>
 	);
 }
