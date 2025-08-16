@@ -11,7 +11,7 @@ function AboutBlurb() {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.4,
+        delayChildren: 0.8,
       },
     },
   }
