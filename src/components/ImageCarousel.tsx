@@ -126,7 +126,7 @@ function SliderRow({
 
 export default function ImageCarousel() {
 	return (
-		<div className="w-full -space-y-8 md:space-y-6">
+		<div className="w-full space-y-2 md:space-y-6">
 			{/* Reserve fixed height to prevent layout shift */}
 			<div className="h-[12.5rem] md:h-[18rem] lg:h-[35rem]">
 				{/* First slider - moving left */}
