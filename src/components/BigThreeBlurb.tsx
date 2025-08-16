@@ -37,12 +37,12 @@ function NoBarriersSection() {
         viewport={{ once: true, amount: 0.1, margin: "100px" }}
       >
         {/* Left side - No payment, no prereqs, no pressure */}
-        <motion.div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center lg:text-left" variants={itemVariants}>
+        <motion.div className="flex items-center gap-4 sm:gap-6 lg:gap-8 justify-center lg:justify-start w-full lg:w-auto" variants={itemVariants}>
           {/* Vertical line */}
           <div className="w-0.5 h-20 sm:h-24 lg:h-32 bg-white/40"></div>
 
           {/* Text content */}
-          <div className="font-azonix text-hero-heading leading-[0.85] px-2 sm:px-0">
+          <div className="font-azonix text-hero-heading leading-[0.85] text-left">
             <div className="block">No payment,</div>
             <div className="block">no prereqs,</div>
             <div className="block">no pressure.</div>

@@ -256,33 +256,90 @@ body {
 		z-index: -10;
 	}
 
-	/* High-performance CSS animations for carousel */
-	@keyframes scroll-left {
+	/* High-performance CSS animations for carousel - responsive reset points */
+	@keyframes scroll-left-mobile {
 		0% {
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(-50%); /* Move by 1/2 to loop seamlessly with 2x duplication */
+			transform: translateX(calc(-20rem * 6 - 2rem * 5)); /* Move exactly 6 mobile images + gaps */
 		}
 	}
 
-	@keyframes scroll-right {
+	@keyframes scroll-right-mobile {
 		0% {
-			transform: translateX(-50%);
+			transform: translateX(calc(-20rem * 6 - 2rem * 5));
 		}
 		100% {
 			transform: translateX(0);
 		}
 	}
 
+	@keyframes scroll-left-tablet {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-28rem * 6 - 2rem * 5)); /* Move exactly 6 tablet images + gaps */
+		}
+	}
+
+	@keyframes scroll-right-tablet {
+		0% {
+			transform: translateX(calc(-28rem * 6 - 2rem * 5));
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes scroll-left-desktop {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-53rem * 6 - 2rem * 5)); /* Move exactly 6 desktop images + gaps */
+		}
+	}
+
+	@keyframes scroll-right-desktop {
+		0% {
+			transform: translateX(calc(-53rem * 6 - 2rem * 5));
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+
+	/* Responsive animation classes */
 	.animate-scroll-left {
-		animation: scroll-left 40s linear infinite;
+		animation: scroll-left-mobile 35s linear infinite;
 		will-change: transform;
 	}
 
 	.animate-scroll-right {
-		animation: scroll-right 40s linear infinite;
+		animation: scroll-right-mobile 35s linear infinite;
 		will-change: transform;
+	}
+
+	@media (min-width: 768px) {
+		.animate-scroll-left {
+			animation: scroll-left-tablet 35s linear infinite;
+		}
+
+		.animate-scroll-right {
+			animation: scroll-right-tablet 35s linear infinite;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.animate-scroll-left {
+			animation: scroll-left-desktop 35s linear infinite;
+		}
+
+		.animate-scroll-right {
+			animation: scroll-right-desktop 35s linear infinite;
+		}
 	}
 
 	.animate-fade-in {
@@ -322,20 +379,20 @@ body {
 
 	/* Responsive background overlay - single element approach */
 	.bg-background-responsive {
-		--bg-size: 300% 300%;
-		--bg-position: center 30%;
+		--bg-size: 200% 200%;
+		--bg-position: center 20%;
 	}
 
 	@media (min-width: 769px) and (max-width: 1024px) {
 		.bg-background-responsive {
-			--bg-size: 250% 250%;
+			--bg-size: 150% 150%;
 			--bg-position: center 35%;
 		}
 	}
 
 	@media (min-width: 1025px) {
 		.bg-background-responsive {
-			--bg-size: 200% 200%;
+			--bg-size: 150% 150%;
 			--bg-position: center 40%;
 		}
 	}

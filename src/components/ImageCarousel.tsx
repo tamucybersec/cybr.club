@@ -70,8 +70,8 @@ function SliderRow({
 	const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
 
-	// Duplicate items for seamless looping - memoized
-	const duplicatedItems = useMemo(() => [...items, ...items], [items]);
+	// Triple items for seamless looping - memoized (ensures always visible images)
+	const duplicatedItems = useMemo(() => [...items, ...items, ...items], [items]);
 
 	// Use CSS animations instead of Framer Motion for better performance
 	const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
@@ -82,7 +82,7 @@ function SliderRow({
 				ref={containerRef}
 				className={`flex items-center gap-2 ${animationClass}`}
 				style={{
-					width: `${duplicatedItems.length * 880}px`, // 53rem (848px) + gap for 2x duplication
+					width: `${duplicatedItems.length * 580}px`, // Responsive width calculation for 3x duplication
 				}}
 			>
 				{duplicatedItems.map((item, index) => (
@@ -100,10 +100,13 @@ function SliderRow({
 							src={item.path}
 							alt={item.title}
 							fill
-							loading="lazy"
+							priority={index < 8} // Prioritize first 8 images (more visible with 3x duplication)
+							loading={index < 8 ? "eager" : "lazy"}
 							sizes="(max-width: 640px) 320px, (max-width: 768px) 448px, (max-width: 1024px) 448px, 848px"
 							className="object-cover"
-							quality={80}
+							quality={85} // Slightly higher quality for better rendering
+							placeholder="blur"
+							blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
 						/>
 
 						{/* Hover overlay - only show when hovered */}

@@ -13,7 +13,7 @@ function HeroSection() {
 			opacity: 1,
 			transition: {
 				staggerChildren: 0.3,
-				delayChildren: 1.5,
+				delayChildren: 0.2,
 			},
 		},
 	} as const;
@@ -25,7 +25,7 @@ function HeroSection() {
 			y: 0,
 			transition: {
 				duration: 0.8,
-				delay: 1.5 + custom * 0.3,
+				delay: 0.2 + custom * 0.3,
 				ease: [0.25, 0.46, 0.45, 0.94] as const,
 			},
 		}),
@@ -43,7 +43,7 @@ function HeroSection() {
 			scale: 1,
 			transition: {
 				duration: 1.2,
-				delay: 2.5,
+				delay: 1.2,
 				ease: [0.215, 0.61, 0.355, 1],
 			},
 		},
