@@ -267,13 +267,13 @@ body {
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(-33.333%); /* Move by 1/3 to loop seamlessly */
+			transform: translateX(-50%); /* Move by 1/2 to loop seamlessly with 2x duplication */
 		}
 	}
 
 	@keyframes scroll-right {
 		0% {
-			transform: translateX(-33.333%);
+			transform: translateX(-50%);
 		}
 		100% {
 			transform: translateX(0);
