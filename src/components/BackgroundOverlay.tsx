@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
 
 interface BackgroundOverlayProps {
 	desktop: Sizes;
@@ -33,13 +35,26 @@ export default function BackgroundOverlay({
 	tablet,
 	mobile,
 }: BackgroundOverlayProps) {
+	const [loaded, setLoaded] = useState(false);
+
 	return (
 		<>
+			<Image
+				className="hidden"
+				src="/images/app/HomeBackground.avif"
+				alt=""
+				priority
+				loading="eager"
+				onLoadingComplete={() => setLoaded(true)}
+				unoptimized
+				width={0}
+				height={0}
+			/>
 			{/* Desktop Background */}
 			<motion.div
 				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
+				animate={loaded ? { opacity: 1 } : { opacity: 0 }}
+				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="hidden lg:block absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",
@@ -61,7 +76,7 @@ export default function BackgroundOverlay({
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
-				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
+				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="hidden md:block lg:hidden absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",
@@ -83,7 +98,7 @@ export default function BackgroundOverlay({
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
-				transition={{ duration: 2.0, delay: 0.2, ease: "easeInOut" }}
+				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="block md:hidden absolute -z-10 pointer-events-none"
 				style={{
 					backgroundImage: "url('/images/app/HomeBackground.avif')",

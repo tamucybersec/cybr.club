@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useMemo } from "react";
+import { useRef, useState, useMemo } from "react";
 import Image from "next/image";
 import { photos } from "@/data/photos";
 
@@ -71,10 +71,14 @@ function SliderRow({
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	// Triple items for seamless looping - memoized (ensures always visible images)
-	const duplicatedItems = useMemo(() => [...items, ...items, ...items], [items]);
+	const duplicatedItems = useMemo(
+		() => [...items, ...items, ...items],
+		[items]
+	);
 
 	// Use CSS animations instead of Framer Motion for better performance
-	const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
+	const animationClass =
+		direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
 	return (
 		<div className="relative overflow-hidden carousel-container">
@@ -88,13 +92,13 @@ function SliderRow({
 				{duplicatedItems.map((item, index) => (
 					<div
 						key={`${item.id}-${index}`}
-						className="relative flex-shrink-0 w-[20rem] h-[12.5rem] md:w-[28rem] md:h-[18rem] lg:w-[53rem] lg:h-[35rem] group cursor-pointer rounded-lg overflow-hidden bg-[#171717] border border-white/10 hover:border-white/20 transition-colors duration-300"
+						className="relative flex-shrink-0 w-[20rem] h-[12.5rem] md:w-[28rem] md:h-[18rem] lg:w-[32rem] lg:h-[20rem] group cursor-pointer rounded-lg overflow-hidden bg-[#171717] border border-white/10 hover:border-white/20 transition-colors duration-300"
 						onMouseEnter={() => setHoveredItem(item.id)}
 						onMouseLeave={() => setHoveredItem(null)}
 					>
 						{/* Background gradient */}
 						<div className="absolute inset-0 bg-gradient-to-br from-white/3 to-white/8" />
-						
+
 						{/* Image */}
 						<Image
 							src={item.path}
@@ -107,6 +111,7 @@ function SliderRow({
 							quality={85} // Slightly higher quality for better rendering
 							placeholder="blur"
 							blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+							unoptimized
 						/>
 
 						{/* Hover overlay - only show when hovered */}
@@ -131,14 +136,20 @@ export default function ImageCarousel() {
 	return (
 		<div className="w-full space-y-2 md:space-y-6">
 			{/* Reserve fixed height to prevent layout shift */}
-			<div className="h-[12.5rem] md:h-[18rem] lg:h-[35rem]">
+			<div className="h-[12.5rem] md:h-[18rem] lg:h-[20rem]">
 				{/* First slider - moving left */}
-				<SliderRow items={firstRowItems} direction="left" />
+				<SliderRow
+					items={firstRowItems}
+					direction="left"
+				/>
 			</div>
-			
-			<div className="h-[12.5rem] md:h-[18rem] lg:h-[35rem]">
+
+			<div className="h-[12.5rem] md:h-[18rem] lg:h-[20rem]">
 				{/* Second slider - moving right */}
-				<SliderRow items={secondRowItems} direction="right" />
+				<SliderRow
+					items={secondRowItems}
+					direction="right"
+				/>
 			</div>
 		</div>
 	);

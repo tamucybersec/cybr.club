@@ -55,7 +55,7 @@ function NoBarriersSection() {
             <div className="space-y-1 sm:space-y-2">
               <div className="block">Come to any meetings you want, whenever&nbsp;it&nbsp;works&nbsp;for&nbsp;you.</div>
               <div className="block">There are no fees, no prerequisites,&nbsp;and&nbsp;absolutely&nbsp;no&nbsp;pressure.</div>
-              <div className="block">Just show up when&nbsp;you're&nbsp;interested.</div>
+              <div className="block">Just show up when&nbsp;you&nbsp;re&nbsp;interested.</div>
             </div>
           </div>
         </motion.div>

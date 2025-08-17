@@ -33,9 +33,17 @@ body {
 		--container-padding: 1.5rem;
 
 		/* Better mobile-first responsive text sizing */
-		--text-hero-heading: clamp(1.5rem, 4.5vw, 3rem); /* 24px - 48px (adjusted for iPhone SE) */
+		--text-hero-heading: clamp(
+			1.5rem,
+			4.5vw,
+			3rem
+		); /* 24px - 48px (adjusted for iPhone SE) */
 		--text-hero-subtitle: clamp(1.25rem, 3.5vw, 2rem); /* 24px - 48px */
-		--text-hero-subtext: clamp(1.1rem, 3vw, 1.625rem); /* 17.6px - 26px (bigger on mobile) */
+		--text-hero-subtext: clamp(
+			1.1rem,
+			3vw,
+			1.625rem
+		); /* 17.6px - 26px (bigger on mobile) */
 		--text-hero-button: clamp(0.85rem, 2vw, 1.25rem); /* 13.6px - 20px */
 
 		--gap-responsive: clamp(1rem, 2vw, 2rem);
@@ -99,119 +107,34 @@ body {
 	}
 
 	.slider-item {
-		/* Fixed dimensions with aspect ratio */
-		width: 280px !important;
-		min-width: 280px !important;
-		max-width: 280px !important;
-		height: 175px !important; /* 16:10 aspect ratio */
-		min-height: 175px !important;
-		max-height: 175px !important;
-		margin: 0 4px !important;
-		flex: 0 0 auto !important;
+		position: relative; /* needed for next/image fill */
+		flex: 0 0 auto; /* don’t shrink */
+		margin: 0 4px;
+		aspect-ratio: 16 / 10; /* keep consistent ratio */
+		width: 280px; /* base width */
+		max-width: 100%; /* don’t overflow container */
 		contain: content;
 	}
 
-	/* Responsive breakpoints for slider items */
-	@media (max-width: 640px) {
-		.slider-item {
-			width: 280px !important;
-			min-width: 280px !important;
-			max-width: 280px !important;
-			height: 175px !important;
-			min-height: 175px !important;
-			max-height: 175px !important;
-		}
-	}
-
+	/* Medium screens */
 	@media (min-width: 641px) and (max-width: 1024px) {
 		.slider-item {
-			width: 300px !important;
-			min-width: 300px !important;
-			max-width: 300px !important;
-			height: 187.5px !important;
-			min-height: 187.5px !important;
-			max-height: 187.5px !important;
+			width: 300px;
 		}
 	}
 
+	/* Large screens */
 	@media (min-width: 1025px) and (max-width: 1440px) {
 		.slider-item {
-			width: 320px !important;
-			min-width: 320px !important;
-			max-width: 320px !important;
-			height: 200px !important;
-			min-height: 200px !important;
-			max-height: 200px !important;
+			width: 320px;
 		}
 	}
 
+	/* Extra large */
 	@media (min-width: 1441px) {
 		.slider-item {
-			width: 400px !important;
-			min-width: 400px !important;
-			max-width: 400px !important;
-			height: 250px !important;
-			min-height: 250px !important;
-			max-height: 250px !important;
+			width: 400px;
 		}
-	}
-
-	/* Background overlay utility */
-	.bg-background-overlay {
-		background-image: url("/images/app/HomeBackground.png");
-		background-size: 300% 300%;
-		background-position: center 40%;
-		background-repeat: no-repeat;
-		image-rendering: -webkit-optimize-contrast;
-		image-rendering: crisp-edges;
-		min-height: 500vh;
-		height: max(500vh, 100%);
-	}
-
-	/* Responsive background adjustments */
-	@media (max-width: 480px) {
-		.bg-background-overlay {
-			background-size: 500% 500%;
-			background-position: center 25%;
-			min-height: 700vh;
-			height: max(700vh, 100%);
-		}
-	}
-
-	@media (min-width: 481px) and (max-width: 768px) {
-		.bg-background-overlay {
-			background-size: 450% 450%;
-			background-position: center 28%;
-			min-height: 650vh;
-			height: max(650vh, 100%);
-		}
-	}
-
-	@media (min-width: 769px) and (max-width: 1024px) {
-		.bg-background-overlay {
-			background-size: 350% 350%;
-			background-position: center 35%;
-			min-height: 550vh;
-			height: max(550vh, 100%);
-		}
-	}
-
-	@media (min-width: 1025px) {
-		.bg-background-overlay {
-			background-size: 300% 300%;
-			background-position: center 40%;
-			min-height: 500vh;
-			height: max(500vh, 100%);
-		}
-	}
-
-	/* Ensure smooth rendering */
-	.bg-background-overlay {
-		will-change: auto;
-		backface-visibility: hidden;
-		-webkit-backface-visibility: hidden;
-		transform: translateZ(0);
-		-webkit-transform: translateZ(0);
 	}
 
 	/* Performance optimizations for animations */
@@ -238,27 +161,12 @@ body {
 			transition-duration: 0.01ms !important;
 			scroll-behavior: auto !important;
 		}
-		
+
 		/* Disable Framer Motion animations entirely */
 		[data-framer-motion] {
 			transform: none !important;
 			transition: none !important;
 		}
-	}
-
-	/* Alternative approach - if you want the background to extend based on content */
-	.bg-background-overlay-dynamic {
-		background-image: url("/images/app/HomeBackground.png");
-		background-size: 300% 300%;
-		background-position: center 40%;
-		background-repeat: no-repeat;
-		min-height: 100vh;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: -10;
 	}
 
 	/* High-performance CSS animations for carousel - responsive reset points */
@@ -267,7 +175,9 @@ body {
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-20rem * 6 - 2rem * 5)); /* Move exactly 6 mobile images + gaps */
+			transform: translateX(
+				calc(-20rem * 6 - 2rem * 5)
+			); /* Move exactly 6 mobile images + gaps */
 		}
 	}
 
@@ -285,7 +195,9 @@ body {
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-28rem * 6 - 2rem * 5)); /* Move exactly 6 tablet images + gaps */
+			transform: translateX(
+				calc(-28rem * 6 - 2rem * 5)
+			); /* Move exactly 6 tablet images + gaps */
 		}
 	}
 
@@ -303,7 +215,9 @@ body {
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-53rem * 6 - 2rem * 5)); /* Move exactly 6 desktop images + gaps */
+			transform: translateX(
+				calc(-53rem * 6 - 2rem * 5)
+			); /* Move exactly 6 desktop images + gaps */
 		}
 	}
 
@@ -399,38 +313,6 @@ body {
 		.bg-background-responsive {
 			--bg-size: 150% 150%;
 			--bg-position: center 40%;
-		}
-	}
-
-	/* Image carousel sizing - mobile-first approach */
-	.carousel-container div[class*="w-["] {
-		width: 20rem !important; /* 320px - mobile default */
-		min-width: 20rem !important;
-		max-width: 20rem !important;
-		height: 12.5rem !important; /* 200px - mobile default */
-		min-height: 12.5rem !important;
-		max-height: 12.5rem !important;
-	}
-
-	@media (min-width: 768px) {
-		.carousel-container div[class*="w-["] {
-			width: 28rem !important; /* 448px */
-			min-width: 28rem !important;
-			max-width: 28rem !important;
-			height: 18rem !important; /* 288px */
-			min-height: 18rem !important;
-			max-height: 18rem !important;
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.carousel-container div[class*="w-["] {
-			width: 53rem !important; /* 848px */
-			min-width: 53rem !important;
-			max-width: 53rem !important;
-			height: 35rem !important; /* 560px */
-			min-height: 35rem !important;
-			max-height: 35rem !important;
 		}
 	}
 }
