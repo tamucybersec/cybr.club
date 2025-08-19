@@ -17,31 +17,31 @@ function ActivityGroups() {
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.1,
-				delayChildren: 0.2,
+				staggerChildren: 0.05,
+				delayChildren: 0.1,
 			},
 		},
 	};
 
 	const itemVariants: Variants = {
-		hidden: { opacity: 0, y: 30 },
+		hidden: { opacity: 0, y: 15 },
 		visible: {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.6,
+				duration: 0.2,
 				ease: [0.25, 0.46, 0.45, 0.94],
 			},
 		},
 	};
 
 	const titleVariants: Variants = {
-		hidden: { opacity: 0, y: 30 },
+		hidden: { opacity: 0, y: 15 },
 		visible: {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.6,
+				duration: 0.2,
 				ease: [0.25, 0.46, 0.45, 0.94],
 			},
 		},
@@ -63,11 +63,11 @@ function ActivityGroups() {
 			onHoverStart={() => setHoveredItem(group.id)}
 			onHoverEnd={() => setHoveredItem(null)}
 		>
-			<div className="w-full h-full bg-gradient-to-br from-white/8 to-white/4 rounded-md border border-white/10 transition-all duration-300 group-hover:border-white/20 overflow-hidden relative">
+			<div className="w-full h-full rounded-md border border-white/10 transition-all duration-300 group-hover:border-white/20 overflow-hidden relative" style={{ backgroundColor: '#0B0B0B' }}>
 				{/* Placeholder background with fixed aspect ratio */}
 				<div
-					className="w-full h-full bg-gradient-to-br from-white/5 to-white/10 p-4 relative"
-					style={{ aspectRatio: "1/1" }}
+					className="w-full h-full p-4 relative"
+					style={{ aspectRatio: "1/1", backgroundColor: '#0B0B0B' }}
 				>
 					<Image
 						className="object-contain p-16"
@@ -117,7 +117,8 @@ function ActivityGroups() {
 	const MobileActivityGroup = (group: ActivityGroup) => (
 		<motion.div
 			key={group.id}
-			className="bg-gradient-to-br from-white/8 to-white/4 rounded-md border border-white/10 p-6"
+			className="rounded-md border border-white/10 p-6"
+			style={{ backgroundColor: '#0B0B0B' }}
 			variants={itemVariants}
 		>
 			{/* Placeholder background with fixed height */}
@@ -136,11 +137,11 @@ function ActivityGroups() {
 
 			{/* Description */}
 			<div className="flex-1 flex flex-col justify-center">
-				<h3 className="font-azonix text-lg">{group.title}</h3>
+				<h3 className="font-azonix text-hero-subtext">{group.title}</h3>
 				<h5 className="font-ubuntu-sans text-sm font-light">
 					{group.day}s at {group.time}
 				</h5>
-				<p className="text-white text-sm font-ubuntu-sans font-medium mb-4">
+				<p className="text-white text-hero-button font-ubuntu-sans font-medium mb-4">
 					{group.description}
 				</p>
 			</div>
@@ -219,7 +220,7 @@ function ActivityGroups() {
 						variants={titleVariants}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ once: true, amount: 0.3 }}
+						viewport={{ once: true, amount: 0.1, margin: "100px" }}
 					>
 						Activity Groups
 					</motion.h2>
@@ -230,7 +231,7 @@ function ActivityGroups() {
 						variants={containerVariants}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ once: true, amount: 0.2 }}
+						viewport={{ once: true, amount: 0.1, margin: "100px" }}
 					>
 						{activityGroups.map((group) =>
 							DesktopActivityGroup(group)
@@ -243,7 +244,7 @@ function ActivityGroups() {
 						variants={containerVariants}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ once: true, amount: 0.2 }}
+						viewport={{ once: true, amount: 0.1, margin: "100px" }}
 					>
 						{activityGroups.map((group) =>
 							MobileActivityGroup(group)

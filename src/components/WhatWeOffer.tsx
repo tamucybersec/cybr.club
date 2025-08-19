@@ -1,5 +1,5 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 function WhatWeOffer() {
 	const containerVariants: Variants = {
@@ -7,19 +7,19 @@ function WhatWeOffer() {
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.1,
+				staggerChildren: 0.05,
+				delayChildren: 0.05,
 			},
 		},
 	};
 
 	const itemVariants: Variants = {
-		hidden: { opacity: 0, y: 30 },
+		hidden: { opacity: 0, y: 15 },
 		visible: {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.6,
+				duration: 0.2,
 				ease: [0.25, 0.46, 0.45, 0.94],
 			},
 		},
@@ -53,7 +53,7 @@ function WhatWeOffer() {
 				variants={containerVariants}
 				initial="hidden"
 				whileInView="visible"
-				viewport={{ once: true, amount: 0.2 }}
+				viewport={{ once: true, amount: 0.1, margin: "100px" }}
 				style={{
 					background: "rgba(15, 15, 15, 0.7)",
 					backdropFilter: "blur(16px)",
@@ -64,7 +64,7 @@ function WhatWeOffer() {
 			>
 				{/* Title */}
 				<motion.h2
-					className="font-azonix text-hero-heading text-white mb-8 lg:mb-12"
+					className="font-azonix text-hero-heading text-white mb-8 lg:mb-12 text-center px-2 sm:px-0"
 					variants={itemVariants}
 					style={{
 						textShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
@@ -95,7 +95,7 @@ function WhatWeOffer() {
 							{/* Top section with title and icon */}
 							<div>
 								<div className="flex items-start justify-between mb-6">
-									<h3 className="font-ubuntu-sans text-xl lg:text-2xl font-semibold text-white">
+									<h3 className="font-ubuntu-sans text-hero-subtext font-semibold text-white">
 										{offering.title}
 									</h3>
 									{/* Simple icon placeholder */}
@@ -105,7 +105,7 @@ function WhatWeOffer() {
 								</div>
 
 								{/* Description */}
-								<p className="font-ubuntu-sans text-sm lg:text-base text-white/70 leading-relaxed">
+								<p className="font-ubuntu-sans text-hero-subtext text-white/70 leading-relaxed">
 									{offering.description}
 								</p>
 							</div>

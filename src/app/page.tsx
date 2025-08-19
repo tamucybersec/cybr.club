@@ -15,16 +15,16 @@ export default function Home() {
 		<>
 			<BackgroundOverlay
 				desktop={{
-					size: "300% 120%",
-					position: "center 57%",
+					size: "250% 120%",
+					position: "center 40%",
 				}}
 				tablet={{
-					size: "250% 120%",
-					position: "center 25%",
+					size: "350% 120%",
+					position: "center 45%",
 				}}
 				mobile={{
-					size: "200% 120%",
-					position: "center 20%",
+					size: "300% 120%",
+					position: "center 45%",
 				}}
 			/>
 			<NavBar />

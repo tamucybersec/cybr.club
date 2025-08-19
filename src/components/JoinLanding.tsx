@@ -59,7 +59,7 @@ function JoinLanding() {
 				</motion.div>
 
 				<motion.div
-					className="lg:flex-1 relative w-full h-[200px] lg:h-[300px]"
+					className="lg:flex-1 relative w-full h-[300px]"
 					variants={itemVariants}
 					initial="hidden"
 					animate="visible"
@@ -67,7 +67,7 @@ function JoinLanding() {
 				>
 					<div className="relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10">
 						<Image
-							className="object-cover"
+							className="object-cover rounded-xl"
 							src={photos.tamuctf.path}
 							alt={photos.tamuctf.title}
 							fill
