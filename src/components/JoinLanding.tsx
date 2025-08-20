@@ -59,7 +59,7 @@ function JoinLanding() {
 				</motion.div>
 
 				<motion.div
-					className="lg:flex-1 relative w-full h-[300px]"
+					className="lg:flex-1 relative w-full h-[200px] sm:h-[300px]"
 					variants={itemVariants}
 					initial="hidden"
 					animate="visible"

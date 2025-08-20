@@ -2,6 +2,7 @@ interface Photo {
 	title: string;
 	description: string;
 	path: string;
+	embelishment?: string;
 }
 
 export const photos = {
@@ -14,6 +15,8 @@ export const photos = {
 		title: "Austin Teaches Networking",
 		description: "From Cisco Networking Academy (Lab)",
 		path: "/images/general/austin-point.avif",
+		embelishment:
+			"Our expert student mentors will meet you at your level, no matter what that level may be.",
 	},
 	badApple: {
 		title: "Bad Apple Printout",
@@ -49,6 +52,8 @@ export const photos = {
 		title: "Informational Game",
 		description: "From the Spring 2025 Informational",
 		path: "/images/general/info-gavin.avif",
+		embelishment:
+			"Be a part of the greater cybersecurity community and get the chance to make a real impact.",
 	},
 	informational: {
 		title: "Informational Overhead",

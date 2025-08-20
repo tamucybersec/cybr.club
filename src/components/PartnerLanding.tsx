@@ -38,7 +38,7 @@ function PartnerLanding() {
 				>
 					{/* Floating image */}
 					<motion.div
-						className="float-left mr-6 mb-4 w-full h-[300px] lg:w-[500px] relative"
+						className="float-left mr-6 mb-4 w-full h-[200px] sm:h-[300px] lg:w-[500px] relative"
 						custom={1}
 						variants={itemVariants}
 						initial="hidden"

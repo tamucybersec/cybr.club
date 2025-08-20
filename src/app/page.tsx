@@ -9,6 +9,7 @@ import HomeImageCaptions from "@/components/HomeImageCaptions";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
 import Sponsorship from "@/components/Sponsorship";
+import Watermark from "@/components/Watermark";
 
 export default function Home() {
 	return (
@@ -27,6 +28,7 @@ export default function Home() {
 					position: "center 45%",
 				}}
 			/>
+			<Watermark />
 			<NavBar />
 			<HeroSection />
 			<AboutBlurb />

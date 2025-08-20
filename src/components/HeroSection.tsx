@@ -4,7 +4,6 @@ import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 function HeroSection() {
 	const containerVariants = {
@@ -31,24 +30,6 @@ function HeroSection() {
 		}),
 	} as const;
 
-	// const imageVariants = {
-	// 	hidden: {
-	// 		opacity: 0,
-	// 		y: 30,
-	// 		scale: 0.98,
-	// 	},
-	// 	visible: {
-	// 		opacity: 1,
-	// 		y: 0,
-	// 		scale: 1,
-	// 		transition: {
-	// 			duration: 1.2,
-	// 			delay: 2.5,
-	// 			ease: [0.215, 0.61, 0.355, 1],
-	// 		},
-	// 	},
-	// } as const;
-
 	return (
 		<Container className="mt-[25dvh] sm:mt-[20dvh] px-4 sm:px-6 lg:px-8">
 			<div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 lg:gap-12 max-w-7xl mx-auto">
@@ -61,7 +42,7 @@ function HeroSection() {
 					<motion.h1
 						className="font-azonix text-hero-heading leading-tight px-2 sm:px-0"
 						style={{
-							fontSize: 'clamp(1.25rem, 4vw, 3rem)' // Even smaller on very small screens
+							fontSize: "clamp(1.25rem, 4vw, 3rem)", // Even smaller on very small screens
 						}}
 						variants={itemVariants}
 					>
@@ -81,12 +62,12 @@ function HeroSection() {
 					</motion.p>
 
 					<motion.div
-						className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-6 sm:mt-12"
+						className="flex justify-center lg:justify-start flex-row gap-3 sm:gap-6 mt-6 lg:mt-12"
 						variants={itemVariants}
 					>
 						<Button
 							asChild
-							className="text-hero-button font-azonix px-8 sm:px-10 py-3 sm:py-4 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+							className="text-hero-button font-azonix px-6 sm:px-10 py-2 sm:py-4 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 w-min"
 							style={{ borderRadius: "10px" }}
 						>
 							<Link href="/join">Join</Link>
@@ -95,42 +76,11 @@ function HeroSection() {
 						<Button
 							asChild
 							variant="outline"
-							className="text-hero-button font-azonix px-8 sm:px-10 py-3 sm:py-4 h-auto bg-transparent border border-white/40 text-white hover:bg-transparent hover:border-white/70 transition-all duration-300"
+							className="text-hero-button font-azonix px-6 sm:px-10 py-2 sm:py-4 h-auto bg-transparent border border-white/40 text-white hover:bg-transparent hover:border-white/70 transition-all duration-300 w-min"
 							style={{ borderRadius: "10px" }}
 						>
 							<Link href="#learn">Learn More</Link>
 						</Button>
-					</motion.div>
-				</motion.div>
-
-				<motion.div
-					className="flex-1 w-full left-15 max-w-2xl relative h-[300px] lg:h-[400px] xl:h-[500px]"
-					// variants={imageVariants}
-					// initial="hidden"
-					// animate="visible"
-				>
-					<motion.div
-						className="relative w-[100vw] h-[100vh]"
-						style={{transform: "translateX(-40vw) translateY(-20%)"}}
-						// whileHover={{ scale: 1.02 }}
-						// transition={{
-						// 	type: "spring",
-						// 	stiffness: 300,
-						// 	damping: 10,
-						// }}
-					>
-						<Image
-							src="/images/club-logos/white-shield.svg"
-							alt="Cybersecurity Club Shield Logo"
-							fill
-							sizes="(max-width: 1024px) 100vw, 50vw"
-							priority
-							unoptimized
-							className="object-contain object-center"
-							style={{
-								filter: "opacity(.05)"
-							}}
-						/>
 					</motion.div>
 				</motion.div>
 			</div>

@@ -13,11 +13,11 @@ export const tierAttrs: Record<
 	}
 > = {
 	gold: {
-		fontSize: "text-hero-subtext",
+		fontSize: "text-hero-subtitle",
 		color: "#FDDC5C",
 	},
 	silver: {
-		fontSize: "text-hero-button",
+		fontSize: "text-hero-subtext",
 		color: "#E0E0E0",
 	},
 	bronze: {

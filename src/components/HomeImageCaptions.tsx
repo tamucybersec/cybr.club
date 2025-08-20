@@ -30,9 +30,9 @@ function LargeImagesSection() {
 	};
 
 	return (
-		<Container className="py-16 sm:py-20 lg:py-24">
+		<Container>
 			<motion.div
-				className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+				className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
 				variants={containerVariants}
 				initial="hidden"
 				whileInView="visible"
@@ -49,11 +49,11 @@ function LargeImagesSection() {
 							alt={"Students helping students"}
 							fill
 							unoptimized
-							className="object-cover"
+							className="object-cover rounded-xl"
 						/>
 					</div>
-					<p className=" text-lg font-ubuntu-sans text-center text-[#AAAAAA]">
-						{photos.austinPoint.title}
+					<p className="text-hero-subtext font-ubuntu-sans text-center text-[#AAAAAA]">
+						{photos.austinPoint.embelishment}
 					</p>
 				</motion.div>
 
@@ -68,11 +68,11 @@ function LargeImagesSection() {
 							alt={"Build a community"}
 							fill
 							unoptimized
-							className="object-cover"
+							className="object-cover rounded-xl"
 						/>
 					</div>
-					<p className="text-lg font-ubuntu-sans text-center text-[#AAAAAA]">
-						{photos.infoGavin.title}
+					<p className="text-hero-subtext font-ubuntu-sans text-center text-[#AAAAAA]">
+						{photos.infoGavin.embelishment}
 					</p>
 				</motion.div>
 			</motion.div>

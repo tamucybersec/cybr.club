@@ -123,11 +123,11 @@ function ActivityGroups() {
 		>
 			{/* Placeholder background with fixed height */}
 			<div
-				className="w-full h-32 bg-gradient-to-br from-white/5 to-white/10 rounded mb-4 relative"
+				className="w-full h-32 rounded mb-6 relative"
 				style={{ aspectRatio: "16/9" }}
 			>
 				<Image
-					className="object-contain p-16"
+					className="object-contain p-2"
 					src={group.image}
 					alt={group.title}
 					fill

@@ -65,7 +65,7 @@ function Sponsorship({ description }: { description?: string }) {
 
 		return (
 			<div key={tier}>
-				<h3 className={`text-hero-subtitle font-azonix mb-4`}>
+				<h3 className={`${tierAttrs[tier].fontSize} font-azonix mb-4`}>
 					{capitalize(tier)}
 				</h3>
 				<motion.div
@@ -101,7 +101,7 @@ function Sponsorship({ description }: { description?: string }) {
 
 				{description && (
 					<motion.p
-						className="font-ubuntu-sans text-hero-button leading-tight max-w-2xl mx-auto mb-8 lg:mb-12"
+						className="font-ubuntu-sans text-hero-subtext leading-tight max-w-2xl mx-auto mb-8 lg:mb-12"
 						variants={itemVariants}
 					>
 						{description}

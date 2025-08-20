@@ -31,7 +31,7 @@ interface FooterLink {
 	icon: ReactNode;
 }
 
-const redirects: FooterLink[] = [
+const seeMore: FooterLink[] = [
 	// {
 	// 	label: "About",
 	// 	href: "/about",
@@ -120,6 +120,21 @@ const socials: FooterLink[] = [
 	},
 ];
 
+const groups = [
+	{
+		name: "See More",
+		links: seeMore,
+	},
+	{
+		name: "Partners",
+		links: partners,
+	},
+	{
+		name: "Socials",
+		links: socials,
+	},
+];
+
 function FooterLinkItem({ link }: { link: FooterLink }) {
 	return (
 		<Link
@@ -130,9 +145,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
 		>
 			<div className="flex items-center gap-2">
 				{link.icon}
-				<span className="text-xs sm:text-sm font-medium">
-					{link.label}
-				</span>
+				<span className="text-hero-button">{link.label}</span>
 			</div>
 			<ArrowUpRight
 				size={12}
@@ -145,21 +158,21 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
 function Footer() {
 	return (
 		<Container className="py-8 sm:py-12">
-			<div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
+			<div className="flex flex-col md:flex-row justify-between items-center gap-y-8">
 				{/* Logo and Contact Section */}
-				<div className="flex flex-col justify-center items-center gap-4 w-full lg:w-auto">
+				<div className="flex flex-col justify-center items-center mx-16 gap-4 w-full md:w-auto">
 					<Logo
 						size={60}
 						className="sm:mb-2"
 					/>
 					<Button
 						asChild
-						className="font-azonix w-full sm:w-[160px] h-9 text-sm bg-primary hover:bg-primary/90 rounded-md transition-colors"
+						className="font-azonix h-9 text-sm bg-primary hover:bg-primary/90 rounded-md transition-colors"
 					>
 						<ObfuscatedLink
 							href={btoa("tamucybersec@gmail.com")}
 							isEmail={true}
-							className="flex items-center justify-center w-full h-full"
+							className="flex items-center justify-center w-min h-full"
 						>
 							Contact Us
 						</ObfuscatedLink>
@@ -167,39 +180,23 @@ function Footer() {
 				</div>
 
 				{/* Links Grid - Always 3 columns */}
-				<div className="w-full grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 lg:max-w-2xl lg:ml-auto">
-					{/* Navigation Links */}
-					<div className="flex flex-col gap-0.5 justify-start">
-						<p>See More</p>
-						{redirects.map((link, i) => (
-							<FooterLinkItem
-								key={i}
-								link={link}
-							/>
-						))}
-					</div>
-
-					{/* Partners */}
-					<div className="flex flex-col gap-0.5 justify-start">
-						<p>Partners</p>
-						{partners.map((link, i) => (
-							<FooterLinkItem
-								key={i}
-								link={link}
-							/>
-						))}
-					</div>
-
-					{/* Socials */}
-					<div className="flex flex-col gap-0.5 justify-start">
-						<p>Socials</p>
-						{socials.map((link, i) => (
-							<FooterLinkItem
-								key={i}
-								link={link}
-							/>
-						))}
-					</div>
+				<div className="w-full flex justify-center md:grid md:grid-cols-3 gap-3 md:gap-4 lg:gap-6 lg:max-w-2xl lg:ml-auto">
+					{groups.map(({ name, links }) => (
+						<div
+							className="flex flex-col gap-0.5 justify-start"
+							key={name}
+						>
+							<p className="font-ubuntu-sans text-hero-button font-medium">
+								{name}
+							</p>
+							{links.map((link, i) => (
+								<FooterLinkItem
+									key={i}
+									link={link}
+								/>
+							))}
+						</div>
+					))}
 				</div>
 			</div>
 

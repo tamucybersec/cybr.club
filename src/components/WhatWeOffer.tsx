@@ -1,5 +1,6 @@
 "use client";
 import { motion, type Variants } from "framer-motion";
+import { BadgeCheck, Handshake, LandPlot } from "lucide-react";
 
 function WhatWeOffer() {
 	const containerVariants: Variants = {
@@ -29,18 +30,21 @@ function WhatWeOffer() {
 		{
 			id: 1,
 			title: "Certifications",
+			icon: <BadgeCheck />,
 			description:
 				"Earn valuable industry certifications that validate your skills and open doors in cybersecurity and IT. We provide guidance and resources to help you prepare and pay for your certification exams at no cost to you.",
 		},
 		{
 			id: 2,
 			title: "Leadership",
+			icon: <LandPlot />,
 			description:
 				"Take on meaningful leadership roles that develop your communication, project management, and teamwork abilities. Gain real experience leading initiatives and mentoring others.",
 		},
 		{
 			id: 3,
 			title: "Networking",
+			icon: <Handshake />,
 			description:
 				"Connect with peers, professionals, and industry experts through events, activity groups, labs, and collaborative projects. Build relationships that can support your career growth and open new opportunities.",
 		},
@@ -94,18 +98,17 @@ function WhatWeOffer() {
 
 							{/* Top section with title and icon */}
 							<div>
-								<div className="flex items-start justify-between mb-6">
+								<div className="flex items-center justify-between mb-6">
 									<h3 className="font-ubuntu-sans text-hero-subtext font-semibold text-white">
 										{offering.title}
 									</h3>
-									{/* Simple icon placeholder */}
 									<div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-										<div className="w-4 h-4 bg-white/80 rounded-full"></div>
+										{offering.icon}
 									</div>
 								</div>
 
 								{/* Description */}
-								<p className="font-ubuntu-sans text-hero-subtext text-white/70 leading-relaxed">
+								<p className="font-ubuntu-sans text-hero-button text-white/70 leading-relaxed">
 									{offering.description}
 								</p>
 							</div>

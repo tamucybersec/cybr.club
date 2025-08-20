@@ -70,7 +70,7 @@ function PartnerGuide() {
 			</motion.div>
 			<Container>
 				<motion.p
-					className="mb-16 md:mb-8 text-hero-button"
+					className="mb-16 md:mb-8 text-hero-subtext"
 					variants={itemVariants}
 					initial="hidden"
 					whileInView={"visible"}
@@ -78,7 +78,7 @@ function PartnerGuide() {
 				>
 					Feel free to check out our Sponsorship Packet! It includes
 					all the latest information about us, why you should sponsor,
-					tiers, and the impact of sponsorship. Please consider it!
+					tiers, and the impact of sponsorship.
 				</motion.p>
 				<motion.div
 					className="w-full h-screen hidden md:block"

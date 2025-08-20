@@ -33,6 +33,12 @@ export default function RootLayout({
 			lang="en"
 			style={{ margin: 0, padding: 0 }}
 		>
+			<head>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0"
+				/>
+			</head>
 			<body
 				className={`dark ${azonix.variable} ${ubuntuSans.variable} font-sans antialiased min-h-dvh relative overflow-x-hidden`}
 				style={{
