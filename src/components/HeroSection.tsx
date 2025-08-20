@@ -1,0 +1,91 @@
+"use client";
+
+import Container from "@/components/Container";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+function HeroSection() {
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.3,
+				delayChildren: 0.2,
+			},
+		},
+	} as const;
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: (custom = 0) => ({
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+				delay: 0.2 + custom * 0.3,
+				ease: [0.25, 0.46, 0.45, 0.94] as const,
+			},
+		}),
+	} as const;
+
+	return (
+		<Container className="mt-[25dvh] sm:mt-[20dvh] px-4 sm:px-6 lg:px-8">
+			<div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 lg:gap-12 max-w-7xl mx-auto">
+				<motion.div
+					className="flex-1 max-w-2xl lg:pr-8 text-center lg:text-left"
+					variants={containerVariants}
+					initial="hidden"
+					animate="visible"
+				>
+					<motion.h1
+						className="font-azonix text-hero-heading leading-tight px-2 sm:px-0"
+						style={{
+							fontSize: "clamp(1.25rem, 4vw, 3rem)", // Even smaller on very small screens
+						}}
+						variants={itemVariants}
+					>
+						<span className="block whitespace-nowrap">
+							Jump-start your Journey
+						</span>
+						<span className="block">in Cybersecurity</span>
+					</motion.h1>
+
+					<motion.p
+						className="text-[#AAAAAA] text-hero-subtext leading-snug max-w-2xl mx-auto lg:mx-0 mt-2 sm:mt-4 px-2 sm:px-0"
+						variants={itemVariants}
+					>
+						Earn certifications, gain real-world experience,
+						<br className="hidden sm:block" />
+						and find your calling in cybersecurity
+					</motion.p>
+
+					<motion.div
+						className="flex justify-center lg:justify-start flex-row gap-3 sm:gap-6 mt-6 lg:mt-12"
+						variants={itemVariants}
+					>
+						<Button
+							asChild
+							className="text-hero-button font-azonix px-6 sm:px-10 py-2 sm:py-4 h-auto bg-white text-black hover:bg-gray-100 border-0 shadow-lg hover:shadow-xl transition-all duration-300 w-min"
+							style={{ borderRadius: "10px" }}
+						>
+							<Link href="/join">Join</Link>
+						</Button>
+
+						<Button
+							asChild
+							variant="outline"
+							className="text-hero-button font-azonix px-6 sm:px-10 py-2 sm:py-4 h-auto bg-transparent border border-white/40 text-white hover:bg-transparent hover:border-white/70 transition-all duration-300 w-min"
+							style={{ borderRadius: "10px" }}
+						>
+							<Link href="#learn">Learn More</Link>
+						</Button>
+					</motion.div>
+				</motion.div>
+			</div>
+		</Container>
+	);
+}
+
+export default HeroSection;
