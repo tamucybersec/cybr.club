@@ -4,7 +4,7 @@ import { z } from "zod";
 import DataTable from "../DataTable/DataTable";
 import type { Definition } from "../DataTable/DataTableTypes";
 import { QUERY_KEYS, type User } from "../../lib/types";
-import { zodBoolean, zodTamuEmail } from "@/lib/helpers";
+import { sortDates, zodBoolean, zodTamuEmail } from "@/lib/helpers";
 
 const definition: Definition<User>[] = [
 	{
@@ -55,6 +55,9 @@ const definition: Definition<User>[] = [
 		header: "Join Date",
 		sortable: true,
 		type: z.string().nonempty(),
+		other: {
+			sortingFn: sortDates<User>("join_date"),
+		},
 	},
 	{
 		accessorKey: "notes",

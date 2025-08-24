@@ -244,21 +244,21 @@ body {
 
 	@media (min-width: 768px) {
 		.animate-scroll-left {
-			animation: scroll-left-tablet 35s linear infinite;
+			animation: scroll-left-tablet 50s linear infinite;
 		}
 
 		.animate-scroll-right {
-			animation: scroll-right-tablet 35s linear infinite;
+			animation: scroll-right-tablet 50s linear infinite;
 		}
 	}
 
 	@media (min-width: 1024px) {
 		.animate-scroll-left {
-			animation: scroll-left-desktop 35s linear infinite;
+			animation: scroll-left-desktop 70s linear infinite;
 		}
 
 		.animate-scroll-right {
-			animation: scroll-right-desktop 35s linear infinite;
+			animation: scroll-right-desktop 70s linear infinite;
 		}
 	}
 

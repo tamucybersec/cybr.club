@@ -17,3 +17,8 @@
 
 -   photos for about
 -   remove photos from git history
+
+# Fixes
+
+- Fix sorting function of dashboard
+    - Sorts based on strings so 08 < 1

@@ -58,6 +58,13 @@ export function compareEventDates(a: Event, b: Event): number {
 }
 
 export function compareDates(a: string, b: string): number {
+	if (a === "") {
+		a = "01/01/0001";
+	}
+	if (b === "") {
+		b = "01/01/0001";
+	}
+
 	const [monthA, dayA, yearA] = a.split("/");
 	const [monthB, dayB, yearB] = b.split("/");
 
