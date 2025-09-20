@@ -1,9 +1,4 @@
-import type {
-	Event,
-	Events,
-	Semester,
-	Term,
-} from "@/lib/types";
+import type { Event, Events, Semester, Term } from "@/lib/types";
 import type { Row } from "@tanstack/react-table";
 import { z } from "zod";
 
@@ -65,8 +60,15 @@ export function compareDates(a: string, b: string): number {
 		b = "01/01/0001";
 	}
 
-	const [monthA, dayA, yearA] = a.split("/");
-	const [monthB, dayB, yearB] = b.split("/");
+	let [monthA, dayA, yearA] = a.split("/");
+	let [monthB, dayB, yearB] = b.split("/");
+
+	monthA = monthA.padStart(2, "0");
+	dayA = dayA.padStart(2, "0");
+	yearA = yearA.padStart(4, "0");
+	monthB = monthB.padStart(2, "0");
+	dayB = dayB.padStart(2, "0");
+	yearB = yearB.padStart(4, "0");
 
 	if (yearA === yearB) {
 		if (monthA === monthB) {
@@ -182,8 +184,8 @@ export const zodTamuEmail = z
 	.string()
 	.email({ message: "Invalid email address" })
 	.endsWith(
-		"tamu.edu",
-		"Email must be a valid TAMU email and end with 'tamu.edu'"
+		".edu",
+		"Email must be a .edu email"
 	);
 
 export const zodFile = (

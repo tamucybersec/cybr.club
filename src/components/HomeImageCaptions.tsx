@@ -52,7 +52,7 @@ function LargeImagesSection() {
 							className="object-cover rounded-xl"
 						/>
 					</div>
-					<p className="text-hero-subtext font-ubuntu-sans text-center text-[#AAAAAA]">
+					<p className="text-hero-button font-ubuntu-sans text-center text-[#AAAAAA]">
 						{photos.austinPoint.embelishment}
 					</p>
 				</motion.div>
@@ -71,7 +71,7 @@ function LargeImagesSection() {
 							className="object-cover rounded-xl"
 						/>
 					</div>
-					<p className="text-hero-subtext font-ubuntu-sans text-center text-[#AAAAAA]">
+					<p className="text-hero-button font-ubuntu-sans text-center text-[#AAAAAA]">
 						{photos.infoGavin.embelishment}
 					</p>
 				</motion.div>

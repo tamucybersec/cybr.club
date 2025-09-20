@@ -3,7 +3,7 @@
 import Container from "@/components/Container";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import Anchor from "./Anchor";
 
 function JoinGuide() {
 	const containerVariants: Variants = {
@@ -30,15 +30,6 @@ function JoinGuide() {
 		},
 	};
 
-	const Anchor = (href: string, text: string) => (
-		<Link
-			href={href}
-			className="font-bold hover:underline text-blue-400 hover:text-blue-300 visited:text-purple-400"
-		>
-			{text}
-		</Link>
-	);
-
 	const Pre = (text: string) => (
 		<span className="inline-block bg-border mx-1 px-2 rounded font-mono">
 			{text}
@@ -61,15 +52,16 @@ function JoinGuide() {
 					>
 						<li>
 							Join our{" "}
-							{Anchor("https://discord.gg/nCpZzbB", "Discord")}
+							<Anchor href="https://discord.gg/nCpZzbB">
+								Discord
+							</Anchor>
 						</li>
 						<li>Follow the onboarding instructions</li>
 						<li>
 							Head to the{" "}
-							{Anchor(
-								"https://discord.com/channels/631254092332662805/1009108768639946783",
-								"#attendance channel"
-							)}
+							<Anchor href="https://discord.com/channels/631254092332662805/1009108768639946783">
+								#attendance channel
+							</Anchor>
 						</li>
 						<li>Use the command {Pre("/register")}</li>
 						<li>Fill out the short form from the link provided</li>

@@ -58,7 +58,7 @@ const details: Details[] = [
 			"If you are a graduate student, please select 'Graduate'. If your major is not listed, please select 'Other'.",
 	},
 	{
-		title: "TAMU Email",
+		title: "College Email",
 		field: "email",
 		type: zodTamuEmail,
 	},

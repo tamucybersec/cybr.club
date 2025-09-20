@@ -7,6 +7,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { ActivityGroup, activityGroups } from "@/data/activityGroups";
+import Anchor from "./Anchor";
 
 function ActivityGroups() {
 	const [hoveredItem, setHoveredItem] = useState<number | null>(null);
@@ -63,11 +64,14 @@ function ActivityGroups() {
 			onHoverStart={() => setHoveredItem(group.id)}
 			onHoverEnd={() => setHoveredItem(null)}
 		>
-			<div className="w-full h-full rounded-md border border-white/10 transition-all duration-300 group-hover:border-white/20 overflow-hidden relative" style={{ backgroundColor: '#0B0B0B' }}>
+			<div
+				className="w-full h-full rounded-md border border-white/10 transition-all duration-300 group-hover:border-white/20 overflow-hidden relative"
+				style={{ backgroundColor: "#0B0B0B" }}
+			>
 				{/* Placeholder background with fixed aspect ratio */}
 				<div
 					className="w-full h-full p-4 relative"
-					style={{ aspectRatio: "1/1", backgroundColor: '#0B0B0B' }}
+					style={{ aspectRatio: "1/1", backgroundColor: "#0B0B0B" }}
 				>
 					<Image
 						className="object-contain p-16"
@@ -91,7 +95,17 @@ function ActivityGroups() {
 					<div className="flex-1 flex flex-col justify-center">
 						<h3 className="font-azonix text-3xl">{group.title}</h3>
 						<h5 className="font-ubuntu-sans text-lg font-light">
-							{group.day}s at {group.time}
+							{group.note ?? (
+								<>
+									{group.day}s at {group.time} |{" "}
+									<Anchor
+										href={group.map}
+										target="_blank"
+									>
+										{group.location}
+									</Anchor>
+								</>
+							)}
 						</h5>
 						<p className="text-white text-base lg:text-lg font-ubuntu-sans font-medium">
 							{group.description}
@@ -118,7 +132,7 @@ function ActivityGroups() {
 		<motion.div
 			key={group.id}
 			className="rounded-md border border-white/10 p-6"
-			style={{ backgroundColor: '#0B0B0B' }}
+			style={{ backgroundColor: "#0B0B0B" }}
 			variants={itemVariants}
 		>
 			{/* Placeholder background with fixed height */}
@@ -139,7 +153,17 @@ function ActivityGroups() {
 			<div className="flex-1 flex flex-col justify-center">
 				<h3 className="font-azonix text-hero-subtext">{group.title}</h3>
 				<h5 className="font-ubuntu-sans text-sm font-light">
-					{group.day}s at {group.time}
+					{group.note ?? (
+						<>
+							{group.day}s at {group.time} |{" "}
+							<Anchor
+								href={group.map}
+								target="_blank"
+							>
+								{group.location}
+							</Anchor>
+						</>
+					)}
 				</h5>
 				<p className="text-white text-hero-button font-ubuntu-sans font-medium mb-4">
 					{group.description}
@@ -216,7 +240,7 @@ function ActivityGroups() {
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					{/* Title */}
 					<motion.h2
-						className="font-azonix text-hero-heading text-center mb-12 lg:mb-16"
+						className="font-azonix text-hero-heading text-center"
 						variants={titleVariants}
 						initial="hidden"
 						whileInView="visible"
@@ -224,6 +248,19 @@ function ActivityGroups() {
 					>
 						Activity Groups
 					</motion.h2>
+					<motion.div
+						className="flex flex-col items-center"
+						variants={containerVariants}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.1, margin: "100px" }}
+					>
+						<motion.p className="font-ubuntu-sans text-hero-button mb-12 lg:mb-16 text-center max-w-lg text-[#AAAAAA]">
+							Activity Groups will be meeting from Sept. 8 to Nov.
+							21 for Fall 2025. Check our discord for individual
+							updates to rooms and times as needed.
+						</motion.p>
+					</motion.div>
 
 					{/* Desktop Grid */}
 					<motion.div

@@ -2,7 +2,7 @@
 
 import { DashboardContext } from "@/lib/context";
 import { useState } from "react";
-import AppSidebar from "./AppSidebar";
+import DashboardSidebar from "./DashboardSidebar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Permissions, type Options, type Term } from "../lib/types";
 import { authenticated, useLogin } from "@/lib/auth";
@@ -51,7 +51,7 @@ function Dashboard() {
 					position="top-center"
 				/>
 				{authenticated(permission) ? (
-					<AppSidebar />
+					<DashboardSidebar />
 				) : (
 					<Login
 						token={token}

@@ -142,7 +142,7 @@ const groups: Group[] = [
 	},
 ];
 
-function AppSidebar() {
+function DashboardSidebar() {
 	const { permission: permissionLevel } = useContext(DashboardContext);
 	const [path, setPath] = useState("/dashboard");
 	const [component, setComponent] = useState(<Report />);
@@ -326,4 +326,4 @@ function AppSidebar() {
 	);
 }
 
-export default AppSidebar;
+export default DashboardSidebar;
