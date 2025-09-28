@@ -3,17 +3,23 @@ import { API_URL } from "./constants";
 import { useEffect } from "react";
 
 export function useLogin(
-	callback: (token: string, permission: Permissions) => void
+	callback: (token: string, permission: Permissions) => void,
+	setIsLoading?: (loading: boolean) => void
 ) {
 	async function login(tok?: string) {
+		setIsLoading?.(true)
+
 		const token = (tok ?? localStorage.getItem("token")) || "";
 		const usingLocalStorage = tok === undefined;
+
 		if (!token) {
 			// will always be false, don't bother to fetch
+			setIsLoading?.(false);
 			return;
 		}
 
 		const resp = await fetch(`${API_URL}/login?token=${token}`);
+		setIsLoading?.(false)
 
 		if (!resp.ok) {
 			callback(token, Permissions.NONE);
