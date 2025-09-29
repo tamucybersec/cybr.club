@@ -142,9 +142,9 @@ function ActivityGroupsNew() {
 							</h1>
 						</motion.div>
 
-						{/* Right side - Description - moved more to the left */}
+						{/* Right side - Description */}
 						<motion.div
-							className="flex-1 max-w-3xl lg:-ml-8"
+							className="flex-1 max-w-3xl"
 							variants={itemVariants}
 						>
 							<p className="font-ubuntu-sans text-hero-subtext leading-tight">
