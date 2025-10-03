@@ -17,11 +17,12 @@ function Dashboard() {
 		undefined
 	);
 	const [terms, setTerms] = useState<[Term, Term]>(defaultTerms());
+	const [isLoading, setIsLoading] = useState(false);
 
 	const login = useLogin((tok, perm) => {
 		setToken(tok);
 		setPermission(perm);
-	});
+	}, setIsLoading);
 
 	async function fetchPathAbstraction(path: string, options?: Options) {
 		return await fetchPath(token, path, options);
@@ -57,6 +58,7 @@ function Dashboard() {
 						token={token}
 						setToken={setToken}
 						permission={permission}
+						isLoading={isLoading}
 						login={() => login(token)}
 					/>
 				)}
