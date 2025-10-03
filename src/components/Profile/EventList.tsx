@@ -11,7 +11,12 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { ScrollArea } from "../ui/scroll-area";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "../ui/accordion";
 
 interface Props {
 	eventInfo: EventInfo;
@@ -46,6 +51,39 @@ function EventList({ eventInfo }: Props) {
 		</ScrollArea>
 	);
 
+	const TermEvents = (
+		year: string,
+		semester: string,
+		categoryInfo: Record<string, Event[]>
+	) => (
+		<AccordionItem
+			key={`${semester}-${year}`}
+			value={`${semester}-${year}`}
+			className="flex flex-col gap-4"
+		>
+			<AccordionTrigger className="text-xl font-bold">
+				{capitalize(semester)} {year} (
+				{Object.values(categoryInfo)
+					.reduce((total, evs) => total + evs.length, 0)
+					.toLocaleString()}
+				)
+			</AccordionTrigger>
+			{Object.entries(categoryInfo).map(([category, events]) => {
+				return (
+					<AccordionContent
+						key={category}
+						className="flex flex-col gap-2"
+					>
+						<h4>
+							{category} ({events.length})
+						</h4>
+						<EventTable events={events} />
+					</AccordionContent>
+				);
+			})}
+		</AccordionItem>
+	);
+
 	return (
 		<Accordion type="multiple">
 			{Object.entries(eventInfo)
@@ -55,45 +93,9 @@ function EventList({ eventInfo }: Props) {
 						.sort(([semA], [semB]) =>
 							compareSemesters(semB as Semester, semA as Semester)
 						)
-						.map(([semester, categoryInfo]) => {
-							return (
-								<AccordionItem
-									key={`${semester}-${year}`}
-									value={`${semester}-${year}`}
-									className="flex flex-col gap-4"
-								>
-									<AccordionTrigger className="text-xl font-bold">
-										{capitalize(semester)} {year} (
-										{Object.values(categoryInfo)
-											.reduce(
-												(total, evs) =>
-													total + evs.length,
-												0
-											)
-											.toLocaleString()}
-										)
-									</AccordionTrigger>
-									{Object.entries(categoryInfo).map(
-										([category, events]) => {
-											return (
-												<AccordionContent
-													key={category}
-													className="flex flex-col gap-2"
-												>
-													<h4>
-														{category} (
-														{events.length})
-													</h4>
-													<EventTable
-														events={events}
-													/>
-												</AccordionContent>
-											);
-										}
-									)}
-								</AccordionItem>
-							);
-						})
+						.map(([semester, categoryInfo]) =>
+							TermEvents(year, semester, categoryInfo)
+						)
 				)}
 		</Accordion>
 	);
