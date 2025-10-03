@@ -147,6 +147,7 @@ export function DataTableUpdateDelete<T extends object>(
 	const pks = getPrimaryKeys(definition);
 	const queryClient = useQueryClient();
 	const [mode, setMode] = useState<"UPDATE" | "DELETE">("DELETE");
+	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const [open, setOpen] = useState(false);
 	const [defaultValuesRow, setDefaultValuesRow] = useState(
 		defaultValuesFromRow()
@@ -283,12 +284,20 @@ export function DataTableUpdateDelete<T extends object>(
 		);
 	}
 
+	function openDialogFromMenu(nextMode: "UPDATE" | "DELETE") {
+		setMode(nextMode);
+		setDropdownOpen(false);
+	}
+
 	return (
 		<Dialog
 			open={open}
 			onOpenChange={setOpen}
 		>
-			<DropdownMenu>
+			<DropdownMenu
+				open={dropdownOpen}
+				onOpenChange={setDropdownOpen}
+			>
 				<DropdownMenuTrigger asChild>
 					<Button
 						variant="ghost"
@@ -300,12 +309,16 @@ export function DataTableUpdateDelete<T extends object>(
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="end">
 					<DialogTrigger asChild>
-						<DropdownMenuItem onClick={() => setMode("UPDATE")}>
+						<DropdownMenuItem
+							onClick={() => openDialogFromMenu("UPDATE")}
+						>
 							Edit Entry
 						</DropdownMenuItem>
 					</DialogTrigger>
 					<DialogTrigger asChild>
-						<DropdownMenuItem onClick={() => setMode("DELETE")}>
+						<DropdownMenuItem
+							onClick={() => openDialogFromMenu("DELETE")}
+						>
 							Delete Entry
 						</DropdownMenuItem>
 					</DialogTrigger>

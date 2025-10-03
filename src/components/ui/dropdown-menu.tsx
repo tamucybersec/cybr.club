@@ -71,17 +71,16 @@ function DropdownMenuGroup({
 	);
 }
 
-function DropdownMenuItem({
-	className,
-	inset,
-	variant = "default",
-	...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
-	inset?: boolean;
-	variant?: "default" | "destructive";
-}) {
+const DropdownMenuItem = React.forwardRef<
+	React.ElementRef<typeof DropdownMenuPrimitive.Item>,
+	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+		inset?: boolean;
+		variant?: "default" | "destructive";
+	}
+>(({ className, inset, variant = "default", ...props }, ref) => {
 	return (
 		<DropdownMenuPrimitive.Item
+			ref={ref}
 			data-slot="dropdown-menu-item"
 			data-inset={inset}
 			data-variant={variant}
@@ -92,7 +91,8 @@ function DropdownMenuItem({
 			{...props}
 		/>
 	);
-}
+});
+DropdownMenuItem.displayName = "DropdownMenuItem";
 
 function DropdownMenuCheckboxItem({
 	className,

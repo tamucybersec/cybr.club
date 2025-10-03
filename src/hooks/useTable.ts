@@ -31,7 +31,13 @@ export function useUsers() {
 	};
 }
 
-export function useEvents() {
+export function useEvents({
+	terms: _terms,
+	unfiltered,
+}: {
+	terms?: [Term, Term];
+	unfiltered?: boolean;
+} = {}) {
 	const { fetchPath, terms } = useContext(DashboardContext);
 	const { data } = useQuery<Event[]>({
 		queryKey: QUERY_KEYS.events,
@@ -46,7 +52,8 @@ export function useEvents() {
 			groupedEvents[event.year][event.semester].push(event);
 		}
 
-		const filteredEvents = flattenEvents(groupedEvents, terms);
+		const t = unfiltered ? undefined : _terms ?? terms;
+		const filteredEvents = flattenEvents(groupedEvents, t);
 		const eventsByCode = Object.fromEntries(
 			filteredEvents.map((event) => [event.code, event])
 		);
