@@ -5,6 +5,8 @@ import DataTable from "../DataTable/DataTable";
 import type { Definition } from "../DataTable/DataTableTypes";
 import { QUERY_KEYS, type User } from "../../lib/types";
 import { sortDates, zodBoolean, zodTamuEmail } from "@/lib/helpers";
+import { Button } from "../ui/button";
+import ProfileViewer from "../Profile/ProfileViewer";
 
 const definition: Definition<User>[] = [
 	{
@@ -17,6 +19,18 @@ const definition: Definition<User>[] = [
 	{
 		accessorKey: "name",
 		header: "Name",
+		cell: (row) => {
+			const user_id = row.getValue<string>("user_id");
+			const name = row.getValue<string>("name");
+			return (
+				<ProfileViewer
+					user_id={user_id}
+					asChild
+				>
+					<Button variant={"outline"} size="sm">{name}</Button>
+				</ProfileViewer>
+			);
+		},
 		sortable: true,
 		type: z.string().nonempty(),
 	},

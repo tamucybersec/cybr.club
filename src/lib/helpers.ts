@@ -93,16 +93,21 @@ export function sortDates<T>(accessor: keyof T) {
 	};
 }
 
-export function flattenEvents(events: Events, terms: [Term, Term]): Event[] {
+export function flattenEvents(events: Events, terms?: [Term, Term]): Event[] {
 	const result = [];
 
 	for (const [yearStr, semMap] of Object.entries(events)) {
-		const year = parseInt(yearStr);
-		if (year < terms[0].year || terms[1].year < year) continue;
+		let year = 0;
+		if (terms) {
+			year = parseInt(yearStr);
+			if (year < terms[0].year || terms[1].year < year) continue;
+		}
 
 		for (const [semesterStr, eventList] of Object.entries(semMap)) {
-			const semester = semesterStr as Semester;
-			if (!inTermRange({ year, semester }, terms)) continue;
+			if (terms) {
+				const semester = semesterStr as Semester;
+				if (!inTermRange({ year, semester }, terms)) continue;
+			}
 			result.push(...eventList);
 		}
 	}
@@ -130,6 +135,10 @@ export function defaultTerms(): [Term, Term] {
 			year: getCurrentYear(),
 		},
 	];
+}
+
+export function compareSemesters(a: Semester, b: Semester): number {
+	return -a.localeCompare(b);
 }
 
 export function prettySemester(semester: Semester): string {
@@ -183,10 +192,7 @@ export const zodBoolean = z.coerce
 export const zodTamuEmail = z
 	.string()
 	.email({ message: "Invalid email address" })
-	.endsWith(
-		".edu",
-		"Email must be a .edu email"
-	);
+	.endsWith(".edu", "Email must be a .edu email");
 
 export const zodFile = (
 	fileTypes: string[],
@@ -201,3 +207,16 @@ export const zodFile = (
 				message: `Max file size is ${maxSizeStr}`,
 			})
 	);
+
+export function formatMajor(major: string): string {
+	if (major.includes(":")) {
+		const parts = major.split(":");
+		if (parts[0] == "Other") {
+			return parts[1];
+		} else if (parts[0] == "Graduate") {
+			return `${parts[1]} (Graduate)`;
+		}
+	}
+
+	return major;
+}
