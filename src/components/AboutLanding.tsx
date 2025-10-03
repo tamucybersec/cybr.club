@@ -56,15 +56,10 @@ function AboutLanding() {
 
 					{/* Paragraph Text */}
 					<motion.p
-						className="font-ubuntu-sans text-[22px] leading-relaxed text-white/70"
+						className="font-ubuntu-sans text-base sm:text-lg lg:text-[22px] leading-relaxed text-white/70"
 						variants={itemVariants}
 					>
-						The Texas A&M Cybersecurity Club was founded on a spirit
-						of generosity and mentorship for students interested in
-						cybersecurity. Many of us found our start because
-						someone took the time to help us, and we&apos;re proud
-						to keep that tradition going by giving back to others in
-						the same way.
+						The Texas A&M Cybersecurity Club was founded on a spirit of generosity and mentorship for students interested in cybersecurity. Many of us found our start because someone took the time to help us, and we&apos;re proud to keep that tradition going by giving back to others in the same way.
 					</motion.p>
 				</motion.div>
 

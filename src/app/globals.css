@@ -24,6 +24,7 @@ body {
 	margin: 0 !important;
 	padding: 0 !important;
 	scroll-behavior: smooth;
+	overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 @layer utilities {
@@ -148,6 +149,18 @@ body {
 	/* Remove will-change after animation completes */
 	[data-animate="false"] {
 		will-change: auto;
+	}
+
+	/* Optimize image rendering and layout stability */
+	img {
+		content-visibility: auto;
+		contain: layout style paint;
+	}
+
+	/* Optimize motion components */
+	[data-framer-component] {
+		contain: layout style paint;
+		content-visibility: auto;
 	}
 
 	/* Let Lenis handle smooth scrolling - removed scroll-behavior to prevent conflicts */
