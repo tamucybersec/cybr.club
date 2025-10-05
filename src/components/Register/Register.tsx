@@ -146,6 +146,7 @@ function Register() {
 				onSubmit={onSubmit}
 				majorState={[selectedMajor, setSelectedMajor]}
 				customMajorState={[customMajorText, setCustomMajorText]}
+				originalUser={originalUser} // to read existing existing resume data if there is any
 			/>
 		);
 	}

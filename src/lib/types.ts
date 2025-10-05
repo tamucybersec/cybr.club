@@ -90,6 +90,8 @@ export interface User {
 	join_date: string;
 	notes: string;
 	resume_format: string;
+	resume_filename?: string | null;
+	resume_uploaded_at?: string | null; // 'dd-mm-yyyy' if uploaded, null if not
 }
 
 export interface Event {
