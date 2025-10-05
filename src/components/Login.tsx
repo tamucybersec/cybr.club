@@ -1,20 +1,20 @@
 "use client";
 
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {Permissions, type SetState} from "../lib/types";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Permissions, type SetState } from "../lib/types";
 import Image from "next/image";
-import {Loader2Icon} from "lucide-react";
+import { Loader2Icon } from "lucide-react";
 
 interface Props {
-    token: string,
-    setToken: SetState<string>,
-    permission: Permissions | undefined,
-    login: () => void,
-    isLoading?: boolean
+        token: string,
+        setToken: SetState<string>,
+        permission: Permissions | undefined,
+        login: () => void,
+        isLoading?: boolean
 }
 
-function Login({token, setToken, permission, login, isLoading}: Props) {
+function Login({ token, setToken, permission, login, isLoading }: Props) {
     return (
         <div className="w-dvw h-dvh flex justify-center items-center text-center">
             <div className="flex flex-col gap-4">

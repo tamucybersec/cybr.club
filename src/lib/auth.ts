@@ -12,6 +12,11 @@ export function useLogin(
 		const token = (tok ?? localStorage.getItem("token")) || "";
 		const usingLocalStorage = tok === undefined;
 
+		if (usingLocalStorage) {
+			// if logging in automatically, don't show that you tried to login
+			setIsLoading?.(false)
+		}
+
 		if (!token) {
 			// will always be false, don't bother to fetch
 			setIsLoading?.(false);
@@ -19,20 +24,26 @@ export function useLogin(
 		}
 
 		const resp = await fetch(`${API_URL}/login?token=${token}`);
-		setIsLoading?.(false)
 
 		if (!resp.ok) {
 			callback(token, Permissions.NONE);
+			setIsLoading?.(false)
 		} else {
 			const permission = parseInt(await resp.text());
 			if (permission === Permissions.NONE && usingLocalStorage) {
 				// don't display an error message unless they
 				// login themselves with an incorrect token
+				setIsLoading?.(false)
 				return;
 			}
 
 			callback(token, permission);
-			localStorage.setItem("token", token);
+
+			if (permission !== Permissions.NONE) {
+				localStorage.setItem("token", token);
+			} else {
+				setIsLoading?.(false)
+			}
 		}
 	}
 
