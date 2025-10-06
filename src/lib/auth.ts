@@ -23,13 +23,13 @@ export function useLogin(
 
 		if (!resp.ok) {
 			callback(token, Permissions.NONE);
-			setIsLoading?.(false)
+			setIsLoading?.(false);
 		} else {
 			const permission = parseInt(await resp.text());
 			if (permission === Permissions.NONE && usingLocalStorage) {
 				// don't display an error message unless they
 				// login themselves with an incorrect token
-				setIsLoading?.(false)
+				setIsLoading?.(false);
 				return;
 			}
 
@@ -38,7 +38,7 @@ export function useLogin(
 			if (permission !== Permissions.NONE) {
 				localStorage.setItem("token", token);
 			} else {
-				setIsLoading?.(false)
+				setIsLoading?.(false);
 			}
 		}
 	}
