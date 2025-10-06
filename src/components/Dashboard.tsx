@@ -17,7 +17,9 @@ function Dashboard() {
 		undefined
 	);
 	const [terms, setTerms] = useState<[Term, Term]>(defaultTerms());
-	const [isLoading, setIsLoading] = useState(false);
+
+	// loading set to true by default since we are automatically trying to login with what is in local storage
+	const [isLoading, setIsLoading] = useState(true);
 
 	const login = useLogin((tok, perm) => {
 		setToken(tok);

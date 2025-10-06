@@ -7,15 +7,11 @@ export function useLogin(
 	setIsLoading?: (loading: boolean) => void
 ) {
 	async function login(tok?: string) {
-		setIsLoading?.(true)
+		// set the loading to true in case we are logging in manually
+		setIsLoading?.(true);
 
 		const token = (tok ?? localStorage.getItem("token")) || "";
 		const usingLocalStorage = tok === undefined;
-
-		if (usingLocalStorage) {
-			// if logging in automatically, don't show that you tried to login
-			setIsLoading?.(false)
-		}
 
 		if (!token) {
 			// will always be false, don't bother to fetch
