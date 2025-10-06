@@ -39,7 +39,7 @@ function getDoubleDipOfficer(
 
 const noahMustoe: DoubleDipOfficer = {
 	name: "Noah Mustoe",
-	image: "/images/club-logos/white-shield.svg",
+	image: "/images/leadership/NoahMustoe.avif",
 	positions: ["President", "Cyber Operations (Red Team)"],
 	major: "CPSC",
 	year: 26,
@@ -52,7 +52,7 @@ const noahMustoe: DoubleDipOfficer = {
 
 const austinGlander: DoubleDipOfficer = {
 	name: "Austin Glander",
-	image: "/images/club-logos/white-shield.svg",
+	image: "/images/leadership/AustinGlander.avif",
 	positions: [
 		"Vice President",
 		"Cisco Networking Academy Student Ambassador",
@@ -68,7 +68,7 @@ const austinGlander: DoubleDipOfficer = {
 
 const kalyanAdhikari: DoubleDipOfficer = {
 	name: "Kalyan Adhikari",
-	image: "/images/club-logos/white-shield.svg",
+	image: "/images/leadership/KalyanAdhikari.avif",
 	positions: ["Treasurer", "Palo Alto Academy Student Ambassador"],
 	major: "GIST",
 	year: 27,
@@ -79,7 +79,7 @@ const kalyanAdhikari: DoubleDipOfficer = {
 
 const owenShadburne: DoubleDipOfficer = {
 	name: "Owen Shadburne",
-	image: "/images/club-logos/white-shield.svg",
+	image: "/images/leadership/OwenShadburne.avif",
 	positions: ["Director of Technology", "Red Hat Academy Student Ambassador"],
 	major: "CPSC",
 	year: 27,
@@ -92,7 +92,7 @@ const owenShadburne: DoubleDipOfficer = {
 
 const alexZhang: DoubleDipOfficer = {
 	name: "Alex Zhang",
-	image: "/images/club-logos/white-shield.svg",
+	image: "/images/leadership/AlexZhang.avif",
 	positions: ["Director of Competitions", "Cyber Operations (CTF)"],
 	major: "CPSC",
 	year: 27,
@@ -109,7 +109,7 @@ export const officers: Officer[] = [
 	getDoubleDipOfficer(kalyanAdhikari, 0),
 	{
 		name: "Matei Dumitru",
-		image: "/images/club-logos/white-shield.svg",
+		image: "/images/leadership/MateiDumitru.avif",
 		position: "Secretary",
 		major: "CPEN",
 		year: 27,
@@ -120,7 +120,7 @@ export const officers: Officer[] = [
 	},
 	{
 		name: "Zach Smith",
-		image: "/images/club-logos/white-shield.svg",
+		image: "/images/leadership/ZachSmith.avif",
 		position: "Director of External Relations",
 		major: "CPSC",
 		year: 27,
@@ -132,7 +132,7 @@ export const officers: Officer[] = [
 	},
 	{
 		name: "Alex Eade",
-		image: "/images/club-logos/white-shield.svg",
+		image: "/images/leadership/AlexEade.avif",
 		position: "Directory of Activity Groups",
 		major: "MISY",
 		year: 26,
@@ -143,7 +143,7 @@ export const officers: Officer[] = [
 	},
 	{
 		name: "Arianna Guzman",
-		image: "/images/club-logos/white-shield.svg",
+		image: "/images/leadership/AriannaGuzman.avif",
 		position: "Director of Public Relations",
 		major: "ENGR",
 		year: 28,
@@ -156,7 +156,7 @@ export const officers: Officer[] = [
 	getDoubleDipOfficer(owenShadburne, 0),
 	{
 		name: "Martin Carlisle",
-		image: "/images/club-logos/white-shield.svg",
+		image: "/images/leadership/MartinCarlisle.jpg",
 		position: "Faculty Advisor",
 		major: "CSCE Department",
 		socials: ObfuscateSocials({
@@ -174,7 +174,7 @@ export const activityLeaders = {
 	"Hardware Hacking": [
 		{
 			name: "Preston VanderLight",
-			image: "/images/club-logos/white-shield.svg",
+			image: "/images/leadership/PrestonVanderLight.avif",
 			position: "Hardware Hacking Lead",
 			major: "ECEN",
 			year: 27,
@@ -201,7 +201,7 @@ export const activityLeaders = {
 	"Red Hat": [
 		{
 			name: "Kevin Guerra",
-			image: "/images/club-logos/white-shield.svg",
+			image: "/images/leadership/KevinGuerra.avif",
 			position: "Red Hat Academy Student Ambassador",
 			major: "ENGR",
 			year: 28,
@@ -215,7 +215,7 @@ export const activityLeaders = {
 	Policy: [
 		{
 			name: "Chase Johnson",
-			image: "/images/club-logos/white-shield.svg",
+			image: "/images/leadership/ChaseJohnson.avif",
 			position: "Policy Lead",
 			major: "MIA",
 			year: 26,

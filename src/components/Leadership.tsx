@@ -9,7 +9,7 @@ import {
 	faLinkedin,
 	IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
-import { Officer, Socials } from "@/data/officers";
+import { Officer, Socials } from "@/data/leadership";
 import Image from "next/image";
 import ObfuscatedLink from "./ObfuscatedLink";
 
@@ -53,13 +53,13 @@ function LeadershipCard({ member }: { member: Officer }) {
 		>
 			<div className="bg-gradient-to-br from-white/8 to-white/4 rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 group-hover:border-white/20 group-hover:shadow-xl">
 				{/* Image Section - No margin, fills to border */}
-				<div className="relative aspect-square overflow-hidden p-4">
+				<div className="relative overflow-hidden m-4 rounded-lg aspect-[3/2]">
 					{/* Placeholder image */}
 					<Image
+						className="rounded-lg object-contain"
 						src={member.image}
 						alt={`Head-shot of ${member.name}`}
-						width={500}
-						height={500}
+						fill
 						unoptimized
 					/>
 					{/* <div className="w-full h-full bg-gradient-to-br from-white/15 to-white/8"></div> */}
@@ -135,7 +135,7 @@ function Leadership({ name, group }: { name: string; group: Officer[] }) {
 
 				{/* Leadership Grid */}
 				<motion.div
-					className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10"
+					className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"

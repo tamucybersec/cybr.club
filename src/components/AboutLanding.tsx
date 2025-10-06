@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "@/components/Container";
+import { photos } from "@/data/photos";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
@@ -74,7 +75,15 @@ function AboutLanding() {
 					variants={itemVariants}
 					custom={1}
 				>
-					<div className="relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10"></div>
+					<div className="relative w-full h-full">
+						<Image
+							className="object-contain rounded-xl"
+							src={photos.leadership.path}
+							alt={photos.leadership.title}
+							fill
+							unoptimized
+						/>
+					</div>
 				</motion.div>
 			</div>
 		</Container>

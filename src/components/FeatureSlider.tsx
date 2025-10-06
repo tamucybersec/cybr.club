@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from "react"
 import { motion, useAnimation, useMotionValue } from "framer-motion"
+import { photos } from "@/data/photos"
 
 // title: title of the item
 // description: description of the item
@@ -9,39 +10,27 @@ import { motion, useAnimation, useMotionValue } from "framer-motion"
 const carouselItems = [
   {
     id: 1,
-    title: "title",
-    description: "description",
-    image: "image",
+    ...photos.redHatReturns
   },
   {
     id: 2,
-    title: "title",
-    description: "description",
-    image: "image",
+    ...photos.makingWires
   },
   {
     id: 3,
-    title: "title",
-    description: "description",
-    image: "image",
+    ...photos.allthenticate
   },
   {
     id: 4,
-    title: "title",
-    description: "description",
-    image: "image",
+    ...photos.badApple
   },
   {
     id: 5,
-    title: "title",
-    description: "description",
-    image: "image",
+    ...photos.paloSpeaker
   },
   {
     id: 6,
-    title: "title",
-    description: "description",
-    image: "image",
+    ...photos.topGolf
   },
 ]
 
