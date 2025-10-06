@@ -4,15 +4,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Permissions, type SetState } from "../lib/types";
 import Image from "next/image";
+import { Loader2Icon } from "lucide-react";
 
 interface Props {
 	token: string;
 	setToken: SetState<string>;
 	permission: Permissions | undefined;
 	login: () => void;
+	isLoading?: boolean;
 }
 
-function Login({ token, setToken, permission, login }: Props) {
+function Login({ token, setToken, permission, login, isLoading }: Props) {
 	return (
 		<div className="w-dvw h-dvh flex justify-center items-center text-center">
 			<div className="flex flex-col gap-4">
@@ -48,7 +50,19 @@ function Login({ token, setToken, permission, login }: Props) {
 							value={token}
 							onChange={(ev) => setToken(ev.target.value)}
 						></Input>
-						<Button onClick={login}>Login</Button>
+						<Button
+							onClick={login}
+							disabled={isLoading}
+						>
+							{isLoading ? (
+								<>
+									<Loader2Icon className="animate-spin" />
+									Please wait
+								</>
+							) : (
+								"Login"
+							)}
+						</Button>
 					</div>
 				</div>
 			</div>

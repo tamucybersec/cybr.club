@@ -3,13 +3,19 @@ import { API_URL } from "./constants";
 import { useEffect } from "react";
 
 export function useLogin(
-	callback: (token: string, permission: Permissions) => void
+	callback: (token: string, permission: Permissions) => void,
+	setIsLoading?: (loading: boolean) => void
 ) {
 	async function login(tok?: string) {
+		// set the loading to true in case we are logging in manually
+		setIsLoading?.(true);
+
 		const token = (tok ?? localStorage.getItem("token")) || "";
 		const usingLocalStorage = tok === undefined;
+
 		if (!token) {
 			// will always be false, don't bother to fetch
+			setIsLoading?.(false);
 			return;
 		}
 
@@ -17,16 +23,23 @@ export function useLogin(
 
 		if (!resp.ok) {
 			callback(token, Permissions.NONE);
+			setIsLoading?.(false);
 		} else {
 			const permission = parseInt(await resp.text());
 			if (permission === Permissions.NONE && usingLocalStorage) {
 				// don't display an error message unless they
 				// login themselves with an incorrect token
+				setIsLoading?.(false);
 				return;
 			}
 
 			callback(token, permission);
-			localStorage.setItem("token", token);
+
+			if (permission !== Permissions.NONE) {
+				localStorage.setItem("token", token);
+			} else {
+				setIsLoading?.(false);
+			}
 		}
 	}
 
