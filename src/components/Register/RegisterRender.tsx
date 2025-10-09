@@ -229,6 +229,14 @@ export function RegisterRender({
 						<FormItem>
 							<FormLabel>{title}</FormLabel>
 							<FormControl>{control}</FormControl>
+							{field === "resume" && originalUser?.resume_filename ? (
+								<div className="mt-1 text-sm text-muted-foreground">
+									{originalUser.resume_filename}
+									{originalUser.resume_uploaded_at && !isNaN(new Date(originalUser.resume_uploaded_at).getTime()) ? (
+									<> — last uploaded {new Date(originalUser.resume_uploaded_at).toLocaleString()}</>
+									) : null}
+								</div> // only show if they have an existing resume
+									) : null}
 							{description && (
 								<FormDescription>{description}</FormDescription>
 							)}
@@ -242,14 +250,6 @@ export function RegisterRender({
 				["Graduate", "Other"].includes(selectedMajor) &&
 				renderCustomMajorField()}
 
-			{field === "resume" && originalUser?.resume_filename ? (
-				<div className="mt-1 text-sm text-muted-foreground">
-					{originalUser.resume_filename}
-					{originalUser.resume_uploaded_at && !isNaN(new Date(originalUser.resume_uploaded_at).getTime()) ? (
-					<> — last uploaded {new Date(originalUser.resume_uploaded_at).toLocaleString()}</>
-					) : null}
-				</div> // only show if they have an existing resume
-			) : null}
 		</div>
 	);
 
