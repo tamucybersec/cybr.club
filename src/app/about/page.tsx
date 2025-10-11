@@ -6,10 +6,25 @@ import Leadership from "../../components/Leadership";
 import Sponsorship from "../../components/Sponsorship";
 import Footer from "../../components/Footer";
 import { activityLeaders, officers } from "@/data/leadership";
+import BackgroundOverlay from "@/components/BackgroundOverlay";
 
 export default function AboutPage() {
 	return (
 		<>
+			<BackgroundOverlay
+				desktop={{
+					size: "250% 140%",
+					position: "center 40%",
+				}}
+				tablet={{
+					size: "350% 140%",
+					position: "center 45%",
+				}}
+				mobile={{
+					size: "300% 140%",
+					position: "center 45%",
+				}}
+			/>
 			<NavBar />
 			<AboutLanding />
 			<AboutMission />

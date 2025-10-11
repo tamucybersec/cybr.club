@@ -93,7 +93,13 @@ function ActivityGroupsNew() {
 								transition: "scale 0.3s ease-out",
 							}}
 						>
-							<div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10"></div>
+							<Image
+								className="w-full h-full rounded-2xl object-contain"
+								src="/images/activity-groups/collection.svg"
+								alt="All activity group logos"
+								fill
+								unoptimized
+							/>
 						</motion.div>
 					</div>
 

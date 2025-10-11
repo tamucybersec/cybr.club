@@ -115,6 +115,11 @@ export const photos = {
 		description: "From an Officer Social",
 		path: "/images/general/skeleton.avif",
 	},
+	swccdc: {
+		title: "Collective Hacking",
+		description: "From an SWCCDC Competition",
+		path: "/images/general/swccdc.avif",
+	},
 	tamuctf: {
 		title: "Competition Complete",
 		description: "From TAMUctf",
