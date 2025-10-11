@@ -1,4 +1,4 @@
-import type { Socials } from "./officers";
+import type { Socials } from "./leadership";
 
 export type Alumni = {
 	name: string;

@@ -65,6 +65,16 @@ export const photos = {
 		description: "From the ISTS 2025 Competition",
 		path: "/images/general/ists.avif",
 	},
+	leadership: {
+		title: "Leadership Group Photo",
+		description: "All Leadership for 2025-2026",
+		path: "/images/general/leadership.avif",
+	},
+	makingWires: {
+		title: "Making Wires",
+		description: "From Cisco Networking Academy",
+		path: "/images/general/making-wires.avif",
+	},
 	mimic: {
 		title: "Mimic Guest Speaker",
 		description: "From Beginner Meetings",
@@ -90,6 +100,11 @@ export const photos = {
 		description: "From the 2025 Alumni Panel",
 		path: "/images/general/panel-2025-alt.avif",
 	},
+	redHatReturns: {
+		title: "Red Hat Returns",
+		description: "The First Red Hat Meeting in 2 Years",
+		path: "/images/general/red-hat-returns.avif",
+	},
 	samGigEm: {
 		title: "Sam's Garbage Plate",
 		description: "From the ISTS 2025 Competition",
@@ -99,6 +114,11 @@ export const photos = {
 		title: "Group Photo with Off-Season Skeleton",
 		description: "From an Officer Social",
 		path: "/images/general/skeleton.avif",
+	},
+	swccdc: {
+		title: "Collective Hacking",
+		description: "From an SWCCDC Competition",
+		path: "/images/general/swccdc.avif",
 	},
 	tamuctf: {
 		title: "Competition Complete",
