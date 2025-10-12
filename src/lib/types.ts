@@ -91,7 +91,7 @@ export interface User {
 	notes: string;
 	resume_format: string;
 	resume_filename?: string | null;
-	resume_uploaded_at?: string | null; // 'dd-mm-yyyy' if uploaded, null if not
+	resume_uploaded_at?: string | null; // ISO 8601 time if uploaded, null if not
 }
 
 export interface Event {
