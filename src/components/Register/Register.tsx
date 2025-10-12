@@ -23,11 +23,13 @@ interface RegisterResult {
 }
 
 async function profileOrDefaults(ticket: string | null): Promise<User | null> {
-	const resp = await fetch(`${API_URL}/self/${ticket}`);
-	if (!resp.ok) {
-		return null;
-	}
-	return (await resp.json()) as User;
+  const resp = await fetch(`${API_URL}/self/${ticket}`);
+  if (!resp.ok) {
+    return null;
+  }
+  const body = await resp.json();
+  // backend returns { user: {...}, resume_uploaded_at }
+  return (body && body.user) ? (body.user as User) : (body as User);
 }
 
 function Register() {
