@@ -8,11 +8,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import {
-	Card,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import EventCumulativeBar from "./EventCumulativeBar";
 import EventAverageBar from "./EventAverageBar";

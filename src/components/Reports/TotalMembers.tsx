@@ -1,9 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import {
-	useActiveUsers,
-} from "@/hooks/useTable";
+import { useActiveUsers } from "@/hooks/useTable";
 import { DashboardContext } from "@/lib/context";
 import { useContext, useMemo } from "react";
 import TooltipText from "../TooltipText";

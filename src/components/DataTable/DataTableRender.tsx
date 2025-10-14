@@ -132,7 +132,7 @@ function DataTableRender<T, V>({
 													header.column.columnDef
 														.header,
 													header.getContext()
-											  )}
+												)}
 									</TableHead>
 								);
 							})}

@@ -27,7 +27,12 @@ const definition: Definition<User>[] = [
 					user_id={user_id}
 					asChild
 				>
-					<Button variant={"outline"} size="sm">{name}</Button>
+					<Button
+						variant={"outline"}
+						size="sm"
+					>
+						{name}
+					</Button>
 				</ProfileViewer>
 			);
 		},

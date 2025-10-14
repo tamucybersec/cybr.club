@@ -52,7 +52,7 @@ export function useEvents({
 			groupedEvents[event.year][event.semester].push(event);
 		}
 
-		const t = unfiltered ? undefined : _terms ?? terms;
+		const t = unfiltered ? undefined : (_terms ?? terms);
 		const filteredEvents = flattenEvents(groupedEvents, t);
 		const eventsByCode = Object.fromEntries(
 			filteredEvents.map((event) => [event.code, event])

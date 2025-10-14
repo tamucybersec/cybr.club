@@ -1,0 +1,2 @@
+npx lint-staged
+npx next lint --max-warnings=0 .
