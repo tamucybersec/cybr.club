@@ -8,12 +8,7 @@ interface Props {
 }
 
 function TitleContainer({ className, children }: Props) {
-const test = "";
-
 	return (
-
-
-		
 		<Container>
 			<h1
 				className={cn(
