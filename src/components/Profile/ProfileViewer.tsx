@@ -1,6 +1,12 @@
-import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 import { Event } from "@/lib/types";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import ProfileContents from "./ProfileContents";
 
 interface Props {

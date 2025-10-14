@@ -85,7 +85,7 @@ function DataTable<T extends object>({
 									column={column}
 									title={def.header}
 								/>
-						  )
+							)
 						: def.header,
 				};
 

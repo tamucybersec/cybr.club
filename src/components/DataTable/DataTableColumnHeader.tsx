@@ -1,11 +1,7 @@
 "use client";
 
 import { type Column } from "@tanstack/react-table";
-import {
-	ChevronDown,
-	ChevronsUpDown,
-	ChevronUp,
-} from "lucide-react";
+import { ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";

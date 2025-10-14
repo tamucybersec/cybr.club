@@ -61,7 +61,9 @@ function Benefits() {
 				>
 					{capitalize(tier)}
 				</h3>
-				<p className="font-ubuntu-sans text-hero-button">{benefits.cost}</p>
+				<p className="font-ubuntu-sans text-hero-button">
+					{benefits.cost}
+				</p>
 			</div>
 			<ul className="list-disc list-inside text-hero-button font-ubuntu-sans">
 				{benefits.points.map((p, index) => (

@@ -47,8 +47,8 @@ export default function RootLayout({
 				}}
 			>
 				{/* <SmoothScroll> */}
-					{/* Page Content with padding moved here */}
-					<div className="relative z-10 py-4">{children}</div>
+				{/* Page Content with padding moved here */}
+				<div className="relative z-10 py-4">{children}</div>
 				{/* </SmoothScroll> */}
 			</body>
 		</html>
