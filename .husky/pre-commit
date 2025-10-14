@@ -1,2 +1,2 @@
-npx lint-staged
+npm lint-staged
 npx next lint --max-warnings=0 .

@@ -8,7 +8,8 @@ interface Props {
 }
 
 function TitleContainer({ className, children }: Props) {
-	const test = "";
+const test = "";
+
 	return (
 		<Container>
 			<h1
