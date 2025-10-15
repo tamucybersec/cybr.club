@@ -22,18 +22,21 @@ interface RegisterResult {
 	resume?: File;
 }
 
-async function profileOrDefaults(ticket: string | null): Promise<User | null> {
+async function profileOrDefaults(ticket: string | null): Promise<{user: User, resumeUploadedAt: string} | null> {
   const resp = await fetch(`${API_URL}/self/${ticket}`);
   if (!resp.ok) {
     return null;
   }
   const body = await resp.json();
-  // backend returns { user: {...}, resume_uploaded_at }
-  return (body && body.user) ? (body.user as User) : (body as User);
+  // backend returns { user: {...}, resumeUploadedAt }
+  return {user: body.user as User, resumeUploadedAt: body.resumeUploadedAt};
 }
 
 function Register() {
 	const [originalUser, setOriginalUser] = useState<User | undefined | null>(
+		undefined
+	);
+	const [resumeUploadedAt, setResumeUploadedAt] = useState<string | undefined>(
 		undefined
 	);
 	const [selectedMajor, setSelectedMajor] = useState("");
@@ -41,21 +44,23 @@ function Register() {
 	const [completeMessage, setCompleteMessage] = useState<string | undefined>(
 		undefined
 	);
+	
 	const { form } = useRegisterForm(customMajorText);
 
 	useEffect(() => {
 		async function getUser() {
 			const url = new URL(window.location.href);
 			const ticket = url.searchParams.get("ticket");
-			const _originalUser = await profileOrDefaults(ticket);
+			const profileResult = await profileOrDefaults(ticket);
 
-			if (_originalUser === null) {
-				setOriginalUser(_originalUser);
+			if (profileResult === null) {
+				setOriginalUser(profileResult);
+				setResumeUploadedAt(undefined);
 				return;
 			}
 
-			form.reset(_originalUser);
-			const [major, custom] = _originalUser.major?.split(":") ?? [];
+			form.reset(profileResult.user);
+			const [major, custom] = profileResult.user.major?.split(":") ?? [];
 			if (MAJORS.includes(major)) {
 				setSelectedMajor(major);
 				if (major === "Graduate" || major === "Other") {
@@ -64,7 +69,8 @@ function Register() {
 				form.trigger("major");
 			}
 
-			setOriginalUser(_originalUser);
+			setOriginalUser(profileResult.user);
+			setResumeUploadedAt(profileResult.resumeUploadedAt || undefined);
 		}
 
 		getUser();
@@ -149,6 +155,7 @@ function Register() {
 				majorState={[selectedMajor, setSelectedMajor]}
 				customMajorState={[customMajorText, setCustomMajorText]}
 				originalUser={originalUser} // to read existing existing resume data if there is any
+				resumeUploadedAt={resumeUploadedAt} // also for existing resume data
 			/>
 		);
 	}

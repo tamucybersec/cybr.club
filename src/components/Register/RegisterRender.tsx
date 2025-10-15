@@ -104,8 +104,10 @@ interface Props {
 	onSubmit: (result: any) => void;
 	majorState: ReactState<string>;
 	customMajorState: ReactState<string>;
-    // prop rather than state bc it doesn't need to change after initial load; only the next time they register
-	originalUser?: User | null; // used to show existing resume info. 
+	// used to show existing resume info
+	// prop rather than state bc they don't need to change after initial load; only the next time they register
+	originalUser?: User;
+	resumeUploadedAt?: string;
 }
 
 export function RegisterRender({
@@ -114,6 +116,7 @@ export function RegisterRender({
 	majorState,
 	customMajorState,
 	originalUser,
+	resumeUploadedAt,
 }: Props) {
 	const [selectedMajor, setSelectedMajor] = majorState;
 	const [customMajorText, setCustomMajorText] = customMajorState;
@@ -230,13 +233,13 @@ export function RegisterRender({
 							<FormLabel>{title}</FormLabel>
 							<FormControl>{control}</FormControl>
 							{field === "resume" && originalUser?.resume_filename ? (
-								<div className="mt-1 text-sm text-muted-foreground">
+								<div className="mt-1 text-sm text-white">
 									{originalUser.resume_filename}
-									{originalUser.resume_uploaded_at && !isNaN(new Date(originalUser.resume_uploaded_at).getTime()) ? (
-									<> — last uploaded {new Date(originalUser.resume_uploaded_at).toLocaleString()}</>
+									{resumeUploadedAt && !isNaN(new Date(resumeUploadedAt).getTime()) ? (
+									<> — last uploaded {new Date(resumeUploadedAt).toLocaleString()}</>
 									) : null}
 								</div> // only show if they have an existing resume
-									) : null}
+							) : null}
 							{description && (
 								<FormDescription>{description}</FormDescription>
 							)}
