@@ -21,7 +21,8 @@ import {
 import { getCurrentYear, zodFile, zodTamuEmail } from "@/lib/helpers";
 import { MAJORS } from "@/data/majors";
 import { z, type ZodTypeAny } from "zod";
-import type { FormType, ReactState } from "../../lib/types";
+import type { FormType, ReactState, User } from "../../lib/types";
+
 
 interface Details {
 	title: string;
@@ -103,6 +104,10 @@ interface Props {
 	onSubmit: (result: any) => void;
 	majorState: ReactState<string>;
 	customMajorState: ReactState<string>;
+	// used to show existing resume info
+	// prop rather than state bc they don't need to change after initial load; only the next time they register
+	originalUser?: User;
+	resumeUploadedAt?: string;
 }
 
 export function RegisterRender({
@@ -110,6 +115,8 @@ export function RegisterRender({
 	onSubmit,
 	majorState,
 	customMajorState,
+	originalUser,
+	resumeUploadedAt,
 }: Props) {
 	const [selectedMajor, setSelectedMajor] = majorState;
 	const [customMajorText, setCustomMajorText] = customMajorState;
@@ -225,6 +232,14 @@ export function RegisterRender({
 						<FormItem>
 							<FormLabel>{title}</FormLabel>
 							<FormControl>{control}</FormControl>
+							{field === "resume" && originalUser?.resume_filename ? (
+								<div className="mt-1 text-sm text-white">
+									{originalUser.resume_filename}
+									{resumeUploadedAt && !isNaN(new Date(resumeUploadedAt).getTime()) ? (
+									<> — last uploaded {new Date(resumeUploadedAt).toLocaleString()}</>
+									) : null}
+								</div> // only show if they have an existing resume
+							) : null}
 							{description && (
 								<FormDescription>{description}</FormDescription>
 							)}
@@ -237,6 +252,7 @@ export function RegisterRender({
 			{field === "major" &&
 				["Graduate", "Other"].includes(selectedMajor) &&
 				renderCustomMajorField()}
+
 		</div>
 	);
 

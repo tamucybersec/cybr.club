@@ -90,6 +90,7 @@ export interface User {
 	join_date: string;
 	notes: string;
 	resume_format: string;
+	resume_filename?: string | null;
 }
 
 export interface Event {
