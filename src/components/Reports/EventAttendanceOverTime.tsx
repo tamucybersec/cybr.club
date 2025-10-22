@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/card";
 import CategoricalLineChart from "../Charts/CategoricalLineChart";
 import { useAttendance, useEvents } from "@/hooks/useTable";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { type CategoricalData, type Category } from "../../lib/types";
 import { compareEventDates } from "@/lib/helpers";
 
@@ -34,14 +34,17 @@ function EventAttendanceOverTime() {
 			.filter((ev) => (attendanceByEvent[ev.code] ?? []).length > 0)
 			.map((ev) => ev.category);
 		const unique = Array.from(new Set(categories));
-		const filteredCategories = unique.sort((a, b) => a.localeCompare(b));
+		return unique.sort((a, b) => a.localeCompare(b));
+	}, [events, attendanceByEvent]);
 
-		if (!filteredCategories.includes(selectedCategory)) {
+	useEffect(() => {
+		if (
+			filteredCategories.length > 0 &&
+			!filteredCategories.includes(selectedCategory)
+		) {
 			setSelectedCategory(filteredCategories[0]);
 		}
-
-		return filteredCategories;
-	}, [events]);
+	}, [filteredCategories]);
 
 	const { attendance, totalAttendance, averageAttendance } = useMemo(() => {
 		const attendance: (CategoricalData & { title: string })[] = events
@@ -72,7 +75,7 @@ function EventAttendanceOverTime() {
 				onValueChange={(cat) => setSelectedCategory(cat as Category)}
 			>
 				<SelectTrigger>
-					<SelectValue placeholder={selectedCategory} />
+					<SelectValue placeholder={"Select a Category"} />
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>
