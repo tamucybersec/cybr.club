@@ -73,6 +73,8 @@ function DataTableFilter<T>({ table }: Props<T>) {
 				<SelectContent>{select()}</SelectContent>
 			</Select>
 			<Input
+				autoComplete="off"
+				spellCheck={false}
 				placeholder={`Filter by ${readable(filterColumn)}...`}
 				value={
 					(table
