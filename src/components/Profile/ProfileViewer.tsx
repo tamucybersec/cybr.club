@@ -6,7 +6,7 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import { Event } from "@/lib/types";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import ProfileContents from "./ProfileContents";
 
 interface Props {
@@ -18,13 +18,24 @@ interface Props {
 export type EventInfo = Record<number, Record<string, Record<string, Event[]>>>;
 
 function ProfileViewer({ user_id, asChild, children }: Props) {
-	const [open, setOpen] = useState(false); // for lazy computation
+	// for lazy computation
+	const [open, setOpen] = useState(false);
+	const [loaded, setLoaded] = useState(false);
+
+	useEffect(() => {
+		if (open) {
+			setLoaded(true);
+		}
+	}, [open]);
 
 	return (
-		<Dialog onOpenChange={setOpen}>
+		<Dialog
+			open={open}
+			onOpenChange={setOpen}
+		>
 			<DialogTrigger asChild={asChild}>{children}</DialogTrigger>
 			<DialogContent>
-				{open ? (
+				{loaded ? (
 					<ProfileContents user_id={user_id} />
 				) : (
 					<>
