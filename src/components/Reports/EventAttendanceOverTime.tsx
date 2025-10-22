@@ -5,6 +5,7 @@ import {
 	SelectContent,
 	SelectGroup,
 	SelectItem,
+	SelectLabel,
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
@@ -25,20 +26,26 @@ function EventAttendanceOverTime() {
 	const { events, eventsByCode } = useEvents();
 	const { attendanceByEvent } = useAttendance(eventsByCode);
 
-	const filteredCategories: string[] = useMemo(() => {
+	const [selectedCategory, setSelectedCategory] =
+		useState<Category>("Beginner Meeting");
+
+	const filteredCategories = useMemo(() => {
 		const categories = events
 			.filter((ev) => (attendanceByEvent[ev.code] ?? []).length > 0)
 			.map((ev) => ev.category);
 		const unique = Array.from(new Set(categories));
-		return unique.sort((a, b) => a.localeCompare(b));
-	}, [events]);
+		const filteredCategories = unique.sort((a, b) => a.localeCompare(b));
 
-	const [selectedEvent, setSelectedEvent] =
-		useState<Category>("Beginner Meeting");
+		if (!filteredCategories.includes(selectedCategory)) {
+			setSelectedCategory(filteredCategories[0]);
+		}
+
+		return filteredCategories;
+	}, [events]);
 
 	const { attendance, totalAttendance, averageAttendance } = useMemo(() => {
 		const attendance: (CategoricalData & { title: string })[] = events
-			.filter((ev) => ev.category === selectedEvent)
+			.filter((ev) => ev.category === selectedCategory)
 			.sort(compareEventDates)
 			.map((ev) => ({
 				label: ev.date,
@@ -56,22 +63,25 @@ function EventAttendanceOverTime() {
 			numAtt === 0 ? 0 : Math.floor(totalAttendance / numAtt);
 
 		return { attendance, totalAttendance, averageAttendance };
-	}, [events, selectedEvent, attendanceByEvent]);
+	}, [events, selectedCategory, attendanceByEvent]);
 
 	function select() {
 		return (
-			<Select onValueChange={(cat) => setSelectedEvent(cat as Category)}>
+			<Select
+				value={selectedCategory}
+				onValueChange={(cat) => setSelectedCategory(cat as Category)}
+			>
 				<SelectTrigger>
-					<SelectValue
-						placeholder={selectedEvent}
-						defaultValue={selectedEvent}
-					/>
+					<SelectValue placeholder={selectedCategory} />
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>
-						{filteredCategories.map((cat, i) => (
+						{!filteredCategories.length && (
+							<SelectLabel>Loading Categories...</SelectLabel>
+						)}
+						{filteredCategories.map((cat) => (
 							<SelectItem
-								key={i}
+								key={cat}
 								value={cat}
 							>
 								{cat}
@@ -83,7 +93,6 @@ function EventAttendanceOverTime() {
 		);
 	}
 
-	// FIXME display the name of the event in the tooltip
 	return (
 		<Card>
 			<CardHeader className="flex justify-center">
