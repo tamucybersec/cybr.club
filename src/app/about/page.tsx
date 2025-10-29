@@ -1,5 +1,7 @@
 import AboutLanding from "../../components/AboutLanding";
-import AboutMission from "../../components/AboutMission";
+import AboutMissionText from "../../components/AboutMissionText";
+import AboutMissionSlider from "../../components/AboutMissionSlider";
+import AboutMissionImageText from "../../components/AboutMissionImageText";
 import NavBar from "../../components/NavBar";
 import AboutChunk from "../../components/AboutChunk";
 import Leadership from "../../components/Leadership";
@@ -14,20 +16,24 @@ export default function AboutPage() {
 			<BackgroundOverlay
 				desktop={{
 					size: "250% 140%",
-					position: "center 40%",
+					position: "center 25%",
 				}}
 				tablet={{
 					size: "350% 140%",
-					position: "center 45%",
+					position: "center 30%",
 				}}
 				mobile={{
 					size: "300% 140%",
-					position: "center 45%",
+					position: "center 30%",
 				}}
+				opacity={0.4}
+				flip={true}
 			/>
 			<NavBar />
 			<AboutLanding />
-			<AboutMission />
+			<AboutMissionText />
+			<AboutMissionSlider />
+			<AboutMissionImageText />
 			<AboutChunk />
 			<Leadership
 				name={"Officers"}

@@ -17,16 +17,18 @@ export default function Home() {
 			<BackgroundOverlay
 				desktop={{
 					size: "250% 120%",
-					position: "center 40%",
+					position: "center 25%",
 				}}
 				tablet={{
 					size: "350% 120%",
-					position: "center 45%",
+					position: "center 30%",
 				}}
 				mobile={{
 					size: "300% 120%",
-					position: "center 45%",
+					position: "center 30%",
 				}}
+				opacity={0.6}
+				flip={false}
 			/>
 			<Watermark />
 			<NavBar />
