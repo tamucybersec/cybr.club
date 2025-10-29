@@ -8,6 +8,8 @@ interface BackgroundOverlayProps {
 	desktop: Sizes;
 	tablet: Sizes;
 	mobile: Sizes;
+	opacity?: number;
+	flip?: boolean;
 }
 
 interface Sizes {
@@ -34,6 +36,8 @@ export default function BackgroundOverlay({
 	desktop,
 	tablet,
 	mobile,
+	opacity = 1,
+	flip = false,
 }: BackgroundOverlayProps) {
 	const [loaded, setLoaded] = useState(false);
 
@@ -53,7 +57,7 @@ export default function BackgroundOverlay({
 			{/* Desktop Background */}
 			<motion.div
 				initial={{ opacity: 0 }}
-				animate={loaded ? { opacity: 1 } : { opacity: 0 }}
+				animate={loaded ? { opacity: opacity } : { opacity: 0 }}
 				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="hidden lg:block absolute -z-10 pointer-events-none"
 				style={{
@@ -68,14 +72,14 @@ export default function BackgroundOverlay({
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
 					backfaceVisibility: "hidden",
-					transform: "translateZ(0)",
+					transform: flip ? "translateZ(0) scaleX(-1)" : "translateZ(0)",
 				}}
 			/>
 
 			{/* Tablet Background */}
 			<motion.div
 				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
+				animate={{ opacity: opacity }}
 				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="hidden md:block lg:hidden absolute -z-10 pointer-events-none"
 				style={{
@@ -90,14 +94,14 @@ export default function BackgroundOverlay({
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
 					backfaceVisibility: "hidden",
-					transform: "translateZ(0)",
+					transform: flip ? "translateZ(0) scaleX(-1)" : "translateZ(0)",
 				}}
 			/>
 
 			{/* Mobile Background */}
 			<motion.div
 				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
+				animate={{ opacity: opacity }}
 				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="block md:hidden absolute -z-10 pointer-events-none"
 				style={{
@@ -112,7 +116,7 @@ export default function BackgroundOverlay({
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
 					backfaceVisibility: "hidden",
-					transform: "translateZ(0)",
+					transform: flip ? "translateZ(0) scaleX(-1)" : "translateZ(0)",
 				}}
 			/>
 		</>

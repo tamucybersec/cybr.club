@@ -46,6 +46,7 @@ body {
 			3vw,
 			1.625rem
 		); /* 17.6px - 26px (bigger on mobile) */
+		--text-body-large: clamp(1rem, 2.5vw, 1.375rem); /* 16px - 22px */
 		--text-hero-button: clamp(0.85rem, 2vw, 1.25rem); /* 13.6px - 20px */
 
 		--gap-responsive: clamp(1rem, 2vw, 2rem);
@@ -85,6 +86,10 @@ body {
 
 	.text-hero-subtext {
 		font-size: var(--text-hero-subtext);
+	}
+
+	.text-body-large {
+		font-size: var(--text-body-large);
 	}
 
 	.text-hero-button {

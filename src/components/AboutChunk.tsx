@@ -204,13 +204,13 @@ function ActivityGroupsNew() {
 									</div>
 
 									{/* Right side - SVG placeholder */}
-									<div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40">
+									<div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56">
 										<Image
-											className="rounded"
+											className="rounded w-full h-full object-contain"
 											src={committee.image}
 											alt={committee.title}
-											width={200}
-											height={200}
+											width={224}
+											height={224}
 											unoptimized
 										/>
 									</div>

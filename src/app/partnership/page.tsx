@@ -24,6 +24,7 @@ export default function Partnership() {
 					size: "200% 300%",
 					position: "center 30%",
 				}}
+				opacity={0.6}
 			/>
 			<NavBar />
 			<PartnerLanding />

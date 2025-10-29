@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import Container from "@/components/Container"
 import { motion, Variants } from "framer-motion"
+import { photos } from "@/data/photos"
 
 function AboutMissionImageText() {
   const containerVariants: Variants = {
@@ -36,12 +38,16 @@ function AboutMissionImageText() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Image Placeholder - Left Side */}
+        {/* Image - Left Side */}
         <motion.div
-          className="flex-1 w-full max-w-2xl relative h-[400px] lg:h-[400px] xl:h-[400px]"
+          className="flex-1 w-full max-w-2xl h-[400px] lg:h-[400px] xl:h-[400px]"
           variants={itemVariants}
         >
-          <div className="relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10"></div>
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src={photos.ciscoGigEm.path}
+            alt={photos.ciscoGigEm.title}
+          />
         </motion.div>
 
         {/* Text Content - Right Side */}

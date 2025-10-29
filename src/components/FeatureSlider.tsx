@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
@@ -72,8 +73,8 @@ export default function ModernSlider() {
 
 	return (
 		<div className="w-full">
-			{/* Glassy Container - similar to WhatWeOffer but wider */}
-			<div className="w-full bg-[#0B0B0B] rounded-2xl p-4 sm:p-6 lg:p-8 overflow-hidden">
+			{/* Carousel Container */}
+			<div className="w-full rounded-2xl p-4 sm:p-6 lg:p-8 overflow-hidden">
 				{/* Carousel Container - inscribed within the glassy container */}
 				<div className="relative overflow-hidden rounded-xl">
 					<motion.div
@@ -102,8 +103,12 @@ export default function ModernSlider() {
 								onHoverEnd={handleItemHoverEnd}
 							>
 								<div className="relative w-full h-full rounded-lg overflow-hidden bg-[#171717] border border-white/10 transition-all duration-300 group-hover:border-white/20">
-									{/* Placeholder background */}
-									<div className="w-full h-full bg-gradient-to-br from-white/3 to-white/8"></div>
+									{/* Image */}
+									<img
+										src={item.path}
+										alt={item.title}
+										className="w-full h-full object-cover"
+									/>
 
 									{/* Hover overlay with information */}
 									<motion.div
