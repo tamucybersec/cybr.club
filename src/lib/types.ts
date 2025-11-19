@@ -144,3 +144,8 @@ export type Term = {
 	year: number;
 	semester: Semester;
 };
+
+export interface QueryResponse {
+	columns: string[];
+	rows: Record<string, any>[];
+}
