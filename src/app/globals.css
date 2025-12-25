@@ -12,6 +12,7 @@
 	--color-background: var(--background);
 	--font-azonix: var(--font-azonix);
 	--font-ubuntu: var(--font-ubuntu-sans);
+	--breakpoint-xs: 30rem;
 }
 
 /* Reset default browser styles to eliminate gap */

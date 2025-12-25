@@ -137,7 +137,7 @@ function Leadership({ name, group }: { name: string; group: Officer[] }) {
 
 				{/* Leadership Grid */}
 				<motion.div
-					className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+					className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"

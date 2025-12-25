@@ -60,7 +60,12 @@ function AboutLanding() {
 						className="font-ubuntu-sans text-body-large leading-relaxed text-white/70"
 						variants={itemVariants}
 					>
-						The Texas A&M Cybersecurity Club was founded on a spirit of generosity and mentorship for students interested in cybersecurity. Many of us found our start because someone took the time to help us, and we&apos;re proud to keep that tradition going by giving back to others in the same way.
+						The Texas A&M Cybersecurity Club was founded on a spirit
+						of generosity and mentorship for students interested in
+						cybersecurity. Many of us found our start because
+						someone took the time to help us, and we&apos;re proud
+						to keep that tradition going by giving back to others in
+						the same way.
 					</motion.p>
 				</motion.div>
 
@@ -68,7 +73,9 @@ function AboutLanding() {
 				<motion.div
 					className="flex-1 w-full max-w-2xl relative h-[400px] lg:h-[400px] xl:h-[400px]"
 					variants={itemVariants}
-					custom={1}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, amount: 0.3 }}
 				>
 					<div className="relative w-full h-full">
 						<Image

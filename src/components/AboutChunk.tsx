@@ -69,7 +69,7 @@ function ActivityGroupsNew() {
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ once: true, amount: 0.3 }}
+					viewport={{ once: true, amount: 0.15 }}
 				>
 					{/* Activity Groups Title */}
 					<motion.h1
@@ -126,7 +126,7 @@ function ActivityGroupsNew() {
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ once: true, amount: 0.3 }}
+					viewport={{ once: true, amount: 0.15 }}
 				>
 					{/* Committees Title and Description */}
 					<div className="flex flex-col lg:flex-row items-start justify-between w-full gap-8 lg:gap-12 mb-12 lg:mb-16">
@@ -172,12 +172,12 @@ function ActivityGroupsNew() {
 									{/* Left side content */}
 									<div className="flex-1 space-y-4 lg:space-y-6">
 										{/* Title - Top left */}
-										<h3 className="font-azonix text-xl sm:text-2xl lg:text-3xl text-white">
+										<h3 className="font-azonix text-hero-subtitle text-white">
 											{committee.title}
 										</h3>
 
 										{/* Description - Left area */}
-										<p className="font-ubuntu-sans text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed max-w-2xl">
+										<p className="font-ubuntu-sans text-body-large text-white/90 leading-relaxed max-w-2xl">
 											{committee.description}
 										</p>
 
@@ -204,7 +204,7 @@ function ActivityGroupsNew() {
 									</div>
 
 									{/* Right side - SVG placeholder */}
-									<div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56">
+									<div className="hidden sm:block flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56">
 										<Image
 											className="rounded w-full h-full object-contain"
 											src={committee.image}
@@ -229,7 +229,7 @@ function ActivityGroupsNew() {
 								whileInView="visible"
 								viewport={{ once: true, amount: 0.3 }}
 							>
-								<p className="font-ubuntu-sans text-lg sm:text-xl lg:text-2xl leading-relaxed text-white/90 text-center max-w-6xl mx-auto">
+								<p className="font-ubuntu-sans text-hero-subtitle leading-relaxed text-white/90 text-center max-w-6xl mx-auto">
 									Whether you&apos;re organizing competitions,
 									managing outreach, or architecting the
 									club&apos;s backend, committees offer
@@ -250,7 +250,7 @@ function ActivityGroupsNew() {
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ once: true, amount: 0.3 }}
+					viewport={{ once: true, amount: 0.15 }}
 				>
 					{/* Certification Title */}
 					<motion.h1
@@ -304,10 +304,10 @@ function ActivityGroupsNew() {
 										whileHover={{ opacity: 1 }}
 										transition={{ duration: 0.3 }}
 									>
-										<h3 className="text-white text-lg lg:text-xl font-ubuntu-sans font-medium mb-2">
+										<h3 className="text-white text-body-large font-ubuntu-sans font-medium mb-2">
 											{cert.title}
 										</h3>
-										<p className="text-white/90 text-sm lg:text-base font-ubuntu-sans leading-relaxed mb-4">
+										<p className="text-white/90 text-hero-button font-ubuntu-sans leading-relaxed mb-4">
 											{cert.description}
 										</p>
 										<Button
