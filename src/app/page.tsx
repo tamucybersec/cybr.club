@@ -10,10 +10,11 @@ import WhatWeOffer from "@/components/WhatWeOffer";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
 import Sponsorship from "@/components/Sponsorship";
 import Watermark from "@/components/Watermark";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function Home() {
 	return (
-		<>
+		<SmoothScroll>
 			<BackgroundOverlay
 				desktop={{
 					size: "250% 120%",
@@ -45,6 +46,6 @@ export default function Home() {
 			<Sponsorship />
 
 			<Footer />
-		</>
+		</SmoothScroll>
 	);
 }

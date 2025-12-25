@@ -9,10 +9,11 @@ import Sponsorship from "../../components/Sponsorship";
 import Footer from "../../components/Footer";
 import { activityLeaders, officers } from "@/data/leadership";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function AboutPage() {
 	return (
-		<>
+		<SmoothScroll>
 			<BackgroundOverlay
 				desktop={{
 					size: "250% 140%",
@@ -52,6 +53,6 @@ export default function AboutPage() {
 
 			<div className="h-32"></div>
 			<Footer />
-		</>
+		</SmoothScroll>
 	);
 }
