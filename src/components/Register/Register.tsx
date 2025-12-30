@@ -22,29 +22,31 @@ interface RegisterResult {
 	resume?: File;
 }
 
-async function profileOrDefaults(ticket: string | null): Promise<{user: User, resumeUploadedAt: string} | null> {
-  const resp = await fetch(`${API_URL}/self/${ticket}`);
-  if (!resp.ok) {
-    return null;
-  }
-  const body = await resp.json();
-  // backend returns { user: {...}, resumeUploadedAt }
-  return {user: body.user as User, resumeUploadedAt: body.resumeUploadedAt};
+async function profileOrDefaults(
+	ticket: string | null
+): Promise<{ user: User; resumeUploadedAt: string } | null> {
+	const resp = await fetch(`${API_URL}/self/${ticket}`);
+	if (!resp.ok) {
+		return null;
+	}
+	const body = await resp.json();
+	// backend returns { user: {...}, resumeUploadedAt }
+	return { user: body.user as User, resumeUploadedAt: body.resumeUploadedAt };
 }
 
 function Register() {
 	const [originalUser, setOriginalUser] = useState<User | undefined | null>(
 		undefined
 	);
-	const [resumeUploadedAt, setResumeUploadedAt] = useState<string | undefined>(
-		undefined
-	);
+	const [resumeUploadedAt, setResumeUploadedAt] = useState<
+		string | undefined
+	>(undefined);
 	const [selectedMajor, setSelectedMajor] = useState("");
 	const [customMajorText, setCustomMajorText] = useState("");
 	const [completeMessage, setCompleteMessage] = useState<string | undefined>(
 		undefined
 	);
-	
+
 	const { form } = useRegisterForm(customMajorText);
 
 	useEffect(() => {

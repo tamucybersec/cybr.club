@@ -61,7 +61,7 @@ function ActivityGroupsNew() {
 	};
 
 	return (
-		<Container className="py-16 sm:py-20 lg:py-24">
+		<Container>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Activity Groups Section */}
 				<motion.div
@@ -87,7 +87,7 @@ function ActivityGroupsNew() {
 						className="w-full mb-8 lg:mb-12"
 					>
 						<motion.div
-							className="w-full h-[60vh] sm:h-[70vh] lg:h-[80vh]"
+							className="w-full h-[40vh] sm:h-[60vh] lg:h-[80vh]"
 							style={{
 								scale: finalScale,
 								transition: "scale 0.3s ease-out",
@@ -177,7 +177,7 @@ function ActivityGroupsNew() {
 										</h3>
 
 										{/* Description - Left area */}
-										<p className="font-ubuntu-sans text-body-large text-white/90 leading-relaxed max-w-2xl">
+										<p className="font-ubuntu-sans text-hero-button text-white/90 leading-relaxed max-w-2xl">
 											{committee.description}
 										</p>
 
@@ -204,7 +204,7 @@ function ActivityGroupsNew() {
 									</div>
 
 									{/* Right side - SVG placeholder */}
-									<div className="hidden sm:block flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56">
+									<div className="hidden lg:block flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56">
 										<Image
 											className="rounded w-full h-full object-contain"
 											src={committee.image}
@@ -220,8 +220,8 @@ function ActivityGroupsNew() {
 					</motion.div>
 
 					{/* Subtle off-tone section for calm transition */}
-					<div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] mb-16 sm:mb-20 lg:mb-24 py-12 lg:py-16 bg-[#101010]">
-						<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] mb-16 sm:mb-20 lg:mb-24  bg-[#101010]">
+						<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 							<motion.div
 								className="w-full"
 								variants={itemVariants}
@@ -229,7 +229,7 @@ function ActivityGroupsNew() {
 								whileInView="visible"
 								viewport={{ once: true, amount: 0.3 }}
 							>
-								<p className="font-ubuntu-sans text-hero-subtitle leading-relaxed text-white/90 text-center max-w-6xl mx-auto">
+								<p className="font-ubuntu-sans text-hero-subtext leading-relaxed text-white/90 text-center max-w-6xl mx-auto">
 									Whether you&apos;re organizing competitions,
 									managing outreach, or architecting the
 									club&apos;s backend, committees offer
@@ -267,10 +267,11 @@ function ActivityGroupsNew() {
 						className="font-ubuntu-sans text-hero-subtext leading-tight max-w-4xl mb-12 lg:mb-16"
 						variants={itemVariants}
 					>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore
-						magna aliqua. Ut enim ad minim veniam, quis nostrud
-						exercitation.
+						We offer a variety of certifications, all at zero cost
+						to you! If you&apos;re looking to prove your knowledge
+						or stand out to recruiters, certifications are the way
+						to go. Contact our activity leaders for more information
+						on how to qualify for a certification.
 					</motion.p>
 
 					{/* Certification Grid */}
@@ -304,7 +305,7 @@ function ActivityGroupsNew() {
 										whileHover={{ opacity: 1 }}
 										transition={{ duration: 0.3 }}
 									>
-										<h3 className="text-white text-body-large font-ubuntu-sans font-medium mb-2">
+										<h3 className="text-white text-hero-button font-ubuntu-sans font-medium mb-2">
 											{cert.title}
 										</h3>
 										<p className="text-white/90 text-hero-button font-ubuntu-sans leading-relaxed mb-4">

@@ -28,7 +28,7 @@ function AboutMissionText() {
 	};
 
 	return (
-		<Container className="py-8 sm:py-12 lg:py-16">
+		<Container className="pt-8 sm:pt-12 lg:pt-16">
 			<motion.div
 				className="flex-1 max-w-2xl lg:pr-8 relative"
 				variants={containerVariants}
@@ -41,7 +41,7 @@ function AboutMissionText() {
 					variants={itemVariants}
 				>
 					<div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 to-white/10"></div>
-					<p className="font-ubuntu-sans text-hero-subtext leading-relaxed text-white/70 mb-12 lg:mb-16 pl-6">
+					<p className="font-ubuntu-sans text-hero-subtext leading-relaxed text-white/70 pl-6">
 						The club began with a focus on hacking and defense, but
 						as we&apos;ve grown, so has our mission. Now, we explore
 						a wide range of cybersecurity topics and ideas.

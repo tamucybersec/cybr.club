@@ -72,7 +72,9 @@ export default function BackgroundOverlay({
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
 					backfaceVisibility: "hidden",
-					transform: flip ? "translateZ(0) scaleX(-1)" : "translateZ(0)",
+					transform: flip
+						? "translateZ(0) scaleX(-1)"
+						: "translateZ(0)",
 				}}
 			/>
 
@@ -94,7 +96,9 @@ export default function BackgroundOverlay({
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
 					backfaceVisibility: "hidden",
-					transform: flip ? "translateZ(0) scaleX(-1)" : "translateZ(0)",
+					transform: flip
+						? "translateZ(0) scaleX(-1)"
+						: "translateZ(0)",
 				}}
 			/>
 
@@ -116,7 +120,9 @@ export default function BackgroundOverlay({
 					left: "0",
 					imageRendering: "-webkit-optimize-contrast",
 					backfaceVisibility: "hidden",
-					transform: flip ? "translateZ(0) scaleX(-1)" : "translateZ(0)",
+					transform: flip
+						? "translateZ(0) scaleX(-1)"
+						: "translateZ(0)",
 				}}
 			/>
 		</>
