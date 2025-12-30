@@ -34,7 +34,7 @@ function NavBar() {
 
 							{/* Desktop Navigation Links - Center */}
 							<div className="hidden md:flex items-center justify-center flex-1 space-x-6 lg:space-x-10">
-								{/* <NavLink href="/about">About</NavLink> */}
+								<NavLink href="/about">About</NavLink>
 								{/* <NavLink href="/events">Events</NavLink> */}
 								<NavLink href="/partnership">
 									Partnership
@@ -116,12 +116,12 @@ function NavBar() {
 									className="mt-2 rounded-2xl bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-[20px] border border-white/10 p-4 space-y-3"
 									onClick={(e) => e.stopPropagation()}
 								>
-									{/* <MobileNavLink
+									<MobileNavLink
 										href="/about"
 										onClick={toggleMenu}
 									>
 										About
-									</MobileNavLink> */}
+									</MobileNavLink>
 									{/* <MobileNavLink
 										href="/events"
 										onClick={toggleMenu}

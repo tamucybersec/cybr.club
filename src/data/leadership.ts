@@ -21,6 +21,7 @@ export type Officer = {
 	major: string;
 	year?: number;
 	socials?: Socials;
+	imageMode?: "cover" | "contain"; // Optional flag for image display mode
 };
 
 type DoubleDipOfficer = Omit<Officer, "position"> & {
@@ -159,6 +160,7 @@ export const officers: Officer[] = [
 		image: "/images/leadership/MartinCarlisle.jpg",
 		position: "Faculty Advisor",
 		major: "CSCE Department",
+		imageMode: "contain",
 		socials: ObfuscateSocials({
 			linkedin: "https://www.linkedin.com/in/martincarlisle/",
 			website: "https://martincarlisle.com/",
@@ -193,6 +195,7 @@ export const activityLeaders = {
 			position: "AWS Academy Student Ambassador",
 			major: "INTA",
 			year: 27,
+			imageMode: "contain",
 			socials: ObfuscateSocials({
 				email: "luke123@tamu.edu",
 			}),

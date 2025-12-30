@@ -57,7 +57,7 @@ function AboutLanding() {
 
 					{/* Paragraph Text */}
 					<motion.p
-						className="font-ubuntu-sans text-[22px] leading-relaxed text-white/70"
+						className="font-ubuntu-sans text-hero-subtext leading-relaxed text-white/70"
 						variants={itemVariants}
 					>
 						The Texas A&M Cybersecurity Club was founded on a spirit
@@ -73,9 +73,11 @@ function AboutLanding() {
 				<motion.div
 					className="flex-1 w-full max-w-2xl relative h-[400px] lg:h-[400px] xl:h-[400px]"
 					variants={itemVariants}
-					custom={1}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, amount: 0.3 }}
 				>
-					<div className="relative w-full h-full">
+					<div className="relative w-full h-[70vw] sm:h-full">
 						<Image
 							className="object-contain rounded-xl"
 							src={photos.leadership.path}

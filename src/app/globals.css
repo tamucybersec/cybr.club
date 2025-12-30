@@ -12,6 +12,7 @@
 	--color-background: var(--background);
 	--font-azonix: var(--font-azonix);
 	--font-ubuntu: var(--font-ubuntu-sans);
+	--breakpoint-xs: 30rem;
 }
 
 /* Reset default browser styles to eliminate gap */
@@ -24,6 +25,7 @@ body {
 	margin: 0 !important;
 	padding: 0 !important;
 	scroll-behavior: smooth;
+	overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 @layer utilities {
@@ -45,6 +47,7 @@ body {
 			3vw,
 			1.625rem
 		); /* 17.6px - 26px (bigger on mobile) */
+		--text-body-large: clamp(1rem, 2.5vw, 1.375rem); /* 16px - 22px */
 		--text-hero-button: clamp(0.85rem, 2vw, 1.25rem); /* 13.6px - 20px */
 
 		--gap-responsive: clamp(1rem, 2vw, 2rem);
@@ -84,6 +87,10 @@ body {
 
 	.text-hero-subtext {
 		font-size: var(--text-hero-subtext);
+	}
+
+	.text-body-large {
+		font-size: var(--text-body-large);
 	}
 
 	.text-hero-button {
@@ -148,6 +155,18 @@ body {
 	/* Remove will-change after animation completes */
 	[data-animate="false"] {
 		will-change: auto;
+	}
+
+	/* Optimize image rendering and layout stability */
+	img {
+		content-visibility: auto;
+		contain: layout style paint;
+	}
+
+	/* Optimize motion components */
+	[data-framer-component] {
+		contain: layout style paint;
+		content-visibility: auto;
 	}
 
 	/* Let Lenis handle smooth scrolling - removed scroll-behavior to prevent conflicts */

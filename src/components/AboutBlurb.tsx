@@ -45,7 +45,7 @@ function AboutBlurb() {
 						}}
 						variants={itemVariants}
 					>
-						<span className="block bg-gradient-to-r from-white to-[#321E1E] bg-clip-text text-transparent leading-[0.9] mt-1">
+						<span className="block bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent leading-[0.9] mt-1">
 							Explore your interests
 						</span>
 					</motion.h2>

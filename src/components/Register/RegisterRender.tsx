@@ -23,7 +23,6 @@ import { MAJORS } from "@/data/majors";
 import { z, type ZodTypeAny } from "zod";
 import type { FormType, ReactState, User } from "../../lib/types";
 
-
 interface Details {
 	title: string;
 	field: string;
@@ -232,11 +231,21 @@ export function RegisterRender({
 						<FormItem>
 							<FormLabel>{title}</FormLabel>
 							<FormControl>{control}</FormControl>
-							{field === "resume" && originalUser?.resume_filename ? (
+							{field === "resume" &&
+							originalUser?.resume_filename ? (
 								<div className="mt-1 text-sm text-white">
 									{originalUser.resume_filename}
-									{resumeUploadedAt && !isNaN(new Date(resumeUploadedAt).getTime()) ? (
-									<> — last uploaded {new Date(resumeUploadedAt).toLocaleString()}</>
+									{resumeUploadedAt &&
+									!isNaN(
+										new Date(resumeUploadedAt).getTime()
+									) ? (
+										<>
+											{" "}
+											— last uploaded{" "}
+											{new Date(
+												resumeUploadedAt
+											).toLocaleString()}
+										</>
 									) : null}
 								</div> // only show if they have an existing resume
 							) : null}
@@ -252,7 +261,6 @@ export function RegisterRender({
 			{field === "major" &&
 				["Graduate", "Other"].includes(selectedMajor) &&
 				renderCustomMajorField()}
-
 		</div>
 	);
 

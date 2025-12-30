@@ -52,17 +52,19 @@ function LeadershipCard({ member }: { member: Officer }) {
 			whileHover={{ y: -5 }}
 		>
 			<div className="bg-gradient-to-br from-white/8 to-white/4 rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 group-hover:border-white/20 group-hover:shadow-xl">
-				{/* Image Section - No margin, fills to border */}
-				<div className="relative overflow-hidden m-4 rounded-lg aspect-[3/2]">
-					{/* Placeholder image */}
+				{/* Image Section - Full width and height */}
+				<div className="relative overflow-hidden aspect-[3/2]">
 					<Image
-						className="rounded-lg object-contain"
+						className={
+							member.imageMode === "contain"
+								? "object-contain"
+								: "object-cover"
+						}
 						src={member.image}
 						alt={`Head-shot of ${member.name}`}
 						fill
 						unoptimized
 					/>
-					{/* <div className="w-full h-full bg-gradient-to-br from-white/15 to-white/8"></div> */}
 				</div>
 
 				{/* Content Section - Secondary background */}
@@ -135,7 +137,7 @@ function Leadership({ name, group }: { name: string; group: Officer[] }) {
 
 				{/* Leadership Grid */}
 				<motion.div
-					className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+					className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"

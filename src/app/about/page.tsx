@@ -1,5 +1,7 @@
 import AboutLanding from "../../components/AboutLanding";
-import AboutMission from "../../components/AboutMission";
+import AboutMissionText from "../../components/AboutMissionText";
+import AboutMissionSlider from "../../components/AboutMissionSlider";
+import AboutMissionImageText from "../../components/AboutMissionImageText";
 import NavBar from "../../components/NavBar";
 import AboutChunk from "../../components/AboutChunk";
 import Leadership from "../../components/Leadership";
@@ -7,27 +9,32 @@ import Sponsorship from "../../components/Sponsorship";
 import Footer from "../../components/Footer";
 import { activityLeaders, officers } from "@/data/leadership";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function AboutPage() {
 	return (
-		<>
+		<SmoothScroll>
 			<BackgroundOverlay
 				desktop={{
 					size: "250% 140%",
-					position: "center 40%",
+					position: "center 25%",
 				}}
 				tablet={{
 					size: "350% 140%",
-					position: "center 45%",
+					position: "center 30%",
 				}}
 				mobile={{
 					size: "300% 140%",
-					position: "center 45%",
+					position: "center 30%",
 				}}
+				opacity={0.4}
+				flip={true}
 			/>
 			<NavBar />
 			<AboutLanding />
-			<AboutMission />
+			<AboutMissionText />
+			<AboutMissionSlider />
+			<AboutMissionImageText />
 			<AboutChunk />
 			<Leadership
 				name={"Officers"}
@@ -46,6 +53,6 @@ export default function AboutPage() {
 
 			<div className="h-32"></div>
 			<Footer />
-		</>
+		</SmoothScroll>
 	);
 }
