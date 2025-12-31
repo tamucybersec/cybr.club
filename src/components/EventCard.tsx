@@ -19,7 +19,7 @@ const EventCard: React.FC<EventCardProps> = ({
 }) => {
 	return (
 		<div
-			className={`flex items-start gap-4 p-4 border transition-colors ${
+			className={`flex items-start gap-4 p-4 rounded-lg border transition-colors ${
 				isPast
 					? "bg-zinc-900/30 border-zinc-800/50"
 					: "bg-zinc-900/50 border-zinc-800 hover:border-zinc-700"

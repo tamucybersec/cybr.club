@@ -20,7 +20,7 @@ const AccoladeCard: React.FC<AccoladeCardProps> = ({
 			href={link}
 			target="_blank"
 			rel="noopener noreferrer"
-			className="flex items-start gap-4 p-4 bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors group"
+			className="flex items-start gap-4 p-4 bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-colors group rounded-lg"
 		>
 			<div className="text-zinc-300 text-sm font-mono min-w-[80px]">
 				{date}

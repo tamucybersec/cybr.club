@@ -1,6 +1,14 @@
 import { Event, Accolade } from "./eventPageTypes";
 
-export const upcomingEvents: Event[] = [
+export const events: Event[] = [
+	{
+		date: "10/02/2025",
+		time: "6-8 PM",
+		title: "Switching Lab",
+		location: "THOM 105",
+		description:
+			"Get hands-on with Cisco switches in our 1st lab of the semester! RSVP required to attend.\n",
+	},
 	{
 		date: "10/30/2025",
 		time: "6-8 PM",
@@ -16,17 +24,6 @@ export const upcomingEvents: Event[] = [
 		location: "THOM 105",
 		description:
 			"Get hands-on with Cisco WLCs and APs in our 3rd and final lab of the semester! RSVP required to attend.",
-	},
-];
-
-export const pastEvents: Event[] = [
-	{
-		date: "10/02/2025",
-		time: "6-8 PM",
-		title: "Switching Lab",
-		location: "THOM 105",
-		description:
-			"Get hands-on with Cisco switches in our 1st lab of the semester! RSVP required to attend.\n",
 	},
 ];
 

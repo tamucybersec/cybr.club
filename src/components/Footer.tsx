@@ -12,7 +12,7 @@ import {
 	faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-	// CalendarClock,
+	CalendarClock,
 	Flag,
 	HeartHandshake,
 	Info,
@@ -37,11 +37,11 @@ const seeMore: FooterLink[] = [
 		href: "/about",
 		icon: <Info size={14} />,
 	},
-	// {
-	//   label: "Events",
-	//   href: "/events",
-	//   icon: <CalendarClock size={14} />,
-	// },
+	{
+		label: "Events",
+		href: "/events",
+		icon: <CalendarClock size={14} />,
+	},
 	{
 		label: "Partnership",
 		href: "/partnership",
