@@ -23,7 +23,7 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ChartPie, ChevronRight, Database } from "lucide-react";
+import { ChartPie, ChevronRight, Database, Variable } from "lucide-react";
 import {
 	Fragment,
 	useContext,
@@ -50,6 +50,7 @@ import PointsTable from "./Tables/PointsTable";
 import TokensTable from "./Tables/TokensTable";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import QueryReadonly from "./QueryReadonly";
 
 type Link = { to: string; component: JSX.Element };
 
@@ -135,6 +136,16 @@ const groups: Group[] = [
 					{
 						page: "Tokens",
 						link: { to: "/tokens", component: <TokensTable /> },
+					},
+				],
+			},
+			{
+				collapse: "Query",
+				icon: <Variable />,
+				pages: [
+					{
+						page: "Readonly",
+						link: { to: "/readonly", component: <QueryReadonly /> },
 					},
 				],
 			},
