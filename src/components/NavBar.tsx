@@ -35,7 +35,7 @@ function NavBar() {
 							{/* Desktop Navigation Links - Center */}
 							<div className="hidden md:flex items-center justify-center flex-1 space-x-6 lg:space-x-10">
 								<NavLink href="/about">About</NavLink>
-								{/* <NavLink href="/events">Events</NavLink> */}
+								<NavLink href="/events">Events</NavLink>
 								<NavLink href="/partnership">
 									Partnership
 								</NavLink>
@@ -122,12 +122,12 @@ function NavBar() {
 									>
 										About
 									</MobileNavLink>
-									{/* <MobileNavLink
+									<MobileNavLink
 										href="/events"
 										onClick={toggleMenu}
 									>
 										Events
-									</MobileNavLink> */}
+									</MobileNavLink>
 									<MobileNavLink
 										href="/partnership"
 										onClick={toggleMenu}
