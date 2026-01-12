@@ -2,7 +2,8 @@ export type Tier = "gold" | "silver" | "bronze";
 export interface Sponsor {
 	name: string;
 	image: string;
-	link: string;
+	link?: string;
+	className?: string;
 }
 
 export const sponsors: Record<Tier, Sponsor[]> = {
@@ -20,5 +21,16 @@ export const sponsors: Record<Tier, Sponsor[]> = {
 			link: "https://www.lockheedmartin.com/en-us/index.html",
 		},
 	],
-	bronze: [],
+	bronze: [
+		{
+			name: "Cisco",
+			image: "/images/activity-groups/cisco.svg",
+			link: "https://www.cisco.com/",
+		},
+		{
+			name: "Tommy's Snowcones",
+			image: "/images/sponsors/tommys-snowballs.png",
+			className: "rounded-full bg-white p-4",
+		},
+	],
 };

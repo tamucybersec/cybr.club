@@ -33,28 +33,35 @@ function Sponsorship({ description }: { description?: string }) {
 	};
 
 	function Sponsor(tier: Tier, sponsor: Sponsor) {
-		return (
+		const content = (
+			<motion.div
+				className={`w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 bg-gradient-to-br rounded-full flex border justify-center items-center p-4`}
+				style={{
+					borderColor: `${tierAttrs[tier].color}36`,
+					background: `linear-gradient(to bottom right, ${tierAttrs[tier].color}24, ${tierAttrs[tier].color}12)`,
+				}}
+				variants={itemVariants}
+			>
+				<Image
+					src={sponsor.image}
+					alt={sponsor.name}
+					height={300}
+					width={300}
+					unoptimized
+					className={sponsor.className}
+				/>
+			</motion.div>
+		);
+
+		return sponsor.link ? (
 			<Link
 				href={sponsor.link}
 				key={`${tier}-${sponsor.name}`}
 			>
-				<motion.div
-					className={`w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 bg-gradient-to-br rounded-full flex border justify-center items-center p-4`}
-					style={{
-						borderColor: `${tierAttrs[tier].color}36`,
-						background: `linear-gradient(to bottom right, ${tierAttrs[tier].color}24, ${tierAttrs[tier].color}12)`,
-					}}
-					variants={itemVariants}
-				>
-					<Image
-						src={sponsor.image}
-						alt={sponsor.name}
-						height={300}
-						width={300}
-						unoptimized
-					/>
-				</motion.div>
+				{content}
 			</Link>
+		) : (
+			<div>{content}</div>
 		);
 	}
 
