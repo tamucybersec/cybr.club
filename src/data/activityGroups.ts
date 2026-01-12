@@ -26,6 +26,19 @@ export const activityGroups: ActivityGroup[] = [
 		image: "/images/activity-groups/policy.png",
 	},
 	{
+		id: 6,
+		title: "AWS Academy",
+		description:
+			"Work directly with the world's biggest cloud platform and build skills that matter everywhere.",
+		modalContent:
+			"AWS powers everything from virtual machines to storage buckets and complex networks. This group breaks down these core cloud services so you can understand how they work and become an AWS Certified Cloud Practitioner at no cost. Whether you're aiming for a career in tech or just want to add powerful skills to your toolkit, this group gives you a solid foundation with practical, real-world experience.",
+		day: "Monday",
+		time: "7:00",
+		location: "BLOC 163",
+		map: "https://aggiemap.tamu.edu/?bldg=0524",
+		image: "/images/activity-groups/aws.svg",
+	},
+	{
 		id: 2,
 		title: "Red Hat Academy",
 		description:
@@ -34,7 +47,7 @@ export const activityGroups: ActivityGroup[] = [
 			"Learn Linux from the ground up through practical exercises in system administration and command-line mastery. This group gives you the tools to navigate real-world systems with confidence, using labs and scenarios drawn from industry experience. Along the way, you will prepare for an industry-recognized Red Hat certification at no cost, proving your skills to employers before you even graduate.",
 		day: "Monday",
 		time: "8:00",
-		location: "BLOC 110",
+		location: "BLOC 163",
 		map: "https://aggiemap.tamu.edu/?bldg=0524",
 		image: "/images/activity-groups/red-hat.png",
 	},
@@ -47,7 +60,7 @@ export const activityGroups: ActivityGroup[] = [
 			"This group combines offensive and defensive cybersecurity into one focused program. You will work hands-on with binary and web exploitation, cryptography, network defense, and more, gaining experience with the same techniques used in real breaches. Every session builds your ability to both breach and secure complex systems through focused technical exercises and competitive challenges. No experience is necessary, although it is recommended.",
 		day: "Tuesday",
 		time: "7:00",
-		location: "BLOC 110",
+		location: "BLOC 163",
 		map: "https://aggiemap.tamu.edu/?bldg=0524",
 		image: "/images/activity-groups/hack-the-box.png",
 	},
@@ -60,7 +73,7 @@ export const activityGroups: ActivityGroup[] = [
 			"Cybersecurity isn't just about software. This group dives into lockpicking, physical security, and embedded systems hacking. You'll learn how to test and bypass real-world defenses, work with hardware tools, and understand the tech behind devices we use every day. It's a chance to develop skills that complement digital security and open new doors in the security field.",
 		day: "Tuesday",
 		time: "8:00",
-		location: "BLOC 110",
+		location: "BLOC 163",
 		map: "https://aggiemap.tamu.edu/?bldg=0524",
 		image: "/images/activity-groups/flipper.svg",
 	},
@@ -72,24 +85,10 @@ export const activityGroups: ActivityGroup[] = [
 		modalContent:
 			"These meetings are designed to give you a solid introduction to cybersecurity in a relaxed and supportive setting. You'll pick up essential skills, see real-time demonstrations, get insights directly from people working in the field, and grow your cybersecurity network. Whether you're just getting started or looking to broaden your horizons, this group makes it easy to jump in and start learning.",
 		day: "Wednesday",
-		time: "7:00",
+		time: "7:15",
 		location: "ETB 1037",
 		map: "https://aggiemap.tamu.edu/?bldg=0270",
 		image: "/images/club-logos/white-shield.svg",
-	},
-	{
-		id: 6,
-		title: "AWS Academy",
-		description:
-			"Work directly with the world's biggest cloud platform and build skills that matter everywhere.",
-		modalContent:
-			"AWS powers everything from virtual machines to storage buckets and complex networks. This group breaks down these core cloud services so you can understand how they work and become an AWS Certified Cloud Practitioner at no cost. Whether you're aiming for a career in tech or just want to add powerful skills to your toolkit, this group gives you a solid foundation with practical, real-world experience.",
-		day: "Wednesday",
-		time: "8:00",
-		location: "ETB 1037",
-		map: "https://aggiemap.tamu.edu/?bldg=0270",
-		note: "Not offered this semester",
-		image: "/images/activity-groups/aws.svg",
 	},
 	{
 		id: 7,
