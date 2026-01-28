@@ -86,7 +86,7 @@ export const activityGroups: ActivityGroup[] = [
 			"These meetings are designed to give you a solid introduction to cybersecurity in a relaxed and supportive setting. You'll pick up essential skills, see real-time demonstrations, get insights directly from people working in the field, and grow your cybersecurity network. Whether you're just getting started or looking to broaden your horizons, this group makes it easy to jump in and start learning.",
 		day: "Wednesday",
 		time: "7:15",
-		location: "ETB 1037",
+		location: "ETB 1020",
 		map: "https://aggiemap.tamu.edu/?bldg=0270",
 		image: "/images/club-logos/white-shield.svg",
 	},
