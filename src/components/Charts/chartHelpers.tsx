@@ -21,7 +21,11 @@ export function basicFormatter({ title, metric, hideIndicator }: Options) {
 
 		return (
 			<>
-				{title && <p className="w-full font-bold">{titleText}</p>}
+				{title && (
+					<p className="max-w-[200px] font-bold sm:max-w-none sm:break-words">
+						{titleText}
+					</p>
+				)}
 				{!hideIndicator && (
 					<div
 						className="h-2.5 w-2.5 shrink-0 rounded-[2px] bg-[var(--color-bg)]"
@@ -35,9 +39,13 @@ export function basicFormatter({ title, metric, hideIndicator }: Options) {
 					/>
 				)}
 
-				<span className="text-muted-foreground">{metric}</span>
-				<div className="ml-auto font-mono font-medium tabular-nums text-foreground">
-					{count}
+				<div className="flex w-full max-w-[200px] gap-2 sm:max-w-none">
+					<span className="truncate text-muted-foreground">
+						{metric}
+					</span>
+					<div className="ml-auto max-w-[200px] font-mono font-medium tabular-nums text-foreground sm:max-w-none">
+						{count}
+					</div>
 				</div>
 			</>
 		);

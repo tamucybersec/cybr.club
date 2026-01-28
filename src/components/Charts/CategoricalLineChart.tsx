@@ -41,6 +41,7 @@ export default function CategoricalLineChart({ metric, data }: Props) {
 					content={
 						<ChartTooltipContent
 							hideLabel
+							className="max-w-[200px]"
 							formatter={basicFormatter({
 								title: true,
 								metric,
