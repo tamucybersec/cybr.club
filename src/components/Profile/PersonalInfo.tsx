@@ -10,13 +10,14 @@ import {
 } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { User } from "@/lib/types";
+import { User, Resume } from "@/lib/types";
 
 interface Props {
 	userInfo: User;
+	resumeInfo?: Resume;
 }
 
-function PersonalInfo({ userInfo }: Props) {
+function PersonalInfo({ userInfo, resumeInfo }: Props) {
 	const InfoRow = ({
 		icon,
 		children,
@@ -62,8 +63,8 @@ function PersonalInfo({ userInfo }: Props) {
 				{capitalize(userInfo.grad_semester)} {userInfo.grad_year}
 			</InfoRow>
 			<InfoRow icon={<BriefcaseBusinessIcon size={18} />}>
-				{userInfo.resume_format
-					? `Uploaded ${userInfo.resume_format.toUpperCase()} Resume`
+				{resumeInfo?.upload_date
+					? `Uploaded ${resumeInfo.upload_date}`
 					: "No Resume Uploaded"}
 			</InfoRow>
 		</div>

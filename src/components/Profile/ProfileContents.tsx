@@ -1,5 +1,10 @@
 import React from "react";
-import { useAttendance, useEvents, useUsers } from "@/hooks/useTable";
+import {
+	useAttendance,
+	useEvents,
+	useUsers,
+	useResumes,
+} from "@/hooks/useTable";
 import { EventInfo } from "./ProfileViewer";
 import {
 	DialogDescription,
@@ -17,10 +22,12 @@ interface Props {
 
 function ProfileContents({ user_id }: Props) {
 	const { usersById } = useUsers();
+	const { resumesByUserID } = useResumes();
 	const { eventsByCode } = useEvents({ unfiltered: true });
 	const { attendanceByUser } = useAttendance(eventsByCode);
 
 	const userInfo = usersById[user_id];
+	const resumeInfo = resumesByUserID[user_id];
 	const attendance = attendanceByUser[user_id] ?? [];
 	const eventInfo: EventInfo = {};
 	let totalAttendance = 0;
@@ -51,7 +58,10 @@ function ProfileContents({ user_id }: Props) {
 			<ScrollArea className="max-h-[calc(100dvh-300px)] min-w-0 -mx-4 p-4 py-0">
 				{userInfo && eventInfo && (
 					<div className="flex flex-col gap-4">
-						<PersonalInfo userInfo={userInfo} />
+						<PersonalInfo
+							userInfo={userInfo}
+							resumeInfo={resumeInfo}
+						/>
 						<Separator />
 						<EventList eventInfo={eventInfo} />
 					</div>
