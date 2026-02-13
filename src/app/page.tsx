@@ -4,7 +4,7 @@ import NavBar from "@/components/NavBar";
 import AboutBlurb from "@/components/AboutBlurb";
 import ImageCarousel from "@/components/ImageCarousel";
 import BigThreeBlurb from "@/components/BigThreeBlurb";
-import ActivityGroups from "@/components/ActivityGroups";
+import ActivityGroups from "@/components/Home/ActivityGroups/ActivityGroups";
 import HomeImageCaptions from "@/components/HomeImageCaptions";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
