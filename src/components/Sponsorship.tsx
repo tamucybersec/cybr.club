@@ -41,6 +41,7 @@ function Sponsorship({ description }: { description?: string }) {
 					background: `linear-gradient(to bottom right, ${tierAttrs[tier].color}24, ${tierAttrs[tier].color}12)`,
 				}}
 				variants={itemVariants}
+				title={sponsor.name}
 			>
 				<Image
 					src={sponsor.image}
