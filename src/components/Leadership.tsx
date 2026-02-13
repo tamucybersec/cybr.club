@@ -42,6 +42,31 @@ function SocialIcon({ platform }: { platform: keyof Socials }) {
 }
 
 function LeadershipCard({ member }: { member: Officer }) {
+	const image =
+		member.imageMode === "icon" ? (
+			<div className="mx-auto m-4 relative h-[calc(100%-var(--spacing)*8)] aspect-square">
+				<Image
+					className="rounded-full border"
+					src={member.image}
+					alt={`Head-shot of ${member.name}`}
+					fill
+					unoptimized
+				/>
+			</div>
+		) : (
+			<Image
+				className={
+					member.imageMode === "contain"
+						? "object-contain"
+						: "object-cover"
+				}
+				src={member.image}
+				alt={`Head-shot of ${member.name}`}
+				fill
+				unoptimized
+			/>
+		);
+
 	return (
 		<motion.div
 			className="group"
@@ -54,17 +79,7 @@ function LeadershipCard({ member }: { member: Officer }) {
 			<div className="bg-gradient-to-br from-white/8 to-white/4 rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 group-hover:border-white/20 group-hover:shadow-xl">
 				{/* Image Section - Full width and height */}
 				<div className="relative overflow-hidden aspect-[3/2]">
-					<Image
-						className={
-							member.imageMode === "contain"
-								? "object-contain"
-								: "object-cover"
-						}
-						src={member.image}
-						alt={`Head-shot of ${member.name}`}
-						fill
-						unoptimized
-					/>
+					{image}
 				</div>
 
 				{/* Content Section - Secondary background */}

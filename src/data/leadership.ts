@@ -21,7 +21,7 @@ export type Officer = {
 	major: string;
 	year?: number;
 	socials?: Socials;
-	imageMode?: "cover" | "contain"; // Optional flag for image display mode
+	imageMode?: "cover" | "contain" | "icon"; // Optional flag for image display mode
 };
 
 type DoubleDipOfficer = Omit<Officer, "position"> & {
@@ -67,17 +67,6 @@ const austinGlander: DoubleDipOfficer = {
 	}),
 };
 
-const kalyanAdhikari: DoubleDipOfficer = {
-	name: "Kalyan Adhikari",
-	image: "/images/leadership/KalyanAdhikari.avif",
-	positions: ["Treasurer", "Palo Alto Academy Student Ambassador"],
-	major: "GIST",
-	year: 27,
-	socials: ObfuscateSocials({
-		email: "kalyanadhikari@tamu.edu",
-	}),
-};
-
 const owenShadburne: DoubleDipOfficer = {
 	name: "Owen Shadburne",
 	image: "/images/leadership/OwenShadburne.avif",
@@ -107,7 +96,18 @@ const alexZhang: DoubleDipOfficer = {
 export const officers: Officer[] = [
 	getDoubleDipOfficer(noahMustoe, 0),
 	getDoubleDipOfficer(austinGlander, 0),
-	getDoubleDipOfficer(kalyanAdhikari, 0),
+	{
+		name: "Vincent Dang",
+		image: "/images/leadership/VincentDang.webp",
+		position: "Treasurer",
+		major: "ENGR",
+		year: 29,
+		socials: ObfuscateSocials({
+			email: "vincent.dang@tamu.edu",
+			linkedin: "https://www.linkedin.com/in/vincent-dang-6a812727a/",
+		}),
+		imageMode: "icon",
+	},
 	{
 		name: "Matei Dumitru",
 		image: "/images/leadership/MateiDumitru.avif",
@@ -142,17 +142,6 @@ export const officers: Officer[] = [
 			linkedin: "https://www.linkedin.com/in/alexandereade/",
 		}),
 	},
-	{
-		name: "Arianna Guzman",
-		image: "/images/leadership/AriannaGuzman.avif",
-		position: "Director of Public Relations",
-		major: "ENGR",
-		year: 28,
-		socials: ObfuscateSocials({
-			email: "ariannaguz@tamu.edu",
-			linkedin: "https://www.linkedin.com/in/ariannaguz",
-		}),
-	},
 	getDoubleDipOfficer(alexZhang, 0),
 	getDoubleDipOfficer(owenShadburne, 0),
 	{
@@ -160,7 +149,7 @@ export const officers: Officer[] = [
 		image: "/images/leadership/MartinCarlisle.jpg",
 		position: "Faculty Advisor",
 		major: "CSCE Department",
-		imageMode: "contain",
+		imageMode: "icon",
 		socials: ObfuscateSocials({
 			linkedin: "https://www.linkedin.com/in/martincarlisle/",
 			website: "https://martincarlisle.com/",
@@ -172,6 +161,32 @@ export const activityLeaders = {
 	"Cyber Operations": [
 		getDoubleDipOfficer(noahMustoe, 1),
 		getDoubleDipOfficer(alexZhang, 1),
+		{
+			name: "Sam Bederman",
+			image: "/images/leadership/SamBederman.webp",
+			position: "Cyber Operations (Malware)",
+			major: "CSCE",
+			year: 27,
+			socials: ObfuscateSocials({
+				email: "beds@tamu.edu",
+				linkedin: "https://www.linkedin.com/in/sam-bederman/",
+			}),
+			imageMode: "icon",
+		},
+		{
+			name: "Michael Bengil",
+			image: "/images/leadership/MichaelBengil.webp",
+			position: "Cyber Operations (Blue Team)",
+			major: "CSCE",
+			year: 27,
+			socials: ObfuscateSocials({
+				email: "mace.bengil@tamu.edu",
+				linkedin:
+					"https://www.linkedin.com/in/michael-ace-bengil-83a535212/",
+				website: "https://archan6el.github.io/ ",
+			}),
+			imageMode: "icon",
+		},
 	],
 	"Hardware Hacking": [
 		{
@@ -187,18 +202,29 @@ export const activityLeaders = {
 		},
 	],
 	Cisco: [getDoubleDipOfficer(austinGlander, 1)],
-	"Palo Alto": [getDoubleDipOfficer(kalyanAdhikari, 1)],
+	"Palo Alto": [
+		{
+			name: "Kalyan Adhikari",
+			image: "/images/leadership/KalyanAdhikari.avif",
+			position: "Palo Alto Academy Student Ambassador",
+			major: "GIST",
+			year: 27,
+			socials: ObfuscateSocials({
+				email: "kalyanadhikari@tamu.edu",
+			}),
+		},
+	],
 	AWS: [
 		{
 			name: "Luke Laudeman",
-			image: "/images/club-logos/white-shield.svg",
+			image: "/images/leadership/LukeLaudeman.webp",
 			position: "AWS Academy Student Ambassador",
 			major: "INTA",
 			year: 27,
-			imageMode: "contain",
 			socials: ObfuscateSocials({
 				email: "luke123@tamu.edu",
 			}),
+			imageMode: "icon",
 		},
 	],
 	"Red Hat": [
