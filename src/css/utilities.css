@@ -1,0 +1,5 @@
+@custom-variant dark (&:is(.dark *));
+
+@utility text-balance {
+	text-wrap: balance;
+}

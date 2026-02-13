@@ -1,0 +1,52 @@
+@layer utilities {
+	@keyframes scroll-x {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(var(--scroll-distance));
+		}
+	}
+
+	/* mobile */
+	.animate-scroll-left,
+	.animate-scroll-right {
+		--scroll-distance: calc(-20rem * 6 - 2rem * 5);
+		--scroll-duration: 35s;
+		animation: scroll-x var(--scroll-duration) linear infinite;
+	}
+	.animate-scroll-right {
+		animation-direction: reverse;
+	}
+
+	/* tablet */
+	@media (min-width: 768px) {
+		.animate-scroll-left,
+		.animate-scroll-right {
+			--scroll-distance: calc(-28rem * 6 - 2rem * 5);
+			--scroll-duration: 50s;
+		}
+	}
+
+	/* desktop */
+	@media (min-width: 1024px) {
+		.animate-scroll-left,
+		.animate-scroll-right {
+			--scroll-distance: calc(-53rem * 6 - 2rem * 5);
+			--scroll-duration: 70s;
+		}
+	}
+
+	.animate-fade-in {
+		animation: fadeIn 0.3s ease-out;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
