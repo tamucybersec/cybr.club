@@ -61,7 +61,7 @@ function Sponsorship({ description }: { description?: string }) {
 				{content}
 			</Link>
 		) : (
-			<div>{content}</div>
+			<div key={`${tier}-${sponsor.name}`}>{content}</div>
 		);
 	}
 

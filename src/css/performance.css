@@ -1,0 +1,51 @@
+/* Classes targeted at improving performance */
+
+@layer base {
+	[data-animate="true"] {
+		will-change: transform, opacity;
+		backface-visibility: hidden;
+		transform: translateZ(0);
+	}
+
+	[data-animate="false"] {
+		will-change: auto;
+	}
+
+	img {
+		content-visibility: auto;
+		contain: layout style paint;
+	}
+
+	[data-framer-component] {
+		contain: layout style paint;
+		content-visibility: auto;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+
+		/* Disable Framer Motion animations entirely */
+		[data-framer-motion] {
+			transform: none !important;
+			transition: none !important;
+		}
+	}
+
+	.animate-scroll-left,
+	.animate-scroll-right {
+		backface-visibility: hidden;
+		perspective: 1000px;
+		transform-style: preserve-3d;
+		contain: layout style paint;
+		content-visibility: auto;
+		transform: translateZ(0);
+		will-change: transform;
+	}
+}

@@ -1,7 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "@/css/main.css";
 // import SmoothScroll from "@/components/SmoothScroll";
 
 const azonix = localFont({

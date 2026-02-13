@@ -1,0 +1,10 @@
+/* Aggregator file for all the css files for easy import */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "./tokens.css";
+@import "./base.css";
+@import "./utilities.css";
+@import "./animations.css";
+@import "./performance.css";
