@@ -1,3 +1,6 @@
+/* Variable and theme declarations */
+/* How @theme works: https://tailwindcss.com/docs/theme */
+
 :root {
 	--container-max-width: 1200px;
 	--container-padding: 1.5rem;

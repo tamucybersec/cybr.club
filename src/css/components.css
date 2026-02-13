@@ -1,3 +1,5 @@
+/* Component-specific classes */
+
 @layer components {
 	.slider-row {
 		gap: clamp(0.5rem, 1.5vw, 2rem);

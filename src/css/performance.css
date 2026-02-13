@@ -1,3 +1,5 @@
+/* Classes targeted at improving performance */
+
 @layer base {
 	[data-animate="true"] {
 		will-change: transform, opacity;
