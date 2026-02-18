@@ -13,6 +13,7 @@ import {
 } from "@/lib/helpers";
 import { useEvents } from "@/hooks/useTable";
 import { useMemo } from "react";
+import EventCodeLink from "../Event/EventCodeLink";
 
 const definition: Definition<Event>[] = [
 	{
@@ -20,6 +21,7 @@ const definition: Definition<Event>[] = [
 		accessorKey: "code",
 		header: "Code",
 		sortable: true,
+		cell: (row) => <EventCodeLink code={row.getValue<string>("code")} />,
 		type: z
 			.string()
 			.nonempty()

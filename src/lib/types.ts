@@ -103,6 +103,39 @@ export interface Event {
 	year: number;
 }
 
+export interface EventViewerSummary {
+	code: string;
+	name: string;
+	category: string;
+	date: string;
+	attendanceCount: number;
+	hasEvent: boolean;
+}
+
+export interface EventViewerAttendee {
+	user_id: string;
+	name: string;
+	major: string;
+	gradYearLabel: string;
+	gradClass: string;
+}
+
+export interface EventViewerCount {
+	label: string;
+	count: number;
+}
+
+export interface EventViewerDetail {
+	code: string;
+	event: Event | null;
+	attendanceCount: number;
+	attendees: EventViewerAttendee[];
+	majorCounts: EventViewerCount[];
+	gradYearCounts: EventViewerCount[];
+	unknownUserIds: string[];
+	unknownUserCount: number;
+}
+
 export interface Flagged {
 	user_id: string;
 	offenses: number;

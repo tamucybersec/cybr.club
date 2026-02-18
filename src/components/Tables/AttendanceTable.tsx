@@ -4,6 +4,7 @@ import { z } from "zod";
 import DataTable from "../DataTable/DataTable";
 import type { Definition } from "../DataTable/DataTableTypes";
 import { QUERY_KEYS, type Attendance } from "../../lib/types";
+import EventCodeLink from "../Event/EventCodeLink";
 
 const definition: Definition<Attendance>[] = [
 	{
@@ -18,6 +19,7 @@ const definition: Definition<Attendance>[] = [
 		accessorKey: "code",
 		header: "Code",
 		sortable: true,
+		cell: (row) => <EventCodeLink code={row.getValue<string>("code")} />,
 		type: z
 			.string()
 			.nonempty()
