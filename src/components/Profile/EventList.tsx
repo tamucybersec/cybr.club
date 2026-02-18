@@ -17,6 +17,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "../ui/accordion";
+import EventCodeLink from "../Event/EventCodeLink";
 
 interface Props {
 	eventInfo: EventInfo;
@@ -41,7 +42,9 @@ function EventList({ eventInfo }: Props) {
 								key={ev.code}
 								className="max-w-full"
 							>
-								<TableCell>{ev.code}</TableCell>
+								<TableCell>
+									<EventCodeLink code={ev.code} />
+								</TableCell>
 								<TableCell>{ev.name}</TableCell>
 								<TableCell>{ev.date}</TableCell>
 							</TableRow>

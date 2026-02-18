@@ -51,6 +51,7 @@ import TokensTable from "./Tables/TokensTable";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import QueryReadonly from "./QueryReadonly";
+import { EventViewerDataProvider } from "./Event/EventViewerDataContext";
 
 type Link = { to: string; component: JSX.Element };
 
@@ -331,7 +332,11 @@ function DashboardSidebar() {
 						{Breadcrumbs()}
 					</div>
 				</header>
-				<div className="px-4 pb-4 flex flex-col gap-4">{component}</div>
+				<EventViewerDataProvider>
+					<div className="px-4 pb-4 flex flex-col gap-4">
+						{component}
+					</div>
+				</EventViewerDataProvider>
 			</SidebarInset>
 		</SidebarProvider>
 	);
