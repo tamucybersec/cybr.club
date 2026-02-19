@@ -19,6 +19,7 @@ interface RegisterResult {
 	grad_year: number;
 	major: string;
 	email: string;
+	sponsor_email_opt_out: boolean;
 	resume?: File;
 }
 
@@ -61,8 +62,14 @@ function Register() {
 				return;
 			}
 
-			form.reset(profileResult.user);
-			const [major, custom] = profileResult.user.major?.split(":") ?? [];
+			const user: User = {
+				...profileResult.user,
+				sponsor_email_opt_out:
+					!!profileResult.user.sponsor_email_opt_out,
+			};
+
+			form.reset(user);
+			const [major, custom] = user.major?.split(":") ?? [];
 			if (MAJORS.includes(major)) {
 				setSelectedMajor(major);
 				if (major === "Graduate" || major === "Other") {
@@ -71,7 +78,7 @@ function Register() {
 				form.trigger("major");
 			}
 
-			setOriginalUser(profileResult.user);
+			setOriginalUser(user);
 			setResumeUploadedAt(profileResult.resumeUploadedAt || undefined);
 		}
 
