@@ -11,6 +11,7 @@ interface Details {
 	type: ZodTypeAny;
 	description?: string;
 	file?: boolean;
+	switch?: boolean;
 	dropdown?: string[];
 }
 
@@ -61,6 +62,13 @@ const details: Details[] = [
 		title: "College Email",
 		field: "email",
 		type: zodTamuEmail,
+	},
+	{
+		title: "Receive emails from sponsors about potential opportunities",
+		field: "sponsor_email_opt_out",
+		type: z.boolean(),
+		description: "You may change this at any time.",
+		switch: true,
 	},
 	{
 		title: "Resume (Optional)",
@@ -123,7 +131,10 @@ export function useRegisterForm(customMajorText: string) {
 		defaultValues: Object.fromEntries(
 			details
 				.filter(({ dropdown, file }) => !dropdown && !file)
-				.map(({ field }) => [field, ""])
+				.map(({ field, switch: isSwitch }) => [
+					field,
+					isSwitch ? false : "",
+				])
 		),
 	});
 
