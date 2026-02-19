@@ -229,7 +229,7 @@ export function RegisterRender({
 							<FormControl>{control}</FormControl>
 							{field === "resume" && resumeInfo?.filename ? (
 								<div className="mt-1 text-sm text-white">
-									{`${resumeInfo.filename}.${resumeInfo.format}`}
+									{resumeInfo.filename}
 									{resumeInfo.upload_date &&
 									!isNaN(
 										new Date(
