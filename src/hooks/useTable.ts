@@ -9,6 +9,7 @@ import {
 	type Term,
 	type Tokens,
 	type User,
+	type Resume,
 } from "@/lib/types";
 import { flattenEvents } from "@/lib/helpers";
 
@@ -28,6 +29,25 @@ export function useUsers() {
 	return {
 		users: data ?? [],
 		usersById,
+	};
+}
+
+export function useResumes() {
+	const { fetchPath } = useContext(DashboardContext);
+	const { data } = useQuery<Resume[]>({
+		queryKey: QUERY_KEYS.resumes,
+		queryFn: () => fetchPath("/resumes", { method: "GET" }),
+	});
+
+	const resumesByUserID = useMemo<Record<string, Resume>>(() => {
+		return Object.fromEntries(
+			(data ?? []).map((resume) => [resume.user_id, resume])
+		);
+	}, [data]);
+
+	return {
+		resumes: data ?? [],
+		resumesByUserID,
 	};
 }
 

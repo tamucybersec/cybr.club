@@ -21,7 +21,7 @@ import {
 import { getCurrentYear, zodFile, zodTamuEmail } from "@/lib/helpers";
 import { MAJORS } from "@/data/majors";
 import { z, type ZodTypeAny } from "zod";
-import type { FormType, ReactState, User } from "../../lib/types";
+import type { FormType, ReactState, Resume } from "../../lib/types";
 
 interface Details {
 	title: string;
@@ -103,10 +103,7 @@ interface Props {
 	onSubmit: (result: any) => void;
 	majorState: ReactState<string>;
 	customMajorState: ReactState<string>;
-	// used to show existing resume info
-	// prop rather than state bc they don't need to change after initial load; only the next time they register
-	originalUser?: User;
-	resumeUploadedAt?: string;
+	resumeInfo: Resume | null; // only changes the next time they register
 }
 
 export function RegisterRender({
@@ -114,8 +111,7 @@ export function RegisterRender({
 	onSubmit,
 	majorState,
 	customMajorState,
-	originalUser,
-	resumeUploadedAt,
+	resumeInfo,
 }: Props) {
 	const [selectedMajor, setSelectedMajor] = majorState;
 	const [customMajorText, setCustomMajorText] = customMajorState;
@@ -231,22 +227,17 @@ export function RegisterRender({
 						<FormItem>
 							<FormLabel>{title}</FormLabel>
 							<FormControl>{control}</FormControl>
-							{field === "resume" &&
-							originalUser?.resume_filename ? (
+							{field === "resume" && resumeInfo?.filename ? (
 								<div className="mt-1 text-sm text-white">
-									{originalUser.resume_filename}
-									{resumeUploadedAt &&
+									{resumeInfo.filename}
+									{resumeInfo.upload_date &&
 									!isNaN(
-										new Date(resumeUploadedAt).getTime()
-									) ? (
-										<>
-											{" "}
-											— last uploaded{" "}
-											{new Date(
-												resumeUploadedAt
-											).toLocaleString()}
-										</>
-									) : null}
+										new Date(
+											resumeInfo.upload_date
+										).getTime()
+									)
+										? ` — last uploaded ${new Date(resumeInfo.upload_date).toLocaleString()}`
+										: ""}
 								</div> // only show if they have an existing resume
 							) : null}
 							{description && (
