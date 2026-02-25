@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import { photos } from "@/data/photos";
 
@@ -68,13 +68,9 @@ function SliderRow({
 	direction?: "left" | "right";
 }) {
 	const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-	const containerRef = useRef<HTMLDivElement>(null);
 
-	// Triple items for seamless looping - memoized (ensures always visible images)
-	const duplicatedItems = useMemo(
-		() => [...items, ...items, ...items],
-		[items]
-	);
+	// Double items for seamless looping - memoized (ensures always visible images)
+	const duplicatedItems = useMemo(() => [...items, ...items], [items]);
 
 	// Use CSS animations instead of Framer Motion for better performance
 	const animationClass =
@@ -83,11 +79,7 @@ function SliderRow({
 	return (
 		<div className="relative overflow-hidden carousel-container">
 			<div
-				ref={containerRef}
-				className={`flex items-center gap-2 ${animationClass}`}
-				style={{
-					width: `${duplicatedItems.length * 580}px`, // Responsive width calculation for 3x duplication
-				}}
+				className={`flex items-center gap-2 carousel-strip ${animationClass}`}
 			>
 				{duplicatedItems.map((item, index) => (
 					<div
@@ -104,8 +96,8 @@ function SliderRow({
 							src={item.path}
 							alt={item.title}
 							fill
-							priority={index < 8} // Prioritize first 8 images (more visible with 3x duplication)
-							loading={index < 8 ? "eager" : "lazy"}
+							priority={index < 6} // Prioritize first 6 images (more visible with 2x duplication)
+							loading={index < 6 ? "eager" : "lazy"}
 							sizes="(max-width: 640px) 320px, (max-width: 768px) 448px, (max-width: 1024px) 448px, 848px"
 							className="object-cover"
 							quality={85} // Slightly higher quality for better rendering

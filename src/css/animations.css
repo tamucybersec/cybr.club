@@ -1,32 +1,58 @@
 /* Various animation utility classes */
 
 @layer utilities {
-	@keyframes scroll-x {
+	.carousel-strip {
+		width: calc(20rem * 12 + 0.5rem * 12);
+		will-change: transform;
+	}
+
+	@media (min-width: 768px) {
+		.carousel-strip {
+			width: calc(28rem * 12 + 0.5rem * 12);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.carousel-strip {
+			width: calc(32rem * 12 + 0.5rem * 12);
+		}
+	}
+
+	@keyframes scroll-left {
 		from {
 			transform: translateX(0);
 		}
 		to {
-			transform: translateX(var(--scroll-distance));
+			transform: translateX(var(--one-copy-width));
+		}
+	}
+
+	@keyframes scroll-right {
+		from {
+			transform: translateX(var(--one-copy-width));
+		}
+		to {
+			transform: translateX(0);
 		}
 	}
 
 	/* mobile */
-	.animate-scroll-left,
-	.animate-scroll-right {
-		--scroll-distance: calc(-20rem * 6 - 2rem * 5);
-		--scroll-duration: 35s;
-		animation: scroll-x var(--scroll-duration) linear infinite;
+	.animate-scroll-left {
+		--one-copy-width: calc(-1 * (20rem * 6 + 0.5rem * 6));
+		animation: scroll-left 35s linear infinite;
 	}
+
 	.animate-scroll-right {
-		animation-direction: reverse;
+		--one-copy-width: calc(-1 * (20rem * 6 + 0.5rem * 6));
+		animation: scroll-right 35s linear infinite;
 	}
 
 	/* tablet */
 	@media (min-width: 768px) {
 		.animate-scroll-left,
 		.animate-scroll-right {
-			--scroll-distance: calc(-28rem * 6 - 2rem * 5);
-			--scroll-duration: 50s;
+			--one-copy-width: calc(-1 * (28rem * 6 + 0.5rem * 6));
+			animation-duration: 50s;
 		}
 	}
 
@@ -34,8 +60,8 @@
 	@media (min-width: 1024px) {
 		.animate-scroll-left,
 		.animate-scroll-right {
-			--scroll-distance: calc(-53rem * 6 - 2rem * 5);
-			--scroll-duration: 70s;
+			--one-copy-width: calc(-1 * (32rem * 6 + 0.5rem * 6));
+			animation-duration: 70s;
 		}
 	}
 
