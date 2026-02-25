@@ -60,8 +60,8 @@
 	@media (min-width: 1024px) {
 		.animate-scroll-left,
 		.animate-scroll-right {
-			--scroll-distance: calc(-1 * (32rem * 6 + 0.5rem * 6));
-			--scroll-duration: 70s;
+			--one-copy-width: calc(-1 * (32rem * 6 + 0.5rem * 6));
+			animation-duration: 70s;
 		}
 	}
 
