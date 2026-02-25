@@ -88,6 +88,7 @@ export interface User {
 	major: string;
 	email: string;
 	verified: boolean;
+	sponsor_email_opt_out: boolean;
 	join_date: string;
 	notes: string;
 }

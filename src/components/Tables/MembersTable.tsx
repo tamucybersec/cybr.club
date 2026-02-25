@@ -77,6 +77,12 @@ const definition: Definition<MemberListItem>[] = [
 		type: zodBoolean,
 	},
 	{
+		accessorKey: "sponsor_email_opt_out",
+		header: "Sponsor Email Opt-Out",
+		sortable: true,
+		type: zodBoolean,
+	},
+	{
 		accessorKey: "join_date",
 		header: "Join Date",
 		sortable: true,
@@ -158,6 +164,7 @@ function MembersTable() {
 				major: "",
 				email: "",
 				verified: false,
+				sponsor_email_opt_out: false,
 				join_date: "",
 				notes: "",
 				resume_filename: "",

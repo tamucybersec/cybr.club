@@ -18,6 +18,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { getCurrentYear, zodFile, zodTamuEmail } from "@/lib/helpers";
 import { MAJORS } from "@/data/majors";
 import { z, type ZodTypeAny } from "zod";
@@ -29,6 +30,7 @@ interface Details {
 	type: ZodTypeAny;
 	description?: string;
 	file?: boolean;
+	switch?: boolean;
 	dropdown?: string[];
 }
 
@@ -79,6 +81,13 @@ const details: Details[] = [
 		title: "TAMU Email",
 		field: "email",
 		type: zodTamuEmail,
+	},
+	{
+		title: "Receive emails from sponsors about potential opportunities",
+		field: "sponsor_email_opt_out",
+		type: z.boolean(),
+		description: "You may change this at any time.",
+		switch: true,
 	},
 	{
 		title: "Resume (Optional)",
@@ -205,6 +214,7 @@ export function RegisterRender({
 		dropdown,
 		description,
 		file,
+		switch: isSwitch,
 	}: Details) => (
 		<div
 			key={field}
@@ -214,6 +224,31 @@ export function RegisterRender({
 				control={form.control}
 				name={field}
 				render={({ field: fieldProps }) => {
+					if (isSwitch) {
+						return (
+							<FormItem className="flex flex-row items-center justify-between rounded-md border border-input px-3 py-2 shadow-xs">
+								<div className="space-y-0.5 pr-3">
+									<FormLabel className="text-sm font-normal">
+										{title}
+									</FormLabel>
+									{description && (
+										<FormDescription>
+											{description}
+										</FormDescription>
+									)}
+								</div>
+								<FormControl>
+									<Switch
+										checked={!fieldProps.value}
+										onCheckedChange={(checked) =>
+											fieldProps.onChange(!checked)
+										}
+									/>
+								</FormControl>
+							</FormItem>
+						);
+					}
+
 					let control;
 					if (dropdown) {
 						control = renderDropdownField(dropdown, fieldProps);
