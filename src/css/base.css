@@ -1,0 +1,24 @@
+/* Styles that apply to base elements */
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		margin: 0 !important;
+		padding: 0 !important;
+		scroll-behavior: smooth;
+		overflow-x: hidden; /* Prevent horizontal scroll */
+	}
+
+	body {
+		color: var(--foreground);
+		background: var(--background);
+		font-family: var(--font-ubuntu-sans);
+		font-weight: 300;
+		position: relative;
+	}
+}

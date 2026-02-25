@@ -20,6 +20,12 @@ export const sponsors: Record<Tier, Sponsor[]> = {
 			image: "/images/sponsors/lockheed-martin.png",
 			link: "https://www.lockheedmartin.com/en-us/index.html",
 		},
+		{
+			name: "Allthenticate",
+			image: "/images/sponsors/allthenticate.png",
+			link: "https://www.allthenticate.com/",
+			className: "rounded-full bg-[#0D0EFE]",
+		},
 	],
 	bronze: [
 		{

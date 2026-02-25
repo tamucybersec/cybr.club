@@ -72,6 +72,7 @@ export const VALID_CATEGORIES = [
 
 export const QUERY_KEYS = {
 	users: ["users", "table"],
+	resumes: ["resumes", "table"],
 	events: ["events", "table"],
 	flagged: ["flagged", "table"],
 	attendance: ["attendance", "table"],
@@ -90,8 +91,14 @@ export interface User {
 	sponsor_email_opt_out: boolean;
 	join_date: string;
 	notes: string;
-	resume_format: string;
-	resume_filename?: string | null;
+}
+
+export interface Resume {
+	user_id: string;
+	filename: string;
+	format: string;
+	upload_date: string;
+	is_valid: boolean;
 }
 
 export interface Event {
@@ -182,4 +189,12 @@ export type Term = {
 export interface QueryResponse {
 	columns: string[];
 	rows: Record<string, any>[];
+}
+
+// For member list filtering. has the resume metadata needed for display
+export interface MemberListItem extends User {
+	resume_filename?: string;
+	resume_format?: string;
+	resume_upload_date?: string;
+	resume_is_valid?: boolean;
 }

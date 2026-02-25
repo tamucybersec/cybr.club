@@ -3,7 +3,7 @@
 import { MAJORS } from "@/data/majors";
 import { useEffect, useState, type ReactElement } from "react";
 import { z } from "zod";
-import type { User } from "../../lib/types";
+import type { Resume, User } from "../../lib/types";
 import { API_URL } from "@/lib/constants";
 import { toast } from "sonner";
 import { ok } from "@/lib/fetchUtils";
@@ -25,23 +25,24 @@ interface RegisterResult {
 
 async function profileOrDefaults(
 	ticket: string | null
-): Promise<{ user: User; resumeUploadedAt: string } | null> {
+): Promise<{ user: User; resume: Resume | null } | null> {
 	const resp = await fetch(`${API_URL}/self/${ticket}`);
 	if (!resp.ok) {
 		return null;
 	}
 	const body = await resp.json();
-	// backend returns { user: {...}, resumeUploadedAt }
-	return { user: body.user as User, resumeUploadedAt: body.resumeUploadedAt };
+	// backend returns { user: {...}, resume: {...} }
+	return {
+		user: body.user as User,
+		resume: body.resume ? (body.resume as Resume) : null,
+	};
 }
 
 function Register() {
 	const [originalUser, setOriginalUser] = useState<User | undefined | null>(
 		undefined
 	);
-	const [resumeUploadedAt, setResumeUploadedAt] = useState<
-		string | undefined
-	>(undefined);
+	const [resumeInfo, setResumeData] = useState<Resume | null>(null);
 	const [selectedMajor, setSelectedMajor] = useState("");
 	const [customMajorText, setCustomMajorText] = useState("");
 	const [completeMessage, setCompleteMessage] = useState<string | undefined>(
@@ -51,14 +52,14 @@ function Register() {
 	const { form } = useRegisterForm(customMajorText);
 
 	useEffect(() => {
-		async function getUser() {
+		async function getUserInfo() {
 			const url = new URL(window.location.href);
 			const ticket = url.searchParams.get("ticket");
 			const profileResult = await profileOrDefaults(ticket);
 
 			if (profileResult === null) {
-				setOriginalUser(profileResult);
-				setResumeUploadedAt(undefined);
+				setOriginalUser(null);
+				setResumeData(null);
 				return;
 			}
 
@@ -78,11 +79,11 @@ function Register() {
 				form.trigger("major");
 			}
 
-			setOriginalUser(user);
-			setResumeUploadedAt(profileResult.resumeUploadedAt || undefined);
+			setOriginalUser(profileResult.user);
+			setResumeData(profileResult.resume); // still null if they don't have a resume uploaded
 		}
 
-		getUser();
+		getUserInfo();
 	}, []);
 
 	const onSubmit = (values: z.infer<typeof formSchema>) => {
@@ -163,8 +164,7 @@ function Register() {
 				onSubmit={onSubmit}
 				majorState={[selectedMajor, setSelectedMajor]}
 				customMajorState={[customMajorText, setCustomMajorText]}
-				originalUser={originalUser} // to read existing existing resume data if there is any
-				resumeUploadedAt={resumeUploadedAt} // also for existing resume data
+				resumeInfo={resumeInfo}
 			/>
 		);
 	}
