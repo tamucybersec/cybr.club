@@ -1,7 +1,9 @@
-import Dashboard from "@/components/Dashboard";
+"use client";
+
+import Report from "@/components/Report";
 
 function DashboardPage() {
-	return <Dashboard />;
+	return <Report />;
 }
 
 export default DashboardPage;
