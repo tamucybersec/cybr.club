@@ -128,7 +128,7 @@ const groups: Group[] = [
 	},
 ];
 
-export function DashboardSidebarNavigation() {
+export function DashboardSidebar() {
 	const { permission: permissionLevel } = useContext(DashboardContext);
 	const pathname = usePathname();
 
@@ -268,4 +268,4 @@ export function DashboardBreadcrumbs() {
 	);
 }
 
-export default DashboardSidebarNavigation;
+export default DashboardSidebar;

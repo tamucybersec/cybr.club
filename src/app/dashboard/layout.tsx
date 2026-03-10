@@ -1,11 +1,12 @@
 "use client";
 
 import { DashboardContext } from "@/lib/context";
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Permissions, type Options } from "@/lib/types";
+import { Permissions, type Options, type Term } from "@/lib/types";
 import { authenticated, useLogin } from "@/lib/auth";
 import { fetchPath } from "@/lib/fetchUtils";
+import { defaultTerms } from "@/lib/helpers";
 
 import Login from "@/components/Login";
 import { Toaster } from "@/components/ui/sonner";
@@ -21,48 +22,52 @@ import {
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
 import {
-	DashboardSidebarNavigation,
+	DashboardSidebar,
 	DashboardBreadcrumbs,
-} from "@/components/DashboardSidebarNavigation";
+} from "@/components/DashboardSidebar";
 import Image from "next/image";
 
 export default function DashboardLayout({
 	children,
-}: Readonly<{ children: React.ReactNode }>) {
-	// readonly bcs layout shouldn't be able to modify what it displays
-	// auth state, loading, and dashboard context
+}: Readonly<{
+	children: React.ReactNode;
+}>) {
 	const [token, setToken] = useState<string>("");
 	const [permission, setPermission] = useState<Permissions | undefined>(
 		undefined
 	);
 	const [isLoading, setIsLoading] = useState(true); // for automatic login w local storage token (if applicable)
-	async function fetchPathAbstraction(path: string, options?: Options) {
-		// fetch wrapper for children to use
-		return await fetchPath(token, path, options); // effectively hides token from children, so its not exposed everywhere
-	}
-	const contextValue = {
-		// everything being shared
-		fetchPath: fetchPathAbstraction,
-		permission: permission!,
-	};
+	const [terms, setTerms] = useState<[Term, Term]>(defaultTerms());
+	const fetchPathAbstraction = useCallback(
+		async (path: string, options?: Options) => {
+			return await fetchPath(token, path, options);
+		},
+		[token]
+	);
+	const contextValue = useMemo(
+		() => ({
+			fetchPath: fetchPathAbstraction,
+			permission: permission!,
+			terms,
+			setTerms,
+		}),
+		[fetchPathAbstraction, permission, terms]
+	);
 
-	// login hook
 	const login = useLogin((tok, perm) => {
 		setToken(tok);
 		setPermission(perm);
 	}, setIsLoading);
 
-	// caching, garbage collection, fetching, loading, errors/duplicate requests (all the painful server state stuff)
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {
-				staleTime: 1000 * 60 * 5, // time between fetches
-				gcTime: 1000 * 60 * 5, // garbage collect time
+				staleTime: 1000 * 60 * 5,
+				gcTime: 1000 * 60 * 5,
 			},
 		},
 	});
 
-	// header & logo at the top of side bar
 	function Header() {
 		return (
 			<div className="flex gap-4 items-center">
@@ -79,7 +84,6 @@ export default function DashboardLayout({
 		);
 	}
 
-	// logout button
 	function logout() {
 		localStorage.removeItem("token");
 		window.location.reload();
@@ -118,7 +122,7 @@ export default function DashboardLayout({
 					<Sidebar>
 						<SidebarHeader>{Header()}</SidebarHeader>
 						<SidebarContent>
-							<DashboardSidebarNavigation />
+							<DashboardSidebar />
 						</SidebarContent>
 						<SidebarFooter>
 							<Button onClick={logout}>Logout</Button>
