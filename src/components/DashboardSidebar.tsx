@@ -160,9 +160,6 @@ export function DashboardSidebar() {
 	function AppSidebarButton({ button, icon, link }: Button) {
 		return (
 			<SidebarMenuItem key={button}>
-				{/* before, clicking a button changed the state and component that had to be displayed */}
-				{/* now, it changes the url so next.js can navigate to the page for that button */}
-				{/* (yes im going to have to make pages for each!) */}
 				<SidebarMenuButton
 					asChild
 					isActive={pathname === link.to}
