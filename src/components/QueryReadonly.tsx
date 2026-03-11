@@ -1,3 +1,5 @@
+"use client";
+
 import { DashboardContext } from "@/lib/context";
 import { useContext, useState } from "react";
 import { Textarea } from "@/components/ui/textarea";

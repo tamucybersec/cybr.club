@@ -1,36 +1,20 @@
 "use client";
 
 import {
-	Sidebar,
-	SidebarContent,
-	SidebarFooter,
 	SidebarGroup,
 	SidebarGroupLabel,
-	SidebarHeader,
-	SidebarInset,
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
 	SidebarMenuSub,
 	SidebarMenuSubButton,
 	SidebarMenuSubItem,
-	SidebarProvider,
-	SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Separator } from "@/components/ui/separator";
 import {
 	Collapsible,
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ChartPie, ChevronRight, Database, Variable } from "lucide-react";
-import {
-	Fragment,
-	useContext,
-	useState,
-	type JSX,
-	type ReactElement,
-} from "react";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -38,22 +22,15 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Report from "./Report";
-import MembersTable from "./Tables/MembersTable";
-import EventsTable from "./Tables/EventsTable";
-import FlaggedTable from "./Tables/FlaggedTable";
+import { ChartPie, ChevronRight, Database, Variable } from "lucide-react";
+import { Fragment, useContext, type ReactElement } from "react";
 import { Permissions } from "../lib/types";
 import { DashboardContext } from "@/lib/context";
 import { sufficientPermissions } from "@/lib/auth";
-import AttendanceTable from "./Tables/AttendanceTable";
-import PointsTable from "./Tables/PointsTable";
-import TokensTable from "./Tables/TokensTable";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import QueryReadonly from "./QueryReadonly";
-import { EventViewerDataProvider } from "./Event/EventViewerDataContext";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-type Link = { to: string; component: JSX.Element };
+type Link = { to: string };
 
 interface Group {
 	group: string;
@@ -87,7 +64,7 @@ const groups: Group[] = [
 			{
 				button: "Dashboard",
 				icon: <ChartPie />,
-				link: { to: "/dashboard", component: <Report /> },
+				link: { to: "/dashboard" },
 			},
 		],
 	},
@@ -101,26 +78,23 @@ const groups: Group[] = [
 				pages: [
 					{
 						page: "Members",
-						link: { to: "/members", component: <MembersTable /> },
+						link: { to: "/dashboard/members" },
 					},
 					{
 						page: "Points",
-						link: { to: "/points", component: <PointsTable /> },
+						link: { to: "/dashboard/points" },
 					},
 					{
 						page: "Events",
-						link: { to: "/events", component: <EventsTable /> },
+						link: { to: "/dashboard/events" },
 					},
 					{
 						page: "Attendance",
-						link: {
-							to: "/attendance",
-							component: <AttendanceTable />,
-						},
+						link: { to: "/dashboard/attendance" },
 					},
 					{
 						page: "Flagged",
-						link: { to: "/flagged", component: <FlaggedTable /> },
+						link: { to: "/dashboard/flagged" },
 					},
 				],
 			},
@@ -136,7 +110,7 @@ const groups: Group[] = [
 				pages: [
 					{
 						page: "Tokens",
-						link: { to: "/tokens", component: <TokensTable /> },
+						link: { to: "/dashboard/tokens" },
 					},
 				],
 			},
@@ -146,7 +120,7 @@ const groups: Group[] = [
 				pages: [
 					{
 						page: "Readonly",
-						link: { to: "/readonly", component: <QueryReadonly /> },
+						link: { to: "/dashboard/readonly" },
 					},
 				],
 			},
@@ -154,74 +128,9 @@ const groups: Group[] = [
 	},
 ];
 
-function DashboardSidebar() {
+export function DashboardSidebar() {
 	const { permission: permissionLevel } = useContext(DashboardContext);
-	const [path, setPath] = useState("/dashboard");
-	const [component, setComponent] = useState(<Report />);
-
-	function Header() {
-		return (
-			<div className="flex gap-4 items-center">
-				<Image
-					src={"/images/club-logos/white-shield.svg"}
-					alt="Club Logo"
-					className="rounded"
-					height={36}
-					width={36}
-					unoptimized
-				/>
-				<h1>TAMU CYBR CLUB</h1>
-			</div>
-		);
-	}
-
-	function Breadcrumbs() {
-		const breadcrumbs = getBreadcrumbs();
-
-		return (
-			<Breadcrumb>
-				<BreadcrumbList>
-					{breadcrumbs.map((str, index) => (
-						<Fragment key={`${str}-${index}`}>
-							{index !== 0 && (
-								<BreadcrumbSeparator className="hidden md:block" />
-							)}
-							<BreadcrumbItem className="hidden md:block">
-								{index === breadcrumbs.length - 1 ? (
-									<BreadcrumbPage>{str}</BreadcrumbPage>
-								) : (
-									str
-								)}
-							</BreadcrumbItem>
-						</Fragment>
-					))}
-				</BreadcrumbList>
-			</Breadcrumb>
-		);
-	}
-
-	function getBreadcrumbs(): string[] {
-		for (const group of groups) {
-			if (group.buttons) {
-				for (const button of group.buttons) {
-					if (button.link.to == path) {
-						return [group.group, button.button];
-					}
-				}
-			}
-			if (group.collapsible) {
-				for (const collapse of group.collapsible) {
-					for (const page of collapse.pages) {
-						if (page.link.to == path) {
-							return [group.group, collapse.collapse, page.page];
-						}
-					}
-				}
-			}
-		}
-
-		return [];
-	}
+	const pathname = usePathname();
 
 	function AppSidebarGroup({
 		group,
@@ -252,14 +161,13 @@ function DashboardSidebar() {
 		return (
 			<SidebarMenuItem key={button}>
 				<SidebarMenuButton
-					onClick={() => {
-						setPath(link.to);
-						setComponent(link.component);
-					}}
-					isActive={path == link.to}
+					asChild
+					isActive={pathname === link.to}
 				>
-					{icon}
-					<span>{button}</span>
+					<Link href={link.to}>
+						{icon}
+						<span>{button}</span>
+					</Link>
 				</SidebarMenuButton>
 			</SidebarMenuItem>
 		);
@@ -270,7 +178,7 @@ function DashboardSidebar() {
 			<Collapsible
 				key={collapse}
 				asChild
-				defaultOpen={pages.some(({ link }) => link.to == path)}
+				defaultOpen={pages.some(({ link }) => link.to == pathname)}
 				className="group/collapsible"
 			>
 				<SidebarMenuItem>
@@ -295,50 +203,65 @@ function DashboardSidebar() {
 		return (
 			<SidebarMenuSubItem key={page}>
 				<SidebarMenuSubButton
-					onClick={() => {
-						setPath(link.to);
-						setComponent(link.component);
-					}}
-					isActive={path == link.to}
+					asChild
+					isActive={pathname == link.to}
 				>
-					{page}
+					<Link href={link.to}>{page}</Link>
 				</SidebarMenuSubButton>
 			</SidebarMenuSubItem>
 		);
 	}
 
-	function logout() {
-		localStorage.removeItem("token");
-		window.location.reload();
+	return <>{groups.map(AppSidebarGroup)}</>;
+}
+
+export function DashboardBreadcrumbs() {
+	const pathname = usePathname();
+
+	function getBreadcrumbs(): string[] {
+		for (const group of groups) {
+			if (group.buttons) {
+				for (const button of group.buttons) {
+					if (button.link.to == pathname) {
+						return [group.group, button.button];
+					}
+				}
+			}
+			if (group.collapsible) {
+				for (const collapse of group.collapsible) {
+					for (const page of collapse.pages) {
+						if (page.link.to == pathname) {
+							return [group.group, collapse.collapse, page.page];
+						}
+					}
+				}
+			}
+		}
+
+		return [];
 	}
 
+	const breadcrumbs = getBreadcrumbs();
+
 	return (
-		<SidebarProvider>
-			<Sidebar>
-				<SidebarHeader>{Header()}</SidebarHeader>
-				<SidebarContent>{groups.map(AppSidebarGroup)}</SidebarContent>
-				<SidebarFooter>
-					<Button onClick={logout}>Logout</Button>
-				</SidebarFooter>
-			</Sidebar>
-			<SidebarInset className="overflow-hidden">
-				<header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-					<div className="flex items-center gap-2 px-4">
-						<SidebarTrigger className="-ml-1" />
-						<Separator
-							orientation="vertical"
-							className="mr-2 h-4"
-						/>
-						{Breadcrumbs()}
-					</div>
-				</header>
-				<EventViewerDataProvider>
-					<div className="px-4 pb-4 flex flex-col gap-4">
-						{component}
-					</div>
-				</EventViewerDataProvider>
-			</SidebarInset>
-		</SidebarProvider>
+		<Breadcrumb>
+			<BreadcrumbList>
+				{breadcrumbs.map((str, index) => (
+					<Fragment key={`${str}-${index}`}>
+						{index !== 0 && (
+							<BreadcrumbSeparator className="hidden md:block" />
+						)}
+						<BreadcrumbItem className="hidden md:block">
+							{index === breadcrumbs.length - 1 ? (
+								<BreadcrumbPage>{str}</BreadcrumbPage>
+							) : (
+								str
+							)}
+						</BreadcrumbItem>
+					</Fragment>
+				))}
+			</BreadcrumbList>
+		</Breadcrumb>
 	);
 }
 
