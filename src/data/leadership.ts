@@ -145,6 +145,20 @@ export const officers: Officer[] = [
 	getDoubleDipOfficer(alexZhang, 0),
 	getDoubleDipOfficer(owenShadburne, 0),
 	{
+		name: "Jason Lau",
+		image: "/images/leadership/JasonLau.webp",
+		position: "Directory of Public Relations",
+		major: "CSCE",
+		year: 27,
+		socials: ObfuscateSocials({
+			email: "jasonylau@tamu.edu",
+			github: "https://github.com/jasonlau05",
+			linkedin: "https://www.linkedin.com/in/jasonlau0/",
+			website: "https://people.tamu.edu/~jasonylau/",
+		}),
+		imageMode: "icon",
+	},
+	{
 		name: "Martin Carlisle",
 		image: "/images/leadership/MartinCarlisle.jpg",
 		position: "Faculty Advisor",
