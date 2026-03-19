@@ -5,6 +5,8 @@ export type Alumni = {
 	position: string;
 	grad: string;
 	socials?: Socials;
+	image?: string;
+	imageMode?: "cover" | "contain";
 }[];
 
 export const alumni: Alumni = [
@@ -16,6 +18,14 @@ export const alumni: Alumni = [
 			linkedin:
 				"https://www.linkedin.com/in/javier-betancourt-1100b2268/",
 			github: "https://github.com/HomeoStasis-0",
+		},
+	},
+	{
+		name: "Michelle Thomas",
+		position: "WiCyS Vice President",
+		grad: "Spring 2026",
+		socials: {
+			linkedin: "https://www.linkedin.com/in/michellerose-thomas",
 		},
 	},
 	{
@@ -79,6 +89,14 @@ export const alumni: Alumni = [
 		name: "Noam Gariani",
 		position: "RHA Student Ambassador",
 		grad: "Spring 2025",
+	},
+	{
+		name: "Emma Scott",
+		position: "WiCyS President",
+		grad: "Spring 2025",
+		socials: {
+			linkedin: "https://www.linkedin.com/in/emma-scott-699435264",
+		},
 	},
 	{
 		name: "Bode Raymond",

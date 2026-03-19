@@ -13,7 +13,7 @@ import { Officer, Socials } from "@/data/leadership";
 import Image from "next/image";
 import ObfuscatedLink from "./ObfuscatedLink";
 
-function SocialIcon({ platform }: { platform: keyof Socials }) {
+export function SocialIcon({ platform }: { platform: keyof Socials }) {
 	let icon: IconDefinition | undefined = undefined;
 	switch (platform) {
 		case "email":
