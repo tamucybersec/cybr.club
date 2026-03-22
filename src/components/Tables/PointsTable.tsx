@@ -9,8 +9,8 @@ import { getCurrentSemester, getCurrentYear } from "@/lib/helpers";
 const definition: Definition<Points>[] = [
 	{
 		primaryKey: true,
-		accessorKey: "user_id",
-		header: "User ID",
+		accessorKey: "username",
+		header: "Username",
 		sortable: true,
 		type: z.string().nonempty(),
 	},
@@ -48,6 +48,7 @@ function PointsTable() {
 			definition={definition}
 			defaultValues={{
 				user_id: "",
+				username: "",
 				points: 0,
 				semester: getCurrentSemester(),
 				year: getCurrentYear(),

@@ -123,7 +123,7 @@ function EventViewerContents({ detail }: Props) {
 												{attendee.name}
 											</TableCell>
 											<TableCell>
-												{attendee.user_id}
+												{attendee.username}
 											</TableCell>
 											<TableCell>
 												{attendee.major}

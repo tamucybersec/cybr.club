@@ -82,6 +82,7 @@ export const QUERY_KEYS = {
 
 export interface User {
 	user_id: string;
+	username: string;
 	name: string;
 	grad_semester: GradSemester;
 	grad_year: number;
@@ -95,6 +96,7 @@ export interface User {
 
 export interface Resume {
 	user_id: string;
+	username: string;
 	filename: string;
 	format: string;
 	upload_date: string;
@@ -122,6 +124,7 @@ export interface EventViewerSummary {
 
 export interface EventViewerAttendee {
 	user_id: string;
+	username: string;
 	name: string;
 	major: string;
 	gradYearLabel: string;
@@ -146,16 +149,19 @@ export interface EventViewerDetail {
 
 export interface Flagged {
 	user_id: string;
+	username: string;
 	offenses: number;
 }
 
 export interface Attendance {
 	user_id: string;
+	username: string;
 	code: string;
 }
 
 export interface Points {
 	user_id: string;
+	username: string;
 	points: number;
 	semester: Semester;
 	year: number;
