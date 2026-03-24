@@ -1,4 +1,4 @@
-import type { Socials } from "./leadership";
+import { ObfuscateSocials, type Socials } from "./leadership";
 
 export type Alumni = {
 	name: string;
@@ -9,7 +9,7 @@ export type Alumni = {
 	imageMode?: "cover" | "contain";
 }[];
 
-export const alumni: Alumni = [
+const alumniMembers: Alumni = [
 	{
 		name: "Javi Betancourt",
 		position: "Tech Lead",
@@ -21,11 +21,12 @@ export const alumni: Alumni = [
 		},
 	},
 	{
-		name: "Michelle Thomas",
-		position: "WiCyS Vice President",
-		grad: "Spring 2026",
+		name: "Arianna Guzman",
+		position: "Director of Public Relations",
+		grad: "May 2027",
+		image: "/images/leadership/AriannaGuzman.avif",
 		socials: {
-			linkedin: "https://www.linkedin.com/in/michellerose-thomas",
+			linkedin: "https://www.linkedin.com/in/ariannaguz",
 		},
 	},
 	{
@@ -91,26 +92,9 @@ export const alumni: Alumni = [
 		grad: "Spring 2025",
 	},
 	{
-		name: "Emma Scott",
-		position: "WiCyS President",
-		grad: "Spring 2025",
-		socials: {
-			linkedin: "https://www.linkedin.com/in/emma-scott-699435264",
-		},
-	},
-	{
 		name: "Bode Raymond",
 		position: "Competition Lead",
 		grad: "Fall 2024",
-	},
-	{
-		name: "Anna Slater",
-		position: "WiCyS Vice President",
-		grad: "Spring 2024",
-		socials: {
-			linkedin: "https://www.linkedin.com/in/anna-slater/",
-			github: "https://github.com/annaSlater",
-		},
 	},
 	{
 		name: "Danny Hernandez",
@@ -212,22 +196,6 @@ export const alumni: Alumni = [
 		},
 	},
 	{
-		name: "Adele Walker",
-		position: "WiCyS President",
-		grad: "Spring 2022",
-		socials: {
-			linkedin: "https://www.linkedin.com/in/adele-w-a75ab7ba/",
-		},
-	},
-	{
-		name: "Weijia Yan",
-		position: "WiCyS President",
-		grad: "Fall 2021",
-		socials: {
-			linkedin: "https://www.linkedin.com/in/weijia-yan",
-		},
-	},
-	{
 		name: "Teddy Heinen",
 		position: "CTF Team Lead",
 		grad: "Fall 2021",
@@ -257,15 +225,6 @@ export const alumni: Alumni = [
 		},
 	},
 	{
-		name: "Madeleine Phillips",
-		position: "WiCyS President",
-		grad: "Spring 2021",
-		socials: {
-			linkedin: "https://www.linkedin.com/in/madeleinephillips848676",
-			github: "https://github.com/phillips848676",
-		},
-	},
-	{
 		name: "John Zenick",
 		position: "President",
 		grad: "Spring 2020",
@@ -284,3 +243,12 @@ export const alumni: Alumni = [
 		grad: "Spring 2020",
 	},
 ];
+
+export const alumni: Alumni = alumniMembers.map((member) =>
+	member.socials
+		? {
+				...member,
+				socials: ObfuscateSocials(member.socials),
+			}
+		: member
+);

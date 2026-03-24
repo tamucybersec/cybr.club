@@ -5,13 +5,12 @@ export interface Socials {
 	website?: string;
 }
 
-function ObfuscateSocials(socials: Socials): Socials {
-	return {
-		linkedin: socials.linkedin ? btoa(socials.linkedin) : undefined,
-		github: socials.github ? btoa(socials.github) : undefined,
-		email: socials.email ? btoa(socials.email) : undefined,
-		website: socials.website ? btoa(socials.website) : undefined,
-	};
+export function ObfuscateSocials(socials: Socials): Socials {
+	return Object.fromEntries(
+		Object.entries(socials).flatMap(([platform, url]) =>
+			url ? [[platform, btoa(url)]] : []
+		)
+	) as Socials;
 }
 
 export type Officer = {
