@@ -11,6 +11,14 @@ export type Alumni = {
 
 const alumniMembers: Alumni = [
 	{
+		name: "Arianna Guzman",
+		position: "Director of Public Relations",
+		grad: "May 2027",
+		socials: {
+			linkedin: "https://www.linkedin.com/in/ariannaguz",
+		},
+	},
+	{
 		name: "Javi Betancourt",
 		position: "Tech Lead",
 		grad: "Spring 2026",
@@ -18,15 +26,6 @@ const alumniMembers: Alumni = [
 			linkedin:
 				"https://www.linkedin.com/in/javier-betancourt-1100b2268/",
 			github: "https://github.com/HomeoStasis-0",
-		},
-	},
-	{
-		name: "Arianna Guzman",
-		position: "Director of Public Relations",
-		grad: "May 2027",
-		image: "/images/leadership/AriannaGuzman.avif",
-		socials: {
-			linkedin: "https://www.linkedin.com/in/ariannaguz",
 		},
 	},
 	{
