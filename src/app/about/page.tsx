@@ -8,6 +8,8 @@ import Leadership from "../../components/Leadership";
 import Sponsorship from "../../components/Sponsorship";
 import Footer from "../../components/Footer";
 import { activityLeaders, officers } from "@/data/leadership";
+import AlumniSection from "../../components/AlumniSection";
+import { alumni } from "@/data/alumni";
 import BackgroundOverlay from "@/components/BackgroundOverlay";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -44,6 +46,7 @@ export default function AboutPage() {
 				name={"Activity Leaders"}
 				group={Object.values(activityLeaders).flat()}
 			/>
+			<AlumniSection alumni={alumni} />
 			<Sponsorship
 				description="Thanks to the support of our generous sponsors, we're
 					able to reinvest in our members and the broader community,
