@@ -81,6 +81,10 @@ const groups: Group[] = [
 						link: { to: "/dashboard/members" },
 					},
 					{
+						page: "Resumes",
+						link: { to: "/dashboard/resumes" },
+					},
+					{
 						page: "Points",
 						link: { to: "/dashboard/points" },
 					},

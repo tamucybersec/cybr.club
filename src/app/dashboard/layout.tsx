@@ -90,7 +90,6 @@ export default function DashboardLayout({
 	}
 
 	if (!authenticated(permission)) {
-		// ternary was too messy with that much html
 		return (
 			<QueryClientProvider client={queryClient}>
 				<DashboardContext.Provider value={contextValue}>
