@@ -23,10 +23,6 @@ interface LegendItem {
 	fill: string;
 }
 
-interface CollapsibleLegendProps {
-	items: LegendItem[];
-}
-
 function CollapsibleLegend({
 	items,
 	config,
@@ -80,8 +76,6 @@ function CollapsibleLegend({
 
 function LabelledPieChart({ title, data }: Props) {
 	const { config, coloredData, total } = useCategoricalChart(data);
-	//console.log("coloredData", coloredData);
-	//console.log("config", config);
 
 	function centerLabel() {
 		return (
