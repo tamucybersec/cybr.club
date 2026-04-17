@@ -59,7 +59,7 @@ function PersonalInfo({ userInfo, resumeInfo }: Props) {
 					/>
 				}
 			>
-				{userInfo.user_id}
+				{userInfo.username}
 			</InfoRow>
 			<InfoRow icon={<AtSign size={18} />}>{username}</InfoRow>
 			<InfoRow

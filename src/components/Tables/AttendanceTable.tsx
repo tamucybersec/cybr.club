@@ -9,8 +9,8 @@ import EventCodeLink from "../Event/EventCodeLink";
 const definition: Definition<Attendance>[] = [
 	{
 		primaryKey: true,
-		accessorKey: "user_id",
-		header: "User ID",
+		accessorKey: "username",
+		header: "Username",
 		sortable: true,
 		type: z.string().nonempty(),
 	},
@@ -35,6 +35,7 @@ function AttendanceTable() {
 			definition={definition}
 			defaultValues={{
 				user_id: "",
+				username: "",
 				code: "",
 			}}
 		/>

@@ -18,8 +18,8 @@ import { DashboardContext } from "@/lib/context";
 const definition: Definition<MemberListItem>[] = [
 	{
 		primaryKey: true,
-		accessorKey: "user_id",
-		header: "User ID",
+		accessorKey: "username",
+		header: "Username",
 		sortable: true,
 		type: z.string().nonempty(),
 	},
@@ -158,6 +158,7 @@ function MembersTable() {
 			definition={definition}
 			defaultValues={{
 				user_id: "",
+				username: "",
 				name: "",
 				grad_semester: "spring",
 				grad_year: 0,
