@@ -26,7 +26,7 @@ function ProfileContents({ user_id }: Props) {
 	const { eventsByCode } = useEvents({ unfiltered: true });
 	const { attendanceByUser } = useAttendance(eventsByCode);
 
-	const userInfo = { ...usersById[user_id] };
+	const userInfo = usersById[user_id];
 	const resumeInfo = resumesByUserID[user_id];
 	const attendance = attendanceByUser[user_id] ?? [];
 	const eventInfo: EventInfo = {};
