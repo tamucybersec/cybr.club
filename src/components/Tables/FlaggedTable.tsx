@@ -8,8 +8,8 @@ import { QUERY_KEYS, type Flagged } from "../../lib/types";
 const definition: Definition<Flagged>[] = [
 	{
 		primaryKey: true,
-		accessorKey: "username",
-		header: "Username",
+		accessorKey: "user_id",
+		header: "User ID",
 		sortable: true,
 		type: z.string().nonempty(),
 		other: {
@@ -35,7 +35,6 @@ function FlaggedTable() {
 			definition={definition}
 			defaultValues={{
 				user_id: "",
-				username: "",
 				offenses: 0,
 			}}
 		/>

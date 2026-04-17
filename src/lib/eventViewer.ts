@@ -70,7 +70,6 @@ export function buildEventViewerDetail(
 
 		attendees.push({
 			user_id: user.user_id,
-			username: user.username,
 			name: user.name || user.user_id,
 			major,
 			gradYearLabel,
