@@ -108,15 +108,18 @@ export const officers: Officer[] = [
 		imageMode: "icon",
 	},
 	{
-		name: "Matei Dumitru",
-		image: "/images/leadership/MateiDumitru.avif",
-		position: "Secretary",
-		major: "CPEN",
+		name: "Jason Lau",
+		image: "/images/leadership/JasonLau.webp",
+		position: "Directory of Public Relations",
+		major: "CSCE",
 		year: 27,
 		socials: ObfuscateSocials({
-			email: "mdumitru@tamu.edu",
-			linkedin: "https://www.linkedin.com/in/mateidumitru",
+			email: "jasonylau@tamu.edu",
+			github: "https://github.com/jasonlau05",
+			linkedin: "https://www.linkedin.com/in/jasonlau0/",
+			website: "https://people.tamu.edu/~jasonylau/",
 		}),
+		imageMode: "icon",
 	},
 	{
 		name: "Zach Smith",
@@ -242,16 +245,16 @@ export const activityLeaders = {
 	],
 	Policy: [
 		{
-			name: "Chase Johnson",
-			image: "/images/leadership/ChaseJohnson.avif",
+			name: "Geoffrey Bosenbark",
+			image: "/images/leadership/GeoffreyBosenbark.webp",
 			position: "Policy Lead",
-			major: "MIA",
-			year: 26,
+			major: "INTA",
+			year: 27,
 			socials: ObfuscateSocials({
-				email: "c_johnson@tamu.edu",
-				github: "https://github.com/cc-johnson",
-				linkedin: "https://www.linkedin.com/in/cc-johnson/",
+				email: "bosenbarkgb@tamu.edu",
+				linkedin: "https://www.linkedin.com/in/geoffrey-bosenbark/",
 			}),
+			imageMode: "icon",
 		},
 	],
 } as const satisfies Record<string, Officer[]>;

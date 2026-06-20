@@ -11,9 +11,30 @@ export type Alumni = {
 
 const alumniMembers: Alumni = [
 	{
+		name: "Chase Johnson",
+		image: "/images/leadership/ChaseJohnson.avif",
+		position: "Policy Lead",
+		grad: "Spring 26",
+		socials: ObfuscateSocials({
+			email: "c_johnson@tamu.edu",
+			github: "https://github.com/cc-johnson",
+			linkedin: "https://www.linkedin.com/in/cc-johnson/",
+		}),
+	},
+	{
+		name: "Matei Dumitru",
+		image: "/images/leadership/MateiDumitru.avif",
+		position: "Secretary",
+		grad: "Spring 27",
+		socials: ObfuscateSocials({
+			email: "mdumitru@tamu.edu",
+			linkedin: "https://www.linkedin.com/in/mateidumitru",
+		}),
+	},
+	{
 		name: "Arianna Guzman",
 		position: "Director of Public Relations",
-		grad: "May 2027",
+		grad: "Spring 2027",
 		socials: {
 			linkedin: "https://www.linkedin.com/in/ariannaguz",
 		},

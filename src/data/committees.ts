@@ -13,6 +13,6 @@ export const committees = [
 		description:
 			"The Public Relations Committee handles everything related to our external presence, from organizing outreach efforts and photographing events to designing our brand materials. They're the creative force behind how we're seen by the world, and they take that responsibility seriously. If you're passionate about storytelling, design, or community engagement, this is the place to make your mark. No experience needed.",
 		image: "/images/committees/zero-two.png",
-		application: "https://forms.gle/kaU5uVcgyqt5srHX9",
+		application: "https://forms.gle/SBcJMkRSH267fQPg7",
 	},
 ];
