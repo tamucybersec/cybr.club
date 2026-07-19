@@ -11,38 +11,43 @@ export type Alumni = {
 
 const alumniMembers: Alumni = [
 	{
+		name: "Noah Mustoe",
+		position: "President & Cyber Ops",
+		grad: "CPSC Spring 2025",
+		socials: {
+			github: "https://github.com/cobradev4",
+			linkedin: "https://www.linkedin.com/in/noahmustoe/",
+		},
+	},
+	{
 		name: "Chase Johnson",
-		image: "/images/leadership/ChaseJohnson.avif",
 		position: "Policy Lead",
-		grad: "Spring 26",
-		socials: ObfuscateSocials({
-			email: "c_johnson@tamu.edu",
+		grad: "MIA Spring 2026",
+		socials: {
 			github: "https://github.com/cc-johnson",
 			linkedin: "https://www.linkedin.com/in/cc-johnson/",
-		}),
+		},
 	},
 	{
 		name: "Matei Dumitru",
-		image: "/images/leadership/MateiDumitru.avif",
 		position: "Secretary",
-		grad: "Spring 27",
-		socials: ObfuscateSocials({
-			email: "mdumitru@tamu.edu",
+		grad: "CPSC Spring 2027",
+		socials: {
 			linkedin: "https://www.linkedin.com/in/mateidumitru",
-		}),
+		},
 	},
 	{
 		name: "Arianna Guzman",
 		position: "Director of Public Relations",
-		grad: "Spring 2027",
+		grad: "CPSC Spring 2027",
 		socials: {
 			linkedin: "https://www.linkedin.com/in/ariannaguz",
 		},
 	},
 	{
-		name: "Javi Betancourt",
+		name: "Javier Betancourt",
 		position: "Tech Lead",
-		grad: "Spring 2026",
+		grad: "CPSC Spring 2026",
 		socials: {
 			linkedin:
 				"https://www.linkedin.com/in/javier-betancourt-1100b2268/",

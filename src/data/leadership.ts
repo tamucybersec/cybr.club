@@ -37,26 +37,10 @@ function getDoubleDipOfficer(
 	};
 }
 
-const noahMustoe: DoubleDipOfficer = {
-	name: "Noah Mustoe",
-	image: "/images/leadership/NoahMustoe.avif",
-	positions: ["President", "Cyber Operations (Red Team)"],
-	major: "CPSC",
-	year: 26,
-	socials: ObfuscateSocials({
-		email: "noahmustoe@tamu.edu",
-		github: "https://github.com/cobradev4",
-		linkedin: "https://www.linkedin.com/in/noahmustoe/",
-	}),
-};
-
 const austinGlander: DoubleDipOfficer = {
 	name: "Austin Glander",
 	image: "/images/leadership/AustinGlander.avif",
-	positions: [
-		"Vice President",
-		"Cisco Networking Academy Student Ambassador",
-	],
+	positions: ["President", "Cisco Networking Academy Student Ambassador"],
 	major: "CPSC",
 	year: 27,
 	socials: ObfuscateSocials({
@@ -93,8 +77,18 @@ const alexZhang: DoubleDipOfficer = {
 };
 
 export const officers: Officer[] = [
-	getDoubleDipOfficer(noahMustoe, 0),
 	getDoubleDipOfficer(austinGlander, 0),
+	{
+		name: "Preston VanderLight",
+		image: "/images/leadership/PrestonVanderLight.avif",
+		position: "Vice President",
+		major: "ECEN",
+		year: 27,
+		socials: ObfuscateSocials({
+			email: "preston.vanderlight@tamu.edu",
+			linkedin: "https://www.linkedin.com/in/prestonvanderlight/",
+		}),
+	},
 	{
 		name: "Vincent Dang",
 		image: "/images/leadership/VincentDang.webp",
@@ -161,7 +155,6 @@ export const officers: Officer[] = [
 
 export const activityLeaders = {
 	"Cyber Operations": [
-		getDoubleDipOfficer(noahMustoe, 1),
 		getDoubleDipOfficer(alexZhang, 1),
 		{
 			name: "Sam Bederman",
@@ -192,15 +185,16 @@ export const activityLeaders = {
 	],
 	"Hardware Hacking": [
 		{
-			name: "Preston VanderLight",
-			image: "/images/leadership/PrestonVanderLight.avif",
+			name: "David Corvaglia",
+			image: "/images/leadership/DavidCorvaglia.webp",
 			position: "Hardware Hacking Lead",
-			major: "ECEN",
-			year: 27,
+			major: "CPCS",
+			year: 28,
 			socials: ObfuscateSocials({
-				email: "preston.vanderlight@tamu.edu",
-				linkedin: "https://www.linkedin.com/in/prestonvanderlight/",
+				email: "corvaglia@tamu.edu",
+				website: "https://corvaglia.dev",
 			}),
+			imageMode: "icon",
 		},
 	],
 	Cisco: [getDoubleDipOfficer(austinGlander, 1)],
