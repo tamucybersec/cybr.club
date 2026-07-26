@@ -171,7 +171,7 @@ export const activityLeaders = {
 		{
 			name: "Michael Bengil",
 			image: "/images/leadership/MichaelBengil.webp",
-			position: "Cyber Operations (Blue Team)",
+			position: "Cyber Operations (Pentesting)",
 			major: "CSCE",
 			year: 27,
 			socials: ObfuscateSocials({
