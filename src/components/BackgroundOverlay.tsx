@@ -45,7 +45,7 @@ export default function BackgroundOverlay({
 		<>
 			<Image
 				className="hidden"
-				src="/images/app/HomeBackground.png"
+				src="/images/app/HomeBackground.avif"
 				alt=""
 				priority
 				loading="eager"
@@ -61,7 +61,7 @@ export default function BackgroundOverlay({
 				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="hidden lg:block absolute -z-10 pointer-events-none"
 				style={{
-					backgroundImage: "url('/images/app/HomeBackground.png')",
+					backgroundImage: "url('/images/app/HomeBackground.avif')",
 					backgroundSize: desktop.size,
 					backgroundPosition: desktop.position,
 					backgroundRepeat: "no-repeat",
@@ -85,7 +85,7 @@ export default function BackgroundOverlay({
 				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="hidden md:block lg:hidden absolute -z-10 pointer-events-none"
 				style={{
-					backgroundImage: "url('/images/app/HomeBackground.png')",
+					backgroundImage: "url('/images/app/HomeBackground.avif')",
 					backgroundSize: tablet.size,
 					backgroundPosition: tablet.position,
 					backgroundRepeat: "no-repeat",
@@ -109,7 +109,7 @@ export default function BackgroundOverlay({
 				transition={{ duration: 0.5, ease: "easeOut" }}
 				className="block md:hidden absolute -z-10 pointer-events-none"
 				style={{
-					backgroundImage: "url('/images/app/HomeBackground.png')",
+					backgroundImage: "url('/images/app/HomeBackground.avif')",
 					backgroundSize: mobile.size,
 					backgroundPosition: mobile.position,
 					backgroundRepeat: "no-repeat",

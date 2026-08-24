@@ -60,8 +60,8 @@ export function compareDates(a: string, b: string): number {
 		b = "01/01/0001";
 	}
 
-	let [monthA, dayA, yearA] = a.split("/");
-	let [monthB, dayB, yearB] = b.split("/");
+	let [monthA, dayA, yearA] = a.replaceAll(" ", "/").split("/");
+	let [monthB, dayB, yearB] = b.replaceAll(" ", "/").split("/");
 
 	monthA = monthA.padStart(2, "0");
 	dayA = dayA.padStart(2, "0");

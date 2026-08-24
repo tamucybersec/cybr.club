@@ -21,17 +21,24 @@ function ActivityGroupInfo({ variant, group }: Props) {
 			<h5
 				className={`font-ubuntu-sans ${screen("text-lg", "text-sm")} font-light`}
 			>
-				{group.note ?? (
-					<>
-						{group.day}s at {group.time} |{" "}
-						<Anchor
-							href={group.map}
-							target="_blank"
-						>
-							{group.location}
-						</Anchor>
-					</>
-				)}
+				{group.note ??
+					(!(group.day || group.time || group.location) ? (
+						"TBD"
+					) : (
+						<>
+							{group.day}s at {group.time} |{" "}
+							{group.map ? (
+								<Anchor
+									href={group.map}
+									target="_blank"
+								>
+									{group.location}
+								</Anchor>
+							) : (
+								group.location
+							)}
+						</>
+					))}
 			</h5>
 			<p
 				className={`text-white ${screen("text-base lg:text-lg", "text-hero-button")} font-ubuntu-sans font-medium`}

@@ -21,14 +21,17 @@ export default function Home() {
 		}
 	}
 
-	function sortByDate<T extends { date: string }>(a: T, b: T) {
-		return -compareDates(a.date, b.date);
+	function sortByDate<T extends { date: string }>(reverse: boolean = false) {
+		return (a: T, b: T) =>
+			(reverse ? -1 : 1) * compareDates(a.date, b.date);
 	}
 
-	const upcoming = events.filter((ev) => filterPast(ev)).toSorted(sortByDate);
+	const upcoming = events
+		.filter((ev) => filterPast(ev))
+		.toSorted(sortByDate());
 	const past = events
 		.filter((ev) => filterPast(ev, true))
-		.toSorted(sortByDate);
+		.toSorted(sortByDate(true));
 
 	const items = [
 		{
@@ -82,7 +85,7 @@ export default function Home() {
 				<div className="space-y-4">
 					<div className="space-y-4">
 						{accolades
-							.toSorted(sortByDate)
+							.toSorted(sortByDate(true))
 							.map((accolade: any, index: any) => (
 								<AccoladeCard
 									key={index}

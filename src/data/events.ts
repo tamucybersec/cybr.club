@@ -25,6 +25,46 @@ export const events: Event[] = [
 		description:
 			"Get hands-on with Cisco WLCs and APs in our 3rd and final lab of the semester! RSVP required to attend.",
 	},
+	{
+		date: "8/24/2026 - 8/26/2026",
+		time: "8:30 AM - 3:30 PM",
+		title: "Bannering",
+		location: "Zach Engineering Quad Entrance",
+		description:
+			"Come cool off with some tasty popsicles and learn more about the club in front Zach! Look for the black poster and heaps of locks to pick.",
+	},
+	{
+		date: "9/1/2026",
+		time: "10:00 AM - 12:50 PM",
+		title: "ESO Open House",
+		location: "ZACH ConocoPhillips Atrium",
+		description:
+			"Learn more about the what we do at the Cybersecurity Club along with the other Engineering organizations on campus.",
+	},
+	{
+		date: "9/6/2026",
+		time: "1:00-5:00 PM",
+		title: "Club Crawl",
+		location: "MSC",
+		description:
+			"Meet us in person at the Club Crawl to learn about the club and for some fun banter!",
+	},
+	{
+		date: "9/8/2026",
+		time: "7:30-9:30 PM",
+		title: "Tuesday Informational",
+		location: "BLOC 102",
+		description:
+			"Learn about how the Texas A&M Cybersecurity Club works and talk directly to officers about the opportunities available!",
+	},
+	{
+		date: "9/9/2026",
+		time: "7:30-9:30 PM",
+		title: "Wednesday Informational",
+		location: "BLOC 102",
+		description:
+			"Learn about how the Texas A&M Cybersecurity Club works and talk directly to officers about the opportunities available!",
+	},
 ];
 
 export const accolades: Accolade[] = [
