@@ -20,12 +20,12 @@ function MajorPie() {
 			counts[user.major] += 1;
 		}
 
-		const data: CategoricalData[] = Object.entries(counts).map(
-			([major, count]) => ({
+		const data: CategoricalData[] = Object.entries(counts)
+			.map(([major, count]) => ({
 				label: major,
 				count: count,
-			})
-		);
+			}))
+			.toSorted(({ count: a }, { count: b }) => b - a);
 
 		return { data };
 	}, [active]);

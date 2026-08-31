@@ -20,12 +20,12 @@ export default function GradYearPie() {
 			counts[user.grad_year] += 1;
 		}
 
-		const data: CategoricalData[] = Object.entries(counts).map(
-			([year, count]) => ({
+		const data: CategoricalData[] = Object.entries(counts)
+			.map(([year, count]) => ({
 				label: year,
 				count: count,
-			})
-		);
+			}))
+			.toSorted(({ label: a }, { label: b }) => a.localeCompare(b));
 
 		return { data };
 	}, [active]);
