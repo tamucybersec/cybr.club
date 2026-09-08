@@ -1,3 +1,5 @@
+"use client";
+
 import BackgroundOverlay from "@/components/BackgroundOverlay";
 import Footer from "@/components/Footer";
 import JoinGuide from "@/components/JoinGuide";

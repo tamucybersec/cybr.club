@@ -1,3 +1,5 @@
+"use client";
+
 import Accordion from "@/components/Accordion";
 import Calendar from "@/components/Calendar";
 import Container from "@/components/Container";

@@ -1,3 +1,5 @@
+"use client";
+
 import AboutLanding from "../../components/AboutLanding";
 import AboutMissionText from "../../components/AboutMissionText";
 import AboutMissionSlider from "../../components/AboutMissionSlider";
