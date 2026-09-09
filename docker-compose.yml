@@ -1,0 +1,11 @@
+networks:
+  infra:
+    external: true
+
+services:
+  hello-world:
+    image: $REGISTRY_URI/hello-world:latest
+    container_name: hello-world
+    restart: unless-stopped
+    networks:
+      - infra

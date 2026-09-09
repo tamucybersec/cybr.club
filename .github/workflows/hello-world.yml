@@ -1,0 +1,45 @@
+name: Hello World
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: hello-world-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hello:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t $REGISTRY_URI/hello-world:${{ github.sha }} .
+
+      # TODO:
+      # run formatter & linter
+      # run typechecker
+      # run tests
+      # run trivy
+      # trivy image --exit-code 1 --severity HIGH,CRITICAL $REGISTRY_URI/hello-world:${{ github.sha }}
+
+      - name: Tag image
+        if: github.event_name == 'push'
+        run: |
+          docker tag \
+            $REGISTRY_URI/hello-world:${{ github.sha }} \
+            $REGISTRY_URI/hello-world:latest
+
+      - name: Push image
+        if: github.event_name == 'push'
+        run: |
+          docker push $REGISTRY_URI/hello-world:${{ github.sha }}
+          docker push $REGISTRY_URI/hello-world:latest
+
+      - name: Deploy image
+        if: github.event_name == 'push'
+        run: docker compose pull && docker compose up -d
