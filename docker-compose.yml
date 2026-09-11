@@ -3,9 +3,9 @@ networks:
     external: true
 
 services:
-  hello-world:
-    image: $REGISTRY_URI/hello-world:latest
-    container_name: hello-world
+  website:
+    image: $REGISTRY_URI/website:latest
+    container_name: website
     restart: unless-stopped
     networks:
       - infra
