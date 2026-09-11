@@ -50,7 +50,7 @@ function PartnerGuide() {
 				whileInView={"visible"}
 				viewport={{ amount: 0.3, once: true }}
 			>
-				<Link href={"/pdfs/Sponsorship Packet 2025-2026.pdf"}>
+				<Link href={"/pdfs/Sponsorship Packet.pdf"}>
 					<TitleContainer className="mt-8 flex gap-4 md:gap-6 text-hero-heading">
 						Partnership Guide
 						<ExternalLink
@@ -89,13 +89,13 @@ function PartnerGuide() {
 				>
 					<motion.object
 						variants={itemVariants}
-						data="/pdfs/Sponsorship Packet 2025-2026.pdf"
+						data="/pdfs/Sponsorship Packet.pdf"
 						type="application/pdf"
 						width="100%"
 						style={{ height: "calc(100% - 6.5rem)" }}
 					>
 						<p>
-							<a href="/pdfs/Sponsorship Packet 2025-2026.pdf">
+							<a href="/pdfs/Sponsorship Packet.pdf">
 								Sponsorship Packet
 							</a>
 						</p>
