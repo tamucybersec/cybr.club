@@ -23,14 +23,6 @@ interface EventViewerData {
 
 const EventViewerDataContext = createContext<EventViewerData | null>(null);
 
-function buildUnknown(code: string) {
-	const detail = buildEventViewerDetail(code, {}, {}, {});
-	return {
-		detail,
-		summary: buildEventViewerSummary(code, detail),
-	};
-}
-
 export function EventViewerDataProvider({ children }: { children: ReactNode }) {
 	const { eventsByCode } = useEvents({ unfiltered: true });
 	const { attendanceByEvent } = useAttendance(eventsByCode);
@@ -94,5 +86,11 @@ export function EventViewerDataProvider({ children }: { children: ReactNode }) {
 
 export function useEventViewerData(code: string) {
 	const ctx = useContext(EventViewerDataContext);
-	return ctx?.resolve(code) ?? buildUnknown(code);
+	if (!ctx) {
+		throw new Error(
+			"useEventViewerData must be used inside EventViewerDataProvider"
+		);
+	}
+
+	return ctx.resolve(code);
 }
