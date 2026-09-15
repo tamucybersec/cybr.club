@@ -47,6 +47,18 @@ npm run dev # run the dev server
     - Add at least one entry to the cyberham.db tokens table
     - Add mock data to the database (use AI) (optional but recommended)
 
+## Database Schema Page
+
+Committee members and higher can open **Admin → Database → Schema** at
+`/dashboard/schema` to see live tables, their purpose, columns, relationships,
+and available dashboard editors. Super Admins can download a consistent SQLite
+snapshot from this page.
+
+This requires CyberHam's `GET /schema` and `GET /database/export` endpoints;
+deploy the matching backend changes before the website. Table definitions live
+in CyberHam's `cyberham/database/schema.sql`, and table descriptions, editor
+paths, and API permissions live in `cyberham/database/table_registry.py`.
+
 ## Formatting and Linting
 
 This project uses prettier and eslint. To enforce these standards, Husky is used.

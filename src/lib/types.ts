@@ -78,6 +78,7 @@ export const QUERY_KEYS = {
 	attendance: ["attendance", "table"],
 	points: ["points", "table"],
 	tokens: ["tokens", "table"],
+	schema: ["schema", "metadata"],
 };
 
 export interface User {
@@ -189,6 +190,46 @@ export type Term = {
 export interface QueryResponse {
 	columns: string[];
 	rows: Record<string, any>[];
+}
+
+export interface SchemaColumn {
+	name: string;
+	type: string;
+	not_null: boolean;
+	default_value: string | null;
+	is_primary_key: boolean;
+}
+
+export interface SchemaForeignKey {
+	column: string;
+	references_table: string;
+	references_column: string;
+	on_update: string;
+	on_delete: string;
+}
+
+export interface SchemaTable {
+	name: string;
+	purpose: string;
+	dashboard_path: string | null;
+	view_permission: Permissions | null;
+	modify_permission: Permissions | null;
+	primary_key: string[];
+	columns: SchemaColumn[];
+	foreign_keys: SchemaForeignKey[];
+}
+
+export interface SchemaDrift {
+	table: string;
+	missing_columns: string[];
+	extra_columns: string[];
+	changed_columns: string[];
+	relationships_changed: boolean;
+}
+
+export interface SchemaResponse {
+	tables: SchemaTable[];
+	drift: SchemaDrift[];
 }
 
 // For member list filtering. has the resume metadata needed for display
