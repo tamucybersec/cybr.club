@@ -208,8 +208,8 @@ function SchemaTableCard({ table }: { table: SchemaTable }) {
 					</div>
 				</div>
 
-				<div className="grid gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-					<div className="space-y-3">
+				<div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+					<div className="min-w-0 space-y-3">
 						<h3 className="font-semibold">Columns</h3>
 						<div className="overflow-hidden rounded-lg border">
 							<Table>
@@ -247,7 +247,7 @@ function SchemaTableCard({ table }: { table: SchemaTable }) {
 						</div>
 					</div>
 
-					<div className="space-y-3">
+					<div className="min-w-0 space-y-3">
 						<h3 className="font-semibold">Foreign Keys</h3>
 						<div className="rounded-lg border">
 							{table.foreign_keys.length === 0 ? (
