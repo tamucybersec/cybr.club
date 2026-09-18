@@ -9,7 +9,9 @@
 		"lint": "next lint",
 		"format": "prettier --write .",
 		"check-format": "prettier --check .",
-		"prepare": "husky"
+		"typecheck": "tsc --noEmit",
+		"prepare": "husky",
+		"test": "vitest"
 	},
 	"lint-staged": {
 		"*/**/*.{js,ts,jsx,tsx,html,css,json,md}": [
@@ -54,7 +56,7 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4.1.11",
-		"@types/node": "^20",
+		"@types/node": "^24",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
 		"clsx": "^2.1.1",
@@ -66,6 +68,7 @@
 		"tailwind-merge": "^3.3.1",
 		"tailwindcss": "^4.1.11",
 		"tw-animate-css": "^1.3.5",
-		"typescript": "^5"
+		"typescript": "^5",
+		"vitest": "^5.0.1"
 	}
 }
