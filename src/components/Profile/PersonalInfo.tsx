@@ -1,9 +1,10 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { capitalize, formatMajor } from "@/lib/helpers";
 
 import {
 	BriefcaseBusinessIcon,
 	GraduationCapIcon,
+	AtSign,
 	MailCheckIcon,
 	MailQuestionMarkIcon,
 	NotebookIcon,
@@ -11,6 +12,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { User, Resume } from "@/lib/types";
+import { DashboardContext } from "@/lib/context";
 
 interface Props {
 	userInfo: User;
@@ -31,6 +33,22 @@ function PersonalInfo({ userInfo, resumeInfo }: Props) {
 		</div>
 	);
 
+	const { fetchPath } = useContext(DashboardContext);
+	const [username, setUsername] = useState<string>("N/A");
+	useEffect(() => {
+		const fetchUser = async () => {
+			try {
+				const res = await fetchPath(`/user/${userInfo.user_id}`, {
+					method: "GET",
+				});
+				setUsername(res);
+			} catch (err) {
+				console.error("Failed to fetch user:", err);
+			}
+		};
+		fetchUser();
+	}, []);
+
 	return (
 		<div className="flex flex-col gap-2">
 			<InfoRow
@@ -43,6 +61,7 @@ function PersonalInfo({ userInfo, resumeInfo }: Props) {
 			>
 				{userInfo.user_id}
 			</InfoRow>
+			<InfoRow icon={<AtSign size={18} />}>{username}</InfoRow>
 			<InfoRow
 				icon={
 					userInfo.verified ? (
