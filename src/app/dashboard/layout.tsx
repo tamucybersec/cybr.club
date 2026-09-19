@@ -25,6 +25,7 @@ import {
 	DashboardSidebar,
 	DashboardBreadcrumbs,
 } from "@/components/DashboardSidebar";
+import { EventViewerDataProvider } from "@/components/Event/EventViewerDataContext";
 import Image from "next/image";
 
 export default function DashboardLayout({
@@ -140,9 +141,11 @@ export default function DashboardLayout({
 								<DashboardBreadcrumbs />
 							</div>
 						</header>
-						<div className="px-4 pb-4 flex flex-col gap-4">
-							{children}
-						</div>
+						<EventViewerDataProvider>
+							<div className="px-4 pb-4 flex flex-col gap-4">
+								{children}
+							</div>
+						</EventViewerDataProvider>
 					</SidebarInset>
 				</SidebarProvider>
 			</DashboardContext.Provider>
