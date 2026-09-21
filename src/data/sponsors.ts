@@ -34,7 +34,7 @@ export const sponsors: Record<Tier, Sponsor[]> = {
 			link: "https://www.cisco.com/",
 		},
 		{
-			name: "Tommy's Snowcones",
+			name: "Tommy's Snowballs",
 			image: "/images/sponsors/tommys-snowballs.png",
 			className: "rounded-full bg-white p-4",
 		},
