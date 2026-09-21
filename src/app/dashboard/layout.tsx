@@ -47,12 +47,13 @@ export default function DashboardLayout({
 	);
 	const contextValue = useMemo(
 		() => ({
+			token,
 			fetchPath: fetchPathAbstraction,
 			permission: permission!,
 			terms,
 			setTerms,
 		}),
-		[fetchPathAbstraction, permission, terms]
+		[token, fetchPathAbstraction, permission, terms]
 	);
 
 	const login = useLogin((tok, perm) => {
