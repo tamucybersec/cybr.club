@@ -21,19 +21,17 @@ export const benefits: Record<Tier, Benefits> = {
 	silver: {
 		cost: "$1,500",
 		points: [
-			<>
-				Host a {emph("Technical Workshop")} or {emph("Meet-and-Greet")}
-			</>,
-			<>Access our club&apos;s {emph("Curated Resume Bank")}</>,
+			<>Access to our {emph("Sponsor Dashboard")}</>,
+			<>Access to our {emph("Resume Bank")}</>,
 			"All benefits from lower tiers",
 		],
 	},
 	bronze: {
 		cost: "$1,000",
 		points: [
+			<>Host a {emph("Guest Speaking Event")}</>,
 			<>Recognition on {emph("Club T-Shirts")}</>,
 			<>Recognition on the {emph("Club Website")}</>,
-			"Mailing List Access",
 		],
 	},
 };
