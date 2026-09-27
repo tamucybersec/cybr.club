@@ -9,9 +9,13 @@ export interface Sponsor {
 export const sponsors: Record<Tier, Sponsor[]> = {
 	gold: [
 		{
-			name: "Mimic Ransomware Defense",
-			image: "/images/sponsors/mimic.svg",
-			link: "https://mimic.com/",
+			name: "Research Innovations Incorporated (RII)",
+			image: "/images/sponsors/rii.png",
+			link: "https://www.researchinnovations.com/",
+		},
+		{
+			name: "Alex + Sam",
+			image: "/images/sponsors/alex-and-sam.png",
 		},
 	],
 	silver: [
