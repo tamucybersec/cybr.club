@@ -50,14 +50,14 @@ npm run dev # run the dev server
 ## Database Schema Page
 
 Committee members and higher can open **Admin → Database → Schema** at
-`/dashboard/schema` to see live tables, their purpose, columns, relationships,
-and available dashboard editors. Super Admins can download a consistent SQLite
-snapshot from this page.
+`/dashboard/schema` to view and copy CyberHam's canonical SQL schema for use in
+AI prompts or writing queries. The page loads the plain-text
+[`schema.sql`](https://github.com/tamucybersec/CyberHam/blob/main/cyberham/database/schema.sql)
+from CyberHam's `main` branch, so table definitions are maintained in one place.
+This is the canonical schema; the deployed database may differ.
 
-This requires CyberHam's `GET /schema` and `GET /database/export` endpoints;
-deploy the matching backend changes before the website. Table definitions live
-in CyberHam's `cyberham/database/schema.sql`, and table descriptions, editor
-paths, and API permissions live in `cyberham/database/table_registry.py`.
+Super Admins can also download a consistent SQLite snapshot using CyberHam's
+`GET /database/export` endpoint. The SQL view does not require `GET /schema`.
 
 ## Formatting and Linting
 
