@@ -1,6 +1,7 @@
 "use client";
 
 import { useContext, useState } from "react";
+import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Copy, Download, LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
@@ -17,6 +18,7 @@ import { DashboardContext } from "@/lib/context";
 import { sufficientPermissions } from "@/lib/auth";
 import { API_URL } from "@/lib/constants";
 import { Permissions, QUERY_KEYS } from "@/lib/types";
+import { schemaGuide } from "@/data/schema-guide";
 
 const SCHEMA_URL =
 	"https://raw.githubusercontent.com/tamucybersec/CyberHam/main/cyberham/database/schema.sql";
@@ -199,6 +201,56 @@ function SchemaAdmin() {
 				</CardDescription>
 			</CardHeader>
 			<CardContent>
+				<details className="mb-4 rounded-md border p-4">
+					<summary className="cursor-pointer font-medium">
+						Table guide: purposes, relationships, and editors
+					</summary>
+					<dl className="mt-3 divide-y text-sm">
+						{schemaGuide.map(
+							({ name, purpose, relationships, editor }) => (
+								<div
+									key={name}
+									className="grid gap-2 py-3 sm:grid-cols-[7rem_minmax(0,1fr)]"
+								>
+									<dt className="font-mono font-semibold">
+										{name}
+									</dt>
+									<dd className="space-y-2">
+										<p>{purpose}</p>
+										<p className="text-muted-foreground">
+											{relationships}
+										</p>
+										<p>
+											{!editor ? (
+												"No dashboard editor."
+											) : sufficientPermissions(
+													permission,
+													editor.viewPermission
+											  ) ? (
+												<>
+													<Link
+														href={editor.path}
+														className="underline underline-offset-4"
+													>
+														{editor.label}
+													</Link>
+													{sufficientPermissions(
+														permission,
+														editor.editPermission
+													)
+														? " — you can edit this table."
+														: " — view only; editing requires Admin."}
+												</>
+											) : (
+												`${editor.label} editor — requires Super Admin.`
+											)}
+										</p>
+									</dd>
+								</div>
+							)
+						)}
+					</dl>
+				</details>
 				<pre
 					tabIndex={0}
 					aria-label="SQL database schema"
