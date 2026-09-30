@@ -2,6 +2,7 @@
 
 import EventAttendanceOverTime from "./Reports/EventAttendanceOverTime";
 import EventBarsSelect from "./Reports/EventBarsSelect";
+import JoinsOverTime from "./Reports/JoinsOverTime";
 import MemberPiesSelect from "./Reports/MemberPiesSelect";
 import TopEventsList from "./Reports/TopEventsList";
 import TopMembersList from "./Reports/TopMembersList";
@@ -32,6 +33,9 @@ function Report() {
 			</div>
 			<div>
 				<EventAttendanceOverTime />
+			</div>
+			<div>
+				<JoinsOverTime />
 			</div>
 		</>
 	);
