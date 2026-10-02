@@ -1,0 +1,56 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Activity Groups",
+	"type": "array",
+	"uniqueItems": true,
+	"items": {
+		"type": "object",
+		"additionalProperties": false,
+		"required": [
+			"id",
+			"title",
+			"description",
+			"modalContent",
+			"day",
+			"time",
+			"location",
+			"map",
+			"image"
+		],
+		"properties": {
+			"id": { "type": "integer", "minimum": 1, "x-hidden": true },
+			"title": { "type": "string", "minLength": 1, "maxLength": 80 },
+			"description": {
+				"type": "string",
+				"minLength": 1,
+				"maxLength": 300
+			},
+			"modalContent": { "type": "string", "minLength": 1 },
+			"day": {
+				"enum": [
+					"Monday",
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday",
+					"Saturday",
+					"Sunday"
+				]
+			},
+			"time": {
+				"type": "string",
+				"pattern": "^(1[0-2]|[1-9]):[0-5][0-9]$"
+			},
+			"location": { "type": "string", "minLength": 1 },
+			"map": {
+				"type": "string",
+				"pattern": "^https://aggiemap\\.tamu\\.edu/"
+			},
+			"note": { "type": "string" },
+			"image": {
+				"type": "string",
+				"pattern": "^/images/[A-Za-z0-9._/-]+$"
+			}
+		}
+	}
+}

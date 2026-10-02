@@ -1,0 +1,26 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Events",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"additionalProperties": false,
+		"required": ["id", "date", "time", "title", "location", "description"],
+		"properties": {
+			"id": { "type": "integer", "minimum": 1, "x-hidden": true },
+			"date": {
+				"type": "string",
+				"pattern": "^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}( - [0-9]{1,2}/[0-9]{1,2}/[0-9]{4})?$",
+				"x-hint": "M/D/YYYY, or a range: M/D/YYYY - M/D/YYYY"
+			},
+			"time": { "type": "string", "minLength": 1, "maxLength": 40 },
+			"title": { "type": "string", "minLength": 1, "maxLength": 80 },
+			"location": { "type": "string", "minLength": 1, "maxLength": 80 },
+			"description": {
+				"type": "string",
+				"minLength": 1,
+				"maxLength": 500
+			}
+		}
+	}
+}

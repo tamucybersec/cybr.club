@@ -1,3 +1,5 @@
+import data from "./new_data/sponsors.json";
+
 export type Tier = "gold" | "silver" | "bronze";
 export interface Sponsor {
 	name: string;
@@ -6,41 +8,16 @@ export interface Sponsor {
 	className?: string;
 }
 
+// The JSON is a flat list with a tier on each sponsor; group it back by tier
 export const sponsors: Record<Tier, Sponsor[]> = {
-	gold: [
-		{
-			name: "Research Innovations Incorporated (RII)",
-			image: "/images/sponsors/rii.png",
-			link: "https://www.researchinnovations.com/",
-		},
-		{
-			name: "Alex + Sam",
-			image: "/images/sponsors/alex-and-sam.png",
-		},
-	],
-	silver: [
-		{
-			name: "Lockheed Martin",
-			image: "/images/sponsors/lockheed-martin.png",
-			link: "https://www.lockheedmartin.com/en-us/index.html",
-		},
-		{
-			name: "Allthenticate",
-			image: "/images/sponsors/allthenticate.png",
-			link: "https://www.allthenticate.com/",
-			className: "rounded-full bg-[#0D0EFE]",
-		},
-	],
-	bronze: [
-		{
-			name: "Cisco",
-			image: "/images/activity-groups/cisco.svg",
-			link: "https://www.cisco.com/",
-		},
-		{
-			name: "Tommy's Snowballs",
-			image: "/images/sponsors/tommys-snowballs.png",
-			className: "rounded-full bg-white p-4",
-		},
-	],
+	gold: [],
+	silver: [],
+	bronze: [],
 };
+
+for (const s of data as (Sponsor & { tier: Tier })[]) {
+	const sponsor: Sponsor = { name: s.name, image: s.image };
+	if (s.link) sponsor.link = s.link;
+	if (s.className) sponsor.className = s.className;
+	sponsors[s.tier].push(sponsor);
+}
