@@ -1,13 +1,13 @@
 "use client";
 
 import Container from "@/components/Container";
-import { motion, type Variants, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useRef, useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { committees } from "@/data/committees";
 import { certifications } from "@/data/certifications";
+import { committees } from "@/data/committees";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 function ActivityGroupsNew() {
 	const imageRef = useRef<HTMLDivElement>(null);

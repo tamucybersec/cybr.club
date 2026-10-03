@@ -46,3 +46,7 @@ next-env.d.ts
 # husky
 .husky
 run
+
+#Updating data
+src\data\new_data
+src\data\schemas
