@@ -4,7 +4,14 @@ services:
   goatcounter:
     image: arp242/goatcounter:2.7.0
     restart: unless-stopped
-    command: [serve, -listen=:8080, -tls=http, -automigrate, -db=sqlite+/home/goatcounter/goatcounter-data/db.sqlite3]
+    command:
+      [
+        serve,
+        -listen=:8080,
+        -tls=http,
+        -automigrate,
+        -db=sqlite+/home/goatcounter/goatcounter-data/db.sqlite3,
+      ]
     networks: [infra]
     volumes:
       - goatcounter_data:/home/goatcounter/goatcounter-data
