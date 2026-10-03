@@ -65,3 +65,7 @@ Essentially, Husky allows for an easy way to run commands with Git's hooks syste
 ### Pre-Commit
 
 When you attempt to commit, the commands in .husky/pre-commit will be run. If git commit fails (whether in your editor of choice or by command line), then it means that one of these processes has failed and needs your attention. For the formatter, it will automatically format your files, so it will require no attention on your end. However, with the linter, it will diagnose several errors. Fix them, turn off the rule in the .eslintrc if you believe it is not useful, or add an eslint-disable comment to ignore the error if this is a special case. Once you fix the errors, you should be able to successfully commit your changes.
+
+## Website analytics
+
+GoatCounter setup, campaign tags, admin reporting, and backup/recovery instructions are in [deploy/goatcounter/README.md](deploy/goatcounter/README.md).
