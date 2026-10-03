@@ -78,6 +78,7 @@ export const QUERY_KEYS = {
 	attendance: ["attendance", "table"],
 	points: ["points", "table"],
 	tokens: ["tokens", "table"],
+	schema: ["schema", "metadata"],
 };
 
 export interface User {

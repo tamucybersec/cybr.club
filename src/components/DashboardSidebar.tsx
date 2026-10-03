@@ -112,6 +112,10 @@ const groups: Group[] = [
 						page: "Tokens",
 						link: { to: "/dashboard/tokens" },
 					},
+					{
+						page: "Schema",
+						link: { to: "/dashboard/schema" },
+					},
 				],
 			},
 			{
