@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import CategoricalLineChart from "@/components/Charts/CategoricalLineChart";
 import CategoricalBarChart from "@/components/Charts/CategoricalBarChart";
+import CampaignManager from "@/components/CampaignManager";
 
 type Report = {
 	page_visits: number;
@@ -59,6 +60,7 @@ export default function AnalyticsPage() {
 				session-based visitor and event counting; clicks indicate
 				interest, not completed memberships. Dates are in UTC.
 			</p>
+			<CampaignManager />
 			<form
 				className="flex flex-wrap items-end gap-4"
 				onSubmit={(event) => {
