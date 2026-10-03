@@ -43,7 +43,13 @@ export default function AnalyticsTracker() {
 			id="goatcounter"
 			src={`${GOATCOUNTER_URL}/count.js`}
 			data-goatcounter={`${GOATCOUNTER_URL}/count`}
-			data-goatcounter-settings='{"no_onload":true,"no_events":true}'
+			data-goatcounter-settings={JSON.stringify({
+				no_onload: true,
+				no_events: true,
+				allow_local:
+					process.env.NODE_ENV === "development" &&
+					process.env.NEXT_PUBLIC_GOATCOUNTER_ALLOW_LOCAL === "true",
+			})}
 			strategy="afterInteractive"
 			onReady={() => {
 				prepareTracker();

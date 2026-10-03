@@ -68,10 +68,11 @@ export function trackQrClick(action: "join" | "learn-more") {
 			event: true,
 			// GoatCounter 2.7 ignores campaign query tags for events. Carry the
 			// validated label in the event referrer so reports can attribute clicks.
+			// Use a path marker: GoatCounter strips URL schemes such as "campaign:".
 			referrer: new URLSearchParams(
 				campaignQuery(window.location.search)
 			).has("utm_campaign")
-				? `campaign:${new URLSearchParams(campaignQuery(window.location.search)).get("utm_campaign")}`
+				? `campaign/${new URLSearchParams(campaignQuery(window.location.search)).get("utm_campaign")}`
 				: "",
 		});
 	} catch {

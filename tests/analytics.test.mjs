@@ -77,7 +77,7 @@ test("count.js query field is sanitized and QR events keep their names", () => {
 		["qr-join", "qr-learn-more"]
 	);
 	assert.equal(calls[0].event, true);
-	assert.equal(calls[0].referrer, "campaign:msc-poster");
+	assert.equal(calls[0].referrer, "campaign/msc-poster");
 	window.location.pathname = "/register";
 	a.trackQrClick("join");
 	assert.equal(calls.length, 2);
