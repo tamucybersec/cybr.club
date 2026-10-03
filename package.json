@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"test:analytics": "node --test tests/analytics.test.cjs",
+		"test:analytics": "vitest run tests/analytics.test.mjs",
 		"format": "prettier --write .",
 		"check-format": "prettier --check .",
 		"typecheck": "tsc --noEmit",

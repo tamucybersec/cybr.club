@@ -2,6 +2,12 @@
 
 This implements [cybr.club#159](https://github.com/tamucybersec/cybr.club/issues/159) with GoatCounter 2.7.0 and a separate SQLite volume. Deploy this stack explicitly; ordinary website builds do not create or initialize an analytics service. It needs a TLS hostname, persistent Docker storage, and the existing `infra` network.
 
+## Infrastructure repository
+
+The club's [Infrastructure repository](https://github.com/tamucybersec/Infrastructure) owns the `infra` Docker network, nginx, and SOPS secrets. For managed production deployment, integrate the GoatCounter and backup services/volumes from this directory into that repository, put the analytics virtual host in `nginx/confs`, and use its `scripts/compose.sh` wrapper from the infrastructure root. The standalone commands below remain useful for a separate stack; they do not automatically integrate with infrastructure deployment automation.
+
+Store the API token through the established SOPS workflow and explicitly wire the decrypted value into CyberHam's `GOATCOUNTER_API_TOKEN` environment variable. Merely adding a token to an encrypted file will not configure the current backend. Confirm the chosen hostname is covered by the existing DNS/TLS setup and configure trusted client-IP forwarding for the infrastructure proxy. Arrange off-host backups and backup-age monitoring; these are not provided by the local snapshot volume.
+
 ## First deployment
 
 1. Choose an analytics hostname (for example `analytics.cybr.club`) and point its DNS at the reverse proxy. Install a TLS certificate and adapt `nginx.conf.example` in the infrastructure proxy. Preserve the hostname: GoatCounter selects the site by the HTTP Host header. Do not expose port 8080 directly on the host.
