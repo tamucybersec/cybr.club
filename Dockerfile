@@ -10,7 +10,7 @@ COPY . .
 ARG NEXT_PUBLIC_GOATCOUNTER_URL
 ENV NEXT_PUBLIC_GOATCOUNTER_URL=$NEXT_PUBLIC_GOATCOUNTER_URL
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+RUN npm run test:analytics && npm run build
 
 FROM nginx:alpine
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf

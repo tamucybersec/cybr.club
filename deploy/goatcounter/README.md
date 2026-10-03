@@ -44,6 +44,10 @@ Store exports outside Git. For recovery, stop both services, retain the damaged 
 
 For upgrades, review upstream release notes, update the pinned image version, take an off-host pre-upgrade snapshot, then pull and recreate. `-automigrate` upgrades the schema. Rollback requires the old image **and** the matching pre-upgrade database snapshot. Rotate the statistics token if exposed and restart CyberHam. Schedule version/security review with normal infrastructure maintenance.
 
+## Local checks
+
+Run `npm run test:analytics` for tracking sanitization/event tests, `python3 deploy/goatcounter/test_backup.py` for SQLite backup/restore checks, and `npm run build` for the static site. The Docker build also runs the tracking tests. CyberHam tests cover permissions, date validation, pagination, empty data, rate limits, and sanitized upstream failures.
+
 ## Smoke test
 
 After deployment, open a tagged QR link on the production site with tracking enabled, follow each action once, and wait for GoatCounter to persist counts. Confirm `/qr`, `qr-join`, and `qr-learn-more` in GoatCounter and the admin Analytics report. Check client-side navigation records one new page visit, registration/dashboard routes send no counts, sponsor access is denied, and disconnecting GoatCounter leaves website navigation working while the dashboard shows an unavailable message. Verify a backup can restore the same report in an isolated instance.

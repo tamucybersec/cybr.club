@@ -4,7 +4,6 @@ import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { DashboardContext } from "@/lib/context";
 import { Permissions } from "@/lib/types";
-import { fetchPath } from "@/lib/fetchUtils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import CategoricalLineChart from "@/components/Charts/CategoricalLineChart";
@@ -27,7 +26,7 @@ const dateString = (daysAgo: number) =>
 	new Date(Date.now() - daysAgo * 86400000).toISOString().slice(0, 10);
 
 export default function AnalyticsPage() {
-	const { token, permission } = useContext(DashboardContext);
+	const { fetchPath, permission } = useContext(DashboardContext);
 	const canView = permission >= Permissions.COMMITTEE;
 	const [start, setStart] = useState(() => dateString(29));
 	const [end, setEnd] = useState(() => dateString(0));
@@ -40,14 +39,12 @@ export default function AnalyticsPage() {
 			(Date.parse(end) - Date.parse(start)) / 86400000 < 90
 	);
 	const { data, isPending, isFetching, error, refetch } = useQuery<Report>({
-		queryKey: ["analytics", token, range],
+		queryKey: ["analytics", permission, range],
 		queryFn: () =>
-			fetchPath<Report>(
-				token,
-				`/analytics?${new URLSearchParams(range)}`,
-				{ method: "GET" }
-			),
-		enabled: canView && Boolean(token),
+			fetchPath(`/analytics?${new URLSearchParams(range)}`, {
+				method: "GET",
+			}),
+		enabled: canView,
 		retry: false,
 	});
 	if (!canView)
