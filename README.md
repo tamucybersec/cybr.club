@@ -47,25 +47,6 @@ npm run dev # run the dev server
     - Add at least one entry to the cyberham.db tokens table
     - Add mock data to the database (use AI) (optional but recommended)
 
-## Database Schema Page
-
-Committee members and higher can open **Admin → Database → Schema** at
-`/dashboard/schema` to view and copy CyberHam's canonical SQL schema for use in
-AI prompts or writing queries. The page loads the plain-text
-[`schema.sql`](https://github.com/tamucybersec/CyberHam/blob/main/cyberham/database/schema.sql)
-from CyberHam's `main` branch, so table definitions are maintained in one place.
-This is the canonical schema; the deployed database may differ.
-
-An expandable table guide explains each table's purpose and relationships, links
-to available dashboard editors, and indicates when the viewer has read-only
-access or needs a higher role. Tables without an editor are labeled explicitly.
-The human-readable guide lives in `src/data/schema-guide.ts`; keep it aligned with
-CyberHam's `cyberham/database/table_registry.py` when documentation or editor
-availability changes. SQL definitions are still sourced directly from CyberHam.
-
-Super Admins can also download a consistent SQLite snapshot using CyberHam's
-`GET /database/export` endpoint. The SQL view does not require `GET /schema`.
-
 ## Formatting and Linting
 
 This project uses prettier and eslint. To enforce these standards, Husky is used.

@@ -26,11 +26,7 @@ const SCHEMA_URL =
 function SchemaAdmin() {
 	const { token, permission } = useContext(DashboardContext);
 	const [downloading, setDownloading] = useState(false);
-	const canView = sufficientPermissions(permission, Permissions.COMMITTEE);
-	const canDownload = sufficientPermissions(
-		permission,
-		Permissions.SUPER_ADMIN
-	);
+	const canView = sufficientPermissions(permission, Permissions.SUPER_ADMIN);
 
 	const { data, status, error, refetch, isFetching } = useQuery<string>({
 		queryKey: QUERY_KEYS.schema,
@@ -60,7 +56,7 @@ function SchemaAdmin() {
 	}
 
 	async function downloadDatabase() {
-		if (!canDownload || downloading) return;
+		if (!canView || downloading) return;
 
 		if (!token) {
 			toast.error("No dashboard token is available for download.");
@@ -108,8 +104,7 @@ function SchemaAdmin() {
 				<CardHeader>
 					<CardTitle>Schema Admin</CardTitle>
 					<CardDescription>
-						This page is only available to committee members and
-						higher.
+						This page is only available to Super Admins.
 					</CardDescription>
 				</CardHeader>
 			</Card>
@@ -174,18 +169,16 @@ function SchemaAdmin() {
 						>
 							{isFetching ? "Refreshing..." : "Refresh"}
 						</Button>
-						{canDownload && (
-							<Button
-								variant="outline"
-								onClick={downloadDatabase}
-								disabled={downloading}
-							>
-								<Download />
-								{downloading
-									? "Downloading..."
-									: "Download Database"}
-							</Button>
-						)}
+						<Button
+							variant="outline"
+							onClick={downloadDatabase}
+							disabled={downloading}
+						>
+							<Download />
+							{downloading
+								? "Downloading..."
+								: "Download Database"}
+						</Button>
 					</div>
 				</CardTitle>
 				<CardDescription>
@@ -258,12 +251,9 @@ function SchemaAdmin() {
 				>
 					<code>{data}</code>
 				</pre>
-				{canDownload && (
-					<p className="mt-3 text-sm text-muted-foreground">
-						Database downloads include member records and access
-						tokens.
-					</p>
-				)}
+				<p className="mt-3 text-sm text-muted-foreground">
+					Database downloads include member records and access tokens.
+				</p>
 			</CardContent>
 		</Card>
 	);

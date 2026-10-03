@@ -98,16 +98,6 @@ const groups: Group[] = [
 					},
 				],
 			},
-			{
-				collapse: "Database",
-				icon: <Database />,
-				pages: [
-					{
-						page: "Schema",
-						link: { to: "/dashboard/schema" },
-					},
-				],
-			},
 		],
 	},
 	{
@@ -121,6 +111,10 @@ const groups: Group[] = [
 					{
 						page: "Tokens",
 						link: { to: "/dashboard/tokens" },
+					},
+					{
+						page: "Schema",
+						link: { to: "/dashboard/schema" },
 					},
 				],
 			},
