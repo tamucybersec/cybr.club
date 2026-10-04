@@ -16,7 +16,7 @@ type Campaign = {
 	created_at: string;
 	archived: boolean;
 };
-const tagPattern = "[a-z0-9_-]{1,80}";
+const tagPattern = "[a-z0-9_\\-]{1,80}";
 const suggestedTag = (value: string) =>
 	value
 		.toLowerCase()
