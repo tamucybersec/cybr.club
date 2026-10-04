@@ -38,7 +38,6 @@ export default function DashboardLayout({
 		undefined
 	);
 	const [isLoading, setIsLoading] = useState(true); // for automatic login w local storage token (if applicable)
-	const [loginError, setLoginError] = useState<string>();
 	const [terms, setTerms] = useState<[Term, Term]>(defaultTerms());
 	const fetchPathAbstraction = useCallback(
 		async (path: string, options?: Options) => {
@@ -56,14 +55,10 @@ export default function DashboardLayout({
 		[fetchPathAbstraction, permission, terms]
 	);
 
-	const login = useLogin(
-		(tok, perm) => {
-			setToken(tok);
-			setPermission(perm);
-		},
-		setIsLoading,
-		setLoginError
-	);
+	const login = useLogin((tok, perm) => {
+		setToken(tok);
+		setPermission(perm);
+	}, setIsLoading);
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -109,7 +104,6 @@ export default function DashboardLayout({
 						setToken={setToken}
 						permission={permission}
 						isLoading={isLoading}
-						error={loginError}
 						login={() => login(token)}
 					/>
 				</DashboardContext.Provider>

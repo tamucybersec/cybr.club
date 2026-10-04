@@ -12,17 +12,9 @@ interface Props {
 	permission: Permissions | undefined;
 	login: () => void;
 	isLoading?: boolean;
-	error?: string;
 }
 
-function Login({
-	token,
-	setToken,
-	permission,
-	login,
-	isLoading,
-	error,
-}: Props) {
+function Login({ token, setToken, permission, login, isLoading }: Props) {
 	return (
 		<div className="w-dvw h-dvh flex justify-center items-center text-center">
 			<div className="flex flex-col gap-4">
@@ -41,15 +33,7 @@ function Login({
 					/>
 				</div>
 				<div className="max-w-[300px] border border-white p-4 rounded flex flex-col gap-4">
-					{error && (
-						<p
-							role="alert"
-							className="text-destructive"
-						>
-							{error}
-						</p>
-					)}
-					{!error && permission === Permissions.NONE && (
+					{permission === Permissions.NONE && (
 						<p className="text-destructive">
 							The provided token is either{" "}
 							<span className="font-bold">incorrect</span>,{" "}

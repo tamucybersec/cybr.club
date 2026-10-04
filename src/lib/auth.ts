@@ -4,13 +4,11 @@ import { useEffect } from "react";
 
 export function useLogin(
 	callback: (token: string, permission: Permissions) => void,
-	setIsLoading?: (loading: boolean) => void,
-	setError?: (error: string | undefined) => void
+	setIsLoading?: (loading: boolean) => void
 ) {
 	async function login(tok?: string) {
 		// set the loading to true in case we are logging in manually
 		setIsLoading?.(true);
-		setError?.(undefined);
 
 		const token = (tok ?? localStorage.getItem("token")) || "";
 		const usingLocalStorage = tok === undefined;
@@ -21,29 +19,17 @@ export function useLogin(
 			return;
 		}
 
-		try {
-			const resp = await fetch(
-				`${API_URL}/login?${new URLSearchParams({ token })}`
-			);
-			if (!resp.ok) {
-				setError?.(
-					"The dashboard API could not complete login. Please try again."
-				);
-				return;
-			}
-			const permission = Number(await resp.text());
-			if (
-				!Number.isInteger(permission) ||
-				!Object.values(Permissions).includes(permission)
-			) {
-				setError?.(
-					"The dashboard API returned an unexpected login response. Please try again."
-				);
-				return;
-			}
+		const resp = await fetch(`${API_URL}/login?token=${token}`);
+
+		if (!resp.ok) {
+			callback(token, Permissions.NONE);
+			setIsLoading?.(false);
+		} else {
+			const permission = parseInt(await resp.text());
 			if (permission === Permissions.NONE && usingLocalStorage) {
 				// don't display an error message unless they
 				// login themselves with an incorrect token
+				setIsLoading?.(false);
 				return;
 			}
 
@@ -51,13 +37,9 @@ export function useLogin(
 
 			if (permission !== Permissions.NONE) {
 				localStorage.setItem("token", token);
+			} else {
+				setIsLoading?.(false);
 			}
-		} catch {
-			setError?.(
-				`Cannot connect to the dashboard API at ${API_URL}. Check that CyberHam is running and allows this website's origin, then try again.`
-			);
-		} finally {
-			setIsLoading?.(false);
 		}
 	}
 

@@ -68,4 +68,4 @@ When you attempt to commit, the commands in .husky/pre-commit will be run. If gi
 
 ## Website analytics
 
-GoatCounter setup, campaign tags, admin reporting, and backup/recovery instructions are in [deploy/goatcounter/README.md](deploy/goatcounter/README.md).
+GoatCounter setup, campaign tags, admin reporting, and backup/recovery instructions are in [docs/analytics.md](docs/analytics.md).
