@@ -115,6 +115,8 @@ export function flattenEvents(events: Events, terms?: [Term, Term]): Event[] {
 	return result;
 }
 
+// MAKE FLATTENUSERS?
+
 export function compareTerms(a: Term, b: Term): number {
 	if (a.year !== b.year) {
 		return a.year - b.year;

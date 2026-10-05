@@ -11,23 +11,31 @@ import {
 	type User,
 	type Resume,
 } from "@/lib/types";
-import { flattenEvents } from "@/lib/helpers";
+import { flattenEvents, inTermRange } from "@/lib/helpers";
 
-export function useUsers() {
+export function useUsers(terms?: [Term, Term]) {
 	const { fetchPath } = useContext(DashboardContext);
 	const { data } = useQuery<User[]>({
 		queryKey: QUERY_KEYS.users,
 		queryFn: () => fetchPath("/users", { method: "GET" }),
 	});
 
-	const usersById = useMemo<Record<string, User>>(() => {
-		return Object.fromEntries(
-			(data ?? []).map((user) => [user.user_id, user])
-		);
-	}, [data]);
+	const users: User[] = terms ? [] : (data ?? []);
+	const usersById: Record<string, User> = {};
+	for (const user of data ?? []) {
+		if (terms) {
+			const date = user.join_date;
+			const year = parseInt(date.substring(6, 10));
+			const month = parseInt(date.substring(0, 2));
+			const semester = month <= 6 ? "spring" : "fall";
+			if (!inTermRange({ year, semester }, terms)) continue;
+			users.push(user);
+		}
+		usersById[user.user_id] = user;
+	}
 
 	return {
-		users: data ?? [],
+		users,
 		usersById,
 	};
 }
@@ -202,7 +210,7 @@ export function useTokens() {
 }
 
 export function useActiveUsers(terms: [Term, Term]): User[] {
-	const { usersById } = useUsers();
+	const { usersById } = useUsers(terms);
 	const { eventsByCode } = useEvents();
 	const { attendanceByUser } = useAttendance(eventsByCode);
 

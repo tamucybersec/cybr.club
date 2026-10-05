@@ -30,11 +30,10 @@ function JoinsOverTime() {
 	const [selectedMembership, setSelectedMembership] =
 		useState<Membership>("Cumulative");
 
-	const { users } = useUsers();
+	const { users } = useUsers(terms);
 	const active = useActiveUsers(terms);
 	let members = users;
 	if (selectedMembership == "Active") members = active;
-	console.log("members as\n", members.length);
 
 	const { data, totalJoins, averageJoins } = useMemo(() => {
 		const counts: Record<string, number> = {};
