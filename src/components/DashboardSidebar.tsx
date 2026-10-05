@@ -122,6 +122,10 @@ const groups: Group[] = [
 						page: "Readonly",
 						link: { to: "/dashboard/readonly" },
 					},
+					{
+						page: "Schema",
+						link: { to: "/dashboard/schema" },
+					},
 				],
 			},
 		],
