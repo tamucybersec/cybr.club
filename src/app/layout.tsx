@@ -1,4 +1,6 @@
 import type React from "react";
+import { Suspense } from "react";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/css/main.css";
@@ -46,6 +48,9 @@ export default function RootLayout({
 					padding: 0,
 				}}
 			>
+				<Suspense fallback={null}>
+					<AnalyticsTracker />
+				</Suspense>
 				{/* <SmoothScroll> */}
 				{/* Page Content with padding moved here */}
 				<div className="relative z-10 py-4">{children}</div>

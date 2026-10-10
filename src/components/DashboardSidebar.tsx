@@ -71,6 +71,13 @@ const groups: Group[] = [
 	{
 		group: "Admin",
 		requiredPermissionLevel: Permissions.COMMITTEE,
+		buttons: [
+			{
+				button: "Analytics",
+				icon: <ChartPie />,
+				link: { to: "/dashboard/analytics" },
+			},
+		],
 		collapsible: [
 			{
 				collapse: "Tables",

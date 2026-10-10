@@ -10,6 +10,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { getTitle } from "@/data/qrCode";
 import { API_URL } from "@/lib/constants";
 import Link from "next/link";
+import { trackQrClick } from "@/lib/analytics";
 import { useEffect, useState } from "react";
 import { UAParser, IResult } from "ua-parser-js";
 
@@ -99,13 +100,23 @@ function QR() {
 				</p>
 				<div className="flex gap-4">
 					<Button asChild>
-						<Link href="/join">Join</Link>
+						<Link
+							href="/join"
+							onClick={() => trackQrClick("join")}
+						>
+							Join
+						</Link>
 					</Button>
 					<Button
 						variant={"outline"}
 						asChild
 					>
-						<Link href="/">Learn More</Link>
+						<Link
+							href="/"
+							onClick={() => trackQrClick("learn-more")}
+						>
+							Learn More
+						</Link>
 					</Button>
 				</div>
 			</div>

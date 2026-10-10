@@ -41,7 +41,9 @@ jobs:
         run: npm run test
 
       - name: Build image
-        run: docker build --pull -t $REGISTRY_URI/website:${{ github.sha }} .
+        env:
+          NEXT_PUBLIC_GOATCOUNTER_URL: ${{ vars.NEXT_PUBLIC_GOATCOUNTER_URL }}
+        run: docker build --pull --build-arg NEXT_PUBLIC_GOATCOUNTER_URL -t $REGISTRY_URI/website:${{ github.sha }} .
 
       # - name: Scan image
       #   run: scan $REGISTRY_URI/website:${{ github.sha }}
