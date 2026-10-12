@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: ashtonkopelevich/Test-Site-Content
+  branch: master
+
+media_folder: images
+public_folder: /images
+collections:
+  - name: data
+    label: Site Data
+    files:
+      - name: certifications
+        label: Certifications
+        file: data/certifications.json
+        media_folder: images/certifications
+        public_folder: /images/certifications
+        fields:
+          - label: Certifications
+            name: items
+            widget: list
+            root: true
+            label_singular: Certification
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Image, name: image, widget: image }
+              - { label: Link, name: link, widget: string }

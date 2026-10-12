@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<meta charset="utf-8" />
+	<meta
+		name="robots"
+		content="noindex"
+	/>
+	<title>Content Manager</title>
+	<link
+		href="/admin/config.yml"
+		type="text/yaml"
+		rel="cms-config-url"
+	/>
+	<script>
+		if (location.hostname === "localhost") {
+			const l = document.createElement("link");
+			l.href = "/admin/config.local.yml";
+			l.type = "text/yaml";
+			l.rel = "cms-config-url";
+			document.head.appendChild(l);
+		}
+	</script>
+	<body>
+		<script
+			src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"
+			type="module"
+		></script>
+	</body>
+</html>
