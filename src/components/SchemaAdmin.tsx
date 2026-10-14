@@ -17,11 +17,9 @@ import {
 import { DashboardContext } from "@/lib/context";
 import { sufficientPermissions } from "@/lib/auth";
 import { API_URL } from "@/lib/constants";
+import { ok } from "@/lib/fetchUtils";
 import { Permissions, QUERY_KEYS } from "@/lib/types";
 import { schemaGuide } from "@/data/schema-guide";
-
-const SCHEMA_URL =
-	"https://raw.githubusercontent.com/tamucybersec/CyberHam/main/cyberham/database/schema.sql";
 
 function SchemaAdmin() {
 	const { token, permission } = useContext(DashboardContext);
@@ -31,15 +29,16 @@ function SchemaAdmin() {
 	const { data, status, error, refetch, isFetching } = useQuery<string>({
 		queryKey: QUERY_KEYS.schema,
 		queryFn: async () => {
-			const response = await fetch(SCHEMA_URL);
-			if (!response.ok) {
-				throw new Error(
-					"The SQL schema could not be loaded. Please try again."
-				);
-			}
+			const response = await ok(
+				fetch(`${API_URL}/schema/sql`, {
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				})
+			);
 			return response.text();
 		},
-		enabled: canView,
+		enabled: canView && token !== "",
 	});
 
 	async function copySchema() {
@@ -183,14 +182,8 @@ function SchemaAdmin() {
 				</CardTitle>
 				<CardDescription>
 					Copy this SQL into your AI prompt to help write a query.
-					This is CyberHam&apos;s canonical schema from{" "}
-					<a
-						href="https://github.com/tamucybersec/CyberHam/blob/main/cyberham/database/schema.sql"
-						className="underline underline-offset-4"
-					>
-						schema.sql
-					</a>
-					; the deployed database may differ.
+					This schema is read from CyberHam&apos;s live database and
+					contains table definitions only, without member records.
 				</CardDescription>
 			</CardHeader>
 			<CardContent>
