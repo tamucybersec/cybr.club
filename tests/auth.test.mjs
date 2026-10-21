@@ -19,7 +19,6 @@ function setup(savedToken = null) {
 		exports: {},
 		fetch,
 		localStorage: storage,
-		URLSearchParams,
 		require: (name) => {
 			if (name === "react") return { useEffect: () => {} };
 			if (name === "./constants")
@@ -60,9 +59,9 @@ test("connection failure during saved-token login is handled and manual retry su
 	expect(s.error).toHaveBeenLastCalledWith(undefined);
 	expect(s.callback).toHaveBeenLastCalledWith("retry&token", 2);
 	expect(s.storage.setItem).toHaveBeenLastCalledWith("token", "retry&token");
-	expect(s.fetch).toHaveBeenLastCalledWith(
-		"http://localhost:5183/login?token=retry%26token"
-	);
+	expect(s.fetch).toHaveBeenLastCalledWith("http://localhost:5183/login", {
+		headers: { Authorization: "Bearer retry&token" },
+	});
 	expect(s.loading).toHaveBeenLastCalledWith(false);
 });
 
