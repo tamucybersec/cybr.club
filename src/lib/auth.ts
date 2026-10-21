@@ -22,9 +22,9 @@ export function useLogin(
 		}
 
 		try {
-			const resp = await fetch(
-				`${API_URL}/login?${new URLSearchParams({ token })}`
-			);
+			const resp = await fetch(`${API_URL}/login`, {
+				headers: { Authorization: `Bearer ${token}` },
+			});
 			if (!resp.ok) {
 				setError?.(
 					"The dashboard API could not complete login. Please try again."
