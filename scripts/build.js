@@ -3,18 +3,18 @@ export const humanize = (k) =>
 		.replace(/([a-z0-9])([A-Z])/g, "$1 $2")
 		.replace(/^./, (c) => c.toUpperCase());
 
-const LONG_TEXT_MIN = 120; // maxLength above this -> multiline `text`
+const LONG_TEXT_MIN = 120;
 
-function stringWidget(s) {
+function stringWidget(s, forceText) {
 	if (s.pattern?.startsWith("^/images/")) return "image";
-	if (s.maxLength === undefined || s.maxLength > LONG_TEXT_MIN) return "text";
+	if (forceText || s.maxLength > LONG_TEXT_MIN) return "text";
 	return "string";
 }
 
 export function schemaToField(
 	name,
 	s,
-	{ required = false, defaults = {} } = {}
+	{ required = false, defaults = {}, textFields = [] } = {}
 ) {
 	const f = { label: humanize(name), name };
 	if (!required) f.required = false;
@@ -32,7 +32,7 @@ export function schemaToField(
 			if (s.maximum !== undefined) f.max = s.maximum;
 			return f;
 		case "string": {
-			f.widget = stringWidget(s);
+			f.widget = stringWidget(s, textFields.includes(name));
 			if (f.widget === "image") return f;
 			if (s.minLength !== undefined && s.minLength > 1)
 				f.minlength = s.minLength;
@@ -61,17 +61,19 @@ export function schemaToField(
 	}
 }
 
-export function schemaToFields(objSchema, { defaults = {} } = {}) {
+export function schemaToFields(
+	objSchema,
+	{ defaults = {}, textFields = [] } = {}
+) {
 	if (objSchema.type !== "object") throw new Error("expected object schema");
 	const req = new Set(objSchema.required ?? []);
 	return Object.entries(objSchema.properties ?? {}).map(([k, v]) =>
-		schemaToField(k, v, { required: req.has(k), defaults })
+		schemaToField(k, v, { required: req.has(k), defaults, textFields })
 	);
 }
 
 const TITLE_KEYS = ["title", "name"];
 
-// Integer ids get a stopgap default of 1; string ids (e.g. photos) get none.
 const idDefault = (props) => (props.id?.type === "integer" ? { id: 1 } : {});
 
 export function schemaToFile(name, schema, overrides = {}) {
@@ -106,29 +108,60 @@ export function schemaToFile(name, schema, overrides = {}) {
 				summary,
 				fields: schemaToFields(schema.items, {
 					defaults: { ...idDefault(props), ...overrides.defaults },
+					textFields: overrides.textFields,
 				}),
 			},
 		],
 	};
 }
 
-export const BACKEND = Object.freeze({
-	name: "github",
-	repo: "ashtonkopelevich/Test-Site-Content",
-	branch: "master",
-	base_url: "https://sveltia-cms-auth.testcybercms.workers.dev",
+export const TARGETS = Object.freeze({
+	"config.yml": Object.freeze({
+		name: "github",
+		repo: "tamucybersec/Site-Content",
+		branch: "master",
+		base_url: "https://sveltia-cms-auth.testcybercms.workers.dev",
+	}),
+	"config.local.yml": Object.freeze({
+		name: "github",
+		repo: "ashtonkopelevich/Test-Site-Content",
+		branch: "master",
+		base_url: "https://sveltia-cms-auth.testcybercms.workers.dev",
+	}),
 });
 
-// `files` = array of schemaToFile() results.
-export function buildConfig(files) {
+export function buildConfig(files, target) {
+	const backend = TARGETS[target];
+	if (!backend) throw new Error(`unknown target "${target}"`);
 	if (!files.length) throw new Error("no files given");
 	const names = files.map((f) => f.name);
 	if (new Set(names).size !== names.length)
 		throw new Error("duplicate collection names");
 	return {
-		backend: { ...BACKEND },
+		backend: { ...backend },
 		media_folder: "images",
 		public_folder: "/images",
 		collections: [{ name: "data", label: "Site Data", files }],
 	};
+}
+
+const CONSTRAINTS = [
+	"minlength",
+	"maxlength",
+	"pattern",
+	"default",
+	"min",
+	"max",
+];
+
+export function stripConstraints(node) {
+	if (Array.isArray(node)) return node.map(stripConstraints);
+	if (node && typeof node === "object") {
+		return Object.fromEntries(
+			Object.entries(node)
+				.filter(([k]) => !CONSTRAINTS.includes(k))
+				.map(([k, v]) => [k, stripConstraints(v)])
+		);
+	}
+	return node;
 }
