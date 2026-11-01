@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Alumni",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"additionalProperties": false,
+		"required": ["id", "name", "position", "grad"],
+		"properties": {
+			"id": { "type": "integer", "minimum": 1, "x-hidden": true },
+			"name": { "type": "string", "minLength": 1, "maxLength": 80 },
+			"position": { "type": "string", "minLength": 1, "maxLength": 80 },
+			"grad": {
+				"type": "string",
+				"pattern": "^([A-Z]{2,5} )?(Spring|Summer|Fall|Winter) [0-9]{4}$"
+			},
+			"socials": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"github": { "type": "string", "pattern": "^https://" },
+					"linkedin": { "type": "string", "pattern": "^https://" },
+					"website": { "type": "string", "pattern": "^https://" }
+				}
+			},
+			"image": {
+				"type": "string",
+				"pattern": "^/images/[A-Za-z0-9._/-]+$"
+			},
+			"imageMode": { "enum": ["cover", "contain"] }
+		}
+	}
+}

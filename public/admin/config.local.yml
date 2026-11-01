@@ -2,6 +2,7 @@ backend:
   name: github
   repo: ashtonkopelevich/Test-Site-Content
   branch: master
+  base_url: https://sveltia-cms-auth.testcybercms.workers.dev
 
 media_folder: images
 public_folder: /images

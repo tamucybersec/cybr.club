@@ -49,4 +49,3 @@ run
 
 #Updating data
 src/data/new_data/*
-src/data/schemas/*

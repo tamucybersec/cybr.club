@@ -1,0 +1,24 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Sponsors",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"additionalProperties": false,
+		"required": ["id", "tier", "name", "image"],
+		"properties": {
+			"id": { "type": "integer", "minimum": 1, "x-hidden": true },
+			"tier": { "enum": ["gold", "silver", "bronze"] },
+			"name": { "type": "string", "minLength": 1, "maxLength": 100 },
+			"image": {
+				"type": "string",
+				"pattern": "^/images/[A-Za-z0-9._/-]+$"
+			},
+			"link": { "type": "string", "pattern": "^https://" },
+			"className": {
+				"type": "string",
+				"pattern": "^[A-Za-z0-9 \\-\\[\\]#:/.]*$"
+			}
+		}
+	}
+}
