@@ -95,7 +95,7 @@ export function schemaToFile(name, schema, overrides = {}) {
 		name,
 		label,
 		file: `data/${name}.json`,
-		media_folder: `images/${name}`,
+		media_folder: `/images/${name}`,
 		public_folder: `/images/${name}`,
 		fields: [
 			{

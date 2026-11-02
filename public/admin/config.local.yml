@@ -13,7 +13,7 @@ collections:
       - name: accolades
         label: Accolades
         file: data/accolades.json
-        media_folder: images/accolades
+        media_folder: /images/accolades
         public_folder: /images/accolades
         fields:
           - label: Accolades
@@ -53,7 +53,7 @@ collections:
       - name: activityGroups
         label: Activity Groups
         file: data/activityGroups.json
-        media_folder: images/activityGroups
+        media_folder: /images/activityGroups
         public_folder: /images/activityGroups
         fields:
           - label: Activity Groups
@@ -116,7 +116,7 @@ collections:
       - name: alumni
         label: Alumni
         file: data/alumni.json
-        media_folder: images/alumni
+        media_folder: /images/alumni
         public_folder: /images/alumni
         fields:
           - label: Alumni
@@ -186,7 +186,7 @@ collections:
       - name: certifications
         label: Certifications
         file: data/certifications.json
-        media_folder: images/certifications
+        media_folder: /images/certifications
         public_folder: /images/certifications
         fields:
           - label: Certifications
@@ -222,7 +222,7 @@ collections:
       - name: committees
         label: Committees
         file: data/committees.json
-        media_folder: images/committees
+        media_folder: /images/committees
         public_folder: /images/committees
         fields:
           - label: Committees
@@ -258,7 +258,7 @@ collections:
       - name: events
         label: Events
         file: data/events.json
-        media_folder: images/events
+        media_folder: /images/events
         public_folder: /images/events
         fields:
           - label: Events
@@ -300,7 +300,7 @@ collections:
       - name: leadership
         label: Leadership
         file: data/leadership.json
-        media_folder: images/leadership
+        media_folder: /images/leadership
         public_folder: /images/leadership
         fields:
           - label: Leadership
@@ -392,7 +392,7 @@ collections:
       - name: photos
         label: Photos
         file: data/photos.json
-        media_folder: images/photos
+        media_folder: /images/photos
         public_folder: /images/photos
         fields:
           - label: Photos
@@ -427,7 +427,7 @@ collections:
       - name: sponsors
         label: Sponsors
         file: data/sponsors.json
-        media_folder: images/sponsors
+        media_folder: /images/sponsors
         public_folder: /images/sponsors
         fields:
           - label: Sponsors
