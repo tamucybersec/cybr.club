@@ -3,7 +3,11 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
+		"sync:data": "node scripts/sync-data.mjs",
+		"generate:cms": "node scripts/generate.js",
+		"predev": "npm run sync:data && npm run generate:cms",
 		"dev": "next dev",
+		"prebuild": "npm run sync:data && npm run generate:cms",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
