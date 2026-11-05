@@ -2,6 +2,7 @@
 
 import { DashboardContext } from "@/lib/context";
 import { useState, useMemo, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Permissions, type Options, type Term } from "@/lib/types";
 import { authenticated, useLogin } from "@/lib/auth";
@@ -33,6 +34,7 @@ export default function DashboardLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const pathname = usePathname();
 	const [token, setToken] = useState<string>("");
 	const [permission, setPermission] = useState<Permissions | undefined>(
 		undefined
@@ -109,6 +111,14 @@ export default function DashboardLayout({
 					/>
 				</DashboardContext.Provider>
 			</QueryClientProvider>
+		);
+	}
+	// The CMS iframe uses a normal URL but shares the dashboard login gate.
+	if (pathname === "/dashboard/content/editor") {
+		return (
+			<DashboardContext.Provider value={contextValue}>
+				{children}
+			</DashboardContext.Provider>
 		);
 	}
 	// otherwise, authenticated:

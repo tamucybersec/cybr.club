@@ -22,7 +22,13 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ChartPie, ChevronRight, Database, Variable } from "lucide-react";
+import {
+	ChartPie,
+	ChevronRight,
+	Database,
+	FilePenLine,
+	Variable,
+} from "lucide-react";
 import { Fragment, useContext, type ReactElement } from "react";
 import { Permissions } from "../lib/types";
 import { DashboardContext } from "@/lib/context";
@@ -65,6 +71,17 @@ const groups: Group[] = [
 				button: "Dashboard",
 				icon: <ChartPie />,
 				link: { to: "/dashboard" },
+			},
+		],
+	},
+	{
+		group: "Website",
+		requiredPermissionLevel: Permissions.SPONSOR,
+		buttons: [
+			{
+				button: "Content Manager",
+				icon: <FilePenLine />,
+				link: { to: "/dashboard/content" },
 			},
 		],
 	},

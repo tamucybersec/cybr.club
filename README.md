@@ -47,6 +47,19 @@ npm run dev # run the dev server
     - Add at least one entry to the cyberham.db tokens table
     - Add mock data to the database (use AI) (optional but recommended)
 
+### Content Manager
+
+After logging into the dashboard, select **Website → Content Manager** to open
+Sveltia at `/dashboard/content`. All dashboard users can open the editor; GitHub
+authentication and repository permissions control content edits separately.
+
+The iframe loads `/dashboard/content/editor`, which uses the same dashboard login
+gate and loads Sveltia only after authentication. There is no
+standalone `/admin/index.html` entry point. This is a browser-side access gate,
+not server-side protection of the editor code or its configuration. Generated
+configs remain public at `/admin/config.yml` and `/admin/config.local.yml`.
+Localhost uses the test content repository; other hostnames use production.
+
 ## Formatting and Linting
 
 This project uses prettier and eslint. To enforce these standards, Husky is used.
