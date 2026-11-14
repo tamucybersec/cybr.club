@@ -83,6 +83,37 @@ uses `cms.netlify.com` as its default OAuth site identifier on localhost.
 Keep the GitHub App callback URL set to the production Worker URL followed by
 `/callback`; it does not change when testing locally.
 
+### Content Sync Access Tokens
+
+The website downloads JSON and images before development starts or a build runs.
+This uses read-only GitHub tokens, separate from the CMS OAuth credentials.
+Set these in `.env.local` (never prefix tokens with `NEXT_PUBLIC_`):
+
+```dotenv
+NEXT_PUBLIC_CMS_TARGET=test
+GITHUB_TOKEN_LOCAL=your_test_repo_read_token
+GITHUB_TOKEN_PROD=your_production_repo_read_token
+```
+
+`test` selects `ashtonkopelevich/Test-Site-Content` with `GITHUB_TOKEN_LOCAL`.
+`production` selects `tamucybersec/Site-Content` with `GITHUB_TOKEN_PROD`.
+The selected repository is used for both JSON and images, following its default
+branch. Only the selected token is required; the other token is never used as a
+fallback. The old `GITHUB_TOKEN` and `PRIVATE_REPO_URL` settings are no longer used.
+
+Without `NEXT_PUBLIC_CMS_TARGET`, `npm run dev` syncs test content, while
+`npm run build` and `npm run sync:data` sync production content. To manually sync
+with development defaults, run `npm run sync:data -- --development`. Set the
+target explicitly to keep the editor and downloaded content aligned when testing
+production on localhost or using a test preview deployment.
+
+Restart the dev server or run `npm run sync:data` after changing the target or
+tokens. Missing tokens or download failures keep existing local files; check the
+terminal's target and sync messages to confirm fresh content was downloaded.
+These tokens must also be available during production builds. The current Docker
+build excludes `.env` files and does not yet pass tokens via build secrets;
+setting them only in the running nginx container will not update the built site.
+
 ## Formatting and Linting
 
 This project uses prettier and eslint. To enforce these standards, Husky is used.
