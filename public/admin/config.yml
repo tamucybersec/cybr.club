@@ -2,7 +2,6 @@
 backend:
   name: github
   repo: tamucybersec/Site-Content
-  branch: master
   base_url: https://sveltia-cms-auth.tamucybersec.workers.dev
 media_folder: images
 public_folder: /images

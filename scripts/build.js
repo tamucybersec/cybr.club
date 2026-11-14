@@ -119,13 +119,11 @@ export const TARGETS = Object.freeze({
 	"config.yml": Object.freeze({
 		name: "github",
 		repo: "tamucybersec/Site-Content",
-		branch: "master",
 		base_url: "https://sveltia-cms-auth.tamucybersec.workers.dev",
 	}),
 	"config.local.yml": Object.freeze({
 		name: "github",
 		repo: "ashtonkopelevich/Test-Site-Content",
-		branch: "master",
 		base_url: "https://sveltia-cms-auth.testcybercms.workers.dev",
 	}),
 });

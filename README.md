@@ -72,8 +72,9 @@ Set it to `test` to use the test repository on any hostname, or remove it to
 restore hostname-based selection. Restart `npm run dev` after changing it.
 For deployed previews, set the variable in the hosting environment before
 building; Next.js embeds public environment variables at build time.
-Production mode writes to `tamucybersec/Site-Content` on `master`, even when
-running locally.
+Production mode writes to `tamucybersec/Site-Content`, even when running locally.
+Both CMS targets automatically follow their repository's default branch, whether
+it is named `main` or `master`; no branch name is hardcoded in the CMS configs.
 
 For local sign-in with the production Worker, include the local hostname
 (`localhost`, `127.0.0.1`, or `[::1]`, without a port) and `cms.netlify.com` in
