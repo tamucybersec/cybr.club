@@ -11,13 +11,20 @@ export default function ContentEditorPage() {
 	useEffect(() => {
 		if (!canAccess) return;
 
+		// An explicit target lets developers test production auth on localhost
+		// or use the test repository on a preview deployment.
+		const target = process.env.NEXT_PUBLIC_CMS_TARGET;
+		const isLoopback = ["localhost", "127.0.0.1", "[::1]"].includes(
+			window.location.hostname
+		);
+		const useTestRepo =
+			target === "test" || (target !== "production" && isLoopback);
+
 		const config = document.createElement("link");
 		config.rel = "cms-config-url";
 		config.type = "text/yaml";
 		config.href = new URL(
-			window.location.hostname === "localhost"
-				? "/admin/config.local.yml"
-				: "/admin/config.yml",
+			useTestRepo ? "/admin/config.local.yml" : "/admin/config.yml",
 			window.location.origin
 		).href;
 		document.head.appendChild(config);

@@ -58,7 +58,29 @@ gate and loads Sveltia only after authentication. There is no
 standalone `/admin/index.html` entry point. This is a browser-side access gate,
 not server-side protection of the editor code or its configuration. Generated
 configs remain public at `/admin/config.yml` and `/admin/config.local.yml`.
-Localhost uses the test content repository; other hostnames use production.
+Localhost and loopback IPs use the test content repository and test auth Worker;
+other hostnames use the production repository and production auth Worker.
+
+To override this selection, set `NEXT_PUBLIC_CMS_TARGET` in `.env.local`:
+
+```dotenv
+# Use production content and authentication, including on localhost.
+NEXT_PUBLIC_CMS_TARGET=production
+```
+
+Set it to `test` to use the test repository on any hostname, or remove it to
+restore hostname-based selection. Restart `npm run dev` after changing it.
+For deployed previews, set the variable in the hosting environment before
+building; Next.js embeds public environment variables at build time.
+Production mode writes to `tamucybersec/Site-Content` on `master`, even when
+running locally.
+
+For local sign-in with the production Worker, include the local hostname
+(`localhost`, `127.0.0.1`, or `[::1]`, without a port) and `cms.netlify.com` in
+that Worker's `ALLOWED_DOMAINS`, alongside `cybr.club,www.cybr.club`. Sveltia
+uses `cms.netlify.com` as its default OAuth site identifier on localhost.
+Keep the GitHub App callback URL set to the production Worker URL followed by
+`/callback`; it does not change when testing locally.
 
 ## Formatting and Linting
 
