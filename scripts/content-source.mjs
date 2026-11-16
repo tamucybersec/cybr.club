@@ -1,4 +1,4 @@
-import { TARGETS } from "./build.js";
+import { getBackend } from "./build.js";
 
 export function contentSource(env, development = false) {
 	const configuredTarget = env.NEXT_PUBLIC_CMS_TARGET?.trim();
@@ -10,8 +10,10 @@ export function contentSource(env, development = false) {
 		throw new Error("NEXT_PUBLIC_CMS_TARGET must be test or production");
 	}
 	const target = configuredTarget || (development ? "test" : "production");
-	const config =
-		TARGETS[target === "test" ? "config.local.yml" : "config.yml"];
+	const config = getBackend(
+		target === "test" ? "config.local.yml" : "config.yml",
+		env
+	);
 	const tokenVariable =
 		target === "test" ? "GITHUB_TOKEN_LOCAL" : "GITHUB_TOKEN_PROD";
 	return {

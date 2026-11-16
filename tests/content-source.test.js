@@ -3,6 +3,8 @@ import { contentSource } from "../scripts/content-source.mjs";
 
 describe("content sync source", () => {
 	const tokens = {
+		CMS_LOCAL_REPO: "example/Test-Content",
+		CMS_LOCAL_BASE_URL: "https://test-auth.example.com",
 		GITHUB_TOKEN_LOCAL: "test-token",
 		GITHUB_TOKEN_PROD: "production-token",
 	};
@@ -10,7 +12,7 @@ describe("content sync source", () => {
 	it("defaults development to the test repository and local token", () => {
 		expect(contentSource(tokens, true)).toMatchObject({
 			target: "test",
-			repo: "ashtonkopelevich/Test-Site-Content",
+			repo: "example/Test-Content",
 			token: "test-token",
 		});
 	});
@@ -49,7 +51,7 @@ describe("content sync source", () => {
 			token: undefined,
 		});
 		expect(
-			contentSource({ GITHUB_TOKEN_PROD: "prod" }, true)
+			contentSource({ ...tokens, GITHUB_TOKEN_LOCAL: undefined }, true)
 		).toMatchObject({
 			tokenVariable: "GITHUB_TOKEN_LOCAL",
 			token: undefined,

@@ -123,14 +123,25 @@ export const TARGETS = Object.freeze({
 	}),
 	"config.local.yml": Object.freeze({
 		name: "github",
-		repo: "ashtonkopelevich/Test-Site-Content",
-		base_url: "https://sveltia-cms-auth.testcybercms.workers.dev",
 	}),
 });
 
-export function buildConfig(files, target) {
+export function getBackend(target, env = process.env) {
 	const backend = TARGETS[target];
 	if (!backend) throw new Error(`unknown target "${target}"`);
+	if (target !== "config.local.yml") return { ...backend };
+	const repo = env.CMS_LOCAL_REPO?.trim();
+	const baseUrl = env.CMS_LOCAL_BASE_URL?.trim();
+	if (!repo || !baseUrl) {
+		throw new Error(
+			"Set CMS_LOCAL_REPO and CMS_LOCAL_BASE_URL in .env.local for the test CMS target"
+		);
+	}
+	return { ...backend, repo, base_url: baseUrl };
+}
+
+export function buildConfig(files, target, env = process.env) {
+	const backend = getBackend(target, env);
 	if (!files.length) throw new Error("no files given");
 	const names = files.map((f) => f.name);
 	if (new Set(names).size !== names.length)

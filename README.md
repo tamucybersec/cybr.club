@@ -57,7 +57,11 @@ The iframe loads `/dashboard/content/editor`, which uses the same dashboard logi
 gate and loads Sveltia only after authentication. There is no
 standalone `/admin/index.html` entry point. This is a browser-side access gate,
 not server-side protection of the editor code or its configuration. Generated
-configs remain public at `/admin/config.yml` and `/admin/config.local.yml`.
+configs remain public at `/admin/config.yml` and, during development or test-target
+builds, `/admin/config.local.yml`. `npm run dev` generates both configs;
+production-target builds generate only `config.yml` and remove any leftover
+`config.local.yml` before exporting the site. To generate both manually, run
+`npm run generate:cms -- --development`.
 Localhost and loopback IPs use the test content repository and test auth Worker;
 other hostnames use the production repository and production auth Worker.
 
@@ -91,11 +95,17 @@ Set these in `.env.local` (never prefix tokens with `NEXT_PUBLIC_`):
 
 ```dotenv
 NEXT_PUBLIC_CMS_TARGET=test
+CMS_LOCAL_REPO=your-account/Test-Site-Content
+CMS_LOCAL_BASE_URL=https://your-test-auth.workers.dev
 GITHUB_TOKEN_LOCAL=your_test_repo_read_token
 GITHUB_TOKEN_PROD=your_production_repo_read_token
 ```
 
-`test` selects `ashtonkopelevich/Test-Site-Content` with `GITHUB_TOKEN_LOCAL`.
+`test` selects `CMS_LOCAL_REPO` with `GITHUB_TOKEN_LOCAL`; its CMS authentication
+endpoint is `CMS_LOCAL_BASE_URL`. Both CMS variables are required when generating
+the test config, and are loaded from `.env.local` (or the build environment).
+Changing them regenerates the config automatically. These values are included in
+the generated public YAML; they are settings, not secrets.
 `production` selects `tamucybersec/Site-Content` with `GITHUB_TOKEN_PROD`.
 The selected repository is used for both JSON and images, following its default
 branch. Only the selected token is required; the other token is never used as a

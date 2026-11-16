@@ -1,8 +1,17 @@
 import { createHash } from "node:crypto";
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import {
+	mkdirSync,
+	readdirSync,
+	readFileSync,
+	rmSync,
+	writeFileSync,
+} from "node:fs";
 import { join, resolve } from "node:path";
+import nextEnv from "@next/env";
+import { contentSource } from "./content-source.mjs";
 import {
 	buildConfig,
+	getBackend,
 	schemaToFile,
 	stripConstraints,
 	TARGETS,
@@ -15,11 +24,26 @@ const overrides = {
 };
 
 const args = process.argv.slice(2);
+const development =
+	args.includes("--development") || process.env.NODE_ENV === "development";
+nextEnv.loadEnvConfig(process.cwd(), development);
+const source = contentSource(process.env, development);
+const targets = Object.keys(TARGETS).filter(
+	(target) =>
+		target !== "config.local.yml" || development || source.target === "test"
+);
 const minimal = args.includes("--minimal");
 const force = args.includes("--force");
 const [dir = "src/data/schemas", outDir = "public/admin"] = args.filter(
 	(a) => !a.startsWith("--")
 );
+
+// A build after local development must not export a stale test config.
+for (const target of Object.keys(TARGETS)) {
+	if (!targets.includes(target)) {
+		rmSync(join(outDir, target), { force: true });
+	}
+}
 
 const hash = (value) => createHash("sha256").update(value).digest("hex");
 const schemas = readdirSync(dir)
@@ -31,6 +55,8 @@ const schemas = readdirSync(dir)
 const fingerprint = hash(
 	JSON.stringify({
 		minimal,
+		targets,
+		backends: targets.map((target) => getBackend(target)),
 		schemas,
 		generator: readFileSync(new URL(import.meta.url), "utf8"),
 		builder: readFileSync(new URL("./build.js", import.meta.url), "utf8"),
@@ -40,7 +66,6 @@ const fingerprint = hash(
 		),
 	})
 );
-const targets = Object.keys(TARGETS);
 const cacheDir = "node_modules/.cache/cybr-club";
 const cacheFile = join(cacheDir, `cms-${hash(resolve(outDir))}.json`);
 
