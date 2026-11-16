@@ -49,3 +49,4 @@ run
 
 #Updating data
 src/data/new_data/*
+public/images/*
